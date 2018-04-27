@@ -4,6 +4,38 @@
 
     
   <url>
+    <loc>http://riboseyim.github.com/2017/05/26/Catalog/</loc>
+    <lastmod>2018-04-27T17:19:33.942Z</lastmod>
+    <data>
+        <display>
+        <title>RiboseYim's Blog Root Catalog</title>
+        <pubTime>2017-05-26T02:50:49.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2018/01/01/Check2018/</loc>
+    <lastmod>2018-04-27T17:18:53.560Z</lastmod>
+    <data>
+        <display>
+        <title>Autobiography:我的2018年度盘点</title>
+        <pubTime>2018-01-01T06:10:13.000Z</pubTime>
+        
+        <tag>我的自传</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://riboseyim.github.com/2017/08/06/TeamWork-Kanban/</loc>
     <lastmod>2018-04-27T16:44:38.088Z</lastmod>
     <data>
@@ -199,38 +231,6 @@
         <display>
         <title>About RiboseYim</title>
         <pubTime>2016-05-31T10:05:38.000Z</pubTime>
-        
-        <tag>我的自传</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://riboseyim.github.com/2017/05/26/Catalog/</loc>
-    <lastmod>2018-04-26T02:18:14.889Z</lastmod>
-    <data>
-        <display>
-        <title>RiboseYim's Blog Root Catalog</title>
-        <pubTime>2017-05-26T02:50:49.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://riboseyim.github.com/2018/01/01/Check2018/</loc>
-    <lastmod>2018-04-26T02:16:47.885Z</lastmod>
-    <data>
-        <display>
-        <title>Autobiography:我的2018年度盘点</title>
-        <pubTime>2018-01-01T06:10:13.000Z</pubTime>
         
         <tag>我的自传</tag>
          
