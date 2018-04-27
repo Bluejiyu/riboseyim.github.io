@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>计算机网络协议：IPv6 与网络安全 | Ribose Yim&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="概要 IPv6 Overview IPv6 &amp;amp; Cyber-Security:IPsec,TLS/SSL, NAT,Source routing IPv6 &amp;amp; Linux Security:iptables vs ip6tables,SSH/SCP/Rsync">
+<meta name="keywords" content="DevOps,Cyber-Security,网络协议">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络协议：IPv6 与网络安全">
+<meta property="og:url" content="http://riboseyim.github.com/2017/08/09/Protocol-IPv6/index.html">
+<meta property="og:site_name" content="Ribose Yim&#39;s Blog">
+<meta property="og:description" content="概要 IPv6 Overview IPv6 &amp;amp; Cyber-Security:IPsec,TLS/SSL, NAT,Source routing IPv6 &amp;amp; Linux Security:iptables vs ip6tables,SSH/SCP/Rsync">
+<meta property="og:image" content="https://www.linux.com/sites/lcom/files/styles/rendered_file/public/ip-address-allocation.png?itok=ajvQlGr-">
+<meta property="og:image" content="http://omb2onfvy.bkt.clouddn.com/Network_IPv6_Packet.png">
+<meta property="og:image" content="http://omb2onfvy.bkt.clouddn.com/Network_Procotol_Security.png">
+<meta property="og:image" content="http://omb2onfvy.bkt.clouddn.com/Network_IPsec_PacketHeader.png">
+<meta property="og:updated_time" content="2018-01-23T01:33:18.707Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="计算机网络协议：IPv6 与网络安全">
+<meta name="twitter:description" content="概要 IPv6 Overview IPv6 &amp;amp; Cyber-Security:IPsec,TLS/SSL, NAT,Source routing IPv6 &amp;amp; Linux Security:iptables vs ip6tables,SSH/SCP/Rsync">
+<meta name="twitter:image" content="https://www.linux.com/sites/lcom/files/styles/rendered_file/public/ip-address-allocation.png?itok=ajvQlGr-">
+  
+    <link rel="alternative" href="/atom.xml" title="Ribose Yim&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://o8m8ngokc.bkt.clouddn.com/icon_cangshu.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://o8m8ngokc.bkt.clouddn.com/icon_macbook.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">RiboseYim</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">愿交天下士，罄我怀中藏。</p>
+		
+
+		<form id="search-form" class="search">  <!-- 搜索框相关 -->
+    <input type="text" id="st-search-input" name="q" results="0" class="st-default-search-input" maxlength="30" placeholder="Search..." autocomplete="off" autocorrect="off">
+		</form>
+		<div id="local-search-result"></div> <!-- 搜索结果区 -->
+	  <p class='no-result'>No results found </p> 
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/DevOps">DevOps</a></li>
+				        
+							<li><a href="/tags/架构师">架构师</a></li>
+				        
+							<li><a href="/tags/讲武堂">讲武堂</a></li>
+				        
+							<li><a href="/tags/Economist">经济学人</a></li>
+				        
+							<li><a href="/tags/Policy-Law">Policy&amp;Law</a></li>
+				        
+							<li><a href="/tags/Art">艺术评论</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="twitter" target="_blank" href="https://twitter.com/RiboseYim" title="twitter">twitter</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/riboseyim" title="zhihu">zhihu</a>
+					        
+								<a class="github" target="_blank" href="https://github.com/riboseyim" title="github">github</a>
+					        
+								<a class="linkedin" target="_blank" href="http://www.linkedin.com/in/%E7%9D%BF-%E4%B8%A5-b39028110" title="linkedin">linkedin</a>
+					        
+						</div>
+					</nav>
+				</section>
+
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Art/" style="font-size: 15px;">Art</a> <a href="/tags/Books/" style="font-size: 10px;">Books</a> <a href="/tags/Cyber-Security/" style="font-size: 14.44px;">Cyber-Security</a> <a href="/tags/DTrace/" style="font-size: 11.67px;">DTrace</a> <a href="/tags/DevOps/" style="font-size: 20px;">DevOps</a> <a href="/tags/Developer/" style="font-size: 18.33px;">Developer</a> <a href="/tags/Develper/" style="font-size: 10px;">Develper</a> <a href="/tags/Economist/" style="font-size: 17.22px;">Economist</a> <a href="/tags/Education/" style="font-size: 10px;">Education</a> <a href="/tags/Golang/" style="font-size: 13.89px;">Golang</a> <a href="/tags/History/" style="font-size: 16.67px;">History</a> <a href="/tags/Lincoln/" style="font-size: 10.56px;">Lincoln</a> <a href="/tags/Linux/" style="font-size: 17.78px;">Linux</a> <a href="/tags/Machine-Learning/" style="font-size: 15px;">Machine-Learning</a> <a href="/tags/Manager/" style="font-size: 16.67px;">Manager</a> <a href="/tags/Medical/" style="font-size: 13.89px;">Medical</a> <a href="/tags/Nature-Science/" style="font-size: 14.44px;">Nature&Science</a> <a href="/tags/Nodejs/" style="font-size: 11.11px;">Nodejs</a> <a href="/tags/OpenSource/" style="font-size: 14.44px;">OpenSource</a> <a href="/tags/PHT/" style="font-size: 11.11px;">PHT</a> <a href="/tags/Policy-Law/" style="font-size: 18.89px;">Policy&Law</a> <a href="/tags/SDN/" style="font-size: 13.33px;">SDN</a> <a href="/tags/SRE/" style="font-size: 15.56px;">SRE</a> <a href="/tags/Sport/" style="font-size: 11.67px;">Sport</a> <a href="/tags/Writing/" style="font-size: 10.56px;">Writing</a> <a href="/tags/工具癖/" style="font-size: 12.22px;">工具癖</a> <a href="/tags/我的自传/" style="font-size: 12.78px;">我的自传</a> <a href="/tags/摄影/" style="font-size: 11.67px;">摄影</a> <a href="/tags/数学与算法/" style="font-size: 14.44px;">数学与算法</a> <a href="/tags/数据可视化/" style="font-size: 14.44px;">数据可视化</a> <a href="/tags/数据库/" style="font-size: 10.56px;">数据库</a> <a href="/tags/最佳写作实践/" style="font-size: 13.89px;">最佳写作实践</a> <a href="/tags/最佳工程实践/" style="font-size: 16.67px;">最佳工程实践</a> <a href="/tags/架构师/" style="font-size: 19.44px;">架构师</a> <a href="/tags/科技史/" style="font-size: 10.56px;">科技史</a> <a href="/tags/移动互联网/" style="font-size: 10px;">移动互联网</a> <a href="/tags/红学/" style="font-size: 11.11px;">红学</a> <a href="/tags/网络协议/" style="font-size: 16.11px;">网络协议</a> <a href="/tags/讲武堂/" style="font-size: 13.89px;">讲武堂</a>
+					</div>
+				</section>
+				
+
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/f2ea0605db4b">专题-经济学人翻译社</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.gitbook.com/book/riboseyim/linux-perf-master/details">电子书《Linux Perf Master》</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/9a817d8a67ea">简书专题-系统运维专家</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/0886ffd76168">简书专题-网络与信息安全</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/9ae32222e422">简书专题-操作系统与动态追踪技术</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/8d40a3a05825">简书专题-数据可视化</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://riboseyim.github.io/2017/11/16/QuickStart/">快捷目录</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://riboseyim.github.io/2017/05/26/Catalog/">总目录</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">Engineer &amp; Writer</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">RiboseYim</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="http://o8m8ngokc.bkt.clouddn.com/icon_macbook.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">RiboseYim</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">愿交天下士，罄我怀中藏。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/DevOps">DevOps</a></li>
+		        
+					<li><a href="/tags/架构师">架构师</a></li>
+		        
+					<li><a href="/tags/讲武堂">讲武堂</a></li>
+		        
+					<li><a href="/tags/Economist">经济学人</a></li>
+		        
+					<li><a href="/tags/Policy-Law">Policy&amp;Law</a></li>
+		        
+					<li><a href="/tags/Art">艺术评论</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="twitter" target="_blank" href="https://twitter.com/RiboseYim" title="twitter">twitter</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/riboseyim" title="zhihu">zhihu</a>
+			        
+						<a class="github" target="_blank" href="https://github.com/riboseyim" title="github">github</a>
+			        
+						<a class="linkedin" target="_blank" href="http://www.linkedin.com/in/%E7%9D%BF-%E4%B8%A5-b39028110" title="linkedin">linkedin</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-Protocol-IPv6" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/08/09/Protocol-IPv6/" class="article-date">
+  	<time datetime="2017-08-09T03:07:06.000Z" itemprop="datePublished">2017-08-09</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      计算机网络协议：IPv6 与网络安全
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cyber-Security/">Cyber-Security</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DevOps/">DevOps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网络协议/">网络协议</a></li></ul>
+	</div>
+
+        
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><ul>
+<li>IPv6 Overview</li>
+<li>IPv6 &amp; Cyber-Security:IPsec,TLS/SSL, NAT,Source routing</li>
+<li>IPv6 &amp; Linux Security:iptables vs ip6tables,SSH/SCP/Rsync</li>
+</ul>
+<a id="more"></a>
+<h2 id="IPv6"><a href="#IPv6" class="headerlink" title="IPv6"></a>IPv6</h2><p>IPv6(Internet Protocol version 6)是互联网协议的最新版本，用于分组交换互联网络的网络层协议，旨在解决IPv4地址枯竭问题。IPv6二进位制下为128位长度，以16位为一组，每组以冒号“:”隔开，可以分为8组，每组以4位十六进制方式表示。例如：2001:0db8:85a3:08d3:1319:8a2e:0370:7344 是一个合法的IPv6地址。</p>
+<p><img src="https://www.linux.com/sites/lcom/files/styles/rendered_file/public/ip-address-allocation.png?itok=ajvQlGr-" alt="Allocation of IPv4 address space: the United States uses more than a third of the available IPv4 addresses."></p>
+<h4 id="IPv6-报文包格式"><a href="#IPv6-报文包格式" class="headerlink" title="IPv6 报文包格式"></a>IPv6 报文包格式</h4><p>定义：<a href="https://tools.ietf.org/html/rfc1883" target="_blank" rel="external">RFC 1883</a>中定义的原始版本，<a href="https://tools.ietf.org/html/rfc2460" target="_blank" rel="external">RFC 2460</a>中描述的现在提议的标准版本。</p>
+<p><img src="http://omb2onfvy.bkt.clouddn.com/Network_IPv6_Packet.png" alt=""></p>
+<h4 id="IPv6地址分类"><a href="#IPv6地址分类" class="headerlink" title="IPv6地址分类"></a>IPv6地址分类</h4><ul>
+<li>单播地址（unicast）：单播地址标示一个网络接口，协议会把送往地址的数据包送往给其接口。单播地址包括可聚类的全球单播地址、链路本地地址等。</li>
+<li>多播地址（multicast）：多播地址也称组播地址。多播地址也被指定到一群不同的接口，送到多播地址的数据包会被发送到所有的地址。</li>
+<li>任播地址（anycast）：Anycast 是 <strong>IPv6 特有的数据发送方式</strong>，它像是IPv4的Unicast（单点传播）与Broadcast（多点广播）的综合。</li>
+</ul>
+<p>Anycast 像 IPv4 多点广播（Broadcast）一样，会有一组接收节点的地址栏表，但指定为Anycast的数据包，只会发送给距离最近或发送成本最低（根据路由表来判断）的其中一个接收地址，当该接收地址收到数据包并进行回应，且加入后续的传输。该接收列表的其他节点，会知道某个节点地址已经回应了，它们就不再加入后续的传输作业。以目前的应用为例，Anycast地址只能分配给路由器，不能分配给电脑使用，而且不能作为发送端的地址。</p>
+<h2 id="IPv6-amp-Cyber-Security"><a href="#IPv6-amp-Cyber-Security" class="headerlink" title="IPv6 &amp; Cyber-Security"></a>IPv6 &amp; Cyber-Security</h2><p>对我们网络的攻击来自各种各样的来源：社会工程（Social Engineering）、粗心、垃圾邮件、网络钓鱼、操作系统漏洞、应用程序漏洞、广告网络、跟踪和数据收集、服务提供商窥探等。作为一个新兴的网络协议，安全问题同样无法避免。</p>
+<h4 id="IPsec-TLS-SSL-SSH"><a href="#IPsec-TLS-SSL-SSH" class="headerlink" title="IPsec/TLS/SSL/SSH"></a>IPsec/TLS/SSL/SSH</h4><p>IPsec（网际网络安全协议，Internet Protocol Security，<a href="https://tools.ietf.org/html/rfc4301" target="_blank" rel="external">RFC 4301</a>、<a href="https://tools.ietf.org/html/rfc4309" target="_blank" rel="external">RFC 4309</a> ），旨在在网络层为IP分组提供安全服务，包括访问控制、数据完整性、身份验证、防止重放和数据机密性。IPsec原本是为IPv6开发，但是在IPv4中已被大量部署。最初，IPsec是IPv6协议组中不可少的一部分，但现在是可选的。</p>
+<p>在传输模式下，IPsec在IP报头和高层协议之间插入一个报头，IP报头与原始IP报头相同，只是IP协议字段被改为ESP或者AH，并重新计算IP报头的校验和。IPsec假定IP端点是可达的，源端头不会修改IP报头中的目标IP地址。IPsec 工作在网络层。其它加密协议如 TLS/SSL 和 SSH，工作在传输层之上，是针对具体应用的。</p>
+<p><img src="http://omb2onfvy.bkt.clouddn.com/Network_Procotol_Security.png" alt=""></p>
+<p><img src="http://omb2onfvy.bkt.clouddn.com/Network_IPsec_PacketHeader.png" alt=""></p>
+<h4 id="NAT-Security"><a href="#NAT-Security" class="headerlink" title="NAT = Security ?"></a>NAT = Security ?</h4><blockquote>
+<p>NAT is not and never has been about security.</p>
+</blockquote>
+<p>NAT(Network Address Translation) 是一种在IP数据包通过路由器或防火墙时重写来源IP地址或目的IP地址的技术.NAT 延长了 IPv4的寿命。它的本意是通过地址伪装，阻止外部网络主机的恶意活动，阻止网络蠕虫病毒来提高本地系统的可靠性，阻挡恶意浏览来提高本地系统的私密性。另外，它也为UDP的跨局域网的传输提供了方便。很多防火墙都NAT功能，它使防火墙变成有状态的，检查所有的流量、跟踪哪些数据包进入您的内部主机，并将多个私有内部地址重写到一个外部地址。它在外部网关上创建一个单点故障源，并为拒绝服务（DoS）攻击提供了一个简单的目标。NAT有它的优点，但安全不是其中之一。</p>
+<h4 id="Source-routing"><a href="#Source-routing" class="headerlink" title="Source routing"></a>Source routing</h4><p>Source routing 允许发送方控制转发，而不是将其留给任何一个包通过的路由器，通常是OSPF（Open Shortest Path First，开放最短路径优先）。Source routing 有时用于负载平衡，和管理VPN（Virtual Private Network，虚拟专用网络），所以，Source routing 并不是 IPv6 带来的特性，但是提出了许多安全问题。你可以用它来探测网络，获取信息，绕过安全设备。路由报头0型（RH0）是使源路由的IPv6扩展报头，它一直受到抨击，因为它使一中非常聪明的DoS攻击被放大，在两个路由器之间的反弹包直到它们超载及带宽耗尽。</p>
+<h4 id="大就是强-？"><a href="#大就是强-？" class="headerlink" title="大就是强 ？"></a>大就是强 ？</h4><p>有些人认为IPv6地址空间如此之大，为网络扫描提供了一种防御。这是一种错误的观念。我们确实有潜在的庞大地址资源可供应用，但是我们倾向于在可预见的范围组织我们的网络。硬件在变得廉价的和强大，云计算资源的快速发展在惠及企业的同时，也降低了攻击方的门槛和成本（黑客、黑产）。计算机网络的复杂性决定了挫败恶意网络扫描的困难很大，包括在IPv6网络中进行监测辨别哪些属于本地访问、哪些不是，IPv6 控制访问的问题在于，它的管理能力要求超过了其它任何协议。传统的防御工具和方法论都有待更新。</p>
+<h2 id="IPv6-amp-Linux-Security"><a href="#IPv6-amp-Linux-Security" class="headerlink" title="IPv6 &amp; Linux Security"></a>IPv6 &amp; Linux Security</h2><h4 id="iptables-amp-ip6tables"><a href="#iptables-amp-ip6tables" class="headerlink" title="iptables &amp; ip6tables"></a>iptables &amp; ip6tables</h4><p>ip6tables命令和iptables一样，都是Linux中防火墙软件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">##Block All IPv6</span></div><div class="line">$ vi /etc/sysctl.conf:</div><div class="line">net.ipv6.conf.all.disable_ipv6 = 1</div><div class="line">net.ipv6.conf.default.disable_ipv6 = 1</div><div class="line"><span class="comment">##load your changes:</span></div><div class="line">$ sudo sysctl -p</div><div class="line">net.ipv6.conf.all.disable_ipv6 = 1</div><div class="line">net.ipv6.conf.default.disable_ipv6 = 1</div><div class="line"><span class="comment">##Test</span></div><div class="line">$ ping6 -c3 -I eth0 fe80::f07:3c7a:6d69:8d11</div><div class="line">3 packets transmitted, 0 received, 100% packet loss, /time 2999s</div><div class="line"><span class="comment">##Listing</span></div><div class="line">$ sudo ip6tables -L</div><div class="line"><span class="comment"># Flushing</span></div><div class="line">$ sudo ip6tables -F</div></pre></td></tr></table></figure>
+<h4 id="Example-Rules"><a href="#Example-Rules" class="headerlink" title="Example Rules"></a>Example Rules</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># ip6tables single-host firewall script</span></div><div class="line"></div><div class="line"><span class="comment"># Define your command variables</span></div><div class="line">ipt6=/sbin/ip6tables</div><div class="line"><span class="comment"># Flush all rules and delete all chains</span></div><div class="line"><span class="comment"># for a clean startup</span></div><div class="line">$ ipt6 -F</div><div class="line">$ ipt6 -X</div><div class="line"><span class="comment"># Zero out all counters</span></div><div class="line">$ ipt6 -Z</div><div class="line"><span class="comment"># Default policies: deny all incoming</span></div><div class="line"><span class="comment"># Unrestricted outgoing</span></div><div class="line">$ ipt6 -P INPUT DROP</div><div class="line">$ ipt6 -P FORWARD DROP</div><div class="line">$ ipt6 -P OUTPUT ACCEPT</div><div class="line"><span class="comment"># Must allow loopback interface</span></div><div class="line">$ ipt6 -A INPUT -i lo -j ACCEPT</div><div class="line"><span class="comment"># Reject connection attempts not initiated from the host</span></div><div class="line">$ ipt6 -A INPUT -p tcp --syn -j DROP</div><div class="line"><span class="comment"># Allow return connections initiated from the host</span></div><div class="line">$ ipt6 -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT</div><div class="line"><span class="comment"># Accept all ICMP v6 packets</span></div><div class="line">$ ipt6 -A INPUT -p ipv6-icmp -j ACCEPT</div><div class="line"><span class="comment"># Optional rules to allow other LAN hosts access to services. Delete $ipt6 -A INPUT -p tcp --syn -j DROP</span></div><div class="line"><span class="comment"># Allow DHCPv6 from LAN only</span></div><div class="line">$ ipt6 -A INPUT -m state --state NEW -m udp -p udp <span class="_">-s</span> fe80::/10 --dport 546 -j ACCEPT</div><div class="line"><span class="comment"># Allow connections from SSH clients</span></div><div class="line">$ ipt6 -A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT</div><div class="line"><span class="comment"># Allow HTTP and HTTPS traffic</span></div><div class="line">$ ipt6 -A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT</div><div class="line">$ ipt6 -A INPUT -m state --state NEW -m tcp -p tcp --dport 443 -j ACCEPT</div><div class="line"><span class="comment"># Allow access to SMTP, POP3, and IMAP</span></div><div class="line">$ ipt -A INPUT -m state --state NEW -p tcp -m multiport --dport 25,110,143 -j ACCEPT</div></pre></td></tr></table></figure>
+<h4 id="SSH-and-SCP"><a href="#SSH-and-SCP" class="headerlink" title="SSH and SCP"></a>SSH and SCP</h4><p>我们熟悉的文件拷贝工具：SSH, SCP, 和 Rsync 都支持 IPv6，坏消息是他们的语法怪异。</p>
+<p>所有 Linux 管理员都知道使用 SSH 和 SCP。 它们在 IPv6 网络中有一些怪异，特别是关于远程地址，一旦你弄明白这个问题就能像过去一样熟练使用 SSH 和 SCP 。默认情况下，sshd 守护进程同时监听 IPv4 和 IPv6 协议，你可以通过 netstat 查看：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$ sudo netstat -pant|grep sshd</div><div class="line">tcp   0  0 0.0.0.0:22  0.0.0.0:*  LISTEN   1228/sshd       </div><div class="line">tcp6  0  0 :::22       :::*       LISTEN   1228/sshd</div><div class="line"><span class="comment">## 通过 sshd_config 中的 AddressFamily 选项禁用任何一种协议。禁用 IPv6:</span></div><div class="line"><span class="comment">## 默认选项为 any ，只允许IPv6 inet6</span></div><div class="line">AddressFamily inet</div><div class="line"><span class="comment">## 在客户端方面，通过 IPv6 网络登陆和 IPv4一样登陆、运行命令行以及退出。</span></div><div class="line">$ ssh carla@2001:db8::2</div><div class="line">$ ssh carla@2001:db8::2 backup</div><div class="line"><span class="comment">## 您可以使用链路本地地址访问本地局域网上的主机。</span></div><div class="line"><span class="comment">## 这有一个无正式文档说明的怪癖，会让你抓狂，但现在你知道它是什么：你必须把你的网络接口名称与远程地址用符号 “%” 连接。</span></div><div class="line">$ ssh carla@fe80::ea9a:8fff:fe67:190d%eth0</div></pre></td></tr></table></figure></p>
+<p>你也可以简化远程root登录。聪明的管理员禁用root登录ssh，所以你必须登录为一个普通用户，然后换为root用户登录。这不是那么费力，但我们可以用一个命令来完成这一切，系统将在倒数120分钟后停止！这个shutdown将持续打开直到完成运行，所以中途你能改变注意并且用寻常的方式取消shutdown，通过 Ctrl+c。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ ssh -t  carla@2001:db8::2 <span class="string">"sudo su - root -c 'shutdown -h 120'"</span></div><div class="line">carla@2001:db8::2 password:</div><div class="line">[sudo] password /<span class="keyword">for</span> carla:</div><div class="line">Broadcast message from carla@remote-server</div><div class="line"><span class="comment">## 技巧：强制使用 IPv4 或者 IPv6</span></div><div class="line">$ ssh -6 2001:db8::2</div></pre></td></tr></table></figure>
+<p>SCP是怪异的。你必须在链路本地地址的后面使用符号“%”来指定网络接口，并且将地址用方括号括起来，并避开括号；如果使用全球单播地址则不需要指定网络接口，但是依然需要方括号。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ scp filename [fe80::ea9a:8fff:fe67:190d%eth0]:carla@fe80::ea9a:8fff:fe67:190d password:</div><div class="line">filename</div><div class="line"></div><div class="line">$ scp filename [2001:db8::2]:</div><div class="line">carla@2001:db8::2 password:</div><div class="line">filename</div><div class="line"></div><div class="line"><span class="comment">## 示例：登录到远程主机上的不同用户帐户，指定将文件复制到的远程目录，并更改文件名：</span></div><div class="line">scp filename userfoo@[fe80::ea9a:8fff:fe67:190d%eth0]:/home/userfoo/files/filename_2</div></pre></td></tr></table></figure></p>
+<h4 id="Rsync"><a href="#Rsync" class="headerlink" title="Rsync"></a>Rsync</h4><p>rsync 要求使用各种标点符号封闭远程的 IPv6 地址。与以往一样，请记住源目录中的尾随斜杠，例如 /home/carla/files/ ，表示只复制目录的内容。省略尾随斜杠将复制目录及其内容。尾随斜线并不重要，关键是你的目标目录。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">##全球单播地址不需要指定网络接口：</div><div class="line">$ rsync -av /home/carla/files/ &apos;carla@[2001:db8::2]&apos;:/home/carla/stuff</div><div class="line">carla@f2001:db8::2 password:</div><div class="line">sending incremental file list</div><div class="line">sent 100 bytes  received 12 bytes  13.18 bytes/sec</div><div class="line">total size is 6,704  speedup is 59.86</div><div class="line">##使用链路本地地址时必须包含网络接口。</div><div class="line">$ rsync -av /home/carla/files/ &apos;carla@[fe80::ea9a:8fff:fe67:190d%eth0]&apos;:/home/carla/stuff</div></pre></td></tr></table></figure></p>
+<h2 id="Master-Carla-Schroder"><a href="#Master-Carla-Schroder" class="headerlink" title="Master: Carla Schroder"></a>Master: Carla Schroder</h2><p><a href="http://www.oreilly.com/pub/au/1909" target="_blank" rel="external">Carla Schroder</a> is a self-taught Linux and Windows sysadmin who laid hands on her first computer around her 37th birthday. Her first PC was a Macintosh LC II. Next came an IBM clone–a 386SX running MS-DOS 5 and Windows 3.1 with a 14-inch color display–which was adequate for many pleasant hours of Doom play. Then around 1997 she discovered Red Hat 5.0 and had a whole new world to explore. She is the author of the Linux Cookbook for O’Reilly, and writes Linux how-tos for several computer publications.</p>
+<ul>
+<li>《Linux Cookbook》2004,$49.99</li>
+<li>《Linux Networking Cookbook》2007,$44.99</li>
+<li>《The Book of Audacity》2011,$34.95</li>
+</ul>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MjM5MzEzMTY0MA==&amp;mid=200482916&amp;idx=1&amp;sn=c267b65f8f5647854cf2cacdaeb795e2&amp;scene=0#rd" target="_blank" rel="external">徐建锋：新贵与遗老续：IPv6的生而不活与IPv4的死而不僵</a></li>
+<li><a href="https://www.linux.com/learn/intro-to-linux/2017/7/building-ipv6-firewalls-ipv6-security-myths" target="_blank" rel="external">Carla Schroder@Linux.com:Building IPv6 Firewalls: IPv6 Security Myths</a></li>
+<li><a href="https://www.linux.com/learn/intro-to-linux/2017/7remote-sessions-over-ipv6-ssh-scp-and-rsync" target="_blank" rel="external">Carla Schroder@Linux.com:Remote Sessions Over IPv6 with SSH, SCP, and Rsync</a></li>
+<li><a href="https://www.linux.com/learn/intro-to-linux/2017/8/iptables-rules-ipv6" target="_blank" rel="external">Carla Schroder@Linux.com:How to Write iptables Rules for IPv6</a></li>
+<li><a href="https://www.linux.com/learn/intro-to-linux/2017/6/practical-networking-linux-admins-tcpip" target="_blank" rel="external">Practical Networking for Linux Admins: TCP/IP</a></li>
+<li><a href="https://www.linux.com/learn/intro-to-linux/2017/6/practical-networking-linux-admins-real-ipv6" target="_blank" rel="external">Practical Networking for Linux Admins: Real IPv6</a></li>
+<li><a href="https://www.linux.com/learn/intro-to-linux/2017/6/practical-networking-linux-admins-ipv6-and-ipv6-lan-addressing" target="_blank" rel="external">Practical Networking for Linux Admins: IPv4 and IPv6 LAN Addressing</a></li>
+<li><a href="https://www.linux.com/learn/intro-to-linux/2017/7/practical-networking-linux-admins-ipv6-routing" target="_blank" rel="external">Practical Networking for Linux Admins: IPv6 Routing</a></li>
+<li><a href="https://www.linkedin.com/pulse/cyber-security-tls-ssl-vs-ipsec-abdulrahman-alabsi" target="_blank" rel="external">Cyber Security : TLS / SSL vs IPSec</a></li>
+</ul>
+
+      
+
+    </div>
+    
+  </div>
+  
+    <div class="article-entry" itemprop="articleBody">
+      <p>
+        更多精彩内容扫码关注公众号,RiboseYim's Blog：<a href="https://riboseyim.github.io" target="_blank" rel="external">https://riboseyim.github.io</a>
+        <br>
+        <a href="http://o8m8ngokc.bkt.clouddn.com/ID_RiboseYim_201706.png" title="微信公众号@睿哥杂货铺" rel="fancy-group" class="fancy-ctn fancybox">
+          <img src="http://o8m8ngokc.bkt.clouddn.com/ID_RiboseYim_201706.png" title="微信公众号@睿哥杂货铺">
+          <img src="http://o8m8ngokc.bkt.clouddn.com/quanzi-rui-small.png" title="睿哥读书会">
+        </a>
+      </p>
+    </div>
+    
+<nav id="article-nav">
+  
+    <a href="/2017/08/15/Commander-Sergeant/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          外军研究：美军士官制度研究
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/08/06/TeamWork-Kanban/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">The Road To Leader:基于看板（Kanban）的管理实践</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		  <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" target="_blank">Copyright 2016-2018 RiboseYim
+      授权：保持署名-非商业性使用-禁止演绎| License BY-NC-ND 4.0 </a>
+    </div>
+      	<div class="footer-right">
+      		<a href="https://riboseyim.github.io/2016/05/31/AboutMe/" target="_blank">聪明秀出谓之英，胆力过人谓之雄 | 联系作者 </a>
+      	</div>
+    </div>
+  </div>
+</footer>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1258500076'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1258500076%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: true
+	}
+</script>
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>技术社群：高效运维(GOPS) | Ribose Yim&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="摘要 2016 GOPS 上海站简报 扩展阅读：工程师的自我修养之全英文技术学习实践">
+<meta name="keywords" content="架构师,DevOps,Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="技术社群：高效运维(GOPS)">
+<meta property="og:url" content="http://riboseyim.github.com/2016/09/24/DevOps-GOPS/index.html">
+<meta property="og:site_name" content="Ribose Yim&#39;s Blog">
+<meta property="og:description" content="摘要 2016 GOPS 上海站简报 扩展阅读：工程师的自我修养之全英文技术学习实践">
+<meta property="og:image" content="http://o8m8ngokc.bkt.clouddn.com/GOPS_201609_Chris.png">
+<meta property="og:image" content="http://o8m8ngokc.bkt.clouddn.com/GOPS_201609_Li.png">
+<meta property="og:image" content="http://o8m8ngokc.bkt.clouddn.com/GOPS_201609_Sun.png">
+<meta property="og:updated_time" content="2018-04-26T02:08:59.463Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="技术社群：高效运维(GOPS)">
+<meta name="twitter:description" content="摘要 2016 GOPS 上海站简报 扩展阅读：工程师的自我修养之全英文技术学习实践">
+<meta name="twitter:image" content="http://o8m8ngokc.bkt.clouddn.com/GOPS_201609_Chris.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Ribose Yim&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://o8m8ngokc.bkt.clouddn.com/icon_cangshu.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://o8m8ngokc.bkt.clouddn.com/icon_macbook.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">RiboseYim</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">愿交天下士，罄我怀中藏。</p>
+		
+
+		<form id="search-form" class="search">  <!-- 搜索框相关 -->
+    <input type="text" id="st-search-input" name="q" results="0" class="st-default-search-input" maxlength="30" placeholder="Search..." autocomplete="off" autocorrect="off">
+		</form>
+		<div id="local-search-result"></div> <!-- 搜索结果区 -->
+	  <p class='no-result'>No results found </p> 
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/DevOps">DevOps</a></li>
+				        
+							<li><a href="/tags/架构师">架构师</a></li>
+				        
+							<li><a href="/tags/讲武堂">讲武堂</a></li>
+				        
+							<li><a href="/tags/Economist">经济学人</a></li>
+				        
+							<li><a href="/tags/Policy-Law">Policy&amp;Law</a></li>
+				        
+							<li><a href="/tags/Art">艺术评论</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="twitter" target="_blank" href="https://twitter.com/RiboseYim" title="twitter">twitter</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/riboseyim" title="zhihu">zhihu</a>
+					        
+								<a class="github" target="_blank" href="https://github.com/riboseyim" title="github">github</a>
+					        
+								<a class="linkedin" target="_blank" href="http://www.linkedin.com/in/%E7%9D%BF-%E4%B8%A5-b39028110" title="linkedin">linkedin</a>
+					        
+						</div>
+					</nav>
+				</section>
+
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Art/" style="font-size: 15px;">Art</a> <a href="/tags/Books/" style="font-size: 10px;">Books</a> <a href="/tags/Cyber-Security/" style="font-size: 14.44px;">Cyber-Security</a> <a href="/tags/DTrace/" style="font-size: 11.67px;">DTrace</a> <a href="/tags/DevOps/" style="font-size: 20px;">DevOps</a> <a href="/tags/Developer/" style="font-size: 18.33px;">Developer</a> <a href="/tags/Develper/" style="font-size: 10px;">Develper</a> <a href="/tags/Economist/" style="font-size: 17.22px;">Economist</a> <a href="/tags/Education/" style="font-size: 10px;">Education</a> <a href="/tags/Golang/" style="font-size: 13.89px;">Golang</a> <a href="/tags/History/" style="font-size: 16.67px;">History</a> <a href="/tags/Lincoln/" style="font-size: 10.56px;">Lincoln</a> <a href="/tags/Linux/" style="font-size: 17.78px;">Linux</a> <a href="/tags/Machine-Learning/" style="font-size: 15px;">Machine-Learning</a> <a href="/tags/Manager/" style="font-size: 16.67px;">Manager</a> <a href="/tags/Medical/" style="font-size: 13.89px;">Medical</a> <a href="/tags/Nature-Science/" style="font-size: 14.44px;">Nature&Science</a> <a href="/tags/Nodejs/" style="font-size: 11.11px;">Nodejs</a> <a href="/tags/OpenSource/" style="font-size: 14.44px;">OpenSource</a> <a href="/tags/PHT/" style="font-size: 11.11px;">PHT</a> <a href="/tags/Policy-Law/" style="font-size: 18.89px;">Policy&Law</a> <a href="/tags/SDN/" style="font-size: 13.33px;">SDN</a> <a href="/tags/SRE/" style="font-size: 15.56px;">SRE</a> <a href="/tags/Sport/" style="font-size: 11.67px;">Sport</a> <a href="/tags/Writing/" style="font-size: 10.56px;">Writing</a> <a href="/tags/工具癖/" style="font-size: 12.22px;">工具癖</a> <a href="/tags/我的自传/" style="font-size: 12.78px;">我的自传</a> <a href="/tags/摄影/" style="font-size: 11.67px;">摄影</a> <a href="/tags/数学与算法/" style="font-size: 14.44px;">数学与算法</a> <a href="/tags/数据可视化/" style="font-size: 14.44px;">数据可视化</a> <a href="/tags/数据库/" style="font-size: 10.56px;">数据库</a> <a href="/tags/最佳写作实践/" style="font-size: 13.89px;">最佳写作实践</a> <a href="/tags/最佳工程实践/" style="font-size: 16.67px;">最佳工程实践</a> <a href="/tags/架构师/" style="font-size: 19.44px;">架构师</a> <a href="/tags/科技史/" style="font-size: 10.56px;">科技史</a> <a href="/tags/移动互联网/" style="font-size: 10px;">移动互联网</a> <a href="/tags/红学/" style="font-size: 11.11px;">红学</a> <a href="/tags/网络协议/" style="font-size: 16.11px;">网络协议</a> <a href="/tags/讲武堂/" style="font-size: 13.89px;">讲武堂</a>
+					</div>
+				</section>
+				
+
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/f2ea0605db4b">专题-经济学人翻译社</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.gitbook.com/book/riboseyim/linux-perf-master/details">电子书《Linux Perf Master》</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/9a817d8a67ea">简书专题-系统运维专家</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/0886ffd76168">简书专题-网络与信息安全</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/9ae32222e422">简书专题-操作系统与动态追踪技术</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/8d40a3a05825">简书专题-数据可视化</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://riboseyim.github.io/2017/11/16/QuickStart/">快捷目录</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://riboseyim.github.io/2017/05/26/Catalog/">总目录</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">Engineer &amp; Writer</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">RiboseYim</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="http://o8m8ngokc.bkt.clouddn.com/icon_macbook.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">RiboseYim</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">愿交天下士，罄我怀中藏。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/DevOps">DevOps</a></li>
+		        
+					<li><a href="/tags/架构师">架构师</a></li>
+		        
+					<li><a href="/tags/讲武堂">讲武堂</a></li>
+		        
+					<li><a href="/tags/Economist">经济学人</a></li>
+		        
+					<li><a href="/tags/Policy-Law">Policy&amp;Law</a></li>
+		        
+					<li><a href="/tags/Art">艺术评论</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="twitter" target="_blank" href="https://twitter.com/RiboseYim" title="twitter">twitter</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/riboseyim" title="zhihu">zhihu</a>
+			        
+						<a class="github" target="_blank" href="https://github.com/riboseyim" title="github">github</a>
+			        
+						<a class="linkedin" target="_blank" href="http://www.linkedin.com/in/%E7%9D%BF-%E4%B8%A5-b39028110" title="linkedin">linkedin</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-DevOps-GOPS" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/24/DevOps-GOPS/" class="article-date">
+  	<time datetime="2016-09-24T05:31:47.000Z" itemprop="datePublished">2016-09-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      技术社群：高效运维(GOPS)
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DevOps/">DevOps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/架构师/">架构师</a></li></ul>
+	</div>
+
+        
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
+<li>2016 GOPS 上海站简报</li>
+<li>扩展阅读：工程师的自我修养之全英文技术学习实践</li>
+</ul>
+<p><img src="http://o8m8ngokc.bkt.clouddn.com/GOPS_201609_Chris.png" alt=""></p>
+<a id="more"></a>
+<h2 id="一、2016-GOPS-上海站简报"><a href="#一、2016-GOPS-上海站简报" class="headerlink" title="一、2016 GOPS 上海站简报"></a>一、2016 GOPS 上海站简报</h2><h4 id="1-1-风向：从概念到落地"><a href="#1-1-风向：从概念到落地" class="headerlink" title="1.1 风向：从概念到落地"></a>1.1 风向：从概念到落地</h4><p>延续这两年的风向，云计算、大数据、DevOps、容器等依然是比较热闹的话题。<br>鉴于这些关键词已经比较普及，大家聊的内容开始更多地聚焦在落地应用上。比如关于OpenStack，有人从网络架构角度聊，也有人从数据中心、对象存储、可视化等方面聊。借用李明宇的一句话：“OpenStack是一个生态”，很多公司已经在利用其庞大生态的细分技术来创业了。</p>
+<p><img src="http://o8m8ngokc.bkt.clouddn.com/GOPS_201609_Li.png" alt=""></p>
+<p>从行业分布来看，除了“传统的”几家巨头互联网公司，GOPS大会已经出现了越来越多的传统企业面孔，可能是上海金融中心的背景，银行、保险公司、银联等金融属性的企业参会的很多，此外中移动、石油系、旅游、快递业也很活跃，还办了中小企业专场。</p>
+<p>最后，无论是现场交流环节的观众提问，还是我自己的体会，对于大部分人来说，最难的可能还是选型困境：技术方案不是太少，而是选择太多了。以分布式服务为例，有人推崇Zookeeper，有人选择etcd。前者有JAVA派的支持，后者也不乏Go粉的拥趸，或者有的时候就是拍脑袋决策呢？反正各有各的说法，根本也没个标准。希望以后哪位大牛可以来分享下《技术选型指南》。</p>
+<h4 id="1-2-特色：Google-SRE-分享"><a href="#1-2-特色：Google-SRE-分享" class="headerlink" title="1.2 特色：Google SRE 分享"></a>1.2 特色：Google SRE 分享</h4><p>本人最感兴趣的是来自Google SRE的分享。</p>
+<p>《Google SRE》一书的作者Chris Jones，主要是介绍了一些方法论方面的东西。看气质不像工程师，倒很有几分大学教授的味道。看过《Google SRE》几位作者的简历，除了工程师这个副业，还在斯坦福搞过什么经济学、国际关系、药学博士、文学、诗歌……，Jones则持有Computer Engineering,Economics,Technology Policy三个学位，长期在工程一线，还有professional engineer认证。这哥们还算是它们中间最接近工程师的啦。</p>
+<p>Minghua Ye：印象比较深的是推荐了一堆开源库，command-line flags、google protocol buffer、Logging、Googletest…….也许这就是Google人的套路，每当谈到一个什么问题，要么是XXX发表了论文《XXXX》里有说明，要么就是我们发明了XXX技术／工具作为解决方案，开源代码的地址是：XXXX。</p>
+<p>孙宇聪：他是《Google SRE》的 中文版译者，前Google SRE。最大的特点就是自带笑点，看得出活得很欢乐、发自内心的。活动现场很多国内企业的CTO、总监 可是极度缺乏这种欢乐。结合zookeeper，讨论了分布式系统的“太祖长拳”——共识系统的一些故事。</p>
+<p><img src="http://o8m8ngokc.bkt.clouddn.com/GOPS_201609_Sun.png" alt=""></p>
+<h4 id="1-3-终极命题：人才"><a href="#1-3-终极命题：人才" class="headerlink" title="1.3 终极命题：人才"></a>1.3 终极命题：人才</h4><p>大多数人可能并没有注意到，本次活动还有一个主题：人才。<br>在热闹的开幕会场上，宣布了三件事：</p>
+<p>1.“不出所料”，萧帮主终于从原企业离职，全职搞社区创业去了。<br>2.社区和复旦大学合作，推出了联合培养软件工程硕士的项目。<br>3.社区和EXIN合作，试水DevOps Master认证培训。</p>
+<p>特别是后两件事，我其实不太乐观：<strong>干好很难，干砸很容易</strong> 。<br>从业人才培养难题、在职人员的进修困境，早已有之，连BAT这样的巨头都时常流露出人才难求的尴尬境地。很多有识之士都曾经大声疾呼，但是商业和社区的冲突，能力和学历的争论，再加上当局和教育市场的避重就轻，这方面一直也没走出什么新路。归根到底，这需要产业结构、人才评价体制的根本提升。</p>
+<p>不管怎么样，有些事总是需要有人去摸索吧，祝福。</p>
+<p>关于工程师人才的微观定义，腾讯提了个自己的标准，供参考：<br>业务和架构能力<br>问题诊断能力<br>开源组件的改造能力<br>工具开发能力<br>运营平台构建能力<br>数据分析和决策能力<br>……</p>
+<p>但是，个人觉得他们这个标准过于功利，还少那么一丢丢。</p>
+<p>比如说，第一天Chris Jones演讲的时候，我内心深处是非常郁闷的。<br>当时Jones说一句，孙宇聪在一旁翻译一句。这场面像极了总理新闻发布会，演讲人和翻译一句一顿，看着都蛋疼。说实话，很难有多少交流传播价值。可是，话说回来了，你要不翻译，至少80%以上的人还真就听不明白，公开活动毕竟要照顾大多数。托教育部的福，现在全国人民的学历线可谓蒸蒸日上，跟通货一样膨胀。但是从业人员的语言水平，能达到并保持一定水准的，还真没几个。</p>
+<p>反省自己，阅读资料的时候，不也经常放着官方文档不读，非要去找些东拼西凑的二手货吗？过去买的参考书，原著比例是多少？也算写过几片技术文章吧，被Google索引的有多少？ 能有多少东西是可以和国际同行交流的？</p>
+<p><strong>跨语言能力绝对是弯道超车的必备利器！</strong></p>
+<ul>
+<li><a href="https://riboseyim.github.io/2017/06/27/Technology-English/" target="_blank" rel="external">工程师的自我修养：全英文技术学习实践</a>。<br>严肃地讨论一下技术人员的语言能力问题，希望您读完以后能够有所触动、有所行动、有所裨益。</li>
+</ul>
+<h4 id="Resources"><a href="#Resources" class="headerlink" title="Resources"></a>Resources</h4><ol>
+<li><a href="[http://mp.weixin.qq.com/s?\_\_biz=MzA4Nzg5Nzc5OA==&amp;mid=2651662368&amp;idx=1&amp;sn=766cd0f708e9d3a1449f1aac926e27e1&amp;scene=1&amp;srcid=0925yHh4bGlTvdUZ7og6Uulq#rd]">官方实录和PPT下载</a></li>
+<li><a href="http://gops2016-shanghai-tcwechatshare.eventdove.com/" target="_blank" rel="external">2016上海站日程表</a></li>
+</ol>
+<h2 id="扩展阅读：DevOps-漫谈系列"><a href="#扩展阅读：DevOps-漫谈系列" class="headerlink" title="扩展阅读：DevOps 漫谈系列"></a>扩展阅读：<a href="https://riboseyim.github.io/2016/07/28/DevOps/" target="_blank" rel="external">DevOps 漫谈系列</a></h2><ul>
+<li><a href="https://riboseyim.github.io/2018/04/10/DevOps-Phoenix/" target="_blank" rel="external">《凤凰项目》：从作坊到工厂的寓言故事</a></li>
+<li><a href="https://riboseyim.github.io/2017/08/06/TeamWork-Kanban/" target="_blank" rel="external">Kanban 看板管理实践</a></li>
+<li><a href="https://riboseyim.github.io/2018/03/26/DevOps-Deployment/" target="_blank" rel="external">DevOps 漫谈：基础设施部署和配置管理</a></li>
+<li><a href="https://riboseyim.github.io/2017/11/12/DevOps-Container-Security/" target="_blank" rel="external">Linux 容器安全的十重境界</a></li>
+<li><a href="https://riboseyim.github.io/2017/06/27/Technology-English/" target="_blank" rel="external">工程师的自我修养：全英文技术学习实践</a></li>
+</ul>
+<h4 id="DevOps-实践的本质是文化"><a href="#DevOps-实践的本质是文化" class="headerlink" title="DevOps 实践的本质是文化"></a><a href="https://riboseyim.github.io/2018/03/29/DevOps-Culture/" target="_blank" rel="external">DevOps 实践的本质是文化</a></h4><ul>
+<li>学习力－团队生命之根</li>
+<li>带领团队翻译书籍</li>
+<li>Don’t make me think</li>
+<li>凡是被很多人不断重复的好习惯，要将其自动化整合到工具</li>
+</ul>
+
+      
+
+    </div>
+    
+  </div>
+  
+    <div class="article-entry" itemprop="articleBody">
+      <p>
+        更多精彩内容扫码关注公众号,RiboseYim's Blog：<a href="https://riboseyim.github.io" target="_blank" rel="external">https://riboseyim.github.io</a>
+        <br>
+        <a href="http://o8m8ngokc.bkt.clouddn.com/ID_RiboseYim_201706.png" title="微信公众号@睿哥杂货铺" rel="fancy-group" class="fancy-ctn fancybox">
+          <img src="http://o8m8ngokc.bkt.clouddn.com/ID_RiboseYim_201706.png" title="微信公众号@睿哥杂货铺">
+          <img src="http://o8m8ngokc.bkt.clouddn.com/quanzi-rui-small.png" title="睿哥读书会">
+        </a>
+      </p>
+    </div>
+    
+<nav id="article-nav">
+  
+    <a href="/2016/10/06/CyberSecurity-SSH/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Cyber-Security:OpenSSH并不绝对安全
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/09/10/Lincoln/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Lincoln Research:电影评论|灵魂解码《林肯》</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		  <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" target="_blank">Copyright 2016-2018 RiboseYim
+      授权：保持署名-非商业性使用-禁止演绎| License BY-NC-ND 4.0 </a>
+    </div>
+      	<div class="footer-right">
+      		<a href="https://riboseyim.github.io/2016/05/31/AboutMe/" target="_blank">聪明秀出谓之英，胆力过人谓之雄 | 联系作者 </a>
+      	</div>
+    </div>
+  </div>
+</footer>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1258500076'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1258500076%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: true
+	}
+</script>
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+  </div>
+</body>
+</html>

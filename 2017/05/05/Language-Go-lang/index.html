@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Catalog：玩转编程语言 - Golang 专题 | Ribose Yim&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="摘要 基于 Golang 的应用">
+<meta name="keywords" content="架构师,DevOps,Developer,Golang">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Catalog：玩转编程语言 - Golang 专题">
+<meta property="og:url" content="http://riboseyim.github.com/2017/05/05/Language-Go-lang/index.html">
+<meta property="og:site_name" content="Ribose Yim&#39;s Blog">
+<meta property="og:description" content="摘要 基于 Golang 的应用">
+<meta property="og:updated_time" content="2018-04-27T10:49:51.783Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Catalog：玩转编程语言 - Golang 专题">
+<meta name="twitter:description" content="摘要 基于 Golang 的应用">
+  
+    <link rel="alternative" href="/atom.xml" title="Ribose Yim&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://o8m8ngokc.bkt.clouddn.com/icon_cangshu.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://o8m8ngokc.bkt.clouddn.com/icon_macbook.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">RiboseYim</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">愿交天下士，罄我怀中藏。</p>
+		
+
+		<form id="search-form" class="search">  <!-- 搜索框相关 -->
+    <input type="text" id="st-search-input" name="q" results="0" class="st-default-search-input" maxlength="30" placeholder="Search..." autocomplete="off" autocorrect="off">
+		</form>
+		<div id="local-search-result"></div> <!-- 搜索结果区 -->
+	  <p class='no-result'>No results found </p> 
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/DevOps">DevOps</a></li>
+				        
+							<li><a href="/tags/架构师">架构师</a></li>
+				        
+							<li><a href="/tags/讲武堂">讲武堂</a></li>
+				        
+							<li><a href="/tags/Economist">经济学人</a></li>
+				        
+							<li><a href="/tags/Policy-Law">Policy&amp;Law</a></li>
+				        
+							<li><a href="/tags/Art">艺术评论</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="twitter" target="_blank" href="https://twitter.com/RiboseYim" title="twitter">twitter</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/riboseyim" title="zhihu">zhihu</a>
+					        
+								<a class="github" target="_blank" href="https://github.com/riboseyim" title="github">github</a>
+					        
+								<a class="linkedin" target="_blank" href="http://www.linkedin.com/in/%E7%9D%BF-%E4%B8%A5-b39028110" title="linkedin">linkedin</a>
+					        
+						</div>
+					</nav>
+				</section>
+
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Art/" style="font-size: 15px;">Art</a> <a href="/tags/Books/" style="font-size: 10px;">Books</a> <a href="/tags/Cyber-Security/" style="font-size: 14.44px;">Cyber-Security</a> <a href="/tags/DTrace/" style="font-size: 11.67px;">DTrace</a> <a href="/tags/DevOps/" style="font-size: 20px;">DevOps</a> <a href="/tags/Developer/" style="font-size: 18.33px;">Developer</a> <a href="/tags/Develper/" style="font-size: 10px;">Develper</a> <a href="/tags/Economist/" style="font-size: 17.22px;">Economist</a> <a href="/tags/Education/" style="font-size: 10px;">Education</a> <a href="/tags/Golang/" style="font-size: 13.89px;">Golang</a> <a href="/tags/History/" style="font-size: 16.67px;">History</a> <a href="/tags/Lincoln/" style="font-size: 10.56px;">Lincoln</a> <a href="/tags/Linux/" style="font-size: 17.78px;">Linux</a> <a href="/tags/Machine-Learning/" style="font-size: 15px;">Machine-Learning</a> <a href="/tags/Manager/" style="font-size: 16.67px;">Manager</a> <a href="/tags/Medical/" style="font-size: 13.89px;">Medical</a> <a href="/tags/Nature-Science/" style="font-size: 14.44px;">Nature&Science</a> <a href="/tags/Nodejs/" style="font-size: 11.11px;">Nodejs</a> <a href="/tags/OpenSource/" style="font-size: 14.44px;">OpenSource</a> <a href="/tags/PHT/" style="font-size: 11.11px;">PHT</a> <a href="/tags/Policy-Law/" style="font-size: 18.89px;">Policy&Law</a> <a href="/tags/SDN/" style="font-size: 13.33px;">SDN</a> <a href="/tags/SRE/" style="font-size: 15.56px;">SRE</a> <a href="/tags/Sport/" style="font-size: 11.67px;">Sport</a> <a href="/tags/Writing/" style="font-size: 10.56px;">Writing</a> <a href="/tags/工具癖/" style="font-size: 12.22px;">工具癖</a> <a href="/tags/我的自传/" style="font-size: 12.78px;">我的自传</a> <a href="/tags/摄影/" style="font-size: 11.67px;">摄影</a> <a href="/tags/数学与算法/" style="font-size: 14.44px;">数学与算法</a> <a href="/tags/数据可视化/" style="font-size: 14.44px;">数据可视化</a> <a href="/tags/数据库/" style="font-size: 10.56px;">数据库</a> <a href="/tags/最佳写作实践/" style="font-size: 13.89px;">最佳写作实践</a> <a href="/tags/最佳工程实践/" style="font-size: 16.67px;">最佳工程实践</a> <a href="/tags/架构师/" style="font-size: 19.44px;">架构师</a> <a href="/tags/科技史/" style="font-size: 10.56px;">科技史</a> <a href="/tags/移动互联网/" style="font-size: 10px;">移动互联网</a> <a href="/tags/红学/" style="font-size: 11.11px;">红学</a> <a href="/tags/网络协议/" style="font-size: 16.11px;">网络协议</a> <a href="/tags/讲武堂/" style="font-size: 13.89px;">讲武堂</a>
+					</div>
+				</section>
+				
+
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/f2ea0605db4b">专题-经济学人翻译社</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.gitbook.com/book/riboseyim/linux-perf-master/details">电子书《Linux Perf Master》</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/9a817d8a67ea">简书专题-系统运维专家</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/0886ffd76168">简书专题-网络与信息安全</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/9ae32222e422">简书专题-操作系统与动态追踪技术</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/8d40a3a05825">简书专题-数据可视化</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://riboseyim.github.io/2017/11/16/QuickStart/">快捷目录</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://riboseyim.github.io/2017/05/26/Catalog/">总目录</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">Engineer &amp; Writer</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">RiboseYim</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="http://o8m8ngokc.bkt.clouddn.com/icon_macbook.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">RiboseYim</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">愿交天下士，罄我怀中藏。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/DevOps">DevOps</a></li>
+		        
+					<li><a href="/tags/架构师">架构师</a></li>
+		        
+					<li><a href="/tags/讲武堂">讲武堂</a></li>
+		        
+					<li><a href="/tags/Economist">经济学人</a></li>
+		        
+					<li><a href="/tags/Policy-Law">Policy&amp;Law</a></li>
+		        
+					<li><a href="/tags/Art">艺术评论</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="twitter" target="_blank" href="https://twitter.com/RiboseYim" title="twitter">twitter</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/riboseyim" title="zhihu">zhihu</a>
+			        
+						<a class="github" target="_blank" href="https://github.com/riboseyim" title="github">github</a>
+			        
+						<a class="linkedin" target="_blank" href="http://www.linkedin.com/in/%E7%9D%BF-%E4%B8%A5-b39028110" title="linkedin">linkedin</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-Language-Go-lang" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/05/05/Language-Go-lang/" class="article-date">
+  	<time datetime="2017-05-05T06:56:56.000Z" itemprop="datePublished">2017-05-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Catalog：玩转编程语言 - Golang 专题
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DevOps/">DevOps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Developer/">Developer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Golang/">Golang</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/架构师/">架构师</a></li></ul>
+	</div>
+
+        
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
+<li>基于 Golang 的应用<a id="more"></a>
+</li>
+</ul>
+<h4 id="围棋十诀"><a href="#围棋十诀" class="headerlink" title="围棋十诀"></a>围棋十诀</h4><blockquote>
+<p>一、不得贪胜。<br>二、入界宜缓。<br>三、攻彼顾我。<br>四、弃子争先。<br>五、舍小就大。<br>六、逢危须弃。<br>七、慎勿轻速。<br>八、动须相应。<br>九、彼强自保。<br>十、势孤取和。<br>————（唐）王积薪</p>
+</blockquote>
+<h2 id="一、ABC"><a href="#一、ABC" class="headerlink" title="一、ABC"></a>一、ABC</h2><ul>
+<li><a href="https://gobyexample.com/" target="_blank" rel="external">Go by Example</a></li>
+<li><a href="https://www.cybrhome.com/topic/go-language-tutorials" target="_blank" rel="external">Popular sites, blogs and tutorials for learning and mastering Go Language</a></li>
+</ul>
+<h4 id="1-1-Install"><a href="#1-1-Install" class="headerlink" title="1.1 Install"></a>1.1 Install</h4><ul>
+<li><a href="https://go.googlesource.com/go/" target="_blank" rel="external">https://go.googlesource.com/go/</a></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">tar -C /usr/<span class="built_in">local</span>/go-<span class="variable">$version</span> -xvf go-<span class="variable">$version</span>.tar.gz</div><div class="line"></div><div class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/go-<span class="variable">$version</span>/src</div><div class="line">./all_bash</div><div class="line"></div><div class="line"><span class="comment">#compile,build and test</span></div><div class="line"></div><div class="line"><span class="built_in">unset</span> GOROOT</div><div class="line"><span class="built_in">unset</span> GOPATH</div><div class="line"><span class="built_in">unset</span> GOAPPATH</div><div class="line"></div><div class="line"><span class="built_in">export</span> GOROOT=/usr/<span class="built_in">local</span>/go</div><div class="line"><span class="built_in">export</span> GOPATH=<span class="variable">$GOROOT</span>/bin</div><div class="line"><span class="built_in">export</span> GOAPPATH=<span class="variable">$GOROOT</span>/bin/bin</div><div class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$GOPATH</span>:<span class="variable">$GOAPPATH</span></div></pre></td></tr></table></figure>
+<h4 id="1-2-Go-Version-Manage"><a href="#1-2-Go-Version-Manage" class="headerlink" title="1.2 Go Version Manage"></a>1.2 Go Version Manage</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//atom 代码提示</span></div><div class="line"><span class="keyword">go</span> get -u github.com/jstemmer/gotags</div><div class="line"><span class="comment">//源代码目录执行</span></div><div class="line">gotags -tag-relative=<span class="literal">true</span> -R=<span class="literal">true</span> -sort=<span class="literal">true</span> -f=<span class="string">"tags"</span> -fields=+l .</div></pre></td></tr></table></figure>
+<ul>
+<li>build</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## 交叉编译</div><div class="line"></div><div class="line">build-linux:</div><div class="line">	export CGO_ENABLED=0 &amp;&amp; export GOOS=linux &amp;&amp; export GOARCH=amd64 &amp;&amp; go build</div><div class="line">build-wins:</div><div class="line">	export CGO_ENABLED=0 &amp;&amp; export GOOS=windows &amp;&amp; export GOARCH=amd64 &amp;&amp; go build</div><div class="line">build-solaris:</div><div class="line">  export CGO_ENABLED=0 &amp;&amp; export GOOS=solaris &amp;&amp; export GOARCH=amd64 &amp;&amp; go build</div><div class="line"></div><div class="line">## Go supports Solaris 11 on amd64, but not sparc.To build for sparc you need to use gccgo.</div><div class="line"></div><div class="line">## 压缩</div><div class="line">go build -ldflags &apos;-w -s&apos;</div></pre></td></tr></table></figure>
+<h4 id="1-3-Tips"><a href="#1-3-Tips" class="headerlink" title="1.3 Tips"></a>1.3 Tips</h4><ul>
+<li><p>一些 package时候的会由于众所周知的原因而无法下载</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">unrecognized <span class="keyword">import</span> path <span class="string">"golang.org/x/sys/unix"</span></div><div class="line">cd $GOPATH/src/golang.org/x/</div><div class="line">git clone --depth=<span class="number">1</span> https:<span class="comment">//github.com/golang/xxx.git</span></div></pre></td></tr></table></figure>
+</li>
+<li><p><a href="http://alehander42.me/go" target="_blank" rel="external">error handling in Go: more expressive syntax</a></p>
+</li>
+<li><a href="https://www.infoq.com/presentations/go-programming-language" target="_blank" rel="external">(Slides) High Performance Go | Infoq.com </a></li>
+</ul>
+<h2 id="二、基于-Golang-的应用"><a href="#二、基于-Golang-的应用" class="headerlink" title="二、基于 Golang 的应用"></a>二、基于 Golang 的应用</h2><h4 id="2-1-基于Go语言构建RESTful-JSON-API"><a href="#2-1-基于Go语言构建RESTful-JSON-API" class="headerlink" title="2.1 基于Go语言构建RESTful JSON API"></a>2.1 <a href="https://riboseyim.github.io/2017/05/23/RestfulAPI/" target="_blank" rel="external">基于Go语言构建RESTful JSON API</a></h4><h4 id="2-2-基于Kafka构建事件溯源模式的微服务"><a href="#2-2-基于Kafka构建事件溯源模式的微服务" class="headerlink" title="2.2 基于Kafka构建事件溯源模式的微服务"></a>2.2 <a href="https://riboseyim.github.io/2017/06/12/OpenSource-Kafka-Microservice/" target="_blank" rel="external">基于Kafka构建事件溯源模式的微服务</a></h4><p>讨论如何借助Kafka实现分布式消息管理，使用事件溯源（Event Sourcing）模式实现原子化数据处理，使用CQRS模式（Command-Query Responsibility Segregation ）实现查询职责分离，使用消费者群组解决单点故障问题，理解分布式协调框架Zookeeper的运行机制。整个应用的代码实现使用Go语言描述。</p>
+<h4 id="2-3-开源技术架构漫谈：应用程序开发中的日志管理"><a href="#2-3-开源技术架构漫谈：应用程序开发中的日志管理" class="headerlink" title="2.3 开源技术架构漫谈：应用程序开发中的日志管理"></a>2.3 <a href="https://riboseyim.github.io/2017/05/24/Log/" target="_blank" rel="external">开源技术架构漫谈：应用程序开发中的日志管理</a></h4><h4 id="2-4-网络数据包的捕获、过滤和分析-Packet-Capturing"><a href="#2-4-网络数据包的捕获、过滤和分析-Packet-Capturing" class="headerlink" title="2.4 网络数据包的捕获、过滤和分析(Packet Capturing)"></a>2.4 <a href="https://riboseyim.github.io/2017/06/16/Network-Pcap/" target="_blank" rel="external">网络数据包的捕获、过滤和分析(Packet Capturing)</a></h4><ul>
+<li>What is Packet Capturing</li>
+<li>How can it be used</li>
+<li>What is libpcap</li>
+<li>What is tcpdump &amp; winpcap &amp; snoop</li>
+<li>What is BPF</li>
+<li>What is gopacket</li>
+</ul>
+<h4 id="2-5-数据可视化（五）基于网络爬虫制作可视化图表"><a href="#2-5-数据可视化（五）基于网络爬虫制作可视化图表" class="headerlink" title="2.5 数据可视化（五）基于网络爬虫制作可视化图表"></a>2.5 <a href="https://riboseyim.github.io/2017/05/12/Visualization-Charts/" target="_blank" rel="external">数据可视化（五）基于网络爬虫制作可视化图表</a></h4><ul>
+<li>基于网络爬虫的可视化图表:golang,goquery</li>
+<li>案例：最近十年全国彩票销售变化情况</li>
+<li>案例：中国科学院院士分布</li>
+<li>数据可视化技术方案:基于 SVG (D3、Raphael)、基于 Canvas（Echarts）</li>
+</ul>
+<h2 id="三、Golang-最佳实践"><a href="#三、Golang-最佳实践" class="headerlink" title="三、Golang 最佳实践"></a>三、Golang 最佳实践</h2><h4 id="3-1-Grammar-Tips-amp-Simple-Demo"><a href="#3-1-Grammar-Tips-amp-Simple-Demo" class="headerlink" title="3.1 Grammar Tips &amp; Simple Demo"></a>3.1 Grammar Tips &amp; Simple Demo</h4><ul>
+<li><a href="http://crwd.fr/2oDS2RF" target="_blank" rel="external">Port Forwarding with Go (zupzup.org)</a></li>
+<li><a href="https://lanreadelowo.com/blog/2017/04/03/http-in-go/" target="_blank" rel="external">A guide to understanding HTTP Request handling and processing in Go</a></li>
+<li><a href="https://dave.cheney.net/2017/04/26/understand-go-pointers-in-less-than-800-words-or-your-money-back" target="_blank" rel="external">Understand Go pointers in less than 800 words </a></li>
+<li><a href="https://dave.cheney.net/2017/04/29/there-is-no-pass-by-reference-in-go" target="_blank" rel="external">there-is-no-pass-by-reference-in-go</a></li>
+<li><a href="http://life.leanote.com/post/%E8%AE%A9-go-get-%E6%98%BE%E7%A4%BA%E8%BF%9B%E5%BA%A6" target="_blank" rel="external">让go get显示进度</a></li>
+<li><a href="http://life.leanote.com/post/golang-exec%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4%E5%AE%9E%E6%97%B6%E8%BE%93%E5%87%BA" target="_blank" rel="external">exec.Command()实时输出</a></li>
+<li><p><a href="https://geeks.uniplaces.com/building-a-worker-pool-in-golang-1e6c0fdfd78c" target="_blank" rel="external">Building a Worker Pool in Golang | Dynamically scalable queue consumer</a></p>
+<h4 id="3-2-Specialist-Architecture"><a href="#3-2-Specialist-Architecture" class="headerlink" title="3.2 Specialist: Architecture"></a>3.2 Specialist: Architecture</h4></li>
+<li><p><a href="https://developer.salesforce.com/blogs/developer-relations/2017/05/using-einstein-vision-within-golang.html" target="_blank" rel="external">Using Einstein Vision Within Golang （Waiting）</a><br>By Rajdeep Dua | Published: May 5, 2017<br>Einstein Vision is a service that helps you build smarter applications by using deep learning to automatically recognize images. It provides an API that lets you use image recognition to build AI-enabled apps.</p>
+</li>
+<li><p><a href="https://hackernoon.com/golang-clean-archithecture-efd6d7c43047" target="_blank" rel="external">Trying Clean Architecture on Golang: Independent, Testable , and Clean</a><br>By Iman TumorangFollow | Passionate and Curious Learner in Software Engineering</p>
+</li>
+<li><p><a href="http://cholerae.com/2015/01/02/%E3%80%90%E7%BF%BB%E8%AF%91%E3%80%91%E7%94%9F%E6%B4%BB%E5%9C%A8%E6%B2%A1%E6%9C%89%E6%B3%9B%E5%9E%8B%E7%9A%84Go%E8%AF%AD%E8%A8%80%E4%B8%96%E7%95%8C%E9%87%8C/" target="_blank" rel="external"> 【翻译】生活在没有泛型的Go语言世界里 | Cholerae</a></p>
+</li>
+<li><a href="https://hackernoon.com/5-reasons-why-we-switched-from-python-to-go-4414d5f42690" target="_blank" rel="external">5 Reasons Why We switched from Python To Go</a></li>
+</ul>
+<h4 id="3-3-Go-Repository"><a href="#3-3-Go-Repository" class="headerlink" title="3.3 Go Repository"></a>3.3 Go Repository</h4><ul>
+<li><a href="http://www.gorillatoolkit.org/pkg/mux" target="_blank" rel="external">mux router | Go Router Repository</a></li>
+<li><a href="https://github.com/julienschmidt/httprouter" target="_blank" rel="external">httprouter | Go Router Repository</a></li>
+<li><p><a href="https://romain.rbind.io/blog/2017/06/09/go-packages-in-r-packages/" target="_blank" rel="external">Go packages in R packages</a></p>
+</li>
+<li><p><a href="http://www.devdungeon.com/content/making-tor-http-requests-go" target="_blank" rel="external">NanoDano:Making Tor HTTP Requests with Go | Socket Proxy</a></p>
+</li>
+<li><a href="https://github.com/rapidloop/vlan-nats" target="_blank" rel="external">vlan-nats</a></li>
+<li><a href="https://github.com/go-ego/riot" target="_blank" rel="external">riot：Go Open Source, Distributed, Simple and efficient Search Engine</a></li>
+<li><p><a href="https://k6.io" target="_blank" rel="external">K6: A modern load testing tool, using Go and JavaScript</a></p>
+</li>
+<li><p><a href="https://github.com/elazarl/goproxy" target="_blank" rel="external">Advanced Forwarding with Go github.com/elazarl/goproxy</a></p>
+</li>
+<li><a href="https://git.oschina.net/tavenli/port-forward" target="_blank" rel="external">TavenLi/port-forward</a></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#依赖 glibc-2.14</span></div><div class="line">[root@localhost ~]<span class="comment"># checking for symlinks in /opt/glibc-2.14/include... ok</span></div><div class="line">running configure fragment <span class="keyword">for</span> nptl/sysdeps/x86_64</div><div class="line">checking <span class="keyword">for</span> .cfi_personality and .cfi_lsda pseudo-ops... no</div><div class="line">configure: error: assembler too old, .cfi_personality support missing</div><div class="line"></div><div class="line">//For versioning you need recent binutils (binutils-2.8.1.0.23 or newer).</div><div class="line"></div><div class="line"><span class="comment"># tar xvf glibc-2.14.tar.gz</span></div><div class="line">[root@localhost ~]<span class="comment"># cd glibc-2.14</span></div><div class="line">[root@localhost glibc-2.14]<span class="comment"># mkdir build</span></div><div class="line">[root@localhost glibc-2.14]<span class="comment"># cd ./build</span></div><div class="line">[root@localhost build]<span class="comment"># ../configure --prefix=/opt/glibc-2.14</span></div><div class="line">[root@localhost build]<span class="comment"># make -j4</span></div><div class="line">[root@localhost build]<span class="comment"># make install</span></div><div class="line">[root@localhost build]<span class="comment"># export LD_LIBRARY_PATH=/opt/glibc-2.14/lib:$LD_LIBRARY_PATH</span></div><div class="line">[root@localhost build]<span class="comment"># strings /lib64/libc.so.6 |grep GLIBC</span></div><div class="line">GLIBC_2.2.5</div><div class="line">GLIBC_2.2.6</div><div class="line">GLIBC_2.3</div><div class="line">GLIBC_2.3.2</div></pre></td></tr></table></figure>
+<ul>
+<li>爬虫(简易型) ：<a href="https://github.com/lealife/leacrawler" target="_blank" rel="external">https://github.com/lealife/leacrawler</a></li>
+</ul>
+<h4 id="3-3-Business-Product-List"><a href="#3-3-Business-Product-List" class="headerlink" title="3.3 Business Product List"></a>3.3 Business Product List</h4><ul>
+<li><a href="https://www.influxdata.com" target="_blank" rel="external">InfluxDB</a>:时间序列数据库，实时数据场景</li>
+<li><a href="https://hackernoon.com/marketstore-the-financial-time-series-database-is-now-open-source-fd04343f439" target="_blank" rel="external">Marketstore | The Financial Time Series Database</a></li>
+<li><a href="https://filebrowser.github.io/" target="_blank" rel="external">File Manager | Web Browser</a><h4 id="3-4-Books"><a href="#3-4-Books" class="headerlink" title="3.4 Books"></a>3.4 Books</h4></li>
+</ul>
+<p>the little book : <a href="http://openmymind.net/The-Little-Go-Book/" target="_blank" rel="external">http://openmymind.net/The-Little-Go-Book/</a></p>
+<p><a href="http://www.goodreads.com/author/show/1524282.Karl_Seguin" target="_blank" rel="external">Karl Seguin</a></p>
+<p>book: <a href="https://github.com/thewhitetulip/web-dev-golang-anti-textbook/" target="_blank" rel="external">https://github.com/thewhitetulip/web-dev-golang-anti-textbook/</a><br>youtube series: <a href="https://www.youtube.com/playlist?list=PL41psiCma00wgiTKkAZwJiwtLTdcyEyc4" target="_blank" rel="external">https://www.youtube.com/playlist?list=PL41psiCma00wgiTKkAZwJiwtLTdcyEyc4</a><br>code: <a href="http://github.com/thewhitetulip/Tasks" target="_blank" rel="external">http://github.com/thewhitetulip/Tasks</a></p>
+<h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><ul>
+<li><a href="https://riboseyim.github.io/2017/05/26/Language/" target="_blank" rel="external">玩转编程语言系列</a></li>
+</ul>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
+<li><a href="https://ipfans.github.io/2016/01/golang-vendor/" target="_blank" rel="external">ipfans:使用vendor管理Golang项目依赖</a></li>
+<li><a href="http://www.infoq.com/cn/articles/knowledge-behind-goroutine" target="_blank" rel="external">(推荐)InfoQ:goroutine背后的系统知识</a></li>
+<li><a href="http://studygolang.com/articles/2423" target="_blank" rel="external">Qu Xiao:Goroutine + Channel 实践</a></li>
+<li><a href="https://www.gitbook.com/book/tiancaiamao/go-internals/details" target="_blank" rel="external">GitBook:《深入解析Go》</a></li>
+</ul>
+
+      
+
+    </div>
+    
+  </div>
+  
+    <div class="article-entry" itemprop="articleBody">
+      <p>
+        更多精彩内容扫码关注公众号,RiboseYim's Blog：<a href="https://riboseyim.github.io" target="_blank" rel="external">https://riboseyim.github.io</a>
+        <br>
+        <a href="http://o8m8ngokc.bkt.clouddn.com/ID_RiboseYim_201706.png" title="微信公众号@睿哥杂货铺" rel="fancy-group" class="fancy-ctn fancybox">
+          <img src="http://o8m8ngokc.bkt.clouddn.com/ID_RiboseYim_201706.png" title="微信公众号@睿哥杂货铺">
+          <img src="http://o8m8ngokc.bkt.clouddn.com/quanzi-rui-small.png" title="睿哥读书会">
+        </a>
+      </p>
+    </div>
+    
+<nav id="article-nav">
+  
+    <a href="/2017/05/09/Mathmetics-Markov-Model/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          概率论基础：从马尔可夫模型（Markov Model）到贝叶斯网络
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/05/03/TeamWork-WorldBook/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">如果快速构建一个知识体系：以中情局的 WorldBook 为例</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		  <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" target="_blank">Copyright 2016-2018 RiboseYim
+      授权：保持署名-非商业性使用-禁止演绎| License BY-NC-ND 4.0 </a>
+    </div>
+      	<div class="footer-right">
+      		<a href="https://riboseyim.github.io/2016/05/31/AboutMe/" target="_blank">聪明秀出谓之英，胆力过人谓之雄 | 联系作者 </a>
+      	</div>
+    </div>
+  </div>
+</footer>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1258500076'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1258500076%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: true
+	}
+</script>
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+  </div>
+</body>
+</html>

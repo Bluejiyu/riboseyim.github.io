@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>计算机远程通信协议：gRPC | Ribose Yim&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="摘要 一、远程调用技术简史:从 CORBA 到 gRPC 二、gRPC 简介 三、gRPC 示例代码">
+<meta name="keywords" content="架构师,DevOps,网络协议,Linux,Developer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机远程通信协议：gRPC">
+<meta property="og:url" content="http://riboseyim.github.com/2017/10/30/Protocol-gRPC/index.html">
+<meta property="og:site_name" content="Ribose Yim&#39;s Blog">
+<meta property="og:description" content="摘要 一、远程调用技术简史:从 CORBA 到 gRPC 二、gRPC 简介 三、gRPC 示例代码">
+<meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/OpenSource-gRPC.png">
+<meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/Arch_gRPC_Workflow.png">
+<meta property="og:updated_time" content="2018-01-23T01:33:24.090Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="计算机远程通信协议：gRPC">
+<meta name="twitter:description" content="摘要 一、远程调用技术简史:从 CORBA 到 gRPC 二、gRPC 简介 三、gRPC 示例代码">
+<meta name="twitter:image" content="http://og2061b3n.bkt.clouddn.com/OpenSource-gRPC.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Ribose Yim&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://o8m8ngokc.bkt.clouddn.com/icon_cangshu.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://o8m8ngokc.bkt.clouddn.com/icon_macbook.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">RiboseYim</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">愿交天下士，罄我怀中藏。</p>
+		
+
+		<form id="search-form" class="search">  <!-- 搜索框相关 -->
+    <input type="text" id="st-search-input" name="q" results="0" class="st-default-search-input" maxlength="30" placeholder="Search..." autocomplete="off" autocorrect="off">
+		</form>
+		<div id="local-search-result"></div> <!-- 搜索结果区 -->
+	  <p class='no-result'>No results found </p> 
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/DevOps">DevOps</a></li>
+				        
+							<li><a href="/tags/架构师">架构师</a></li>
+				        
+							<li><a href="/tags/讲武堂">讲武堂</a></li>
+				        
+							<li><a href="/tags/Economist">经济学人</a></li>
+				        
+							<li><a href="/tags/Policy-Law">Policy&amp;Law</a></li>
+				        
+							<li><a href="/tags/Art">艺术评论</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="twitter" target="_blank" href="https://twitter.com/RiboseYim" title="twitter">twitter</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/riboseyim" title="zhihu">zhihu</a>
+					        
+								<a class="github" target="_blank" href="https://github.com/riboseyim" title="github">github</a>
+					        
+								<a class="linkedin" target="_blank" href="http://www.linkedin.com/in/%E7%9D%BF-%E4%B8%A5-b39028110" title="linkedin">linkedin</a>
+					        
+						</div>
+					</nav>
+				</section>
+
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Art/" style="font-size: 15px;">Art</a> <a href="/tags/Books/" style="font-size: 10px;">Books</a> <a href="/tags/Cyber-Security/" style="font-size: 14.44px;">Cyber-Security</a> <a href="/tags/DTrace/" style="font-size: 11.67px;">DTrace</a> <a href="/tags/DevOps/" style="font-size: 20px;">DevOps</a> <a href="/tags/Developer/" style="font-size: 18.33px;">Developer</a> <a href="/tags/Develper/" style="font-size: 10px;">Develper</a> <a href="/tags/Economist/" style="font-size: 17.22px;">Economist</a> <a href="/tags/Education/" style="font-size: 10px;">Education</a> <a href="/tags/Golang/" style="font-size: 13.89px;">Golang</a> <a href="/tags/History/" style="font-size: 16.67px;">History</a> <a href="/tags/Lincoln/" style="font-size: 10.56px;">Lincoln</a> <a href="/tags/Linux/" style="font-size: 17.78px;">Linux</a> <a href="/tags/Machine-Learning/" style="font-size: 15px;">Machine-Learning</a> <a href="/tags/Manager/" style="font-size: 16.67px;">Manager</a> <a href="/tags/Medical/" style="font-size: 13.89px;">Medical</a> <a href="/tags/Nature-Science/" style="font-size: 14.44px;">Nature&Science</a> <a href="/tags/Nodejs/" style="font-size: 11.11px;">Nodejs</a> <a href="/tags/OpenSource/" style="font-size: 14.44px;">OpenSource</a> <a href="/tags/PHT/" style="font-size: 11.11px;">PHT</a> <a href="/tags/Policy-Law/" style="font-size: 18.89px;">Policy&Law</a> <a href="/tags/SDN/" style="font-size: 13.33px;">SDN</a> <a href="/tags/SRE/" style="font-size: 15.56px;">SRE</a> <a href="/tags/Sport/" style="font-size: 11.67px;">Sport</a> <a href="/tags/Writing/" style="font-size: 10.56px;">Writing</a> <a href="/tags/工具癖/" style="font-size: 12.22px;">工具癖</a> <a href="/tags/我的自传/" style="font-size: 12.78px;">我的自传</a> <a href="/tags/摄影/" style="font-size: 11.67px;">摄影</a> <a href="/tags/数学与算法/" style="font-size: 14.44px;">数学与算法</a> <a href="/tags/数据可视化/" style="font-size: 14.44px;">数据可视化</a> <a href="/tags/数据库/" style="font-size: 10.56px;">数据库</a> <a href="/tags/最佳写作实践/" style="font-size: 13.89px;">最佳写作实践</a> <a href="/tags/最佳工程实践/" style="font-size: 16.67px;">最佳工程实践</a> <a href="/tags/架构师/" style="font-size: 19.44px;">架构师</a> <a href="/tags/科技史/" style="font-size: 10.56px;">科技史</a> <a href="/tags/移动互联网/" style="font-size: 10px;">移动互联网</a> <a href="/tags/红学/" style="font-size: 11.11px;">红学</a> <a href="/tags/网络协议/" style="font-size: 16.11px;">网络协议</a> <a href="/tags/讲武堂/" style="font-size: 13.89px;">讲武堂</a>
+					</div>
+				</section>
+				
+
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/f2ea0605db4b">专题-经济学人翻译社</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.gitbook.com/book/riboseyim/linux-perf-master/details">电子书《Linux Perf Master》</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/9a817d8a67ea">简书专题-系统运维专家</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/0886ffd76168">简书专题-网络与信息安全</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/9ae32222e422">简书专题-操作系统与动态追踪技术</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/8d40a3a05825">简书专题-数据可视化</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://riboseyim.github.io/2017/11/16/QuickStart/">快捷目录</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://riboseyim.github.io/2017/05/26/Catalog/">总目录</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">Engineer &amp; Writer</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">RiboseYim</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="http://o8m8ngokc.bkt.clouddn.com/icon_macbook.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">RiboseYim</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">愿交天下士，罄我怀中藏。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/DevOps">DevOps</a></li>
+		        
+					<li><a href="/tags/架构师">架构师</a></li>
+		        
+					<li><a href="/tags/讲武堂">讲武堂</a></li>
+		        
+					<li><a href="/tags/Economist">经济学人</a></li>
+		        
+					<li><a href="/tags/Policy-Law">Policy&amp;Law</a></li>
+		        
+					<li><a href="/tags/Art">艺术评论</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="twitter" target="_blank" href="https://twitter.com/RiboseYim" title="twitter">twitter</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/riboseyim" title="zhihu">zhihu</a>
+			        
+						<a class="github" target="_blank" href="https://github.com/riboseyim" title="github">github</a>
+			        
+						<a class="linkedin" target="_blank" href="http://www.linkedin.com/in/%E7%9D%BF-%E4%B8%A5-b39028110" title="linkedin">linkedin</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-Protocol-gRPC" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/10/30/Protocol-gRPC/" class="article-date">
+  	<time datetime="2017-10-30T10:05:14.000Z" itemprop="datePublished">2017-10-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      计算机远程通信协议：gRPC
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DevOps/">DevOps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Developer/">Developer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/架构师/">架构师</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网络协议/">网络协议</a></li></ul>
+	</div>
+
+        
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
+<li>一、远程调用技术简史:从 CORBA 到 gRPC</li>
+<li>二、gRPC 简介</li>
+<li>三、gRPC 示例代码</li>
+</ul>
+<a id="more"></a>
+<h2 id="远程通信协议：从-CORBA-到-gRPC"><a href="#远程通信协议：从-CORBA-到-gRPC" class="headerlink" title="远程通信协议：从 CORBA 到 gRPC"></a>远程通信协议：从 CORBA 到 gRPC</h2><p>自从产业界发明机器联网的那一天就已经开始探索最优的远程通信机制。操作系统如 UNIX、Windows 和 Linux 等都有实现远程通信的内部协议，挑战在于如何向开发人员开放一个通信框架。</p>
+<h2 id="一、远程调用技术简史"><a href="#一、远程调用技术简史" class="headerlink" title="一、远程调用技术简史"></a>一、远程调用技术简史</h2><p>在20世纪90年代，当 TCP/IP 协议日臻成熟变成网络通信的黄金标准时，焦点转移到跨平台通信 —— 一台计算机可以通过某种类型网络在另一台计算机上发起一个动作。例如如 CORBA、DCOM、Java RMI 技术，在核心网络基础设施之上创造了一个对开发者友好的抽象层。这些技术还试图发展出一套与开发语言无关的通信框架，这一点对于客户机/服务器体系结构至关重要。</p>
+<p>随着本世纪初 Web 技术的演进，HTTP 逐渐演变为事实上的通信标准。HTTP 结合 XML 提供了一种自我描述、不依赖语言、与平台无关的远程通信框架。这种结合的成果是 SOAP 和 WSDL 标准，它们保证了在各种运行环境和平台之间实现互操作的标准化。</p>
+<p>下一个冲击互联网的浪潮是 Web 编程。许多开发人员发现定义 SOAP 标准的 HTTP 和 XML 的组合过于严格。这时 JavaScript 和 JSON 开始流行了。Web 2.0 现象（API 发挥了关键作用）, JSON 替代 XML 成为首选的协议。HTTP 和 JSON 这对致命的组合，催生了一个新的非官方标准 REST 。SOAP 要求严格遵守标准和结构定义，仅局限于大型企业应用程序，而 REST 在当代开发人员中很受欢迎。</p>
+<h4 id="1-1-HTTP-REST-和微服务"><a href="#1-1-HTTP-REST-和微服务" class="headerlink" title="1.1 HTTP, REST 和微服务"></a>1.1 HTTP, REST 和微服务</h4><p>归功于 JavaScript 框架，Node.js 以及文档数据库的发展，REST 在 Web 开发者中广受欢迎。许多应用程序开始基于 REST 实现 ，即使是内部序列化和通信模式领域。但 HTTP 是最有效的消息交换协议吗？即使在同一上下文、同一网络，或者是同一台机器上运行的服务之间？HTTP 的便捷性与高性能之间需要作出权衡，这促使我们回到问题的起点，寻找微服务架构中最优的通信框架。</p>
+<p>进入 gRPC 时代 —— 来自谷歌，现代的轻量级通信协议。这是一个高性能的、开源的通用远程过程调用（RPC） 框架，它可以在多种开发语言、任何操作系统上运行。</p>
+<p>gRPC 在推出的第一年内就被 CoreOS，Netflix，Square 和 Cockroach Labs 等机构采用。 CoreOS 团队的 Etcd，是一种分布式键/值存储服务，采用 gRPC 实现端通信。电信公司如 Cisco，Juniper 和 Arista 都使用 gRPC 实现数据流遥测和网络设备配置。</p>
+<h4 id="1-2-什么是-gRPC"><a href="#1-2-什么是-gRPC" class="headerlink" title="1.2 什么是 gRPC ?"></a>1.2 什么是 gRPC ?</h4><p>当我第一次遇到 gRPC，它使我想到 CORBA。两个框架都基于语言无关的接口定义语言（IDL） 声明服务，通过特定的语言绑定实现。<br><img src="http://og2061b3n.bkt.clouddn.com/OpenSource-gRPC.png" alt=""></p>
+<p>CORBA 和 gRPC 二者的设计，都是为了使客户端相信服务器在同一台机器。客户机在桩（Stub）上调用一个方法（method），调用过程由底层协议透明地处理。</p>
+<p>gRPC 的秘诀在于处理序列化的方式。gRPC 基于 Protocol Buffer，一个开源的用于结构化数据序列化机制，它是语言和平台无关的。Protocol Buffer  的描述非常详细，与 XML 类似。但是它们比其他的协议格式更小，更快，效率更高。任何需要序列化的自定义数据类型在 gRPC 被定义为一个 Protocol Buffer 。</p>
+<p>Protocol Buffer 的最新版本是 proto3，支持多种开发语言的代码生成，Java , C++，Python，Ruby , Java Lite , JavaScript，Objective-C 和 C # 。当一个 Protocol Buffer 编译为一个特定的语言，它的访问器（setter 和 getter）为每个字段提供定义。</p>
+<p>相比于 REST + JSON 组合 ，gRPC 提供更好的性能和安全性。它极大的促进了在客户端和服务器之间使用 SSL / TLS 进行身份验证和数据交换加密。</p>
+<p>为什么微服务开发者需要使用 gRPC ？gRPC 采用 HTTP / 2 以支持高性能的、可扩展的 API 。报文使用二进制而不是文本通信可以保持载荷紧凑、高效。HTTP / 2 请求在一个 TCP 连接上可支持多路复用，允许多个消息并发传送而不影响网络资源利用率。gRPC 使用报头压缩（header compression ）来减少请求和响应的大小。</p>
+<h2 id="二、gRPC-简介"><a href="#二、gRPC-简介" class="headerlink" title="二、gRPC 简介"></a>二、gRPC 简介</h2><h4 id="2-1-创建-gRPC-服务的流程"><a href="#2-1-创建-gRPC-服务的流程" class="headerlink" title="2.1 创建 gRPC 服务的流程"></a>2.1 创建 gRPC 服务的流程</h4><ol>
+<li>在 Protocol Buffer (.proto) 文件中描述服务和载荷结构</li>
+<li>从 .proto 文件生成 gRPC 代码</li>
+<li>用一种开发语言实现服务端</li>
+<li>创建一个客户端调用服务</li>
+<li>运行服务端和客户端</li>
+</ol>
+<p><img src="http://og2061b3n.bkt.clouddn.com/Arch_gRPC_Workflow.png" alt=""></p>
+<p><strong>Note:Node.js 客户端不需要生成存根（Stub），只要 Protocol Buffer 文件是可访问的，它就可以直接与服务端对话。</strong></p>
+<h2 id="三、gRPC-示例代码"><a href="#三、gRPC-示例代码" class="headerlink" title="三、gRPC 示例代码"></a>三、gRPC 示例代码</h2><p>为了进一步熟悉 gRPC，我们将用 Python 语言创建一个简单的计算服务。它将同时被一个 Python 客户端和一个 Node.js 客户端调用。以下测试示例运行在 Mac OS X 。</p>
+<p>你可以从 GitHub 库 <a href="https://github.com/grpc/grpc/tree/master/examples" target="_blank" rel="external">https://github.com/grpc/grpc/tree/master/examples</a> 访问源代码，在自己的机器上运行示例。</p>
+<ul>
+<li><p>环境准备</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">// 配置 Python gRPC</div><div class="line">python -m pip install virtualenv</div><div class="line">virtualenv venv</div><div class="line"><span class="built_in">source</span> venv/bin/activate</div><div class="line">python -m pip install --upgrade pip</div><div class="line"></div><div class="line">//安装 gRPC 和 gRPC Tools</div><div class="line">python -m pip install grpcio</div><div class="line">python -m pip install grpcio-tools</div><div class="line"></div><div class="line">// 配置 Node.js gRPC</div><div class="line">npm install grpc --global</div><div class="line"></div><div class="line">//创建目录</div><div class="line">mkdir Proto</div><div class="line">mkdir Server</div><div class="line">mkdir -p Client/Python</div><div class="line">mkdir -p Client/Node</div></pre></td></tr></table></figure>
+</li>
+<li><p>创建 Protocol Buffer 文件</p>
+</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Proto/Calc.proto</span></div><div class="line">syntax = <span class="string">"proto3"</span>;</div><div class="line"></div><div class="line"><span class="keyword">package</span> calc;</div><div class="line"></div><div class="line">service Calculator &#123;</div><div class="line">  rpc Add (AddRequest) returns (AddReply) &#123;&#125;</div><div class="line">  rpc Substract (SubstractRequest) returns (SubstractReply) &#123;&#125;</div><div class="line">  rpc Multiply (MultiplyRequest) returns (MultiplyReply) &#123;&#125;</div><div class="line">  rpc Divide (DivideRequest) returns (DivideReply) &#123;&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">message AddRequest&#123;</div><div class="line">  <span class="keyword">int32</span> n1=<span class="number">1</span>;</div><div class="line">  <span class="keyword">int32</span> n2=<span class="number">2</span>;</div><div class="line">&#125;</div><div class="line">message AddReply&#123;</div><div class="line">  <span class="keyword">int32</span> n1=<span class="number">1</span>;</div><div class="line">&#125;</div><div class="line">message SubstractRequest&#123;</div><div class="line">  <span class="keyword">int32</span> n1=<span class="number">1</span>;</div><div class="line">  <span class="keyword">int32</span> n2=<span class="number">2</span>;</div><div class="line">&#125;</div><div class="line">message SubstractReply&#123;</div><div class="line">  <span class="keyword">int32</span> n1=<span class="number">1</span>;</div><div class="line">&#125;</div><div class="line">message MultiplyRequest&#123;</div><div class="line">  <span class="keyword">int32</span> n1=<span class="number">1</span>;</div><div class="line">  <span class="keyword">int32</span> n2=<span class="number">2</span>;</div><div class="line">&#125;</div><div class="line">message MultiplyReply&#123;</div><div class="line">  <span class="keyword">int32</span> n1=<span class="number">1</span>;</div><div class="line">&#125;</div><div class="line">message DivideRequest&#123;</div><div class="line">  <span class="keyword">int32</span> n1=<span class="number">1</span>;</div><div class="line">  <span class="keyword">int32</span> n2=<span class="number">2</span>;</div><div class="line">&#125;</div><div class="line">message DivideReply&#123;</div><div class="line">  float f1=<span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><p>生成 Python 服务端和客户端代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ python -m grpc.tools.protoc  --python_out=. --grpc_python_out=. --proto_path=. Calc.proto</div><div class="line">$ cp Calc_pb2.py ../Server</div><div class="line">$ cp Calc_pb2.py ../Client/Python</div><div class="line">$ cp Calc.proto ../Client/Node</div></pre></td></tr></table></figure>
+</li>
+<li><p>创建服务端</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Server/Calc_Server.py</span></div><div class="line"><span class="keyword">from</span> concurrent <span class="keyword">import</span> futures</div><div class="line"><span class="keyword">import</span> time</div><div class="line"></div><div class="line"><span class="keyword">import</span> grpc</div><div class="line"></div><div class="line"><span class="keyword">import</span> Calc_pb2</div><div class="line"><span class="keyword">import</span> Calc_pb2_grpc</div><div class="line"></div><div class="line">_ONE_DAY_IN_SECONDS = <span class="number">60</span> * <span class="number">60</span> * <span class="number">24</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Calculator</span><span class="params">(Calc_pb2.CalculatorServicer)</span>:</span></div><div class="line"></div><div class="line"> <span class="function"><span class="keyword">def</span> <span class="title">Add</span><span class="params">(self, request, context)</span>:</span></div><div class="line">   <span class="keyword">return</span> Calc_pb2.AddReply(n1=request.n1+request.n2)</div><div class="line"></div><div class="line"> <span class="function"><span class="keyword">def</span> <span class="title">Substract</span><span class="params">(self, request, context)</span>:</span></div><div class="line">   <span class="keyword">return</span> Calc_pb2.SubstractReply(n1=request.n1-request.n2)</div><div class="line"></div><div class="line"> <span class="function"><span class="keyword">def</span> <span class="title">Multiply</span><span class="params">(self, request, context)</span>:</span></div><div class="line">   <span class="keyword">return</span> Calc_pb2.MultiplyReply(n1=request.n1*request.n2)</div><div class="line"></div><div class="line"> <span class="function"><span class="keyword">def</span> <span class="title">Divide</span><span class="params">(self, request, context)</span>:</span></div><div class="line">   <span class="keyword">return</span> Calc_pb2.DivideReply(f1=request.n1/request.n2)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">serve</span><span class="params">()</span>:</span></div><div class="line"> server = grpc.server(futures.ThreadPoolExecutor(max_workers=<span class="number">10</span>))</div><div class="line"> Calc_pb2_grpc.add_CalculatorServicer_to_server(Calculator(), server)</div><div class="line"> server.add_insecure_port(<span class="string">'[::]:50050'</span>)</div><div class="line"> server.start()</div><div class="line"></div><div class="line"> <span class="keyword">try</span>:</div><div class="line">   <span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">     time.sleep(_ONE_DAY_IN_SECONDS)</div><div class="line"> <span class="keyword">except</span> KeyboardInterrupt:</div><div class="line">   server.stop(<span class="number">0</span>)</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line"> serve()</div></pre></td></tr></table></figure>
+<ul>
+<li><p>启动服务端</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python Calc_Server.py</div></pre></td></tr></table></figure>
+</li>
+<li><p>创建 Python 客户端</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Client/Python/Calc_Client.py</span></div><div class="line"></div><div class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> print_function</div><div class="line"></div><div class="line"><span class="keyword">import</span> grpc</div><div class="line"><span class="keyword">import</span> Calc_pb2</div><div class="line"><span class="keyword">import</span> Calc_pb2_grpc</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">()</span>:</span></div><div class="line"> channel = grpc.insecure_channel(<span class="string">'localhost:50050'</span>)</div><div class="line"> stub = Calc_pb2_grpc.CalculatorStub(channel)</div><div class="line"></div><div class="line"> response = stub.Add(Calc_pb2.AddRequest(n1=<span class="number">20</span>,n2=<span class="number">10</span>))</div><div class="line"> print(response.n1)</div><div class="line"> response = stub.Substract(Calc_pb2.SubstractRequest(n1=<span class="number">20</span>,n2=<span class="number">10</span>))</div><div class="line"> print(response.n1)</div><div class="line"> response = stub.Multiply(Calc_pb2.MultiplyRequest(n1=<span class="number">20</span>,n2=<span class="number">10</span>))</div><div class="line"> print(response.n1)</div><div class="line"> response = stub.Divide(Calc_pb2.DivideRequest(n1=<span class="number">20</span>,n2=<span class="number">10</span>))</div><div class="line"> print(response.f1)</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">  run()</div></pre></td></tr></table></figure>
+<ul>
+<li><p>创建 Node.js 客户端</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Client/Node/Calc_Client.js</span></div><div class="line"><span class="keyword">var</span> PROTO_PATH = <span class="string">'Calc.proto'</span>;</div><div class="line"></div><div class="line"><span class="keyword">var</span> grpc = <span class="built_in">require</span>(<span class="string">'grpc'</span>);</div><div class="line"><span class="keyword">var</span> calc_proto = grpc.load(PROTO_PATH).calc;</div><div class="line"><span class="keyword">var</span> params=&#123;<span class="attr">n1</span>:<span class="number">20</span>, <span class="attr">n2</span>:<span class="number">10</span>&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">main</span>(<span class="params"></span>) </span>&#123;</div><div class="line"> <span class="keyword">var</span> client = <span class="keyword">new</span> calc_proto.Calculator(<span class="string">'localhost:50050'</span>,</div><div class="line">                                      grpc.credentials.createInsecure());</div><div class="line"></div><div class="line"> client.divide(params, <span class="function"><span class="keyword">function</span>(<span class="params">err, response</span>) </span>&#123;</div><div class="line">   <span class="built_in">console</span>.log(response.f1);</div><div class="line"> &#125;);</div><div class="line"></div><div class="line"> client.multiply(params, <span class="function"><span class="keyword">function</span>(<span class="params">err, response</span>) </span>&#123;</div><div class="line">   <span class="built_in">console</span>.log(response.n1);</div><div class="line"> &#125;);</div><div class="line"></div><div class="line"> client.substract(params, <span class="function"><span class="keyword">function</span>(<span class="params">err, response</span>) </span>&#123;</div><div class="line">   <span class="built_in">console</span>.log(response.n1);</div><div class="line"> &#125;);</div><div class="line"></div><div class="line"> client.add(params, <span class="function"><span class="keyword">function</span>(<span class="params">err, response</span>) </span>&#123;</div><div class="line">   <span class="built_in">console</span>.log(response.n1);</div><div class="line"> &#125;);</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">main();</div></pre></td></tr></table></figure>
+</li>
+<li><p>启动客户端 Node.js/Python</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$ python Calc_Client.py</div><div class="line">30</div><div class="line">10</div><div class="line">200</div><div class="line">2.0</div><div class="line"></div><div class="line">$ node Calc_Client.js</div><div class="line">30</div><div class="line">10</div><div class="line">200</div><div class="line">2.0</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="附表：gRPC-年谱"><a href="#附表：gRPC-年谱" class="headerlink" title="附表：gRPC 年谱"></a>附表：gRPC 年谱</h2><ul>
+<li>2011 : Protocol Buffers 2 =&gt; language neutral for serializing structured data</li>
+<li>2015 : Borg =&gt; Large-scale cluster management =&gt; Kubernetes</li>
+<li>2015 : Stubby =&gt; A high performance RPC framework =&gt; gRPC</li>
+<li>July 2016 : Protocol Buffers 3.0.0</li>
+<li>Aug 2016 : gRPC 1.0 ready for production</li>
+<li>Sept 2016 : Swift-protobuf</li>
+<li>Jan 2017 : Grpc Swift</li>
+<li>Apr 2017 : Google Endpoints =&gt; Manage gRPC APIs with Cloud Endpoints</li>
+<li>Sept 2017 : gRPC 1.6.1</li>
+<li>Sept 2017 : Protocol Buffers 3.4.1</li>
+<li>Oct 2017 : Swift-protobuf 1.0</li>
+<li>Oct 2017 : gRPC 1.7.0</li>
+</ul>
+<h2 id="扩展阅读：开发语言-amp-代码工程"><a href="#扩展阅读：开发语言-amp-代码工程" class="headerlink" title="扩展阅读：开发语言&amp;代码工程"></a>扩展阅读：开发语言&amp;代码工程</h2><ul>
+<li><a href="https://riboseyim.github.io/2017/07/23/CloudComputing/" target="_blank" rel="external">Stack Overflow：2017年最赚钱的编程语言</a></li>
+<li><a href="https://riboseyim.github.io/2017/12/21/Language-Auto-Generator/" target="_blank" rel="external">玩转编程语言:构建自定义代码生成器</a></li>
+<li><a href="https://riboseyim.github.io/2017/10/30/Protocol-gRPC/" target="_blank" rel="external">远程通信协议：从 CORBA 到 gRPC</a></li>
+<li><a href="https://riboseyim.github.io/2017/06/12/OpenSource-Kafka-Microservice/" target="_blank" rel="external">基于Kafka构建事件溯源型微服务</a></li>
+<li><a href="https://riboseyim.github.io/2016/08/15/OpenSource-Kafka/" target="_blank" rel="external">LinkedIn 开源 Kafka Monitor</a></li>
+<li><a href="https://riboseyim.github.io/2017/05/23/RestfulAPI/" target="_blank" rel="external">基于Go语言快速构建一个RESTful API服务</a></li>
+<li><a href="https://riboseyim.github.io/2017/05/24/Log/" target="_blank" rel="external">应用程序开发中的日志管理(Go语言描述)</a></li>
+</ul>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
+<li><a href="https://thenewstack.io/grpc-lean-mean-communication-protocol-microservices/" target="_blank" rel="external">Google’s gRPC: A Lean and Mean Communication Protocol for Microservices | 9 Sep 2016 7:30am, by Janakiram MSV</a></li>
+<li><a href="https://speakerd.s3.amazonaws.com/presentations/34441cd016c14d0ebc9aab78c5317f08/gRPC_microservices_are_the_future__5_.pdf" target="_blank" rel="external">gRPC microservices are the future ? | Golang Nantes Meetup 21 September 2017 | Cyrille 、Hemidy</a></li>
+<li><a href="http://www.infoq.com/cn/news/2015/03/grpc-google-http2-protobuf" target="_blank" rel="external">gRPC：Google开源的基于HTTP/2和ProtoBuf的通用RPC框架</a></li>
+<li><a href="https://ipfans.github.io/2017/04/grpc-call-timeout/" target="_blank" rel="external">gRPC调用超时控制</a></li>
+<li><a href="https://stackoverflow.com/questions/43638397/how-to-use-etcd-in-service-discovery" target="_blank" rel="external">How to use etcd service discovery with gRPC in Go? </a></li>
+<li><a href="http://www.agiratech.com/building-high-performance-apis-go-grpc/" target="_blank" rel="external">Building High Performance APIs In Go Using gRPC</a></li>
+<li><a href="https://t.co/zxNzlk7kwC" target="_blank" rel="external">tracing gRPC calls in #Golang with #Google Stackdriver</a></li>
+<li><a href="https://outcrawl.com/getting-started-microservices-go-grpc-kubernetes/?utm_content=bufferedde1&amp;utm_medium=social&amp;utm_source=twitter.com&amp;utm_campaign=buffer" target="_blank" rel="external">Getting Started with Microservices using Go, gRPC and Kubernetes</a></li>
+</ul>
+
+      
+
+    </div>
+    
+  </div>
+  
+    <div class="article-entry" itemprop="articleBody">
+      <p>
+        更多精彩内容扫码关注公众号,RiboseYim's Blog：<a href="https://riboseyim.github.io" target="_blank" rel="external">https://riboseyim.github.io</a>
+        <br>
+        <a href="http://o8m8ngokc.bkt.clouddn.com/ID_RiboseYim_201706.png" title="微信公众号@睿哥杂货铺" rel="fancy-group" class="fancy-ctn fancybox">
+          <img src="http://o8m8ngokc.bkt.clouddn.com/ID_RiboseYim_201706.png" title="微信公众号@睿哥杂货铺">
+          <img src="http://o8m8ngokc.bkt.clouddn.com/quanzi-rui-small.png" title="睿哥读书会">
+        </a>
+      </p>
+    </div>
+    
+<nav id="article-nav">
+  
+    <a href="/2017/11/05/History-USA-Virginia/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          私人历史文献：弗吉尼亚笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/10/29/CyberSecurity-WiFi/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Cyber-Security:警惕Wi-Fi漏洞</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		  <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" target="_blank">Copyright 2016-2018 RiboseYim
+      授权：保持署名-非商业性使用-禁止演绎| License BY-NC-ND 4.0 </a>
+    </div>
+      	<div class="footer-right">
+      		<a href="https://riboseyim.github.io/2016/05/31/AboutMe/" target="_blank">聪明秀出谓之英，胆力过人谓之雄 | 联系作者 </a>
+      	</div>
+    </div>
+  </div>
+</footer>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1258500076'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1258500076%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: true
+	}
+</script>
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+  </div>
+</body>
+</html>

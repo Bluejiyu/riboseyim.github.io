@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>DevOps 漫谈：基础设施部署和配置管理 | Ribose Yim&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="摘要 Ansible vs. Chef vs. Fabric vs. Puppet vs. SaltStack">
+<meta name="keywords" content="DevOps,Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DevOps 漫谈：基础设施部署和配置管理">
+<meta property="og:url" content="http://riboseyim.github.com/2018/03/26/DevOps-Deployment/index.html">
+<meta property="og:site_name" content="Ribose Yim&#39;s Blog">
+<meta property="og:description" content="摘要 Ansible vs. Chef vs. Fabric vs. Puppet vs. SaltStack">
+<meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/Deploying-Management-Tools.png">
+<meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/Ansible-Logo.jpg">
+<meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/Ansible-Tower-Dashboard.png">
+<meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/Chef-Logo.jpg">
+<meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/Chef-Compliance-Node.png">
+<meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/Fabric-Logo.jpg">
+<meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/Fabric-Dashboard-1024x823.png">
+<meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/Puppet-Logo.png">
+<meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/Puppet-Dashboard.png">
+<meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/SaltStack-Logo.jpg">
+<meta property="og:image" content="https://docs.saltstack.com/en/getstarted/images/salt-subsystems.png">
+<meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/SlatStack-Subsystem-Job.png">
+<meta property="og:updated_time" content="2018-04-26T02:09:08.800Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DevOps 漫谈：基础设施部署和配置管理">
+<meta name="twitter:description" content="摘要 Ansible vs. Chef vs. Fabric vs. Puppet vs. SaltStack">
+<meta name="twitter:image" content="http://og2061b3n.bkt.clouddn.com/Deploying-Management-Tools.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Ribose Yim&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://o8m8ngokc.bkt.clouddn.com/icon_cangshu.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://o8m8ngokc.bkt.clouddn.com/icon_macbook.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">RiboseYim</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">愿交天下士，罄我怀中藏。</p>
+		
+
+		<form id="search-form" class="search">  <!-- 搜索框相关 -->
+    <input type="text" id="st-search-input" name="q" results="0" class="st-default-search-input" maxlength="30" placeholder="Search..." autocomplete="off" autocorrect="off">
+		</form>
+		<div id="local-search-result"></div> <!-- 搜索结果区 -->
+	  <p class='no-result'>No results found </p> 
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/DevOps">DevOps</a></li>
+				        
+							<li><a href="/tags/架构师">架构师</a></li>
+				        
+							<li><a href="/tags/讲武堂">讲武堂</a></li>
+				        
+							<li><a href="/tags/Economist">经济学人</a></li>
+				        
+							<li><a href="/tags/Policy-Law">Policy&amp;Law</a></li>
+				        
+							<li><a href="/tags/Art">艺术评论</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="twitter" target="_blank" href="https://twitter.com/RiboseYim" title="twitter">twitter</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/riboseyim" title="zhihu">zhihu</a>
+					        
+								<a class="github" target="_blank" href="https://github.com/riboseyim" title="github">github</a>
+					        
+								<a class="linkedin" target="_blank" href="http://www.linkedin.com/in/%E7%9D%BF-%E4%B8%A5-b39028110" title="linkedin">linkedin</a>
+					        
+						</div>
+					</nav>
+				</section>
+
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Art/" style="font-size: 15px;">Art</a> <a href="/tags/Books/" style="font-size: 10px;">Books</a> <a href="/tags/Cyber-Security/" style="font-size: 14.44px;">Cyber-Security</a> <a href="/tags/DTrace/" style="font-size: 11.67px;">DTrace</a> <a href="/tags/DevOps/" style="font-size: 20px;">DevOps</a> <a href="/tags/Developer/" style="font-size: 18.33px;">Developer</a> <a href="/tags/Develper/" style="font-size: 10px;">Develper</a> <a href="/tags/Economist/" style="font-size: 17.22px;">Economist</a> <a href="/tags/Education/" style="font-size: 10px;">Education</a> <a href="/tags/Golang/" style="font-size: 13.89px;">Golang</a> <a href="/tags/History/" style="font-size: 16.67px;">History</a> <a href="/tags/Lincoln/" style="font-size: 10.56px;">Lincoln</a> <a href="/tags/Linux/" style="font-size: 17.78px;">Linux</a> <a href="/tags/Machine-Learning/" style="font-size: 15px;">Machine-Learning</a> <a href="/tags/Manager/" style="font-size: 16.67px;">Manager</a> <a href="/tags/Medical/" style="font-size: 13.89px;">Medical</a> <a href="/tags/Nature-Science/" style="font-size: 14.44px;">Nature&Science</a> <a href="/tags/Nodejs/" style="font-size: 11.11px;">Nodejs</a> <a href="/tags/OpenSource/" style="font-size: 14.44px;">OpenSource</a> <a href="/tags/PHT/" style="font-size: 11.11px;">PHT</a> <a href="/tags/Policy-Law/" style="font-size: 18.89px;">Policy&Law</a> <a href="/tags/SDN/" style="font-size: 13.33px;">SDN</a> <a href="/tags/SRE/" style="font-size: 15.56px;">SRE</a> <a href="/tags/Sport/" style="font-size: 11.67px;">Sport</a> <a href="/tags/Writing/" style="font-size: 10.56px;">Writing</a> <a href="/tags/工具癖/" style="font-size: 12.22px;">工具癖</a> <a href="/tags/我的自传/" style="font-size: 12.78px;">我的自传</a> <a href="/tags/摄影/" style="font-size: 11.67px;">摄影</a> <a href="/tags/数学与算法/" style="font-size: 14.44px;">数学与算法</a> <a href="/tags/数据可视化/" style="font-size: 14.44px;">数据可视化</a> <a href="/tags/数据库/" style="font-size: 10.56px;">数据库</a> <a href="/tags/最佳写作实践/" style="font-size: 13.89px;">最佳写作实践</a> <a href="/tags/最佳工程实践/" style="font-size: 16.67px;">最佳工程实践</a> <a href="/tags/架构师/" style="font-size: 19.44px;">架构师</a> <a href="/tags/科技史/" style="font-size: 10.56px;">科技史</a> <a href="/tags/移动互联网/" style="font-size: 10px;">移动互联网</a> <a href="/tags/红学/" style="font-size: 11.11px;">红学</a> <a href="/tags/网络协议/" style="font-size: 16.11px;">网络协议</a> <a href="/tags/讲武堂/" style="font-size: 13.89px;">讲武堂</a>
+					</div>
+				</section>
+				
+
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/f2ea0605db4b">专题-经济学人翻译社</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.gitbook.com/book/riboseyim/linux-perf-master/details">电子书《Linux Perf Master》</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/9a817d8a67ea">简书专题-系统运维专家</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/0886ffd76168">简书专题-网络与信息安全</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/9ae32222e422">简书专题-操作系统与动态追踪技术</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/8d40a3a05825">简书专题-数据可视化</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://riboseyim.github.io/2017/11/16/QuickStart/">快捷目录</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://riboseyim.github.io/2017/05/26/Catalog/">总目录</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">Engineer &amp; Writer</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">RiboseYim</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="http://o8m8ngokc.bkt.clouddn.com/icon_macbook.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">RiboseYim</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">愿交天下士，罄我怀中藏。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/DevOps">DevOps</a></li>
+		        
+					<li><a href="/tags/架构师">架构师</a></li>
+		        
+					<li><a href="/tags/讲武堂">讲武堂</a></li>
+		        
+					<li><a href="/tags/Economist">经济学人</a></li>
+		        
+					<li><a href="/tags/Policy-Law">Policy&amp;Law</a></li>
+		        
+					<li><a href="/tags/Art">艺术评论</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="twitter" target="_blank" href="https://twitter.com/RiboseYim" title="twitter">twitter</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/riboseyim" title="zhihu">zhihu</a>
+			        
+						<a class="github" target="_blank" href="https://github.com/riboseyim" title="github">github</a>
+			        
+						<a class="linkedin" target="_blank" href="http://www.linkedin.com/in/%E7%9D%BF-%E4%B8%A5-b39028110" title="linkedin">linkedin</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-DevOps-Deployment" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/03/26/DevOps-Deployment/" class="article-date">
+  	<time datetime="2018-03-26T10:01:39.000Z" itemprop="datePublished">2018-03-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      DevOps 漫谈：基础设施部署和配置管理
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DevOps/">DevOps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+	</div>
+
+        
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
+<li>Ansible vs. Chef vs. Fabric vs. Puppet vs. SaltStack</li>
+</ul>
+<a id="more"></a>
+<p><img src="http://og2061b3n.bkt.clouddn.com/Deploying-Management-Tools.png" alt=""></p>
+<p>在生产环境中工作，常常意味着连续部署和遍布全球的基础设施。如果您的基础架构是分散式和基于云的，同时您需要在大量服务器上频繁部署大量类似的服务，如果此时有一种方法可以自动配置和维护以上所有内容将是您的一大福音。</p>
+<p>部署管理工具（Deployment management tools）和配置管理工具(configuration management tools)是为此目的而设计的。它们使您能够使用“食谱”（recipes），“剧本” (playbooks)，模板(templates)或任何术语来简化整个环境中的自动化和编排，以提供标准、一致的部署。</p>
+<p>在选择工具时请记住几点注意事项。首先是了解工具的模型。有些工具采用主控模式（master-client model），它有一个集中控制点（master）与分布式部署的服务器进行通信，其他部分则可以在更本地的层面上运行。另一个考虑因素是你的环境构成。有些工具是采用不同的语言编写的，对于特定的操作系统或设置可能会有所不同。确保您选择的工具与您的环境完美配合，充分利用团队的特定技能可以为您节省很多麻烦。</p>
+<h4 id="1-Ansible"><a href="#1-Ansible" class="headerlink" title="1. Ansible"></a>1. Ansible</h4><p><img src="http://og2061b3n.bkt.clouddn.com/Ansible-Logo.jpg" alt=""><br>￼Ansible是一种开源工具，用于以可重复的方式将应用程序部署到远程节点和配置服务器。它为您提供了基于推送模型（push model ）推送多层应用程序和应用程序组件的通用框架，您也可以根据需要将其设置为 master-client 模式。 Ansible 建立在可用于各种系统上部署应用程序的剧本(playbook)。</p>
+<p><strong>何时使用它</strong> ：对您来说最重要的是快速，轻松地启动和运行，并且您不想在远程节点或受管服务器上安装代理（Agent）。如果您的需求重点更多地放在系统管理员身上，专注于精简和快速，请考虑 Ansible 。</p>
+<p>价格：免费的开源版本，Ansible Tower 的付费套餐每年 5000 美元（最多可容纳100个节点）。</p>
+<p><strong>赞成的理由：</strong></p>
+<ul>
+<li>基于 SSH , 不需要在远程节点安装任何代理</li>
+<li>学习曲线平缓、使用 YAML</li>
+<li>Playbook 结构简单，结构清晰</li>
+<li>具有变量注册功能，可以使前一个任务作为后一个任务的变量</li>
+<li>代码库精简</li>
+</ul>
+<p><strong>反对的理由：</strong></p>
+<ul>
+<li>相较其他编程语言的工具功能有限。</li>
+<li>通过 DSL 实现其逻辑，这意味着需要经常查看文档直到您学会为止</li>
+<li>即使是最基本功能也需要变量注册，这可能使简单任务变得复杂</li>
+<li>内省（Introspection）很差。例如很难在剧本中看到变量的值</li>
+<li>输入，输出和配置文件格式之间缺乏一致性</li>
+<li>性能存在一定瓶颈</li>
+</ul>
+<p><img src="http://og2061b3n.bkt.clouddn.com/Ansible-Tower-Dashboard.png" alt=""></p>
+<h4 id="2-Chef"><a href="#2-Chef" class="headerlink" title="2. Chef"></a>2. Chef</h4><p><img src="http://og2061b3n.bkt.clouddn.com/Chef-Logo.jpg" alt=""><br>￼Chef 是一个配置管理开源工具，用户群专注面向开发者。Chef 作为 master-client  模式运行，需要一个单独的工作站来控制 master 。Chef 基于 Ruby 开发，纯 Ruby 可以支持大多数元素。Chef 的设计是透明的，并遵循给定的指示，这意味着你必须确保你的指示是清楚的。</p>
+<p>何时使用它：在考虑 Chef 之前，需要确保你熟悉 Git ，因为它需要配置 Git ，你必须编写 Ruby 代码。Chef 适合以开发为中心（development-focused ）的团队和环境。对于寻求更成熟异构环境解决方案的企业来说，这是一件好事。</p>
+<p>价格：提供免费的开源版本，标准版和高级版计划以每年节点为单位定价。 Chef Automate 的价格为每个节点 137 美元，或者采用 Hosted Chef 每个节点每年节省72 美元。</p>
+<p><strong>赞成的理由：</strong></p>
+<ul>
+<li>丰富的模块和配置配方(recipes)</li>
+<li>代码驱动的方法为您提供更多的配置控制和灵活性</li>
+<li>以 Git 为中心赋予 Chef 强大的版本控制功能</li>
+<li>‘Knife’工具（使用 SSH 从工作站部署代理）减轻了安装负担</li>
+</ul>
+<p><strong>反对的理由：</strong></p>
+<ul>
+<li>如果您还不熟悉 Ruby 和面向过程编程，学习曲线会非常陡峭</li>
+<li>这不是一个简单的工具，可能需要维护大量的代码库和复杂的环境</li>
+<li>不支持推送功能</li>
+</ul>
+<p><img src="http://og2061b3n.bkt.clouddn.com/Chef-Compliance-Node.png" alt=""></p>
+<h4 id="3-Fabric"><a href="#3-Fabric" class="headerlink" title="3. Fabric"></a>3. Fabric</h4><p><img src="http://og2061b3n.bkt.clouddn.com/Fabric-Logo.jpg" alt=""><br>Fabric 是一个基于 Python 的应用程序部署工具。Fabric 的主要用途是在多个远程系统上运行任务，但它也可以通过插件的方式进行扩展，以提供更高级的功能。 Fabric 将配置您的操作系统，进行操作系统/服务器管理，自动化部署您的应用。<br>￼<br>何时使用它：如果您刚刚开始进入部署自动化领域，Fabric 是一个良好的开端。如果您的环境至少包含一点 Python，它都会有所帮助。</p>
+<p>价格：免费</p>
+<p><strong>赞成的理由：</strong></p>
+<ul>
+<li>擅长部署以任何语言编写的应用程序。它不依赖于系统架构，而是依赖于操作系统和软件包管理器</li>
+<li>相比其他工具更简单，更易于部署</li>
+<li>与 SSH 进行了广泛的整合，以实现基于脚本的流水线</li>
+</ul>
+<p><strong>反对的理由：</strong></p>
+<ul>
+<li>Fabric 是单点设置（通常是运行部署的机器）</li>
+<li>使用 PUSH 模型，因此不如其他工具那样适合流水线部署模型</li>
+<li>虽然它是用于在大多数语言中部署应用程序的绝佳工具，但它确实需要运行Python，所以您的环境中必须至少有一个适用于 Fabric 的 Python 环境</li>
+</ul>
+<p><img src="http://og2061b3n.bkt.clouddn.com/Fabric-Dashboard-1024x823.png" alt=""></p>
+<h4 id="4-Puppet"><a href="#4-Puppet" class="headerlink" title="4. Puppet"></a>4. Puppet</h4><p><img src="http://og2061b3n.bkt.clouddn.com/Puppet-Logo.png" alt=""><br>￼Puppet 长期依赖是全面配置管理领域的标准工具之一。Puppet 是一个开源工具，但是考虑到它已经存在了多长时间，它已经在一些最大和最苛刻的环境中进行了部署和验证。 Puppet 基于 Ruby 开发，但使用更接近 JSON 的领域专用语言（Domain Specific Language，DSL）。Puppet 采用master-client 模式运行，并采用模型驱动(model-driven)的方法。 Puppet 将工作设计为一系列依赖关系列表，根据您的设置，这可以使事情变得更容易或更容易混淆。</p>
+<p><strong>何时使用它：</strong> 如果稳定性和成熟度对您来说是最关键的因素，Puppet 是一个不错的选择。对于具有异构环境的大型企业和涉及多种技能范围的 DevOps 团队而言而言，这是一件好事。</p>
+<p>价格：Puppet 分为免费的开源版本和付费的企业版本，商业版每年每个节点 120 美元（提供批量折扣）。</p>
+<p><strong>赞成的理由：</strong></p>
+<ul>
+<li>通过 Puppet Labs 建立了完善的支持社区</li>
+<li>具有最成熟的接口，几乎可以在所有操作系统上运行</li>
+<li>安装和初始设置简单</li>
+<li>最完整的 Web UI</li>
+<li>强大的报表功能</li>
+</ul>
+<p><strong>反对的理由：</strong></p>
+<ul>
+<li>对于更高级的任务，您需要使用基于 Ruby 的 CLI（这意味着您必须了解Ruby）</li>
+<li>纯 Ruby 版本的支持正在缩减（而不是那些使用 Puppet 定制 DSL 的版本）</li>
+<li>Puppet 代码库可能会变得庞大，新人需要更多的帮助</li>
+<li>与代码驱动方法相比，模型驱动方法意味着用户的控制更少</li>
+</ul>
+<p><img src="http://og2061b3n.bkt.clouddn.com/Puppet-Dashboard.png" alt=""></p>
+<h4 id="5-Saltstack"><a href="#5-Saltstack" class="headerlink" title="5. Saltstack"></a>5. Saltstack</h4><p><img src="http://og2061b3n.bkt.clouddn.com/SaltStack-Logo.jpg" alt=""></p>
+<p>￼SaltStack（或 Salt）是一种基于 CLI 的工具，可以将其设置为 master-client 模型或非集中模型。 Salt 基于Python 开发，提供了 PUSH 和 SSH 两种方法与客户端通讯。 Salt 允许对客户端和配置模板进行分组，以简化对环境的控制。<br><strong>何时使用它：</strong> 如果可扩展性和弹性是一个大问题，则 Salt 是一个不错的选择。对系统管理员来说，Salt 提供的可用性非常重要。</p>
+<p>价格：提供免费的开源版本，以及基于年度/节点订阅的 SaltStack Enterprise 版本。具体的价格没有在他们的网站上列出，据说每个节点每年的起步价为 150 美元。</p>
+<p><strong>赞成的理由：</strong></p>
+<ul>
+<li>一旦你渡过了入门阶段，就可以简单地组织和使用</li>
+<li>DSL 功能丰富，不需要逻辑和状态</li>
+<li>输入，输出和配置非常一致，全部所有 YAML （一个可读性高，用来表达数据序列的格式）</li>
+<li>内省(Introspection)非常好。很容易看到 Salt 内部发生了什么</li>
+<li>强大的社区</li>
+<li>很高的可扩展性和灵活性</li>
+</ul>
+<p><strong>反对的理由：</strong></p>
+<ul>
+<li>对于新用户来说，非常难以配置，学习曲线陡峭</li>
+<li>在入门级别而言，文档很难理解</li>
+<li>Web UI  比同领域的其他工具更新、更轻量</li>
+<li>对非 Linux 操作系统没有很好的支持</li>
+</ul>
+<p><img src="https://docs.saltstack.com/en/getstarted/images/salt-subsystems.png" alt="Salt Subsystems"></p>
+<p><img src="http://og2061b3n.bkt.clouddn.com/SlatStack-Subsystem-Job.png" alt=""></p>
+<h4 id="Ansible-vs-Chef-vs-Fabric-vs-Puppet-vs-SaltStack"><a href="#Ansible-vs-Chef-vs-Fabric-vs-Puppet-vs-SaltStack" class="headerlink" title="Ansible vs. Chef vs. Fabric vs. Puppet vs. SaltStack"></a>Ansible vs. Chef vs. Fabric vs. Puppet vs. SaltStack</h4><p>您使用的配置管理或部署自动化工具取决于您的环境需求和偏好。 Chef 和 Puppet 是一些较老的、更成熟的选项，它们适用于那些重视成熟性和稳定性而非简单性的大型企业和环境。 Ansible 和 SaltStack 是寻求快速和简约解决方案人士的理想选择，同时在不需要支持某些特殊功能或具有大量操作系统的环境中工作。Fabric 对于小型环境和那些正在寻求更低门槛和入门级解决方案的人来说是一个很好的工具。</p>
+<h2 id="SaltStack"><a href="#SaltStack" class="headerlink" title="SaltStack"></a>SaltStack</h2><ul>
+<li>Arch:Client/Server</li>
+<li>develop language: Python</li>
+<li>future: REAL-TIME COMMUNICATION</li>
+</ul>
+<h4 id="SaltStack-ABC"><a href="#SaltStack-ABC" class="headerlink" title="SaltStack ABC"></a>SaltStack ABC</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## Install</span></div><div class="line">$ brew install saltstack</div><div class="line"><span class="comment">## Role:Master</span></div><div class="line">$ service salt-master start</div><div class="line">$ netstat -ant | grep 450 | grep LISTEN</div><div class="line">tcp4       0      0  *.4506                 *.*                    LISTEN     </div><div class="line">tcp4       0      0  *.4505                 *.*                    LISTEN</div><div class="line"><span class="comment">## Role:Master</span></div></pre></td></tr></table></figure>
+<h4 id="SaltStack-Resources"><a href="#SaltStack-Resources" class="headerlink" title="SaltStack Resources"></a>SaltStack Resources</h4><ul>
+<li><a href="https://github.com/saltstack-formulas" target="_blank" rel="external">SaltStack Formulas</a></li>
+</ul>
+<h2 id="Ansible"><a href="#Ansible" class="headerlink" title="Ansible"></a>Ansible</h2><ul>
+<li>Arch: SSH batch tools</li>
+<li>develop language: Python<h4 id="Ansible-ABC"><a href="#Ansible-ABC" class="headerlink" title="Ansible ABC"></a>Ansible ABC</h4></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Install</span></div><div class="line">$ sudo pip install ansible</div><div class="line"><span class="comment"># 默认路径 /etc/ansible/hosts ,参数 -i 指定 hosts 文件</span></div><div class="line">$ ansible all -m shell <span class="_">-a</span> <span class="string">"hostname"</span> --ask-pass -i /yourdir/ansible_hosts</div><div class="line"><span class="comment"># 或者通过环境变量指定</span></div><div class="line">$ <span class="built_in">export</span> ANSIBLE_HOSTS=~/ansible_hosts</div><div class="line">$ <span class="built_in">echo</span> <span class="string">"127.0.0.1"</span> &gt; ~/ansible_hosts</div></pre></td></tr></table></figure>
+<h2 id="Puppet"><a href="#Puppet" class="headerlink" title="Puppet"></a>Puppet</h2><ul>
+<li>Arch: Agent/Server</li>
+<li>develop language: Ruby</li>
+<li>enterprise &amp; community edition</li>
+</ul>
+<h4 id="Puppet-ABC"><a href="#Puppet-ABC" class="headerlink" title="Puppet ABC"></a>Puppet ABC</h4><h2 id="WordBook"><a href="#WordBook" class="headerlink" title="WordBook"></a>WordBook</h2><h4 id="YAML"><a href="#YAML" class="headerlink" title="YAML"></a><a href="http://yaml.org" target="_blank" rel="external">YAML</a></h4><p>YAML 语言（发音 /ˈjæməl/ ）实质上是一种通用的数据串行化格式。基本语法规则如下:</p>
+<ul>
+<li>大小写敏感</li>
+<li>使用缩进表示层级关系</li>
+<li>缩进时不允许使用Tab键，只允许使用空格。</li>
+<li>缩进的空格数目不重要，只要相同层级的元素左侧对齐即可</li>
+<li># 表示行注释</li>
+</ul>
+<p>YAML 支持的数据结构：</p>
+<ul>
+<li>对象：键值对的集合，又称为映射（mapping）/ 哈希（hashes） / 字典（dictionary）</li>
+<li>数组：一组按次序排列的值，又称为序列（sequence） / 列表（list）</li>
+<li><p>纯量（scalars）：单个的、不可再分的值</p>
+</li>
+<li><p><a href="http://www.ruanyifeng.com/blog/2016/07/yaml.html" target="_blank" rel="external">YAML 语言教程</a></p>
+</li>
+</ul>
+<h4 id="DSL-Domain-Specific-Language-领域专用语言"><a href="#DSL-Domain-Specific-Language-领域专用语言" class="headerlink" title="DSL|Domain Specific Language,领域专用语言"></a><a href="https://en.wikipedia.org/wiki/Domain-specific_language" target="_blank" rel="external">DSL|Domain Specific Language,领域专用语言</a></h4><p>DSL的目标受众是非程序员，业务员或者最终用户。<br>DSL 最大的设计原则就是简单，通过简化语言中的元素，降低使用者的负担；无论是 Regex、SQL 还是 HTML 以及 CSS，其说明文档往往只有几页，非常易于学习和掌握。但是，由此带来的问题就是，DSL 中缺乏抽象的概念，比如：模块化、变量以及方法等。</p>
+<ul>
+<li><a href="http://www.infoq.com/cn/articles/dsl-discussion" target="_blank" rel="external">领域专用语言(DSL)迷思</a></li>
+<li><a href="http://www.infoq.com/cn/articles/dsl-discussion" target="_blank" rel="external">谈谈 DSL 以及 DSL 的应用（以 CocoaPods 为例）</a></li>
+</ul>
+<h2 id="扩展阅读：DevOps-漫谈系列"><a href="#扩展阅读：DevOps-漫谈系列" class="headerlink" title="扩展阅读：DevOps 漫谈系列"></a>扩展阅读：<a href="https://riboseyim.github.io/2016/07/28/DevOps/" target="_blank" rel="external">DevOps 漫谈系列</a></h2><ul>
+<li><a href="https://riboseyim.github.io/2018/04/10/DevOps-Phoenix/" target="_blank" rel="external">《凤凰项目》：从作坊到工厂的寓言故事</a></li>
+<li><a href="https://riboseyim.github.io/2017/08/06/TeamWork-Kanban/" target="_blank" rel="external">Kanban 看板管理实践</a></li>
+<li><a href="https://riboseyim.github.io/2018/03/26/DevOps-Deployment/" target="_blank" rel="external">DevOps 漫谈：基础设施部署和配置管理</a></li>
+<li><a href="https://riboseyim.github.io/2017/11/12/DevOps-Container-Security/" target="_blank" rel="external">Linux 容器安全的十重境界</a></li>
+<li><a href="https://riboseyim.github.io/2017/06/27/Technology-English/" target="_blank" rel="external">工程师的自我修养：全英文技术学习实践</a></li>
+</ul>
+<h4 id="DevOps-实践的本质是文化"><a href="#DevOps-实践的本质是文化" class="headerlink" title="DevOps 实践的本质是文化"></a><a href="https://riboseyim.github.io/2018/03/29/DevOps-Culture/" target="_blank" rel="external">DevOps 实践的本质是文化</a></h4><ul>
+<li>学习力－团队生命之根</li>
+<li>带领团队翻译书籍</li>
+<li>Don’t make me think</li>
+<li>凡是被很多人不断重复的好习惯，要将其自动化整合到工具</li>
+</ul>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
+<li><a href="https://blog.takipi.com/deployment-management-tools-chef-vs-puppet-vs-ansible-vs-saltstack-vs-fabric/" target="_blank" rel="external">Deployment Management Tools: Chef vs. Puppet vs. Ansible vs. SaltStack vs. Fabric</a></li>
+<li><a href="https://www.zhihu.com/question/22707761" target="_blank" rel="external">SaltStack 与 Ansible 选择？| zhihu.com</a></li>
+<li><a href="http://www.saltstack.cn" target="_blank" rel="external">中国SaltStack用户组|China SaltStack User Group</a></li>
+<li><a href="http://www.saltstack.cn/kb/managing-firewall-with-salt/#managing-firewall-with-salt" target="_blank" rel="external">基于Salt管理iptables防火墙规则</a></li>
+<li><a href="https://linux.cn/article-4215-1.html#3_875" target="_blank" rel="external">Ansible ：一个配置管理和IT自动化工具</a></li>
+<li><a href="https://www.ibm.com/developerworks/cn/opensource/os-devops-saltstack-in-cloud/index.html" target="_blank" rel="external">自动化运维工具 SaltStack 在云计算环境中的实践</a></li>
+</ul>
+
+      
+
+    </div>
+    
+  </div>
+  
+    <div class="article-entry" itemprop="articleBody">
+      <p>
+        更多精彩内容扫码关注公众号,RiboseYim's Blog：<a href="https://riboseyim.github.io" target="_blank" rel="external">https://riboseyim.github.io</a>
+        <br>
+        <a href="http://o8m8ngokc.bkt.clouddn.com/ID_RiboseYim_201706.png" title="微信公众号@睿哥杂货铺" rel="fancy-group" class="fancy-ctn fancybox">
+          <img src="http://o8m8ngokc.bkt.clouddn.com/ID_RiboseYim_201706.png" title="微信公众号@睿哥杂货铺">
+          <img src="http://o8m8ngokc.bkt.clouddn.com/quanzi-rui-small.png" title="睿哥读书会">
+        </a>
+      </p>
+    </div>
+    
+<nav id="article-nav">
+  
+    <a href="/2018/03/29/DevOps-Culture/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          DevOps 漫谈:DevOps实践的本质是文化
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/03/25/Mathmetics-Complexity/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">数学常识|如何度量复杂性</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		  <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" target="_blank">Copyright 2016-2018 RiboseYim
+      授权：保持署名-非商业性使用-禁止演绎| License BY-NC-ND 4.0 </a>
+    </div>
+      	<div class="footer-right">
+      		<a href="https://riboseyim.github.io/2016/05/31/AboutMe/" target="_blank">聪明秀出谓之英，胆力过人谓之雄 | 联系作者 </a>
+      	</div>
+    </div>
+  </div>
+</footer>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1258500076'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1258500076%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: true
+	}
+</script>
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+  </div>
+</body>
+</html>

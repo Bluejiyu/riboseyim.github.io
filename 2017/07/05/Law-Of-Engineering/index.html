@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>The Road To Leader：软件工程实践中的十大法则 | Ribose Yim&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="摘要 0.1 Moore’s Law 0.2 Metcalfe’s Law 1、Little’s Law 2、Goodhart’s Law 3、Conway’s Law 4、Parkinson’s Law 5、Humphrey’s Law 6、Law of the instrument 7、Law of Demeter 8、Dude’s Law 9、Law of 2 Feet 10、Law of">
+<meta name="keywords" content="最佳工程实践,DevOps,Manager">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Road To Leader：软件工程实践中的十大法则">
+<meta property="og:url" content="http://riboseyim.github.com/2017/07/05/Law-Of-Engineering/index.html">
+<meta property="og:site_name" content="Ribose Yim&#39;s Blog">
+<meta property="og:description" content="摘要 0.1 Moore’s Law 0.2 Metcalfe’s Law 1、Little’s Law 2、Goodhart’s Law 3、Conway’s Law 4、Parkinson’s Law 5、Humphrey’s Law 6、Law of the instrument 7、Law of Demeter 8、Dude’s Law 9、Law of 2 Feet 10、Law of">
+<meta property="og:image" content="http://ombx24fbq.bkt.clouddn.com/PM_Tools_kanban_Demo_5.png">
+<meta property="og:image" content="http://omb2onfvy.bkt.clouddn.com/MicroService_Org.png">
+<meta property="og:image" content="http://omb2onfvy.bkt.clouddn.com/MicroServices_Math_Demo.png">
+<meta property="og:image" content="https://workshopbank.com/wp-content/uploads/2016/11/open-space-guidlines.jpg">
+<meta property="og:updated_time" content="2018-03-07T06:31:35.307Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The Road To Leader：软件工程实践中的十大法则">
+<meta name="twitter:description" content="摘要 0.1 Moore’s Law 0.2 Metcalfe’s Law 1、Little’s Law 2、Goodhart’s Law 3、Conway’s Law 4、Parkinson’s Law 5、Humphrey’s Law 6、Law of the instrument 7、Law of Demeter 8、Dude’s Law 9、Law of 2 Feet 10、Law of">
+<meta name="twitter:image" content="http://ombx24fbq.bkt.clouddn.com/PM_Tools_kanban_Demo_5.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Ribose Yim&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://o8m8ngokc.bkt.clouddn.com/icon_cangshu.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://o8m8ngokc.bkt.clouddn.com/icon_macbook.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">RiboseYim</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">愿交天下士，罄我怀中藏。</p>
+		
+
+		<form id="search-form" class="search">  <!-- 搜索框相关 -->
+    <input type="text" id="st-search-input" name="q" results="0" class="st-default-search-input" maxlength="30" placeholder="Search..." autocomplete="off" autocorrect="off">
+		</form>
+		<div id="local-search-result"></div> <!-- 搜索结果区 -->
+	  <p class='no-result'>No results found </p> 
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/DevOps">DevOps</a></li>
+				        
+							<li><a href="/tags/架构师">架构师</a></li>
+				        
+							<li><a href="/tags/讲武堂">讲武堂</a></li>
+				        
+							<li><a href="/tags/Economist">经济学人</a></li>
+				        
+							<li><a href="/tags/Policy-Law">Policy&amp;Law</a></li>
+				        
+							<li><a href="/tags/Art">艺术评论</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="twitter" target="_blank" href="https://twitter.com/RiboseYim" title="twitter">twitter</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/riboseyim" title="zhihu">zhihu</a>
+					        
+								<a class="github" target="_blank" href="https://github.com/riboseyim" title="github">github</a>
+					        
+								<a class="linkedin" target="_blank" href="http://www.linkedin.com/in/%E7%9D%BF-%E4%B8%A5-b39028110" title="linkedin">linkedin</a>
+					        
+						</div>
+					</nav>
+				</section>
+
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Art/" style="font-size: 15px;">Art</a> <a href="/tags/Books/" style="font-size: 10px;">Books</a> <a href="/tags/Cyber-Security/" style="font-size: 14.44px;">Cyber-Security</a> <a href="/tags/DTrace/" style="font-size: 11.67px;">DTrace</a> <a href="/tags/DevOps/" style="font-size: 20px;">DevOps</a> <a href="/tags/Developer/" style="font-size: 18.33px;">Developer</a> <a href="/tags/Develper/" style="font-size: 10px;">Develper</a> <a href="/tags/Economist/" style="font-size: 17.22px;">Economist</a> <a href="/tags/Education/" style="font-size: 10px;">Education</a> <a href="/tags/Golang/" style="font-size: 13.89px;">Golang</a> <a href="/tags/History/" style="font-size: 16.67px;">History</a> <a href="/tags/Lincoln/" style="font-size: 10.56px;">Lincoln</a> <a href="/tags/Linux/" style="font-size: 17.78px;">Linux</a> <a href="/tags/Machine-Learning/" style="font-size: 15px;">Machine-Learning</a> <a href="/tags/Manager/" style="font-size: 16.67px;">Manager</a> <a href="/tags/Medical/" style="font-size: 13.89px;">Medical</a> <a href="/tags/Nature-Science/" style="font-size: 14.44px;">Nature&Science</a> <a href="/tags/Nodejs/" style="font-size: 11.11px;">Nodejs</a> <a href="/tags/OpenSource/" style="font-size: 14.44px;">OpenSource</a> <a href="/tags/PHT/" style="font-size: 11.11px;">PHT</a> <a href="/tags/Policy-Law/" style="font-size: 18.89px;">Policy&Law</a> <a href="/tags/SDN/" style="font-size: 13.33px;">SDN</a> <a href="/tags/SRE/" style="font-size: 15.56px;">SRE</a> <a href="/tags/Sport/" style="font-size: 11.67px;">Sport</a> <a href="/tags/Writing/" style="font-size: 10.56px;">Writing</a> <a href="/tags/工具癖/" style="font-size: 12.22px;">工具癖</a> <a href="/tags/我的自传/" style="font-size: 12.78px;">我的自传</a> <a href="/tags/摄影/" style="font-size: 11.67px;">摄影</a> <a href="/tags/数学与算法/" style="font-size: 14.44px;">数学与算法</a> <a href="/tags/数据可视化/" style="font-size: 14.44px;">数据可视化</a> <a href="/tags/数据库/" style="font-size: 10.56px;">数据库</a> <a href="/tags/最佳写作实践/" style="font-size: 13.89px;">最佳写作实践</a> <a href="/tags/最佳工程实践/" style="font-size: 16.67px;">最佳工程实践</a> <a href="/tags/架构师/" style="font-size: 19.44px;">架构师</a> <a href="/tags/科技史/" style="font-size: 10.56px;">科技史</a> <a href="/tags/移动互联网/" style="font-size: 10px;">移动互联网</a> <a href="/tags/红学/" style="font-size: 11.11px;">红学</a> <a href="/tags/网络协议/" style="font-size: 16.11px;">网络协议</a> <a href="/tags/讲武堂/" style="font-size: 13.89px;">讲武堂</a>
+					</div>
+				</section>
+				
+
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/f2ea0605db4b">专题-经济学人翻译社</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.gitbook.com/book/riboseyim/linux-perf-master/details">电子书《Linux Perf Master》</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/9a817d8a67ea">简书专题-系统运维专家</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/0886ffd76168">简书专题-网络与信息安全</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/9ae32222e422">简书专题-操作系统与动态追踪技术</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/8d40a3a05825">简书专题-数据可视化</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://riboseyim.github.io/2017/11/16/QuickStart/">快捷目录</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://riboseyim.github.io/2017/05/26/Catalog/">总目录</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">Engineer &amp; Writer</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">RiboseYim</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="http://o8m8ngokc.bkt.clouddn.com/icon_macbook.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">RiboseYim</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">愿交天下士，罄我怀中藏。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/DevOps">DevOps</a></li>
+		        
+					<li><a href="/tags/架构师">架构师</a></li>
+		        
+					<li><a href="/tags/讲武堂">讲武堂</a></li>
+		        
+					<li><a href="/tags/Economist">经济学人</a></li>
+		        
+					<li><a href="/tags/Policy-Law">Policy&amp;Law</a></li>
+		        
+					<li><a href="/tags/Art">艺术评论</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="twitter" target="_blank" href="https://twitter.com/RiboseYim" title="twitter">twitter</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/riboseyim" title="zhihu">zhihu</a>
+			        
+						<a class="github" target="_blank" href="https://github.com/riboseyim" title="github">github</a>
+			        
+						<a class="linkedin" target="_blank" href="http://www.linkedin.com/in/%E7%9D%BF-%E4%B8%A5-b39028110" title="linkedin">linkedin</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-Law-Of-Engineering" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/07/05/Law-Of-Engineering/" class="article-date">
+  	<time datetime="2017-07-05T14:26:05.000Z" itemprop="datePublished">2017-07-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      The Road To Leader：软件工程实践中的十大法则
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DevOps/">DevOps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Manager/">Manager</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/最佳工程实践/">最佳工程实践</a></li></ul>
+	</div>
+
+        
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
+<li>0.1 Moore’s Law</li>
+<li>0.2 Metcalfe’s Law</li>
+<li>1、Little’s Law</li>
+<li>2、Goodhart’s Law</li>
+<li>3、Conway’s Law</li>
+<li>4、Parkinson’s Law</li>
+<li>5、Humphrey’s Law</li>
+<li>6、Law of the instrument</li>
+<li>7、Law of Demeter</li>
+<li>8、Dude’s Law</li>
+<li>9、Law of 2 Feet</li>
+<li>10、Law of Propinquity</li>
+<li>11、Linus’ Law</li>
+</ul>
+<a id="more"></a>
+<h4 id="0-1-Moore’s-Law"><a href="#0-1-Moore’s-Law" class="headerlink" title="0.1 Moore’s Law"></a>0.1 Moore’s Law</h4><p>摩尔定律,由英特尔创始人之一戈登·摩尔提出来的。其内容为：积体电路上可容纳的电晶体（晶体管）数目，约每隔两年便会增加一倍。主要有以下三种演绎版本：</p>
+<ul>
+<li>集成电路芯片上所集成的电路的数目，每隔18个月就翻一倍。</li>
+<li>微处理器的性能每隔18个月提高一倍，或价格下降一半。</li>
+<li>用一个美元所能买到的电脑性能，每隔18个月翻两倍。</li>
+</ul>
+<p>这个定律 <strong>被引用最多，分歧很大，反对声音也最多</strong>，有预测认为摩尔定律的极限将在2025年左右到来，但也有更乐观的预测认为还能持续更久。</p>
+<h4 id="0-2-Metcalfe’s-Law"><a href="#0-2-Metcalfe’s-Law" class="headerlink" title="0.2 Metcalfe’s Law"></a>0.2 Metcalfe’s Law</h4><p>梅特卡夫定律，由乔治·吉尔德于1993年提出，但以计算机网络先驱、3Com公司的创始人罗伯特·梅特卡夫的姓氏命名。内容是：一个网络的价值等于该网络内的节点数的平方，而且该网络的价值与联网的用户数的平方成正比。该定律指出，一个网络的用户数目越多，那么整个网络和该网络内的每台电脑的价值也就越大。</p>
+<h4 id="1-Little’s-Law"><a href="#1-Little’s-Law" class="headerlink" title="1. Little’s Law"></a>1. Little’s Law</h4><p><strong>Cycle Time = Work in Progress / Throughput</strong></p>
+<p>中译为利特尔法则，由MIT （Sloan School of Management）的教授John Little于1961年提出：在一个稳定的系统 L中，长期的平均顾客人数，等于长期的有效抵达率，系统中的平均存货等于存货单位离开系统的比率（亦即平均需求率）与存货单位在系统中平均时间的乘积。</p>
+<blockquote>
+<p>the relationship between the average number of customers in a store, their arrival rate, and the average time in the store.</p>
+</blockquote>
+<p>应用领域：精益生产、系统运筹方面应用广泛，Kanban(看板)方法论的基石。</p>
+<blockquote>
+<p>It is the basis of Kanban.</p>
+</blockquote>
+<p><img src="http://ombx24fbq.bkt.clouddn.com/PM_Tools_kanban_Demo_5.png" alt=""></p>
+<blockquote>
+<p>The power of Little’s Law to Kanban teams is not its ability to predict WIP, Thoughput or Leadtime. The true power lies in its ability to influence team behavior with its underlying assumptions.</p>
+</blockquote>
+<h4 id="2-Goodhart’s-Law"><a href="#2-Goodhart’s-Law" class="headerlink" title="2. Goodhart’s Law"></a>2. Goodhart’s Law</h4><blockquote>
+<p>When a measure becomes a target, it ceases to be a good measure.<br><strong>当一个政策变成目标，它将不再是一个好的政策。</strong></p>
+</blockquote>
+<p>古德哈特定律（Goodhart’s law），是以<a href="Charles Goodhart">Charles Goodhart</a>的名字命名，他在1975年的文章中首次发表（当时作为英格兰银行的政策建议）：当政府试图管理这些金融财产的特别标识时，它们便不再是可信的经济风向标。应用领域：公共管理，敏捷开发，目标管理</p>
+<blockquote>
+<p>了解一个指标有意义与否的一个好的方法是试着去理解其所体现的个人价值。关注那些可以给出好的建议、体现沟通技能和良好态度，尤其是需要巨大的付出才能作弊的指标。</p>
+</blockquote>
+<ul>
+<li><p><a href="http://www.sohu.com/a/136852371_163156" target="_blank" rel="external">程序员日志：是什么导致优秀的程序员写出如此垃圾的代码？</a></p>
+</li>
+<li><p><a href="http://lesswrong.com/lw/1ws/the_importance_of_goodharts_law/" target="_blank" rel="external">blogospheroid:The Importance of Goodhart’s Law</a></p>
+</li>
+</ul>
+<h4 id="3-Conway’s-Law"><a href="#3-Conway’s-Law" class="headerlink" title="3. Conway’s Law"></a>3. Conway’s Law</h4><p><strong>Any organization that designs a system (defined broadly) will produce a design whose structure is a copy of the organization’s communication structure.任何组织在设计一套系统（广义概念上的系统）时，所交付的设计方案在结构上都与该组织的通信结构保持一致 – Melvyn Conway, 1967</strong></p>
+<p><img src="http://omb2onfvy.bkt.clouddn.com/MicroService_Org.png" alt=""></p>
+<blockquote>
+<p>《人月神话》：Adding manpower to a late software project makes it later –Fred Brooks, (1975)</p>
+</blockquote>
+<p>为了赶进度加程序员就像用水去灭油锅里的火一样，原因在于：沟通成本 = n(n-1)/2，沟通成本随着项目或者组织的人员增加呈指数级增长。很多项目在经过一段时间的发展之后，都会有不少恐龙级代码，无人敢挑战。比如一个类的规模就多达数千行，核心方法近千行，大量重复代码，每次调整都以失败告终。庞大的系统规模导致团队新成员接手困难，项目组人员增加导致的代码冲突问题，系统复杂度的增加导致的不确定上线风险、引入新技术困难等。应用领域：Micro-Service 微服务</p>
+<p><img src="http://omb2onfvy.bkt.clouddn.com/MicroServices_Math_Demo.png" alt=""></p>
+<h4 id="4-Parkinson’s-Law"><a href="#4-Parkinson’s-Law" class="headerlink" title="4. Parkinson’s Law"></a>4. Parkinson’s Law</h4><blockquote>
+<p>Work expands so as to fill the time available for its completion.<br><strong>在工作能够完成的时限内，工作量会一直增加，直到所有可用时间都被填充为止</strong></p>
+</blockquote>
+<p>帕金森定理（英语：Parkinson’s law），由英国作家<a href="https://zh.wikipedia.org/wiki/%E8%A5%BF%E9%87%8C%E7%88%BE%C2%B7%E8%AB%BE%E6%96%AF%E5%8F%A4%E5%BE%B7%C2%B7%E5%B8%95%E9%87%91%E6%A3%AE" target="_blank" rel="external">西里尔·诺斯古德·帕金森</a>提出，语最早出现在1955年《经济学人》中的幽默短文。在他后续的书中进一步阐述（《Parkinson’s Law: The Pursuit of Progress》）。官僚组织随着时间而扩大的速率。一个官僚组织(作者注：包括非政府组织)中的雇员总数，通常以每年5-7%的速度增加。他认为，有两股力量造成了这个增长：(1) 一个官员希望他的下属增加，但不希望解雇造成敌人增加；以及(2) 官员会制造工作给彼此。 <strong>同意！</strong></p>
+<h4 id="5-Humphrey’s-Law"><a href="#5-Humphrey’s-Law" class="headerlink" title="5. Humphrey’s Law"></a>5. Humphrey’s Law</h4><blockquote>
+<p>The user will never know what they want until after the system is in production (maybe not even then)<br><strong>用户将永远不知道他们想要什么，直到系统已经上线。（也许上线了也不知道）</strong></p>
+<p>“服务员，给我来份宫保鸡丁！”<br>“好嘞！”<br>————这叫原始需求<br>大厨做到一半。<br>“服务员，菜里不要放肉。”<br>“不放肉怎么做啊？”<br>“不放肉就行了，其它按正常程序做，不就行了，难吗？”<br>“好的您稍等”<br>————中途需求变更<br>大厨：”你大爷，我肉都回锅了”<br>服务员：”顾客非要要求的嘛，你把肉挑出来不就行了吗”<br>大厨：”行你大爷”  然而还是一点点挑出来了<br>————改动太大，部分重构<br>。。。。。。<br>“服务员，这样吧，腐竹不要了，换成蒜毫能快点吗？对了，顺便加点番茄酱”<br>————因工期过长再次改动需求<br>大厨：”我日了狗啊，你TM不知道蒜毫也得焯水啊？还有你让我怎么往热菜里放番茄酱啊？？”<br>服务员：”焯水也比等腐竹强吧，番茄酱往里一倒不就行了吗？很难吗？”<br>大厨：”腐竹我还得接着泡，万一这孙子一会又想要了呢。”<br>————频繁改动开始导致大量冗余</p>
+</blockquote>
+<ul>
+<li><a href="https://www.maxcell.org/xiaohua/2016/009953.html" target="_blank" rel="external">冷兔笑话：码农做项目与点菜类比的笑话</a></li>
+<li><a href="https://www.linkedin.com/pulse/20140712143010-6227721-the-three-laws-of-software-development-humphrey-s-law" target="_blank" rel="external">John Eaton:The Three Laws of Software Development - Humphrey’s Law</a></li>
+</ul>
+<h4 id="6-Law-of-the-instrument"><a href="#6-Law-of-the-instrument" class="headerlink" title="6. Law of the instrument"></a>6. Law of the instrument</h4><blockquote>
+<p>If all you have is a hammer, everything looks like a nail</p>
+</blockquote>
+<p><strong>工具定律，锤子定律或马斯洛的锤子</strong>。表现为对一个熟悉的工具过度的依赖，“如果你有的只是一个锤子，那么所有的东西看起来都像一个钉子”以及一些由此转化的说法，来自于亚伯拉罕·马斯洛1966年发行的《科学的心理学》一书。例如：</p>
+<ul>
+<li>“XXX是世界上最好的语言，没有之一”</li>
+<li><p>“加强party的领导”</p>
+</li>
+<li><p><a href="https://www.youtube.com/watch?v=7bf8uzAVsRE" target="_blank" rel="external">Youtube:Law of the instrument</a></p>
+</li>
+</ul>
+<h4 id="7-Law-of-Demeter"><a href="#7-Law-of-Demeter" class="headerlink" title="7. Law of Demeter"></a>7. Law of Demeter</h4><blockquote>
+<p>Law of Demeter is also called “Principle of Least Knowledge”</p>
+</blockquote>
+<p>得墨忒耳定律（Law of Demeter，缩写LoD）是一种软件开发的设计指导原则，特别是面向对象的程序设计。美国东北大学在1987年末发明，名称来源于希腊神话中的农业女神，孤独的得墨忒耳。简单描述为:</p>
+<ul>
+<li>每个单元对于其他的单元只能拥有有限的知识：只是与当前单元紧密联系的单元；</li>
+<li>每个单元只能和它的朋友交谈：不能和陌生单元交谈；</li>
+<li>只和自己直接的朋友交谈。</li>
+</ul>
+<p>a.b.Method()违反了此定律，而a.Method()不违反此定律。一个简单例子是，人可以命令一条狗行走（walk），但是不应该直接指挥狗的腿行走，应该由狗去指挥控制它的腿如何行走。</p>
+<ul>
+<li><a href="https://www.dan-manges.com/blog/37" target="_blank" rel="external">Dan Manges:Misunderstanding the Law of Demeter</a></li>
+</ul>
+<h4 id="8-Dude’s-Law"><a href="#8-Dude’s-Law" class="headerlink" title="8. Dude’s Law"></a>8. Dude’s Law</h4><p><strong>Value (of a project) = Why over How [or Value = Why / How]</strong></p>
+<blockquote>
+<p>“David [the law’s creator] comes from the music industry. New musicians focus on having a nice sound. Professional musicians first think about the mood of the song, the emotion they want to bring across and then work out the sound that fits it”</p>
+</blockquote>
+<p>该法则的发明者来自音乐产业。新手音乐家注重好听的声音。专业的音乐家首先考虑歌曲的情绪，他们想要传达的情感，然后找出适合它的声音。应用领域：项目管理、目标管理</p>
+<ul>
+<li><p><a href="http://devjam.com/2010/08/05/dudes-law-gordon-pask-shoveler/" target="_blank" rel="external">Dude’s Law, Don Reinertsen and Walmart</a></p>
+</li>
+<li><p><a href="https://futureofprojectmanagement.com/2012/06/21/how-does-a-former-musician-build-a-successful-business-in-the-agile-space-devjam-leads-the-way-with-david-hussman/" target="_blank" rel="external">How does a former musician build a successful business in the agile space? DevJam leads the way with David Hussman</a></p>
+</li>
+</ul>
+<h4 id="9-Law-of-2-Feet"><a href="#9-Law-of-2-Feet" class="headerlink" title="9. Law of 2 Feet"></a>9. Law of 2 Feet</h4><blockquote>
+<p>If at any time during our time together you find yourself in any situation where you are neither learning nor contributing, use your two feet, go someplace else.</p>
+</blockquote>
+<p><img src="https://workshopbank.com/wp-content/uploads/2016/11/open-space-guidlines.jpg" alt=""></p>
+<p>应用领域：组织沟通</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=QhNQ8Mhehpw" target="_blank" rel="external">Youtube:Online Open Space Technology Meetings</a></li>
+<li><a href="https://en.wikiversity.org/wiki/Open_Space_Technology" target="_blank" rel="external">Open Space Technology</a></li>
+<li><a href="http://openspaceworld.org/wp2/what-is/" target="_blank" rel="external">What Is Open Space Technology?</a></li>
+</ul>
+<h4 id="10-Law-of-Propinquity"><a href="#10-Law-of-Propinquity" class="headerlink" title="10. Law of Propinquity"></a>10. Law of Propinquity</h4><blockquote>
+<p>The probability of two people communicating is inversely proportional to the distance between them.两个人交流的概率与他们之间的距离成反比。数字时代亦然。</p>
+<p>Cucumbers get more pickled than brine gets cucumbered.<br><strong>当你进入一个环境，它会更多地影响你而不是相反</strong></p>
+</blockquote>
+<p><strong>the more we see people and interact with them, the more probable we are to like them.</strong></p>
+<ul>
+<li><a href="http://chiefmartec.com/2009/01/twitter-and-the-law-of-propinquity/" target="_blank" rel="external">Twitter and the law of propinquity</a></li>
+<li><a href="http://www.giveemthepickle.com/pickle_principle.htm" target="_blank" rel="external">Bonus: Prescott’s Pickle Principle</a></li>
+</ul>
+<h4 id="11-Linus’-Law"><a href="#11-Linus’-Law" class="headerlink" title="11. Linus’ Law"></a>11. Linus’ Law</h4><p>以Linux创始人林纳斯·托瓦兹（Linus Torvalds）的名字来命名，但最先由埃里克·斯蒂芬·雷蒙（Eric S. Raymond）的作品《大教堂和市集》（The Cathedral and the Bazaar）中所提出。“足够多的眼睛，就可让所有问题浮现”（given enough eyeballs, all bugs are shallow）。</p>
+<p>应用领域：代码审查。“只要有足够的单元测试员及共同开发者，所有问题都会在很短时间内被发现，而且能够很容易被解决”。将代码展示给更多开发者以达成共识。在2001年出版的《黑客伦理与信息时代的精神》(The Hacker Ethic And the Spirit of th Information Age)里，林纳斯在其为此书做的序言中，自己定义了另外一个林纳斯定律</p>
+<blockquote>
+<p>人类所有的动机可分为递进的三种类型 — 生存（survival）、社会生活（social life）、娱乐（entertainment）。…… “黑客”是已经超越利用计算机谋生存而进入后面两个阶段的人。计算机本身就是娱乐。黑客坚信没有比这更高的动力阶段。</p>
+</blockquote>
+<h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><ul>
+<li><a href="https://riboseyim.github.io/2016/04/24/LinusTorvalds/" target="_blank" rel="external">Linus Torvalds:Just for Fun</a></li>
+<li><a href="http://www.jianshu.com/p/841862adb059" target="_blank" rel="external">Linus Torvalds: The mind behind Linux</a></li>
+</ul>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
+<li><a href="http://www.defmacro.org/2016/12/22/models.html" target="_blank" rel="external">Mental models | Dec 22, 2016</a></li>
+</ul>
+
+      
+
+    </div>
+    
+  </div>
+  
+    <div class="article-entry" itemprop="articleBody">
+      <p>
+        更多精彩内容扫码关注公众号,RiboseYim's Blog：<a href="https://riboseyim.github.io" target="_blank" rel="external">https://riboseyim.github.io</a>
+        <br>
+        <a href="http://o8m8ngokc.bkt.clouddn.com/ID_RiboseYim_201706.png" title="微信公众号@睿哥杂货铺" rel="fancy-group" class="fancy-ctn fancybox">
+          <img src="http://o8m8ngokc.bkt.clouddn.com/ID_RiboseYim_201706.png" title="微信公众号@睿哥杂货铺">
+          <img src="http://o8m8ngokc.bkt.clouddn.com/quanzi-rui-small.png" title="睿哥读书会">
+        </a>
+      </p>
+    </div>
+    
+<nav id="article-nav">
+  
+    <a href="/2017/07/06/Visualization/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          开源技术架构漫谈：数据可视化
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/07/05/Technology-Writing-Reader-Question/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">读者反馈问题汇编</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		  <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" target="_blank">Copyright 2016-2018 RiboseYim
+      授权：保持署名-非商业性使用-禁止演绎| License BY-NC-ND 4.0 </a>
+    </div>
+      	<div class="footer-right">
+      		<a href="https://riboseyim.github.io/2016/05/31/AboutMe/" target="_blank">聪明秀出谓之英，胆力过人谓之雄 | 联系作者 </a>
+      	</div>
+    </div>
+  </div>
+</footer>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1258500076'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1258500076%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: true
+	}
+</script>
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+  </div>
+</body>
+</html>
