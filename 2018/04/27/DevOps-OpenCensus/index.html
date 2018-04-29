@@ -22,7 +22,7 @@
 <meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/DTM-OpenCensus-Language.png">
 <meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/DTM-OpenCensus-traceZ.png">
 <meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/DTM-Twitter-Zipkin.png">
-<meta property="og:updated_time" content="2018-04-27T14:02:00.634Z">
+<meta property="og:updated_time" content="2018-04-29T02:35:49.110Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DevOps 漫谈：基于OpenCensus构建分布式跟踪系统">
 <meta name="twitter:description" content="摘要 Distributed Tracing and Monitoring System OpenCensus: A framework for distributed tracing">
@@ -373,6 +373,16 @@
 </ul>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> (</div><div class="line">  	 <span class="string">"go.opencensus.io/exporter/prometheus"</span></div><div class="line">	   <span class="string">"go.opencensus.io/exporter/stackdriver"</span></div><div class="line">	   <span class="string">"go.opencensus.io/stats/view"</span></div><div class="line">)</div><div class="line"></div><div class="line">	<span class="comment">// Export to Prometheus Monitoring.</span></div><div class="line">  Exporter, err := prometheus.NewExporter(prometheus.Options&#123;&#125;)</div><div class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</div><div class="line">		logger.Error(<span class="string">"Error creating prometheus exporter  "</span>, zap.Error(err))</div><div class="line">	&#125;</div><div class="line">	view.RegisterExporter(pExporter)</div><div class="line"></div><div class="line"></div><div class="line">  <span class="comment">// Export to Stackdriver Monitoring.</span></div><div class="line">	sExporter, err := stackdriver.NewExporter(stackdriver.Options&#123;ProjectID: config.ProjectID&#125;)</div><div class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</div><div class="line">		logger.Error(<span class="string">"Error creating stackdriver exporter  "</span>, zap.Error(err))</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	view.RegisterExporter(sExporter)</div></pre></td></tr></table></figure>
 <p><img src="http://og2061b3n.bkt.clouddn.com/DTM-Twitter-Zipkin.png" alt=""></p>
+<h2 id="OpenTracing"><a href="#OpenTracing" class="headerlink" title="OpenTracing"></a>OpenTracing</h2><ul>
+<li><p>待续</p>
+</li>
+<li><p><a href="https://wu-sheng.gitbooks.io/opentracing-io/content/" target="_blank" rel="external">OpenTraing 文档 | 中文 </a></p>
+</li>
+<li><a href="https://medium.com/opentracing/the-difference-between-tracing-tracing-and-tracing-84b49b2d54ea" target="_blank" rel="external">The difference between tracing, tracing, and tracing</a></li>
+</ul>
+<h2 id="读者问题"><a href="#读者问题" class="headerlink" title="读者问题"></a>读者问题</h2><ul>
+<li>OpenCensus vs <a href="http://opentracing.io/" target="_blank" rel="external">OpenTracing</a></li>
+</ul>
 <h2 id="扩展阅读：开源架构技术漫谈"><a href="#扩展阅读：开源架构技术漫谈" class="headerlink" title="扩展阅读：开源架构技术漫谈"></a>扩展阅读：开源架构技术漫谈</h2><ul>
 <li><a href="https://riboseyim.github.io/2018/04/27/DevOps-OpenCensus" target="_blank" rel="external">DevOps 漫谈：基于OpenCensus构建分布式跟踪系统</a></li>
 <li><a href="https://riboseyim.github.io/2017/05/23/RestfulAPI/" target="_blank" rel="external">基于Go语言快速构建一个RESTful API服务</a></li>
@@ -388,6 +398,7 @@
 <li><a href="https://riboseyim.github.io/2016/08/15/OpenSource-Kafka/" target="_blank" rel="external">DevOps 资讯 | LinkedIn 开源 Kafka Monitor</a></li>
 </ul>
 <h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
+<li><a href="https://opensource.googleblog.com/2018/01/opencensus.html" target="_blank" rel="external">OpenCensus: A Stats Collection and Distributed Tracing Framework | Wednesday, January 17, 2018 | Google Open Source Blog</a></li>
 <li><a href="http://www.infoq.com/cn/news/2017/11/Uber-open-spurce-Jaeger" target="_blank" rel="external">Uber正式开源其分布式跟踪系统Jaeger | 2017年11月9日</a></li>
 <li><a href="http://www.infoq.com/cn/articles/evolving-distributed-tracing-at-uber-engineering" target="_blank" rel="external">Uber优步分布式追踪技术再度精进</a></li>
 <li><a href="https://blog.doit-intl.com/measure-once-export-anywhere-opencensus-in-the-wild-61724f44eb00" target="_blank" rel="external">Measure Once — Export Anywhere: OpenCensus in the wild</a></li>

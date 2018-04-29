@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://riboseyim.github.com/"/>
-  <updated>2018-04-27T10:28:37.881Z</updated>
+  <updated>2018-04-28T04:56:30.239Z</updated>
   <id>http://riboseyim.github.com/</id>
   
   <author>
@@ -20,9 +20,14 @@
     <link href="http://riboseyim.github.com/2018/04/27/Language-Go-lang-Web/"/>
     <id>http://riboseyim.github.com/2018/04/27/Language-Go-lang-Web/</id>
     <published>2018-04-27T09:39:48.000Z</published>
-    <updated>2018-04-27T10:28:37.881Z</updated>
+    <updated>2018-04-28T04:56:30.239Z</updated>
     
     <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><a id="more"></a>
+<h2 id="beego"><a href="#beego" class="headerlink" title="beego"></a>beego</h2><ul>
+<li><a href="https://beego.me/docs/intro/" target="_blank" rel="external">The architecture of Beego</a></li>
+<li><a href="https://github.com/beego/tutorial/blob/master/README_zh.md" target="_blank" rel="external">beego入门教程</a></li>
+<li><a href="https://github.com/beego/admin" target="_blank" rel="external">基于beego的后台管理系统</a></li>
+</ul>
 <h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
 <li><a href="https://blog.usejournal.com/top-6-web-frameworks-for-go-as-of-2017-23270e059c4b" target="_blank" rel="external">Top 6 web frameworks for Go as of 2017</a>.doc   </li>
 </ul>
@@ -42,7 +47,7 @@
     <link href="http://riboseyim.github.com/2018/04/27/DevOps-OpenCensus/"/>
     <id>http://riboseyim.github.com/2018/04/27/DevOps-OpenCensus/</id>
     <published>2018-04-27T02:33:09.000Z</published>
-    <updated>2018-04-27T14:02:00.634Z</updated>
+    <updated>2018-04-29T02:35:49.110Z</updated>
     
     <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
 <li>Distributed Tracing and Monitoring System</li>
@@ -133,6 +138,16 @@
 </ul>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> (</div><div class="line">  	 <span class="string">"go.opencensus.io/exporter/prometheus"</span></div><div class="line">	   <span class="string">"go.opencensus.io/exporter/stackdriver"</span></div><div class="line">	   <span class="string">"go.opencensus.io/stats/view"</span></div><div class="line">)</div><div class="line"></div><div class="line">	<span class="comment">// Export to Prometheus Monitoring.</span></div><div class="line">  Exporter, err := prometheus.NewExporter(prometheus.Options&#123;&#125;)</div><div class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</div><div class="line">		logger.Error(<span class="string">"Error creating prometheus exporter  "</span>, zap.Error(err))</div><div class="line">	&#125;</div><div class="line">	view.RegisterExporter(pExporter)</div><div class="line"></div><div class="line"></div><div class="line">  <span class="comment">// Export to Stackdriver Monitoring.</span></div><div class="line">	sExporter, err := stackdriver.NewExporter(stackdriver.Options&#123;ProjectID: config.ProjectID&#125;)</div><div class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</div><div class="line">		logger.Error(<span class="string">"Error creating stackdriver exporter  "</span>, zap.Error(err))</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	view.RegisterExporter(sExporter)</div></pre></td></tr></table></figure>
 <p><img src="http://og2061b3n.bkt.clouddn.com/DTM-Twitter-Zipkin.png" alt=""></p>
+<h2 id="OpenTracing"><a href="#OpenTracing" class="headerlink" title="OpenTracing"></a>OpenTracing</h2><ul>
+<li><p>待续</p>
+</li>
+<li><p><a href="https://wu-sheng.gitbooks.io/opentracing-io/content/" target="_blank" rel="external">OpenTraing 文档 | 中文 </a></p>
+</li>
+<li><a href="https://medium.com/opentracing/the-difference-between-tracing-tracing-and-tracing-84b49b2d54ea" target="_blank" rel="external">The difference between tracing, tracing, and tracing</a></li>
+</ul>
+<h2 id="读者问题"><a href="#读者问题" class="headerlink" title="读者问题"></a>读者问题</h2><ul>
+<li>OpenCensus vs <a href="http://opentracing.io/" target="_blank" rel="external">OpenTracing</a></li>
+</ul>
 <h2 id="扩展阅读：开源架构技术漫谈"><a href="#扩展阅读：开源架构技术漫谈" class="headerlink" title="扩展阅读：开源架构技术漫谈"></a>扩展阅读：开源架构技术漫谈</h2><ul>
 <li><a href="https://riboseyim.github.io/2018/04/27/DevOps-OpenCensus" target="_blank" rel="external">DevOps 漫谈：基于OpenCensus构建分布式跟踪系统</a></li>
 <li><a href="https://riboseyim.github.io/2017/05/23/RestfulAPI/" target="_blank" rel="external">基于Go语言快速构建一个RESTful API服务</a></li>
@@ -148,6 +163,7 @@
 <li><a href="https://riboseyim.github.io/2016/08/15/OpenSource-Kafka/" target="_blank" rel="external">DevOps 资讯 | LinkedIn 开源 Kafka Monitor</a></li>
 </ul>
 <h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
+<li><a href="https://opensource.googleblog.com/2018/01/opencensus.html" target="_blank" rel="external">OpenCensus: A Stats Collection and Distributed Tracing Framework | Wednesday, January 17, 2018 | Google Open Source Blog</a></li>
 <li><a href="http://www.infoq.com/cn/news/2017/11/Uber-open-spurce-Jaeger" target="_blank" rel="external">Uber正式开源其分布式跟踪系统Jaeger | 2017年11月9日</a></li>
 <li><a href="http://www.infoq.com/cn/articles/evolving-distributed-tracing-at-uber-engineering" target="_blank" rel="external">Uber优步分布式追踪技术再度精进</a></li>
 <li><a href="https://blog.doit-intl.com/measure-once-export-anywhere-opencensus-in-the-wild-61724f44eb00" target="_blank" rel="external">Measure Once — Export Anywhere: OpenCensus in the wild</a></li>
@@ -175,7 +191,7 @@
     <link href="http://riboseyim.github.com/2018/04/10/DevOps-Phoenix/"/>
     <id>http://riboseyim.github.com/2018/04/10/DevOps-Phoenix/</id>
     <published>2018-04-10T07:12:14.000Z</published>
-    <updated>2018-04-27T14:19:50.955Z</updated>
+    <updated>2018-04-28T09:52:04.156Z</updated>
     
     <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
 <li>背景：《凤凰项目》的灵魂</li>
@@ -204,7 +220,9 @@
 <li>把约束点提升到新的水平；</li>
 <li>寻找下一个约束点。</li>
 </ul>
-<h2 id="管理约束"><a href="#管理约束" class="headerlink" title="管理约束"></a>管理约束</h2><p>艾利·高德拉特明确提出：“在瓶颈之外的任何地方作出的改进都是假象，在瓶颈之后作出任何改进都是徒劳的，而在瓶颈之前作出的任何改进则只会导致瓶颈处堆积更多的库存。”</p>
+<h2 id="管理约束"><a href="#管理约束" class="headerlink" title="管理约束"></a>管理约束</h2><blockquote>
+<p>“<strong>在瓶颈之外的任何地方作出的改进都是假象</strong>，在瓶颈之后作出任何改进都是徒劳的，而在瓶颈之前作出的任何改进则只会导致瓶颈处堆积更多的库存。” —— 艾利·高德拉特</p>
+</blockquote>
 <h4 id="最大的瓶颈是人"><a href="#最大的瓶颈是人" class="headerlink" title="最大的瓶颈是人"></a>最大的瓶颈是人</h4><p>如果希望通过这本书获得一些解决方案和技术细节的人估计要失望了，《凤凰项目》本质上是一本探讨如何提高组织效率的书，或者说主要是讨论人、顺带谈了一些协同方法论。</p>
 <p>我相信很多人看完《凤凰项目》之后都会把故事里面里面一堆人物名字搞混，但是有一个角色甚至比较主角还有意思 —— 布伦特。个人能力超强，工作超努力，对各类技术细节了如指掌，所有大小项目大家都喜欢找他合作，有了问题也会第一时间想到他，典型的超级员工、英雄人物。与此同时，布伦特实际上并不像人们认为的那样聪明绝顶。他每天需要处理大量计划外工作，即使布伦特天天加班都完不成堆积如山的任务，最终造成了大量的任务积压，战略工作不断延期，管理层疲于应付各种投诉。我相信大多数发展中组织里面都会有这么一个角色存在。</p>
 <p>新上任的主人公（比尔）将布伦特识别为 IT 生产环境中的约束点，并采取了更改工作流转的方式来避免布伦特被计划外工作打扰：</p>
