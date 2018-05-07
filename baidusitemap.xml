@@ -4,8 +4,304 @@
 
     
   <url>
+    <loc>http://riboseyim.github.com/2018/05/07/Machine-Learning-Neural-Network/</loc>
+    <lastmod>2018-05-07T13:00:58.268Z</lastmod>
+    <data>
+        <display>
+        <title>Machine Learning:神经网络基础</title>
+        <pubTime>2018-05-07T09:42:51.000Z</pubTime>
+        
+        <tag>架构师</tag>
+         
+        <tag>数学与算法</tag>
+         
+        <tag>Machine-Learning</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2018/04/02/Machine-Learning-Algorithms-Sheet/</loc>
+    <lastmod>2018-05-07T12:58:43.077Z</lastmod>
+    <data>
+        <display>
+        <title>Machine Learning:如何选择机器学习算法？</title>
+        <pubTime>2018-04-02T07:28:39.000Z</pubTime>
+        
+        <tag>架构师</tag>
+         
+        <tag>数学与算法</tag>
+         
+        <tag>Machine-Learning</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2018/02/10/Machine-Learning-Algorithms/</loc>
+    <lastmod>2018-05-07T12:58:29.495Z</lastmod>
+    <data>
+        <display>
+        <title>Machine Learning:机器学习算法</title>
+        <pubTime>2018-02-10T10:17:46.000Z</pubTime>
+        
+        <tag>架构师</tag>
+         
+        <tag>数学与算法</tag>
+         
+        <tag>Machine-Learning</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2018/02/09/Machine-Learning-Articles/</loc>
+    <lastmod>2018-05-07T12:58:21.123Z</lastmod>
+    <data>
+        <display>
+        <title>Machine Learning:机器学习参考文集</title>
+        <pubTime>2018-02-09T13:52:37.000Z</pubTime>
+        
+        <tag>架构师</tag>
+         
+        <tag>Machine-Learning</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2018/01/25/Machine-Learning-Books/</loc>
+    <lastmod>2018-05-07T12:58:12.388Z</lastmod>
+    <data>
+        <display>
+        <title>Machine Learning:机器学习推荐书单</title>
+        <pubTime>2018-01-25T09:55:34.000Z</pubTime>
+        
+        <tag>架构师</tag>
+         
+        <tag>数学与算法</tag>
+         
+        <tag>Machine-Learning</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2018/03/09/Machine-Learning-Economist/</loc>
+    <lastmod>2018-05-07T12:58:07.526Z</lastmod>
+    <data>
+        <display>
+        <title>Machine Learning:经济学家谈人工智能</title>
+        <pubTime>2018-03-09T08:55:07.000Z</pubTime>
+        
+        <tag>Nature&amp;Science</tag>
+         
+        <tag>Policy&amp;Law</tag>
+         
+        <tag>Economist</tag>
+         
+        <tag>Manager</tag>
+         
+        <tag>Machine-Learning</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2018/02/16/Machine-Learning-Law/</loc>
+    <lastmod>2018-05-07T12:58:01.078Z</lastmod>
+    <data>
+        <display>
+        <title>Machine Learning:机器学习技术与知识产权法</title>
+        <pubTime>2018-02-15T17:31:58.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2017/08/29/Machine-Learning-News/</loc>
+    <lastmod>2018-05-07T12:57:44.988Z</lastmod>
+    <data>
+        <display>
+        <title>Machine Learning:人工智能媒体报道集</title>
+        <pubTime>2017-08-29T10:38:51.000Z</pubTime>
+        
+        <tag>Economist</tag>
+         
+        <tag>Machine-Learning</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2018/01/15/Machine-Learning-OpenCV/</loc>
+    <lastmod>2018-05-07T12:57:37.326Z</lastmod>
+    <data>
+        <display>
+        <title>Machine Learning(二):宠物智能识别之 Using OpenCV with Node.js</title>
+        <pubTime>2018-01-15T09:01:06.000Z</pubTime>
+        
+        <tag>Developer</tag>
+         
+        <tag>Nodejs</tag>
+         
+        <tag>Machine-Learning</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2018/02/09/Machine-Learning-Projects/</loc>
+    <lastmod>2018-05-07T12:57:31.853Z</lastmod>
+    <data>
+        <display>
+        <title>Machine Learning:机器学习开源项目</title>
+        <pubTime>2018-02-09T13:51:57.000Z</pubTime>
+        
+        <tag>架构师</tag>
+         
+        <tag>Developer</tag>
+         
+        <tag>Machine-Learning</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2018/01/17/Machine-Learning-TensorFlow/</loc>
+    <lastmod>2018-05-07T12:57:20.463Z</lastmod>
+    <data>
+        <display>
+        <title>Machine Learning(一):基于 TensorFlow 实现宠物血统智能识别</title>
+        <pubTime>2018-01-17T12:43:28.000Z</pubTime>
+        
+        <tag>架构师</tag>
+         
+        <tag>Developer</tag>
+         
+        <tag>Golang</tag>
+         
+        <tag>数学与算法</tag>
+         
+        <tag>Machine-Learning</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2018/02/27/Machine-Learning-TrainModel/</loc>
+    <lastmod>2018-05-07T12:57:09.905Z</lastmod>
+    <data>
+        <display>
+        <title>Machine Learning:Training Models</title>
+        <pubTime>2018-02-27T06:23:57.000Z</pubTime>
+        
+        <tag>架构师</tag>
+         
+        <tag>DevOps</tag>
+         
+        <tag>Developer</tag>
+         
+        <tag>数学与算法</tag>
+         
+        <tag>Machine-Learning</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2018/03/21/Machine-Learning-WordBook/</loc>
+    <lastmod>2018-05-07T12:57:04.274Z</lastmod>
+    <data>
+        <display>
+        <title>Machine Learning:WordBook</title>
+        <pubTime>2018-03-21T03:08:01.000Z</pubTime>
+        
+        <tag>Machine-Learning</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2017/06/19/Machine-Learning/</loc>
+    <lastmod>2018-05-07T12:56:41.347Z</lastmod>
+    <data>
+        <display>
+        <title>机器学习(Machine Learning)小组</title>
+        <pubTime>2017-06-19T08:31:00.000Z</pubTime>
+        
+        <tag>架构师</tag>
+         
+        <tag>DevOps</tag>
+         
+        <tag>Developer</tag>
+         
+        <tag>数学与算法</tag>
+         
+        <tag>Machine-Learning</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://riboseyim.github.com/2018/04/27/DevOps-OpenCensus/</loc>
-    <lastmod>2018-04-29T02:35:49.110Z</lastmod>
+    <lastmod>2018-05-02T04:03:10.873Z</lastmod>
     <data>
         <display>
         <title>DevOps 漫谈：基于OpenCensus构建分布式跟踪系统</title>
@@ -15,6 +311,40 @@
          
         <tag>DevOps</tag>
          
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2018/03/26/DevOps-Deployment/</loc>
+    <lastmod>2018-05-02T03:14:45.860Z</lastmod>
+    <data>
+        <display>
+        <title>DevOps 漫谈：基础设施部署和配置管理</title>
+        <pubTime>2018-03-26T10:01:39.000Z</pubTime>
+        
+        <tag>DevOps</tag>
+         
+        <tag>Linux</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2018/04/27/Language-Go-lang-Web/</loc>
+    <lastmod>2018-04-30T11:32:59.695Z</lastmod>
+    <data>
+        <display>
+        <title>玩转编程语言:基于Golang开发Web应用</title>
+        <pubTime>2018-04-27T09:39:48.000Z</pubTime>
+        
          
            
         </display>
@@ -36,21 +366,6 @@
          
         <tag>Manager</tag>
          
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://riboseyim.github.com/2018/04/27/Language-Go-lang-Web/</loc>
-    <lastmod>2018-04-28T04:56:30.239Z</lastmod>
-    <data>
-        <display>
-        <title>玩转编程语言:基于Golang开发Web应用</title>
-        <pubTime>2018-04-27T09:39:48.000Z</pubTime>
-        
          
            
         </display>
@@ -332,25 +647,6 @@
         <tag>Manager</tag>
          
         <tag>工具癖</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://riboseyim.github.com/2018/03/26/DevOps-Deployment/</loc>
-    <lastmod>2018-04-26T02:09:08.800Z</lastmod>
-    <data>
-        <display>
-        <title>DevOps 漫谈：基础设施部署和配置管理</title>
-        <pubTime>2018-03-26T10:01:39.000Z</pubTime>
-        
-        <tag>DevOps</tag>
-         
-        <tag>Linux</tag>
          
          
            
@@ -718,11 +1014,11 @@
         <title>江南园林艺术鉴赏</title>
         <pubTime>2017-01-30T02:17:14.000Z</pubTime>
         
+        <tag>Art</tag>
+         
         <tag>摄影</tag>
          
         <tag>Sport</tag>
-         
-        <tag>Art</tag>
          
          
            
@@ -940,77 +1236,6 @@
 
     
   <url>
-    <loc>http://riboseyim.github.com/2018/02/27/Machine-Learning-TrainModel/</loc>
-    <lastmod>2018-04-13T01:35:10.068Z</lastmod>
-    <data>
-        <display>
-        <title>Machine Learning:Training Models</title>
-        <pubTime>2018-02-27T06:23:57.000Z</pubTime>
-        
-        <tag>架构师</tag>
-         
-        <tag>DevOps</tag>
-         
-        <tag>Developer</tag>
-         
-        <tag>数学与算法</tag>
-         
-        <tag>Machine-Learning</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://riboseyim.github.com/2018/01/15/Machine-Learning-OpenCV/</loc>
-    <lastmod>2018-04-13T01:33:49.363Z</lastmod>
-    <data>
-        <display>
-        <title>Machine Learning(二):宠物智能识别之 Using OpenCV with Node.js</title>
-        <pubTime>2018-01-15T09:01:06.000Z</pubTime>
-        
-        <tag>Developer</tag>
-         
-        <tag>Nodejs</tag>
-         
-        <tag>Machine-Learning</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://riboseyim.github.com/2017/06/19/Machine-Learning/</loc>
-    <lastmod>2018-04-12T06:44:58.216Z</lastmod>
-    <data>
-        <display>
-        <title>机器学习(Machine Learning)小组</title>
-        <pubTime>2017-06-19T08:31:00.000Z</pubTime>
-        
-        <tag>架构师</tag>
-         
-        <tag>DevOps</tag>
-         
-        <tag>Developer</tag>
-         
-        <tag>数学与算法</tag>
-         
-        <tag>Machine-Learning</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://riboseyim.github.com/2016/04/26/Architect/</loc>
     <lastmod>2018-04-12T06:43:52.182Z</lastmod>
     <data>
@@ -1085,31 +1310,6 @@
 
     
   <url>
-    <loc>http://riboseyim.github.com/2018/01/17/Machine-Learning-TensorFlow/</loc>
-    <lastmod>2018-04-10T07:55:16.492Z</lastmod>
-    <data>
-        <display>
-        <title>Machine Learning(一):基于 TensorFlow 实现宠物血统智能识别</title>
-        <pubTime>2018-01-17T12:43:28.000Z</pubTime>
-        
-        <tag>架构师</tag>
-         
-        <tag>Developer</tag>
-         
-        <tag>Golang</tag>
-         
-        <tag>数学与算法</tag>
-         
-        <tag>Machine-Learning</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://riboseyim.github.com/2017/06/27/Technology-English/</loc>
     <lastmod>2018-04-10T07:52:49.163Z</lastmod>
     <data>
@@ -1170,27 +1370,6 @@
         <tag>Policy&amp;Law</tag>
          
         <tag>Economist</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://riboseyim.github.com/2018/01/25/Machine-Learning-Books/</loc>
-    <lastmod>2018-04-10T07:45:53.433Z</lastmod>
-    <data>
-        <display>
-        <title>Machine Learning:机器学习推荐书单</title>
-        <pubTime>2018-01-25T09:55:34.000Z</pubTime>
-        
-        <tag>架构师</tag>
-         
-        <tag>数学与算法</tag>
-         
-        <tag>Machine-Learning</tag>
          
          
            
@@ -1334,27 +1513,6 @@
         <tag>Economist</tag>
          
         <tag>Manager</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://riboseyim.github.com/2018/02/09/Machine-Learning-Projects/</loc>
-    <lastmod>2018-04-10T06:57:53.270Z</lastmod>
-    <data>
-        <display>
-        <title>Machine Learning:机器学习开源项目</title>
-        <pubTime>2018-02-09T13:51:57.000Z</pubTime>
-        
-        <tag>架构师</tag>
-         
-        <tag>Developer</tag>
-         
-        <tag>Machine-Learning</tag>
          
          
            
@@ -1514,11 +1672,11 @@
         
         <tag>Policy&amp;Law</tag>
          
+        <tag>Art</tag>
+         
         <tag>摄影</tag>
          
         <tag>Sport</tag>
-         
-        <tag>Art</tag>
          
         <tag>讲武堂</tag>
          
@@ -1554,9 +1712,9 @@
         <title>Museum：博物馆大全</title>
         <pubTime>2017-05-12T08:09:13.000Z</pubTime>
         
-        <tag>摄影</tag>
-         
         <tag>Art</tag>
+         
+        <tag>摄影</tag>
          
          
            
@@ -1579,9 +1737,9 @@
          
         <tag>数学与算法</tag>
          
-        <tag>Develper</tag>
-         
         <tag>科技史</tag>
+         
+        <tag>Develper</tag>
          
          
            
@@ -1610,21 +1768,6 @@
 
     
   <url>
-    <loc>http://riboseyim.github.com/2018/02/16/Machine-Learning-Law/</loc>
-    <lastmod>2018-04-03T09:39:07.966Z</lastmod>
-    <data>
-        <display>
-        <title>Machine Learning:机器学习技术与知识产权法</title>
-        <pubTime>2018-02-15T17:31:58.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://riboseyim.github.com/2017/10/23/Accounting/</loc>
     <lastmod>2018-04-03T03:17:54.979Z</lastmod>
     <data>
@@ -1632,111 +1775,6 @@
         <title>Economist-Accounting</title>
         <pubTime>2017-10-23T06:35:31.000Z</pubTime>
         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://riboseyim.github.com/2017/08/29/Machine-Learning-News/</loc>
-    <lastmod>2018-04-02T09:33:45.794Z</lastmod>
-    <data>
-        <display>
-        <title>Machine Learning:人工智能媒体报道集</title>
-        <pubTime>2017-08-29T10:38:51.000Z</pubTime>
-        
-        <tag>Economist</tag>
-         
-        <tag>Machine-Learning</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://riboseyim.github.com/2018/03/09/Machine-Learning-Economist/</loc>
-    <lastmod>2018-04-02T09:33:23.528Z</lastmod>
-    <data>
-        <display>
-        <title>Machine Learning:经济学家谈人工智能</title>
-        <pubTime>2018-03-09T08:55:07.000Z</pubTime>
-        
-        <tag>Nature&amp;Science</tag>
-         
-        <tag>Policy&amp;Law</tag>
-         
-        <tag>Economist</tag>
-         
-        <tag>Manager</tag>
-         
-        <tag>Machine-Learning</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://riboseyim.github.com/2018/02/09/Machine-Learning-Articles/</loc>
-    <lastmod>2018-04-02T09:33:04.680Z</lastmod>
-    <data>
-        <display>
-        <title>Machine Learning:机器学习参考文集</title>
-        <pubTime>2018-02-09T13:52:37.000Z</pubTime>
-        
-        <tag>架构师</tag>
-         
-        <tag>Machine-Learning</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://riboseyim.github.com/2018/04/02/Machine-Learning-Algorithms-Sheet/</loc>
-    <lastmod>2018-04-02T08:56:06.396Z</lastmod>
-    <data>
-        <display>
-        <title>Machine Learning:如何选择机器学习算法？</title>
-        <pubTime>2018-04-02T07:28:39.000Z</pubTime>
-        
-        <tag>架构师</tag>
-         
-        <tag>数学与算法</tag>
-         
-        <tag>Machine-Learning</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://riboseyim.github.com/2018/02/10/Machine-Learning-Algorithms/</loc>
-    <lastmod>2018-04-02T08:54:53.162Z</lastmod>
-    <data>
-        <display>
-        <title>Machine Learning:机器学习算法</title>
-        <pubTime>2018-02-10T10:17:46.000Z</pubTime>
-        
-        <tag>架构师</tag>
-         
-        <tag>数学与算法</tag>
-         
-        <tag>Machine-Learning</tag>
-         
          
            
         </display>
@@ -1776,23 +1814,6 @@
         <tag>DevOps</tag>
          
         <tag>Developer</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://riboseyim.github.com/2018/03/21/Machine-Learning-WordBook/</loc>
-    <lastmod>2018-03-30T08:19:50.715Z</lastmod>
-    <data>
-        <display>
-        <title>Machine Learning:WordBook</title>
-        <pubTime>2018-03-21T03:08:01.000Z</pubTime>
-        
-        <tag>Machine-Learning</tag>
          
          
            

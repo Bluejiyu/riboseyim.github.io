@@ -2,9 +2,121 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://riboseyim.github.com/2018/05/07/Machine-Learning-Neural-Network/</loc>
+    
+    <lastmod>2018-05-07T13:00:58.268Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2018/04/02/Machine-Learning-Algorithms-Sheet/</loc>
+    
+    <lastmod>2018-05-07T12:58:43.077Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2018/02/10/Machine-Learning-Algorithms/</loc>
+    
+    <lastmod>2018-05-07T12:58:29.495Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2018/02/09/Machine-Learning-Articles/</loc>
+    
+    <lastmod>2018-05-07T12:58:21.123Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2018/01/25/Machine-Learning-Books/</loc>
+    
+    <lastmod>2018-05-07T12:58:12.388Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2018/03/09/Machine-Learning-Economist/</loc>
+    
+    <lastmod>2018-05-07T12:58:07.526Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2018/02/16/Machine-Learning-Law/</loc>
+    
+    <lastmod>2018-05-07T12:58:01.078Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2017/08/29/Machine-Learning-News/</loc>
+    
+    <lastmod>2018-05-07T12:57:44.988Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2018/01/15/Machine-Learning-OpenCV/</loc>
+    
+    <lastmod>2018-05-07T12:57:37.326Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2018/02/09/Machine-Learning-Projects/</loc>
+    
+    <lastmod>2018-05-07T12:57:31.853Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2018/01/17/Machine-Learning-TensorFlow/</loc>
+    
+    <lastmod>2018-05-07T12:57:20.463Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2018/02/27/Machine-Learning-TrainModel/</loc>
+    
+    <lastmod>2018-05-07T12:57:09.905Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2018/03/21/Machine-Learning-WordBook/</loc>
+    
+    <lastmod>2018-05-07T12:57:04.274Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2017/06/19/Machine-Learning/</loc>
+    
+    <lastmod>2018-05-07T12:56:41.347Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://riboseyim.github.com/2018/04/27/DevOps-OpenCensus/</loc>
     
-    <lastmod>2018-04-29T02:35:49.110Z</lastmod>
+    <lastmod>2018-05-02T04:03:10.873Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2018/03/26/DevOps-Deployment/</loc>
+    
+    <lastmod>2018-05-02T03:14:45.860Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2018/04/27/Language-Go-lang-Web/</loc>
+    
+    <lastmod>2018-04-30T11:32:59.695Z</lastmod>
     
   </url>
   
@@ -12,13 +124,6 @@
     <loc>http://riboseyim.github.com/2018/04/10/DevOps-Phoenix/</loc>
     
     <lastmod>2018-04-28T09:52:04.156Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2018/04/27/Language-Go-lang-Web/</loc>
-    
-    <lastmod>2018-04-28T04:56:30.239Z</lastmod>
     
   </url>
   
@@ -117,13 +222,6 @@
     <loc>http://riboseyim.github.com/2016/04/26/TeamWork-Redmine/</loc>
     
     <lastmod>2018-04-26T02:09:53.118Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2018/03/26/DevOps-Deployment/</loc>
-    
-    <lastmod>2018-04-26T02:09:08.800Z</lastmod>
     
   </url>
   
@@ -324,27 +422,6 @@
   </url>
   
   <url>
-    <loc>http://riboseyim.github.com/2018/02/27/Machine-Learning-TrainModel/</loc>
-    
-    <lastmod>2018-04-13T01:35:10.068Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2018/01/15/Machine-Learning-OpenCV/</loc>
-    
-    <lastmod>2018-04-13T01:33:49.363Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2017/06/19/Machine-Learning/</loc>
-    
-    <lastmod>2018-04-12T06:44:58.216Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://riboseyim.github.com/2016/04/26/Architect/</loc>
     
     <lastmod>2018-04-12T06:43:52.182Z</lastmod>
@@ -373,13 +450,6 @@
   </url>
   
   <url>
-    <loc>http://riboseyim.github.com/2018/01/17/Machine-Learning-TensorFlow/</loc>
-    
-    <lastmod>2018-04-10T07:55:16.492Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://riboseyim.github.com/2017/06/27/Technology-English/</loc>
     
     <lastmod>2018-04-10T07:52:49.163Z</lastmod>
@@ -397,13 +467,6 @@
     <loc>http://riboseyim.github.com/2017/07/09/Law-Of-Intellectual-Property/</loc>
     
     <lastmod>2018-04-10T07:47:05.196Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2018/01/25/Machine-Learning-Books/</loc>
-    
-    <lastmod>2018-04-10T07:45:53.433Z</lastmod>
     
   </url>
   
@@ -453,13 +516,6 @@
     <loc>http://riboseyim.github.com/2018/01/07/Addiction-Decision-Behavior/</loc>
     
     <lastmod>2018-04-10T06:59:50.119Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2018/02/09/Machine-Learning-Projects/</loc>
-    
-    <lastmod>2018-04-10T06:57:53.270Z</lastmod>
     
   </url>
   
@@ -548,51 +604,9 @@
   </url>
   
   <url>
-    <loc>http://riboseyim.github.com/2018/02/16/Machine-Learning-Law/</loc>
-    
-    <lastmod>2018-04-03T09:39:07.966Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://riboseyim.github.com/2017/10/23/Accounting/</loc>
     
     <lastmod>2018-04-03T03:17:54.979Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2017/08/29/Machine-Learning-News/</loc>
-    
-    <lastmod>2018-04-02T09:33:45.794Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2018/03/09/Machine-Learning-Economist/</loc>
-    
-    <lastmod>2018-04-02T09:33:23.528Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2018/02/09/Machine-Learning-Articles/</loc>
-    
-    <lastmod>2018-04-02T09:33:04.680Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2018/04/02/Machine-Learning-Algorithms-Sheet/</loc>
-    
-    <lastmod>2018-04-02T08:56:06.396Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2018/02/10/Machine-Learning-Algorithms/</loc>
-    
-    <lastmod>2018-04-02T08:54:53.162Z</lastmod>
     
   </url>
   
@@ -607,13 +621,6 @@
     <loc>http://riboseyim.github.com/2016/05/31/TeamWork-Git/</loc>
     
     <lastmod>2018-03-30T10:10:50.972Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2018/03/21/Machine-Learning-WordBook/</loc>
-    
-    <lastmod>2018-03-30T08:19:50.715Z</lastmod>
     
   </url>
   

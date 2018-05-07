@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://riboseyim.github.com/"/>
-  <updated>2018-04-28T04:56:30.239Z</updated>
+  <updated>2018-05-07T13:00:58.268Z</updated>
   <id>http://riboseyim.github.com/</id>
   
   <author>
@@ -16,14 +16,195 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Machine Learning:神经网络基础</title>
+    <link href="http://riboseyim.github.com/2018/05/07/Machine-Learning-Neural-Network/"/>
+    <id>http://riboseyim.github.com/2018/05/07/Machine-Learning-Neural-Network/</id>
+    <published>2018-05-07T09:42:51.000Z</published>
+    <updated>2018-05-07T13:00:58.268Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
+<li>Introduction</li>
+<li>工作流程：Forward-Propagation、Backward Propagation、Partial Derivatives、Hyper Parameters</li>
+<li>深度网络：A single layer Neural Network、Wide Neural Network  vs  Deep Neural Network</li>
+<li>维度诅咒</li>
+</ul>
+<a id="more"></a>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>神经网络试图复制人脑的工作以使事情更加智能化。</p>
+<p>神经网络通常是一种有监督的学习方法。这意味着需要有一套训练集。理想情况下，训练集合包含了绝对真值（tags | 标签，classes | 类 ）的例子。例如在文本情感分析的情况下，训练集是句子列表和它们各自对应的情绪。（注意：未标记的数据集也可以用来训练神经网络，但这里仅考虑最基本的情况。）</p>
+<p>例如：将文本称为 X ，将它们的标签称为 Y 。 有一些函数可以定义 X 和 Y 之间的关系，比如是什么特征（词/短语/句子结构等）导致一个句子是否定的或肯定的的含义。早期的人们习惯于手动查找这些特征，这被称为特征工程（feature engineering）。神经网络使得这一过程实现自动化处理。</p>
+<blockquote>
+<p>So there are many ways you can understand a concept, choose whichever suits you, being persistent about the learning part. At the end knowing maths is a useful tool when it comes to optimisations or experimentations.</p>
+</blockquote>
+<h2 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h2><p><img src="http://omb2onfvy.bkt.clouddn.com/NeuralNetwork-Basic-1.jpg" alt=""></p>
+<p>人工神经网络由3个组成部分组成：</p>
+<ul>
+<li>输入层 Input Layer</li>
+<li>隐藏（计算）层 Hidden (computation) Layers</li>
+<li>输出层 Output Layer</li>
+</ul>
+<p>学习过程分两步进行：</p>
+<ul>
+<li>前向传播 Forward-Propagation：猜测答案</li>
+<li>反向传播 Back-Propagation：最小化实际答案和猜测答案之间的误差</li>
+</ul>
+<h4 id="前向传播-Forward-Propagation"><a href="#前向传播-Forward-Propagation" class="headerlink" title="前向传播 Forward-Propagation"></a>前向传播 Forward-Propagation</h4><p><img src="http://omb2onfvy.bkt.clouddn.com/NeuralNetwork-Basic-2.png" alt=""></p>
+<p>随机初始化权重（Randomly initialize weights）</p>
+<ul>
+<li>w1</li>
+<li>w2</li>
+<li>w3<br>输入层的数据乘以权重形成隐藏层</li>
+<li>h1 = (x1 * w1) + (x2 * w1)</li>
+<li>h2 = (x1 * w2) + (x2 * w2)</li>
+<li>h3 = (x1 * w3) + (x2 * w3)<br>隐藏层的输出通过非线性函数(激活函数)以形成猜测输出(guessed output)</li>
+<li>y_ = fn( h1 , h2, h3 )</li>
+</ul>
+<h4 id="反向传播-Backward-Propagation"><a href="#反向传播-Backward-Propagation" class="headerlink" title="反向传播 Backward Propagation"></a>反向传播 Backward Propagation</h4><p><img src="http://omb2onfvy.bkt.clouddn.com/NeuralNetwork-Basic-3.jpg" alt=""></p>
+<ul>
+<li>总误差  total_error 通过一个代价函数 (cost function) 来计算，参数为计算期望值( expected value ) y（训练集中的值）和观测值(observed value)  y_（前向传播值）</li>
+<li>按每一个权重计算误差的偏导数（这些偏微分是每一个权重在总误差中的量度）</li>
+<li>微分后乘以一个小数 ( η ) ，η  称为学习率（learning rate）</li>
+<li>然后从各自的权重中减去结果</li>
+</ul>
+<p>反向传播的结果是以下更新的权重：</p>
+<ul>
+<li>w1 = w1 - (η * ∂(err) / ∂(w1))</li>
+<li>w2 = w2 - (η * ∂(err) / ∂(w2))</li>
+<li>w3 = w3 - (η * ∂(err) / ∂(w3))</li>
+</ul>
+<p>基本上我们对权重初始化时是随机的，并假设他们会产生准确的答案。</p>
+<blockquote>
+<p>Those familiar with Taylor Series, backpropogation shares the same end result with it. But instead of an indefinite series we try to optimise the first element only.</p>
+</blockquote>
+<p>偏差（Bias）是添加到隐藏层的权重。它们也被随机初始化并以隐藏层相似的方式更新。虽然隐藏层的作用是映射数据中底层函数（underlying function）的模型，但偏差的作用是横向移动学习函数（the learned function），使其与原始函数（the original function）重叠。</p>
+<p><img src="http://omb2onfvy.bkt.clouddn.com/NeuralNetwork-Basic-4.jpg" alt=""></p>
+<h4 id="偏导数-Partial-Derivatives"><a href="#偏导数-Partial-Derivatives" class="headerlink" title="偏导数 Partial Derivatives"></a>偏导数 Partial Derivatives</h4><p>计算偏导数使我们能够知道每个权重对误差的贡献。</p>
+<p>导数的需求是显而易见的。例如：假设一个试图找到自动驾驶汽车最佳速度的神经网络。现在，如果汽车发现速度比预期的更快或者更慢，那么神经网络会通过加速或减速来改变速度。什么是加速/减速？速度的导数。</p>
+<h4 id="解释偏导数：射飞镖"><a href="#解释偏导数：射飞镖" class="headerlink" title="解释偏导数：射飞镖"></a>解释偏导数：射飞镖</h4><p>假设有几个孩子被要求向飞镖靶掷飞镖，瞄准中心。最初的结果是：</p>
+<p><img src="http://omb2onfvy.bkt.clouddn.com/NeuralNetwork-Basic-5.jpg" alt=""></p>
+<p>现在如果我们确认了总误差并简单地从所有权重中减去，那么我们可以概括每个学生的误差。假设一个孩子瞄准的目标太低，但是我们要求所有的孩子都瞄准得更高一些，结果是：</p>
+<p><img src="http://omb2onfvy.bkt.clouddn.com/NeuralNetwork-Basic-6.jpg" alt=""></p>
+<p>一些学生的错误可能会减少，但总体错误仍然会增加。通过查找偏导数，我们可以找出每个权重单独产生的误差。单独修正每个权重会得到以下结果：</p>
+<p><img src="http://omb2onfvy.bkt.clouddn.com/NeuralNetwork-Basic-7.jpg" alt=""></p>
+<h2 id="超参数-Hyper-Parameters"><a href="#超参数-Hyper-Parameters" class="headerlink" title="超参数 Hyper Parameters"></a>超参数 Hyper Parameters</h2><p>虽然神经网络被用于自动化特征选择，但是仍然有一些参数我们必须手动输入。</p>
+<h4 id="学习速率-Learning-Rate"><a href="#学习速率-Learning-Rate" class="headerlink" title="学习速率 Learning Rate"></a>学习速率 Learning Rate</h4><p>学习速率是一个非常关键的超参数。如果学习速率太小，那么即使在长时间训练神经网络之后，它仍将远离最优结果。结果看起来像：</p>
+<p><img src="http://omb2onfvy.bkt.clouddn.com/NeuralNetwork-Basic-8.jpg" alt=""></p>
+<p>相反，如果学习率太高，那么学习者就会过早地得出结论。产生以下结果：</p>
+<p><img src="http://omb2onfvy.bkt.clouddn.com/NeuralNetwork-Basic-9.jpg" alt=""></p>
+<h4 id="激活函数-Activation-Function"><a href="#激活函数-Activation-Function" class="headerlink" title="激活函数 Activation Function"></a>激活函数 Activation Function</h4><p>简单来说，激活函数（激励函数）负责决定哪些神经元将被激活，即什么信息将传递给其他层。没有激活函数，深度神经网络将失去大量的描述学习能力。</p>
+<p>这些函数的非线性负责增加学习者的自由度，使他们能够在较低维度上推广高维的问题。<br>下面是一些流行的激活函数的例子：<br><img src="http://omb2onfvy.bkt.clouddn.com/NeuralNetwork-Basic-10.png" alt=""></p>
+<h4 id="成本函数-Cost-Function"><a href="#成本函数-Cost-Function" class="headerlink" title="成本函数 Cost Function"></a>成本函数 Cost Function</h4><p>成本函数是神经网络的核心。它用于计算真实和观察结果的损失(loss)。我们的目标是尽量减少这种损失。因此，成本函数有效地推动了神经网络对其目标的学习。</p>
+<p>成本函数是神经网络做的“有多好”的量度，在给定训练样本和预期输出方面。它也可能取决于变量，如权重(weights)和偏差(biases)。</p>
+<p>成本函数是一个单一的值，而不是一个矢量，因为它评价了神经网络作为一个整体的效果。<br>一些最着名的成本函数是：</p>
+<ul>
+<li>平方平均数 Quadratic Cost ，简称均方根 Root Mean Square</li>
+<li>交叉熵 Cross Entropy</li>
+<li>指数 Exponential (AdaBoost)</li>
+<li>相对熵 Kullback–Leibler divergence 或者 信息收益 Information Gain</li>
+</ul>
+<p>均方根是其中最简单和最常用的。它被简单地定义为：</p>
+<blockquote>
+<p>Loss = √(expected_output ** 2) - (real_output ** 2)</p>
+</blockquote>
+<p>神经网络中的成本函数应满足两个条件：</p>
+<ul>
+<li>成本函数必须能够写成平均值</li>
+<li>成本函数不能取决于除一个神经网络中的输出值以外的的任何激活值</li>
+</ul>
+<p><img src="http://omb2onfvy.bkt.clouddn.com/NeuralNetwork-Basic-11.jpg" alt=""></p>
+<h2 id="深度网络"><a href="#深度网络" class="headerlink" title="深度网络"></a>深度网络</h2><p>深度学习是一类机器学习算法，可以从数据中学习更深入（更抽象）的洞察力。</p>
+<ul>
+<li>使用级联，类似流水线的依次传递管道，拥有多层处理单元（非线性）进行特征提取和转换。</li>
+<li>基于以无监督方式学习数据的特征（表示数据知识）。更高级别的特征（在后面的处理图层中找到）是从更低级别的特征（可在初始处理图层中找到）导出的。</li>
+<li>多级表示相对应的不同抽象级别；这些级别构成了概念的层次结构。</li>
+</ul>
+<h4 id="单层神经网络-A-single-layer-Neural-Network"><a href="#单层神经网络-A-single-layer-Neural-Network" class="headerlink" title="单层神经网络 A single layer Neural Network"></a>单层神经网络 A single layer Neural Network</h4><p>单层神经网络，无论第一层（绿色神经元）如何学习，他们只需将其传递给输出即可。</p>
+<p><img src="http://omb2onfvy.bkt.clouddn.com/NeuralNetwork-Basic-12.png" alt=""></p>
+<h4 id="双层神经网络-Two-layer-Neural-Network"><a href="#双层神经网络-Two-layer-Neural-Network" class="headerlink" title="双层神经网络 Two layer Neural Network"></a>双层神经网络 Two layer Neural Network</h4><p>对于两层神经网络，无论绿色隐藏层学习什么，都要传递到蓝色隐藏层，进一步学习（关于绿色层学习）。因此，隐藏层的数量越多，对先前已经学习过的概念的学习就越多。</p>
+<p><img src="http://omb2onfvy.bkt.clouddn.com/NeuralNetwork-Basic-13.png" alt=""></p>
+<h4 id="Wide-Neural-Network-vs-Deep-Neural-Network"><a href="#Wide-Neural-Network-vs-Deep-Neural-Network" class="headerlink" title="Wide Neural Network  vs  Deep Neural Network"></a>Wide Neural Network  vs  Deep Neural Network</h4><p>在一层中存在更多神经元的情况下，它不会获得更深层次的洞察力。相反，它的结果是学习到更多的概念。</p>
+<p>例：学习英语语法，它需要理解大量的概念。在这种情况下，单层宽神经网络比深度神经网络的效果要好得多，而深度神经网络的宽度要小得多。</p>
+<p><img src="http://omb2onfvy.bkt.clouddn.com/NeuralNetwork-Basic-14.png" alt=""></p>
+<p>但在学习傅立叶变换(Fourier Transform)的情况下，学习者（神经网络）需要深入学习，因为没有太多的概念需要学习，但每个概念都足够复杂，需要深度学习。</p>
+<p><strong>Balance is Key</strong></p>
+<p>每个任务都使用深度和宽度神经网络是非常诱人的。这可能是一个非常糟糕的主意，因为：</p>
+<ul>
+<li>两者都显然需要更多的数据才能达到最低的理想精度（desirable accuracy）</li>
+<li>两者都具有成倍增加的时间复杂度（time complexity）</li>
+<li>太深的神经网络将尝试更深入地分解一个基本概念，但在这一点上它将对这个概念做出错误的假设，并试图找到不存在的伪模式（pseudo patterns）</li>
+<li>太宽的神经网络会试图找到更多数量的特征（可测量特性）。因此，与上面类似，它将开始对数据做出错误的假设。</li>
+</ul>
+<h2 id="维度诅咒"><a href="#维度诅咒" class="headerlink" title="维度诅咒"></a>维度诅咒</h2><p>维度诅咒（The curse of dimensionality）是指在高维空间（通常具有数百或数千维度）中分析和组织数据时出现的各种现象，这些现象在低维设置中不会发生。</p>
+<p>像英语语法或股票奖品等有很多影响他们的特征。使用机器学习必须用具有有限和相对小得多的长度（比实际存在的特征的数量）的阵列（array）/ 矩阵（matrix）来表示这些特征。要做到这一点可能产生两个问题：</p>
+<ul>
+<li>made by a learner：由于学习者的错误假设而出现偏差。高偏差会导致算法错过功能与目标输出之间的相关关系。这种现象被称为欠拟合（underfitting）。</li>
+<li>insufficient learning : 由于对特征的了解不全面，训练集中的小波动导致较大偏差。高方差导致过度拟合（overfitting），将错误作为相关信息进行学习。</li>
+</ul>
+<h2 id="权衡"><a href="#权衡" class="headerlink" title="权衡"></a>权衡</h2><p><strong>It is typically impossible to have low bias and low variance.</strong></p>
+<p>在训练早期因为网络输出远未达到要求，偏差很大。由于数据影响较小，方差很小。在训练后期因为网络已经学会了潜在的功能，偏差很小。</p>
+<p><img src="http://omb2onfvy.bkt.clouddn.com/NeuralNetwork-Basic-15.jpg" alt=""></p>
+<p>然而，如果训练太长，网络也将学习该数据集特殊的噪声。这导致在不同数据集上测试的结果表现为高方差，因为不同数据集的噪声存在变化。实际上，具有高偏差的算法通常产生更简单的模型，这些模型不倾向于过度拟合，但可能会削弱其训练数据，而不能捕获重要的模式或特征的属性。具有低偏差和高方差的模型在结构上通常更复杂，使得它们能够更准确地表示训练集。然而，在这一过程中，它们也可能代表训练集中的占比较大的噪声，使得它们的预测尽管复杂性增加，但精度却不太精确。</p>
+<p>因此，低偏差和低方差同时存在通常是不可能的。</p>
+<p>目前，依靠丰富的数据和工具，我们可以轻松地创建复杂的机器学习模型。如果学习者没有提供足够的信息时，实际上偏差就发生了，处理过度拟合将变成中心工作。如果提供更多的例子，则意味着更多的变化，包括模式的数量都增加了。</p>
+<h2 id="扩展阅读-《The-Machine-Learning-Master》"><a href="#扩展阅读-《The-Machine-Learning-Master》" class="headerlink" title="扩展阅读:《The Machine Learning Master》"></a>扩展阅读:<a href="https://www.gitbook.com/book/riboseyim/machine-learning" target="_blank" rel="external">《The Machine Learning Master》</a></h2><p><img src="http://p11slcnom.bkt.clouddn.com/banner-MLM-201803.png" alt=""></p>
+<ul>
+<li><a href="https://riboseyim.github.io/2018/01/17/Machine-Learning-TensorFlow/" target="_blank" rel="external">Machine Learning(一):基于 TensorFlow 实现宠物血统智能识别</a></li>
+<li><a href="https://riboseyim.github.io/2018/01/15/Machine-Learning-OpenCV/" target="_blank" rel="external">Machine Learning(二):宠物智能识别之 Using OpenCV with Node.js</a></li>
+<li><a href="https://riboseyim.github.io/2018/02/09/Machine-Learning-Projects/" target="_blank" rel="external">Machine Learning:机器学习项目</a></li>
+<li><a href="https://riboseyim.github.io/2018/02/10/Machine-Learning-Algorithms/" target="_blank" rel="external">Machine Learning:机器学习算法</a></li>
+<li><a href="https://riboseyim.github.io/2018/04/02/Machine-Learning-Algorithms-Sheet/" target="_blank" rel="external">Machine Learning:如何选择机器学习算法</a></li>
+<li><a href="https://riboseyim.github.io/2018/05/07/Machine-Learning-Neural-Network" target="_blank" rel="external">Machine Learning:神经网络基础</a></li>
+<li><a href="https://riboseyim.github.io/2018/01/25/Machine-Learning-Books/" target="_blank" rel="external">Machine Learning:机器学习书单</a></li>
+<li><a href="https://riboseyim.github.io/2017/08/29/Machine-Learning-News" target="_blank" rel="external">Machine Learning:人工智能媒体报道集</a></li>
+<li><a href="https://riboseyim.github.io/2018/02/16/Machine-Learning-Law/" target="_blank" rel="external">Machine Learning:机器学习技术与知识产权法</a></li>
+<li><a href="https://riboseyim.github.io/2018/03/09/Machine-Learning-Economist/" target="_blank" rel="external">Machine Learning:经济学家谈人工智能</a></li>
+<li><a href="https://riboseyim.github.io/2017/09/15/Visualization-Graphviz/" target="_blank" rel="external">数据可视化（三）基于 Graphviz 实现程序化绘图</a></li>
+</ul>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
+<li><a href="https://becominghuman.ai/basics-of-neural-network-bef2ba97d2cf" target="_blank" rel="external">Basics of Neural Network | Mukul Malik</a></li>
+<li><a href="https://morvanzhou.github.io/tutorials/machine-learning/ML-intro/3-04-activation-function/" target="_blank" rel="external">为什么需要激励函数 (Activation Function)</a></li>
+<li><a href="http://selbydavid.com/2018/01/09/neural-network/" target="_blank" rel="external">Building a neural network from scratch in R</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Introduction&lt;/li&gt;
+&lt;li&gt;工作流程：Forward-Propagation、Backward Propagation、Partial Derivatives、Hyper Parameters&lt;/li&gt;
+&lt;li&gt;深度网络：A single layer Neural Network、Wide Neural Network  vs  Deep Neural Network&lt;/li&gt;
+&lt;li&gt;维度诅咒&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="架构师" scheme="http://riboseyim.github.com/tags/%E6%9E%B6%E6%9E%84%E5%B8%88/"/>
+    
+      <category term="数学与算法" scheme="http://riboseyim.github.com/tags/%E6%95%B0%E5%AD%A6%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="Machine-Learning" scheme="http://riboseyim.github.com/tags/Machine-Learning/"/>
+    
+  </entry>
+  
+  <entry>
     <title>玩转编程语言:基于Golang开发Web应用</title>
     <link href="http://riboseyim.github.com/2018/04/27/Language-Go-lang-Web/"/>
     <id>http://riboseyim.github.com/2018/04/27/Language-Go-lang-Web/</id>
     <published>2018-04-27T09:39:48.000Z</published>
-    <updated>2018-04-28T04:56:30.239Z</updated>
+    <updated>2018-04-30T11:32:59.695Z</updated>
     
     <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><a id="more"></a>
-<h2 id="beego"><a href="#beego" class="headerlink" title="beego"></a>beego</h2><ul>
+<h2 id="beego"><a href="#beego" class="headerlink" title="beego"></a>beego</h2><h4 id="Beego-ABC"><a href="#Beego-ABC" class="headerlink" title="Beego ABC"></a>Beego ABC</h4><ul>
+<li><p>lib</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">go</span> get github.com/astaxie/beego</div><div class="line"><span class="keyword">go</span> get github.com/beego/admin/src/lib</div></pre></td></tr></table></figure>
+</li>
+<li><p>tools<br>bee 可执行文件默认路径 $GOPATH/bin</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">go</span> get github.com/beego/bee  <span class="comment">//tools</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">The commands are:</div><div class="line">    new         create an application base on beego framework</div><div class="line">    run         run the app <span class="built_in">which</span> can hot compile</div><div class="line">    pack        compress an beego project</div><div class="line">    api         create an api application base on beego framework</div><div class="line">    bale        packs non-Go files to Go <span class="built_in">source</span> files</div><div class="line">    version     show the bee &amp; beego version</div><div class="line">    generate    <span class="built_in">source</span> code generator</div><div class="line">    migrate     run database migrations</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">bash-3.2$ bee new hello</div><div class="line">______</div><div class="line">| ___ \</div><div class="line">| |_/ /  ___   ___</div><div class="line">| ___ \ / _ \ / _ \</div><div class="line">| |_/ /|  __/|  __/</div><div class="line">\____/  \___| \___| v1.9.1</div></pre></td></tr></table></figure>
+<h4 id="Beego-Resources"><a href="#Beego-Resources" class="headerlink" title="Beego Resources"></a>Beego Resources</h4><ul>
 <li><a href="https://beego.me/docs/intro/" target="_blank" rel="external">The architecture of Beego</a></li>
 <li><a href="https://github.com/beego/tutorial/blob/master/README_zh.md" target="_blank" rel="external">beego入门教程</a></li>
 <li><a href="https://github.com/beego/admin" target="_blank" rel="external">基于beego的后台管理系统</a></li>
@@ -47,7 +228,7 @@
     <link href="http://riboseyim.github.com/2018/04/27/DevOps-OpenCensus/"/>
     <id>http://riboseyim.github.com/2018/04/27/DevOps-OpenCensus/</id>
     <published>2018-04-27T02:33:09.000Z</published>
-    <updated>2018-04-29T02:35:49.110Z</updated>
+    <updated>2018-05-02T04:03:10.873Z</updated>
     
     <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
 <li>Distributed Tracing and Monitoring System</li>
@@ -119,11 +300,17 @@
 <p>OpenCensus 是独立于供应商的，可以通过各种 Exporter 实现将数据上传到任何后端。尽管OpenCensus 为一些后端服务提供了 API ，但用户也可以实现自己的 Exporter。</p>
 <h4 id="Introspection-内省"><a href="#Introspection-内省" class="headerlink" title="Introspection | 内省"></a>Introspection | 内省</h4><p>OpenCensus 提供在线仪表板，显示进程中的诊断数据。这些页面被称为 z-pages ，它们有助于了解如何查看来自特定进程的数据，而不必依赖任何度量收集器或分布式跟踪后端。</p>
 <p><img src="http://og2061b3n.bkt.clouddn.com/DTM-OpenCensus-traceZ.png" alt=""></p>
-<h4 id="创建指标"><a href="#创建指标" class="headerlink" title="创建指标"></a>创建指标</h4><ul>
+<h2 id="OpenCensus-Examples"><a href="#OpenCensus-Examples" class="headerlink" title="OpenCensus Examples"></a>OpenCensus Examples</h2><h4 id="创建指标"><a href="#创建指标" class="headerlink" title="创建指标"></a>创建指标</h4><ul>
 <li>定义指标类型</li>
 <li>定义显示方式</li>
 </ul>
 <p>Track Metrics 一般需要考虑服务负载（Server Load）、响应时间（Response Time）、误码率(Error Rates)等。</p>
+<p>实例：</p>
+<ul>
+<li><a href="https://github.com/census-instrumentation/opencensus-go/blob/master/examples/http/helloworld_server/main.go" target="_blank" rel="external">opencensus-go-examples-helloworld</a></li>
+<li><a href="https://github.com/census-instrumentation/opencensus-java" target="_blank" rel="external">opencensus-java-examples</a></li>
+<li><a href="https://medium.com/@orijtech/hello-world-for-web-servers-in-go-with-opencensus-29955b3f02c6" target="_blank" rel="external">“Hello, world!” for web servers in Go with OpenCensus</a></li>
+</ul>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> (</div><div class="line">  <span class="string">"go.opencensus.io/stats"</span></div><div class="line">  <span class="string">"go.opencensus.io/tag"</span></div><div class="line">  <span class="string">"go.opencensus.io/stats/view"</span></div><div class="line">)</div><div class="line"></div><div class="line"><span class="keyword">var</span> (</div><div class="line">  requestCounter             *stats.Float64Measure</div><div class="line">  requestlatency             *stats.Float64Measure</div><div class="line">  codeKey                    tag.Key</div><div class="line">  DefaultLatencyDistribution = view.DistributionAggregation&#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">10</span>, <span class="number">13</span>, <span class="number">16</span>, <span class="number">20</span>, <span class="number">25</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">50</span>, <span class="number">65</span>, <span class="number">80</span>, <span class="number">100</span>, <span class="number">130</span>, <span class="number">160</span>, <span class="number">200</span>, <span class="number">250</span>, <span class="number">300</span>, <span class="number">400</span>, <span class="number">500</span>, <span class="number">650</span>, <span class="number">800</span>, <span class="number">1000</span>, <span class="number">2000</span>, <span class="number">5000</span>, <span class="number">10000</span>, <span class="number">20000</span>, <span class="number">50000</span>, <span class="number">100000</span>&#125;</div><div class="line">)</div><div class="line">	codeKey, _ = tag.NewKey(<span class="string">"banias/keys/code"</span>)</div><div class="line">	requestCounter, _ = stats.Float64(<span class="string">"banias/measures/request_count"</span>, <span class="string">"Count of HTTP requests processed"</span>, stats.UnitNone)</div><div class="line">	requestlatency, _ = stats.Float64(<span class="string">"banias/measures/request_latency"</span>, <span class="string">"Latency distribution of HTTP requests"</span>, stats.UnitMilliseconds)</div><div class="line">	view.Subscribe(</div><div class="line">		&amp;view.View&#123;</div><div class="line">			Name:        <span class="string">"request_count"</span>,</div><div class="line">			Description: <span class="string">"Count of HTTP requests processed"</span>,</div><div class="line">			TagKeys:     []tag.Key&#123;codeKey&#125;,</div><div class="line">			Measure:     requestCounter,</div><div class="line">			Aggregation: view.CountAggregation&#123;&#125;,</div><div class="line">		&#125;)</div><div class="line">	view.Subscribe(</div><div class="line">		&amp;view.View&#123;</div><div class="line">			Name:        <span class="string">"request_latency"</span>,</div><div class="line">			Description: <span class="string">"Latency distribution of HTTP requests"</span>,</div><div class="line">			TagKeys:     []tag.Key&#123;codeKey&#125;,</div><div class="line">			Measure:     requestlatency,</div><div class="line">			Aggregation: DefaultLatencyDistribution,</div><div class="line">		&#125;)</div><div class="line"></div><div class="line">	view.SetReportingPeriod(<span class="number">1</span> * time.Second)</div></pre></td></tr></table></figure>
 <h4 id="收集指标数据"><a href="#收集指标数据" class="headerlink" title="收集指标数据"></a>收集指标数据</h4><ul>
 <li>Call the Record method</li>
@@ -135,18 +322,28 @@
 <li><a href="https://signalfx.com" target="_blank" rel="external">SignalFX</a></li>
 <li><a href="https://cloud.google.com/stackdriver/" target="_blank" rel="external">Stackdriver|适用于 Google Cloud Platform 与 AWS 应用的监控、日志记录和诊断工具</a></li>
 <li><a href="https://zipkin.io" target="_blank" rel="external">Zipkin</a></li>
+<li>AWS X-Ray</li>
 </ul>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> (</div><div class="line">  	 <span class="string">"go.opencensus.io/exporter/prometheus"</span></div><div class="line">	   <span class="string">"go.opencensus.io/exporter/stackdriver"</span></div><div class="line">	   <span class="string">"go.opencensus.io/stats/view"</span></div><div class="line">)</div><div class="line"></div><div class="line">	<span class="comment">// Export to Prometheus Monitoring.</span></div><div class="line">  Exporter, err := prometheus.NewExporter(prometheus.Options&#123;&#125;)</div><div class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</div><div class="line">		logger.Error(<span class="string">"Error creating prometheus exporter  "</span>, zap.Error(err))</div><div class="line">	&#125;</div><div class="line">	view.RegisterExporter(pExporter)</div><div class="line"></div><div class="line"></div><div class="line">  <span class="comment">// Export to Stackdriver Monitoring.</span></div><div class="line">	sExporter, err := stackdriver.NewExporter(stackdriver.Options&#123;ProjectID: config.ProjectID&#125;)</div><div class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</div><div class="line">		logger.Error(<span class="string">"Error creating stackdriver exporter  "</span>, zap.Error(err))</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	view.RegisterExporter(sExporter)</div></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"> <span class="keyword">import</span> (</div><div class="line"> 	 <span class="string">"go.opencensus.io/exporter/prometheus"</span></div><div class="line">   <span class="string">"go.opencensus.io/exporter/stackdriver"</span></div><div class="line">   <span class="string">"go.opencensus.io/stats/view"</span></div><div class="line">)</div><div class="line"></div><div class="line"><span class="comment">// Export to Prometheus Monitoring.</span></div><div class="line"> Exporter, err := prometheus.NewExporter(prometheus.Options&#123;&#125;)</div><div class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</div><div class="line">	logger.Error(<span class="string">"Error creating prometheus exporter  "</span>, zap.Error(err))</div><div class="line">&#125;</div><div class="line">view.RegisterExporter(pExporter)</div><div class="line"></div><div class="line"></div><div class="line"> <span class="comment">// Export to Stackdriver Monitoring.</span></div><div class="line">sExporter, err := stackdriver.NewExporter(stackdriver.Options&#123;ProjectID: config.ProjectID&#125;)</div><div class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</div><div class="line">	logger.Error(<span class="string">"Error creating stackdriver exporter  "</span>, zap.Error(err))</div><div class="line">&#125;</div><div class="line"></div><div class="line">view.RegisterExporter(sExporter)</div></pre></td></tr></table></figure>
+<h2 id="OpenCensus-Principle-工作原理"><a href="#OpenCensus-Principle-工作原理" class="headerlink" title="OpenCensus Principle | 工作原理"></a>OpenCensus Principle | 工作原理</h2><h4 id="Context"><a href="#Context" class="headerlink" title="Context"></a>Context</h4><ul>
+<li><a href="https://github.com/census-instrumentation/opencensus-go/blob/master/examples/helloworld/main.go" target="_blank" rel="external">opencensus-go-examples-helloworld-context</a></li>
+<li><a href="https://segmentfault.com/a/1190000006744213#articleHeader8" target="_blank" rel="external">Go语言并发模型：使用 context | oscarzhao 2016年08月29日</a></li>
+</ul>
+<h2 id="Zipkin"><a href="#Zipkin" class="headerlink" title="Zipkin"></a>Zipkin</h2><p><a href="https://zipkin.io" target="_blank" rel="external">Zipkin</a></p>
+<h4 id="Zipkin-ABC"><a href="#Zipkin-ABC" class="headerlink" title="Zipkin ABC"></a>Zipkin ABC</h4><ul>
+<li><a href="https://medium.com/devthoughts/instrumenting-a-go-application-with-zipkin-b79cc858ac3e" target="_blank" rel="external">Instrumenting a Go application with Zipkin</a></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">$ docker image pull openzipkin/zipkin</div><div class="line">Using default tag: latest</div><div class="line">latest: Pulling from openzipkin/zipkin</div><div class="line">3a9e9033596c: Pull complete</div><div class="line">e41580404458: Pull complete</div><div class="line">c68a1262225d: Pull complete</div><div class="line">Digest: sha256:0a216d66e753de48d63e9aa36526781af6967549ce9ab4c8bcaf02ac4031912b</div><div class="line">Status: Downloaded newer image <span class="keyword">for</span> openzipkin/zipkin:latest</div><div class="line"></div><div class="line">$ docker container run openzipkin/zipkin</div><div class="line"><span class="built_in">log</span>4j:WARN No appenders could be found <span class="keyword">for</span> logger (org.springframework.web.context.support.StandardServletEnvironment).</div><div class="line"><span class="built_in">log</span>4j:WARN Please initialize the <span class="built_in">log</span>4j system properly.</div><div class="line">                                    ********</div><div class="line">                                  **        **</div><div class="line">                                 *            *</div><div class="line">                                **            **</div><div class="line">                                **            **</div><div class="line">                                 **          **</div><div class="line">                                  **        **</div><div class="line">                                    ********</div><div class="line">                                      ****</div><div class="line">                                      ****</div><div class="line">        ****                          ****</div><div class="line">     ******                           ****                                 ***</div><div class="line">  ****************************************************************************</div><div class="line">    *******                           ****                                 ***</div><div class="line">        ****                          ****</div><div class="line">                                       **</div><div class="line">                                       **</div><div class="line"></div><div class="line"></div><div class="line">             *****      **     *****     ** **       **     **   **</div><div class="line">               **       **     **  *     ***         **     **** **</div><div class="line">              **        **     *****     ****        **     **  ***</div><div class="line">             ******     **     **        **  **      **     **   **</div><div class="line"></div><div class="line">:: Powered by Spring Boot ::         (v2.0.1.RELEASE)</div><div class="line"></div><div class="line">$ docker container ls --all</div><div class="line">CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                        PORTS                              NAMES</div><div class="line">f9935fcaf4ba        openzipkin/zipkin   <span class="string">"/bin/sh -c 'test -n"</span>   5 seconds ago       Up 4 seconds                  9410/tcp, 0.0.0.0:9411-&gt;9411/tcp   musing_jepsen</div></pre></td></tr></table></figure>
 <p><img src="http://og2061b3n.bkt.clouddn.com/DTM-Twitter-Zipkin.png" alt=""></p>
+<h2 id="读者问题"><a href="#读者问题" class="headerlink" title="读者问题"></a>读者问题</h2><ul>
+<li>OpenCensus vs <a href="http://opentracing.io/" target="_blank" rel="external">OpenTracing</a></li>
+</ul>
 <h2 id="OpenTracing"><a href="#OpenTracing" class="headerlink" title="OpenTracing"></a>OpenTracing</h2><ul>
 <li><p>待续</p>
 </li>
 <li><p><a href="https://wu-sheng.gitbooks.io/opentracing-io/content/" target="_blank" rel="external">OpenTraing 文档 | 中文 </a></p>
 </li>
 <li><a href="https://medium.com/opentracing/the-difference-between-tracing-tracing-and-tracing-84b49b2d54ea" target="_blank" rel="external">The difference between tracing, tracing, and tracing</a></li>
-</ul>
-<h2 id="读者问题"><a href="#读者问题" class="headerlink" title="读者问题"></a>读者问题</h2><ul>
-<li>OpenCensus vs <a href="http://opentracing.io/" target="_blank" rel="external">OpenTracing</a></li>
 </ul>
 <h2 id="扩展阅读：开源架构技术漫谈"><a href="#扩展阅读：开源架构技术漫谈" class="headerlink" title="扩展阅读：开源架构技术漫谈"></a>扩展阅读：开源架构技术漫谈</h2><ul>
 <li><a href="https://riboseyim.github.io/2018/04/27/DevOps-OpenCensus" target="_blank" rel="external">DevOps 漫谈：基于OpenCensus构建分布式跟踪系统</a></li>
@@ -546,7 +743,7 @@
     <link href="http://riboseyim.github.com/2018/04/02/Machine-Learning-Algorithms-Sheet/"/>
     <id>http://riboseyim.github.com/2018/04/02/Machine-Learning-Algorithms-Sheet/</id>
     <published>2018-04-02T07:28:39.000Z</published>
-    <updated>2018-04-02T08:56:06.396Z</updated>
+    <updated>2018-05-07T12:58:43.077Z</updated>
     
     <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
 <li>识别和应用机器学习算法解决问题</li>
@@ -658,10 +855,11 @@
 <h2 id="扩展阅读-《The-Machine-Learning-Master》"><a href="#扩展阅读-《The-Machine-Learning-Master》" class="headerlink" title="扩展阅读:《The Machine Learning Master》"></a>扩展阅读:<a href="https://www.gitbook.com/book/riboseyim/machine-learning" target="_blank" rel="external">《The Machine Learning Master》</a></h2><p><img src="http://p11slcnom.bkt.clouddn.com/banner-MLM-201803.png" alt=""></p>
 <ul>
 <li><a href="https://riboseyim.github.io/2018/01/17/Machine-Learning-TensorFlow/" target="_blank" rel="external">Machine Learning(一):基于 TensorFlow 实现宠物血统智能识别</a></li>
-<li><a href="https://riboseyim.github.io/2018/01/15/Machine-Learning-OpenCV/" target="_blank" rel="external">Machine Learning (二) : 宠物智能识别之 Using OpenCV with Node.js</a></li>
+<li><a href="https://riboseyim.github.io/2018/01/15/Machine-Learning-OpenCV/" target="_blank" rel="external">Machine Learning(二):宠物智能识别之 Using OpenCV with Node.js</a></li>
 <li><a href="https://riboseyim.github.io/2018/02/09/Machine-Learning-Projects/" target="_blank" rel="external">Machine Learning:机器学习项目</a></li>
 <li><a href="https://riboseyim.github.io/2018/02/10/Machine-Learning-Algorithms/" target="_blank" rel="external">Machine Learning:机器学习算法</a></li>
 <li><a href="https://riboseyim.github.io/2018/04/02/Machine-Learning-Algorithms-Sheet/" target="_blank" rel="external">Machine Learning:如何选择机器学习算法</a></li>
+<li><a href="https://riboseyim.github.io/2018/05/07/Machine-Learning-Neural-Network" target="_blank" rel="external">Machine Learning:神经网络基础</a></li>
 <li><a href="https://riboseyim.github.io/2018/01/25/Machine-Learning-Books/" target="_blank" rel="external">Machine Learning:机器学习书单</a></li>
 <li><a href="https://riboseyim.github.io/2017/08/29/Machine-Learning-News" target="_blank" rel="external">Machine Learning:人工智能媒体报道集</a></li>
 <li><a href="https://riboseyim.github.io/2018/02/16/Machine-Learning-Law/" target="_blank" rel="external">Machine Learning:机器学习技术与知识产权法</a></li>
@@ -828,7 +1026,7 @@
     <link href="http://riboseyim.github.com/2018/03/26/DevOps-Deployment/"/>
     <id>http://riboseyim.github.com/2018/03/26/DevOps-Deployment/</id>
     <published>2018-03-26T10:01:39.000Z</published>
-    <updated>2018-04-26T02:09:08.800Z</updated>
+    <updated>2018-05-02T03:14:45.860Z</updated>
     
     <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
 <li>Ansible vs. Chef vs. Fabric vs. Puppet vs. SaltStack</li>
@@ -1086,10 +1284,31 @@
     <link href="http://riboseyim.github.com/2018/03/21/Machine-Learning-WordBook/"/>
     <id>http://riboseyim.github.com/2018/03/21/Machine-Learning-WordBook/</id>
     <published>2018-03-21T03:08:01.000Z</published>
-    <updated>2018-03-30T08:19:50.715Z</updated>
+    <updated>2018-05-07T12:57:04.274Z</updated>
     
     <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><a id="more"></a>
-<h2 id="Basic"><a href="#Basic" class="headerlink" title="Basic"></a>Basic</h2><h2 id="Deep-Learning"><a href="#Deep-Learning" class="headerlink" title="Deep Learning"></a>Deep Learning</h2><h4 id="Neural-Network"><a href="#Neural-Network" class="headerlink" title="Neural Network"></a>Neural Network</h4><ul>
+<h2 id="Basic"><a href="#Basic" class="headerlink" title="Basic"></a>Basic</h2><h2 id="数学概念"><a href="#数学概念" class="headerlink" title="数学概念"></a>数学概念</h2><ul>
+<li>泰勒级数 Taylor series</li>
+</ul>
+<p>用无限项连加式——级数来表示一个函数，这些相加的项由函数在某一点的导数求得，以 1715 年发表了泰勒公式的英国数学家布鲁克·泰勒（Sir Brook Taylor）来命名。通过函数在自变量零点的导数求得的泰勒级数又叫做麦克劳林级数，以苏格兰数学家科林·麦克劳林的名字命名。</p>
+<ul>
+<li>导数 Derivative</li>
+</ul>
+<p>导数（Derivative）是微积分学中重要的基础概念。一个函数在某一点的导数描述了这个函数在这一点附近的变化率。导数的本质是通过极限的概念对函数进行局部的线性逼近。</p>
+<ul>
+<li>偏导数 Partial Derivatives</li>
+</ul>
+<p>在数学中，一个多变量的函数的偏导数是它关于其中一个变量的导数，而保持其他变量恒定（相对于全导数，在其中所有变量都允许变化）</p>
+<ul>
+<li>超参数 Hyper Parameter</li>
+</ul>
+<p>在机器学习中，超参数是在学习过程开始之前设置的一个参数。相比之下，其他参数的值是通过训练得到的。</p>
+<p>不同的模型训练算法需要不同的超参数，一些简单的算法（如普通最小二乘回归）不需要。给定这些超参数，训练算法从数据中学习参数。例如，LASSO 是一种算法，将正则化超参数添加到普通最小二乘回归中，它必须在通过训练算法估计参数之前设置。在深度学习中，常见的超参数有：学习速率，迭代次数，层数，每层神经元的个数等。</p>
+<ul>
+<li>激活函数 Activation Function</li>
+</ul>
+<p>在 计算网络中， 一个节点的激活函数定义了该节点在给定的输入或输入的集合下的输出</p>
+<h2 id="Deep-Learning"><a href="#Deep-Learning" class="headerlink" title="Deep Learning"></a>Deep Learning</h2><h4 id="Neural-Network"><a href="#Neural-Network" class="headerlink" title="Neural Network"></a>Neural Network</h4><ul>
 <li>神经网络（Neural Network，缩写 NN）</li>
 <li>人工神经网络（Artificial Neural Network，缩写 ANN）</li>
 </ul>
@@ -1109,7 +1328,21 @@
 <h2 id="Open-Source-Library"><a href="#Open-Source-Library" class="headerlink" title="Open Source Library"></a>Open Source Library</h2><h4 id="TensorFlow"><a href="#TensorFlow" class="headerlink" title="TensorFlow"></a>TensorFlow</h4><p>TensorFlow is an open source software library for machine learning in various kinds of perceptual and language understanding tasks. It is a second-generation API which is currently used for both research and production by 50 different teams in dozens of commercial Google products, such as speech recognition, Gmail, Google Photos, and Search. These teams had previously used DistBelief, a first-generation API. TensorFlow was originally developed by the Google Brain team for Google’s research and production purposes and later released under the Apache 2.0 open source license on November 9, 2015.</p>
 <h4 id="Scikit-Learn-机器学习算法库"><a href="#Scikit-Learn-机器学习算法库" class="headerlink" title="Scikit-Learn 机器学习算法库"></a>Scikit-Learn 机器学习算法库</h4><p>Scikit-Learn(formerly scikits.learn) is a free software machine learning library for the Python programming language. It features various classification, regression and clustering algorithms including support vector machines, random forests, gradient boosting, k-means and DBSCAN, and is designed to interoperate with the Python numerical and scientific libraries NumPy and SciPy.</p>
 <h4 id="COCO-SSD"><a href="#COCO-SSD" class="headerlink" title="COCO SSD"></a>COCO SSD</h4><p>Ok that worked pretty well, but how do we deal with images that show multiple objects. Well to recognize multiple objects in a single image, we will utilize what’s called a Single Shot Multibox Detector (SSD). In our second example we will look at a SSD model trained with the COCO (Common Object in Context) dataset. The model we are using has been trained on 84 different classes.</p>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2>]]></content>
+<h2 id="扩展阅读-《The-Machine-Learning-Master》"><a href="#扩展阅读-《The-Machine-Learning-Master》" class="headerlink" title="扩展阅读:《The Machine Learning Master》"></a>扩展阅读:<a href="https://www.gitbook.com/book/riboseyim/machine-learning" target="_blank" rel="external">《The Machine Learning Master》</a></h2><p><img src="http://p11slcnom.bkt.clouddn.com/banner-MLM-201803.png" alt=""></p>
+<ul>
+<li><a href="https://riboseyim.github.io/2018/01/17/Machine-Learning-TensorFlow/" target="_blank" rel="external">Machine Learning(一):基于 TensorFlow 实现宠物血统智能识别</a></li>
+<li><a href="https://riboseyim.github.io/2018/01/15/Machine-Learning-OpenCV/" target="_blank" rel="external">Machine Learning(二):宠物智能识别之 Using OpenCV with Node.js</a></li>
+<li><a href="https://riboseyim.github.io/2018/02/09/Machine-Learning-Projects/" target="_blank" rel="external">Machine Learning:机器学习项目</a></li>
+<li><a href="https://riboseyim.github.io/2018/02/10/Machine-Learning-Algorithms/" target="_blank" rel="external">Machine Learning:机器学习算法</a></li>
+<li><a href="https://riboseyim.github.io/2018/04/02/Machine-Learning-Algorithms-Sheet/" target="_blank" rel="external">Machine Learning:如何选择机器学习算法</a></li>
+<li><a href="https://riboseyim.github.io/2018/05/07/Machine-Learning-Neural-Network" target="_blank" rel="external">Machine Learning:神经网络基础</a></li>
+<li><a href="https://riboseyim.github.io/2018/01/25/Machine-Learning-Books/" target="_blank" rel="external">Machine Learning:机器学习书单</a></li>
+<li><a href="https://riboseyim.github.io/2017/08/29/Machine-Learning-News" target="_blank" rel="external">Machine Learning:人工智能媒体报道集</a></li>
+<li><a href="https://riboseyim.github.io/2018/02/16/Machine-Learning-Law/" target="_blank" rel="external">Machine Learning:机器学习技术与知识产权法</a></li>
+<li><a href="https://riboseyim.github.io/2018/03/09/Machine-Learning-Economist/" target="_blank" rel="external">Machine Learning:经济学家谈人工智能</a></li>
+<li><a href="https://riboseyim.github.io/2017/09/15/Visualization-Graphviz/" target="_blank" rel="external">数据可视化（三）基于 Graphviz 实现程序化绘图</a></li>
+</ul>
+]]></content>
     
     <summary type="html">
     
@@ -1153,7 +1386,7 @@
     <link href="http://riboseyim.github.com/2018/03/09/Machine-Learning-Economist/"/>
     <id>http://riboseyim.github.com/2018/03/09/Machine-Learning-Economist/</id>
     <published>2018-03-09T08:55:07.000Z</published>
-    <updated>2018-04-02T09:33:23.528Z</updated>
+    <updated>2018-05-07T12:58:07.526Z</updated>
     
     <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
 <li>为什么人工智能的繁荣没有提高生产率</li>
@@ -1192,6 +1425,7 @@
 <li><a href="https://riboseyim.github.io/2018/02/09/Machine-Learning-Projects/" target="_blank" rel="external">Machine Learning:机器学习项目</a></li>
 <li><a href="https://riboseyim.github.io/2018/02/10/Machine-Learning-Algorithms/" target="_blank" rel="external">Machine Learning:机器学习算法</a></li>
 <li><a href="https://riboseyim.github.io/2018/04/02/Machine-Learning-Algorithms-Sheet/" target="_blank" rel="external">Machine Learning:如何选择机器学习算法</a></li>
+<li><a href="https://riboseyim.github.io/2018/05/07/Machine-Learning-Neural-Network" target="_blank" rel="external">Machine Learning:神经网络基础</a></li>
 <li><a href="https://riboseyim.github.io/2018/01/25/Machine-Learning-Books/" target="_blank" rel="external">Machine Learning:机器学习书单</a></li>
 <li><a href="https://riboseyim.github.io/2017/08/29/Machine-Learning-News" target="_blank" rel="external">Machine Learning:人工智能媒体报道集</a></li>
 <li><a href="https://riboseyim.github.io/2018/02/16/Machine-Learning-Law/" target="_blank" rel="external">Machine Learning:机器学习技术与知识产权法</a></li>
@@ -1433,7 +1667,7 @@
     <link href="http://riboseyim.github.com/2018/02/27/Machine-Learning-TrainModel/"/>
     <id>http://riboseyim.github.com/2018/02/27/Machine-Learning-TrainModel/</id>
     <published>2018-02-27T06:23:57.000Z</published>
-    <updated>2018-04-13T01:35:10.068Z</updated>
+    <updated>2018-05-07T12:57:09.905Z</updated>
     
     <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><a id="more"></a>
 <h2 id="Previous"><a href="#Previous" class="headerlink" title="Previous"></a>Previous</h2><p>前文回顾：</p>
@@ -1454,10 +1688,11 @@
 <h2 id="扩展阅读-《The-Machine-Learning-Master》"><a href="#扩展阅读-《The-Machine-Learning-Master》" class="headerlink" title="扩展阅读:《The Machine Learning Master》"></a>扩展阅读:<a href="https://www.gitbook.com/book/riboseyim/machine-learning" target="_blank" rel="external">《The Machine Learning Master》</a></h2><p><img src="http://p11slcnom.bkt.clouddn.com/banner-MLM-201803.png" alt=""></p>
 <ul>
 <li><a href="https://riboseyim.github.io/2018/01/17/Machine-Learning-TensorFlow/" target="_blank" rel="external">Machine Learning(一):基于 TensorFlow 实现宠物血统智能识别</a></li>
-<li><a href="https://riboseyim.github.io/2018/01/15/Machine-Learning-OpenCV/" target="_blank" rel="external">Machine Learning (二) : 宠物智能识别之 Using OpenCV with Node.js</a></li>
+<li><a href="https://riboseyim.github.io/2018/01/15/Machine-Learning-OpenCV/" target="_blank" rel="external">Machine Learning(二):宠物智能识别之 Using OpenCV with Node.js</a></li>
 <li><a href="https://riboseyim.github.io/2018/02/09/Machine-Learning-Projects/" target="_blank" rel="external">Machine Learning:机器学习项目</a></li>
 <li><a href="https://riboseyim.github.io/2018/02/10/Machine-Learning-Algorithms/" target="_blank" rel="external">Machine Learning:机器学习算法</a></li>
 <li><a href="https://riboseyim.github.io/2018/04/02/Machine-Learning-Algorithms-Sheet/" target="_blank" rel="external">Machine Learning:如何选择机器学习算法</a></li>
+<li><a href="https://riboseyim.github.io/2018/05/07/Machine-Learning-Neural-Network" target="_blank" rel="external">Machine Learning:神经网络基础</a></li>
 <li><a href="https://riboseyim.github.io/2018/01/25/Machine-Learning-Books/" target="_blank" rel="external">Machine Learning:机器学习书单</a></li>
 <li><a href="https://riboseyim.github.io/2017/08/29/Machine-Learning-News" target="_blank" rel="external">Machine Learning:人工智能媒体报道集</a></li>
 <li><a href="https://riboseyim.github.io/2018/02/16/Machine-Learning-Law/" target="_blank" rel="external">Machine Learning:机器学习技术与知识产权法</a></li>
@@ -1488,91 +1723,6 @@
       <category term="数学与算法" scheme="http://riboseyim.github.com/tags/%E6%95%B0%E5%AD%A6%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
     
       <category term="Machine-Learning" scheme="http://riboseyim.github.com/tags/Machine-Learning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>动态追踪技术(五)：DTrace for Linux</title>
-    <link href="http://riboseyim.github.com/2018/02/16/DTrace-Linux/"/>
-    <id>http://riboseyim.github.com/2018/02/16/DTrace-Linux/</id>
-    <published>2018-02-16T10:09:11.000Z</published>
-    <updated>2018-03-01T07:18:03.900Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
-<li>里程碑：DTrace 从 CDDL 切换为 GPL 许可证</li>
-<li>里程碑：Linux 合并 BPF</li>
-</ul>
-<a id="more"></a>
-<h2 id="里程碑：DTrace-切换到-GPL-许可证"><a href="#里程碑：DTrace-切换到-GPL-许可证" class="headerlink" title="里程碑：DTrace 切换到 GPL 许可证"></a>里程碑：DTrace 切换到 GPL 许可证</h2><h4 id="News-dtrace-dropped-the-CDDL-and-switched-to-the-GPL"><a href="#News-dtrace-dropped-the-CDDL-and-switched-to-the-GPL" class="headerlink" title="News:dtrace dropped the CDDL and switched to the GPL!"></a>News:dtrace dropped the CDDL and switched to the GPL!</h4><p>根据 2月14日 Brendan Gregg 在 Twitter 上推送的消息：Oracle 已经将 DTrace 模块的开源许可证从 CDDL 切换到 GPL，预计最快到 2018 年底 Linux kernel 就可以发布一个可用的 /usr/sbin/dtrace ，底层基于 bcc 和 eBPF 。</p>
-<blockquote>
-<p>Good news from Oracle: DTrace is GPL’d (thank you!). I’d guess by the end of 2018 we’ll have a working /usr/sbin/dtrace on Linux for running D scripts (using libbcc+eBPF on the backend)</p>
-</blockquote>
-<p>关于动态追踪技术（Dynamic Tracing），我们在之前的文章已经有所介绍，<a href="https://riboseyim.github.io/2016/11/26/DTrace/" target="_blank" rel="external">动态追踪技术(一)：DTrace 导论</a> 。DTrace 是动态追踪技术的鼻祖，源自 Solaris 操作系统，提供了高级性能分析和调试功能（ advanced performance analysis and troubleshooting tool ）。</p>
-<p>Oracle 收购 SUN 公司之后推出了 Oracle Linux DTrace （基于 Oracle 企业级内核  Unbreakable Enterprise Kernel ，UEK)，针对性地发展完善了一系列探针如 syscall, profile, sdt, proc, sched 和 USDT，受制于诸多原因一直没有进入 Linux kernel 代码树，其中最大的一个障碍是许可授权问题：DTrace 源代码采用 CDDL 许可证，不兼容 Linux kernel 使用的 GPLv2 许可证，无法直接移植。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">commit e1744f50ee9bc1978d41db7cc93bcf30687853e6</div><div class="line">Author: Tomas Jedlicka &lt;tomas.jedlicka@oracle.com&gt;</div><div class="line">Date: Tue Aug <span class="number">1</span> <span class="number">09</span>:<span class="number">15</span>:<span class="number">44</span> <span class="number">2017</span> <span class="number">-0400</span></div><div class="line"></div><div class="line">dtrace: Integrate DTrace Modules into kernel proper</div><div class="line"></div><div class="line">This changeset integrates DTrace <span class="keyword">module</span> sources into the main kernel</div><div class="line">source tree under the GPLv2 license. Sources have been moved to</div><div class="line">appropriate locations in the kernel tree.</div></pre></td></tr></table></figure>
-<h4 id="CDDL-vs-GPL"><a href="#CDDL-vs-GPL" class="headerlink" title="CDDL vs GPL"></a>CDDL vs GPL</h4><p>DTrace 与 OpenSolaris 一样之前是基于 CDDL 许可证而不是 Linux kernel 使用的 GPL 许可证，二者的区别是什么呢？</p>
-<p><img src="http://omb2onfvy.bkt.clouddn.com/Software-license-classification.png" alt=""></p>
-<p>GNU通用公共许可协议（GNU General Public License，简称 GNU GPL、GPL，港台地区翻译为“GNU通用公共授权条款”）是广泛使用的免费软件许可证，最初由GNU项目的自由软件基金会（FSF）的理查德·斯托曼（Richard Matthew Stallman）撰写。 </p>
-<p>一般的版权概念（“copyright”），从不授予用户任何权利（除了使用的权利），更多的是限制性规定，例如复制、修改、分发等，也可以包括一些法律允许的行为，比如逆向工程。GPL 则代表了知识产权制度的左翼阵营（“copyleft”），它授予被许可人以下权利（或称“自由”）：</p>
-<ul>
-<li>以任何目的运行此程序的自由；</li>
-<li>再复制的自由；</li>
-<li>修改程序并公开发布改进版的自由（前提是能得到源代码）。</li>
-</ul>
-<p>GPL 及其它 Copyleft 协议授予了被许可人（几乎是任何人）以非常广泛的自由，同时利用版权法设计了“传染机制”：GPL明确规定，任何源码的衍生产品，如果对外发布，都必须保持同样的许可证。这就是说，任何人只要发布基于某个GPL软件的修改版本，他就必须公开源码，并且同意他人可以自由地复制和分发，否则原始作者可以根据版权法起诉 。</p>
-<p>DTrace 的 CDDL 许可证继承自 Sun Microsystems 。通用开发与发行许可证（Common Development and Distribution License，简称CDDL） 是一个由 Sun 提出的授权协议，它以 Mozilla 公共许可证（MPL）1.1版本为基础。基于 CDDL 许可证的项目主要有：OpenSolaris (含 DTrace 和 ZFS) 、NetBeans IDE 、GlassFish 等。</p>
-<blockquote>
-<p>Like the MPL, the CDDL is a weak copyleft license in-between GPL license and BSD/MIT permissive licenses, requiring only source code files under CDDL to remain under CDDL.</p>
-</blockquote>
-<p>鉴于 GPL 许可模式下很难通过开源软件直接盈利，因此也有很多类似 CDDL 的开源协议倾向于支持商业开发，授予厂商更大的决定权。CDDL 最大的特点是源代码和可执行文件允许采用不同的许可证。例如一般不存在 GPL 模式下存在的 “社区”版本，而是由厂商提供一些免费版本供开发者在非生产环境下使用，同时附上 CDDL 许可的源代码，开发者可以自行编译和部署；更重要的是，厂商只对付费客户提供安全补丁修复和维护版本的源代码。</p>
-<p><strong>综上所述</strong>，基于 CDDL 许可证的 DTrace 你只可以使用但不允许围绕代码进行修改，或者添加其他跟踪点。Paul Fox 个人贡献的dtrace4linux 项目就试图移植 Sun DTrace 到 Linux 的 ，但是受限于许可证只能做到附加产品（add-on）, 外部人员很难直接参与进来，事实上 CDDL 许可证的项目外部贡献最多一般不会超过 10% 。</p>
-<h4 id="Future"><a href="#Future" class="headerlink" title="Future"></a>Future</h4><p>在此之前，Linux 已经拥有 SystemTap 和动态探针（dprobes），DTrace 是基于整个系统的全局跟踪、调试、分析工具。Linux kernel 的创建者显然不喜欢一个“复杂”的系统（large system）, 他们倾向于将跟踪、分析和探测划分为彼此独立的小单元。许多开发者为此发明了各种钩子（hooks）以及整合某些特定探针（probes）的便利工具，例如 kprobes , uprobes, markers 等。 dtrace for linux 正式进入 Linux kernel 之后，有望将相关技术整合成一个更强大的体系，这一点非常令人期待。</p>
-<h2 id="里程碑：Linux-合并-BPF"><a href="#里程碑：Linux-合并-BPF" class="headerlink" title="里程碑：Linux 合并 BPF"></a>里程碑：Linux 合并 BPF</h2><p>2016年11月，Linux 4.9-rc1发布，正式合并了一项重要特性：BPF追踪（Timed sampling）。</p>
-<p>系统性能领域的国际导师Brendan Gregg，感动得都快哭了，当即在Twitter上表示这是一个重要的里程碑!<br>他随后又写了一篇长文<a href="http://www.brendangregg.com/blog/2016-10-27/dtrace-for-linux-2016.html" target="_blank" rel="external">《DTrace for Linux 2016》</a>，以示庆祝。</p>
-<blockquote>
-<p>As a long time DTrace user and expert, this is an exciting milestone!<br>–Brendan Gregg</p>
-</blockquote>
-<p>Linux 合并了BPF而已嘛，跟DTrace这个劳什子有什么关系呢？</p>
-<p>DTrace 是动态追踪技术的鼻祖，源自 Solaris 操作系统，提供了高级性能分析和调试功能，它的源代码采用 CDDL 许可证，不兼容 Linux 内核使用的 GPLv2 许可证，无法直接移植。当然，江湖上还有另外一种说法，Linux之所以一直没有原生支持DTrace,是因为Linus 觉得这玩意没什么必要。Anyway,随着 BPF跟踪的最后主要功能合并到 Linux 4.9-rc1，Linux 现在有了类似 DTrace 的高级分析和调试功能。</p>
-<p>Linux 这次合并的BPF（The Berkeley Packet Filter ），来自于加州大学伯克利分校（这所大学很有意思，以后还要反复提到）。BPF，顾名思义，最早只是一个纯粹的封包过滤器，后来在很多牛人的参与下，进行了扩展，得到了一个所谓的 eBPF，可以作为某种更加通用的内核虚拟机。通过这种机制，我们其实可以在 Linux 中构建类似 DTrace 那种常驻内核的动态追踪虚拟机。</p>
-<blockquote>
-<p>Linux 没有 DTrace（名字），但现在有了 DTrace（功能）</p>
-</blockquote>
-<h2 id="扩展阅读：动态追踪技术"><a href="#扩展阅读：动态追踪技术" class="headerlink" title="扩展阅读：动态追踪技术"></a>扩展阅读：动态追踪技术</h2><ul>
-<li><a href="https://riboseyim.github.io/2017/05/29/Linux-Works/" target="_blank" rel="external">操作系统原理 | How Linux Works（一）：How the Linux Kernel Boots</a></li>
-<li><a href="https://riboseyim.github.io/2017/05/29/Linux-Works/" target="_blank" rel="external">操作系统原理 | How Linux Works（二）：User Space &amp; RAM</a></li>
-<li><a href="https://riboseyim.github.io/2017/12/11/Linux-Works-Memory/" target="_blank" rel="external">操作系统原理 | How Linux Works（三）：Memory</a></li>
-<li><a href="https://riboseyim.github.io/2016/11/26/DTrace/" target="_blank" rel="external">动态追踪技术(一)：DTrace 导论</a></li>
-<li><a href="https://mp.weixin.qq.com/s?__biz=MjM5MTY1MjQ3Nw==&amp;mid=2651939588&amp;idx=1&amp;sn=35f71c5f88d1edf23cb2efc812ab8e6c&amp;chksm=bd578c168a20050041c08618281691f0111f61c789097a69095933057618637fc54817815921#rd" target="_blank" rel="external">动态追踪技术(二)：strace+gdb 溯源 Nginx 内存溢出异常 </a></li>
-<li><a href="https://riboseyim.github.io/2017/04/17/DTrace_FTrace/" target="_blank" rel="external">动态追踪技术(三)：Tracing Your Kernel Function!</a></li>
-<li><a href="https://riboseyim.github.io/2017/06/27/DTrace_bcc/" target="_blank" rel="external">动态追踪技术(四)：基于 Linux bcc/BPF 实现 Go 程序动态追踪</a></li>
-<li><a href="https://riboseyim.github.io/2018/02/16/DTrace-Linux/" target="_blank" rel="external">动态追踪技术(五)：Welcome DTrace for Linux</a></li>
-</ul>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
-<li><a href="https://gnu.wildebeest.org/blog/mjw/2018/02/14/dtrace-for-linux-oracle-does-the-right-thing/" target="_blank" rel="external">DTRACE FOR LINUX; ORACLE DOES THE RIGHT THING | February 14, 2018 | MARK J. WIELAARD</a></li>
-<li><a href="http://www.oracle.com/technetwork/server-storage/linux/downloads/linux-dtrace-2800968.html" target="_blank" rel="external">Oracle Linux DTrace</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;里程碑：DTrace 从 CDDL 切换为 GPL 许可证&lt;/li&gt;
-&lt;li&gt;里程碑：Linux 合并 BPF&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-    
-      <category term="DevOps" scheme="http://riboseyim.github.com/tags/DevOps/"/>
-    
-      <category term="Policy&amp;Law" scheme="http://riboseyim.github.com/tags/Policy-Law/"/>
-    
-      <category term="Economist" scheme="http://riboseyim.github.com/tags/Economist/"/>
-    
-      <category term="Linux" scheme="http://riboseyim.github.com/tags/Linux/"/>
-    
-      <category term="DTrace" scheme="http://riboseyim.github.com/tags/DTrace/"/>
     
   </entry>
   
