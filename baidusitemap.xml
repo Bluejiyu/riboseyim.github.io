@@ -4,8 +4,39 @@
 
     
   <url>
+    <loc>http://riboseyim.github.com/2018/03/02/eBook-MLM/</loc>
+    <lastmod>2018-05-08T03:17:43.398Z</lastmod>
+    <data>
+        <display>
+        <title>电子书：《Machine Learning Master》</title>
+        <pubTime>2018-03-02T07:45:40.000Z</pubTime>
+        
+        <tag>最佳工程实践</tag>
+         
+        <tag>架构师</tag>
+         
+        <tag>DevOps</tag>
+         
+        <tag>Linux</tag>
+         
+        <tag>Developer</tag>
+         
+        <tag>数学与算法</tag>
+         
+        <tag>Machine-Learning</tag>
+         
+        <tag>最佳写作实践</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://riboseyim.github.com/2018/05/07/Machine-Learning-Neural-Network/</loc>
-    <lastmod>2018-05-07T13:00:58.268Z</lastmod>
+    <lastmod>2018-05-08T01:56:09.840Z</lastmod>
     <data>
         <display>
         <title>Machine Learning:神经网络基础</title>
@@ -1894,37 +1925,6 @@
         <tag>Linux</tag>
          
         <tag>Developer</tag>
-         
-        <tag>最佳写作实践</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://riboseyim.github.com/2018/03/02/eBook-MLM/</loc>
-    <lastmod>2018-03-29T06:17:47.374Z</lastmod>
-    <data>
-        <display>
-        <title>电子书：《Machine Learning Master》</title>
-        <pubTime>2018-03-02T07:45:40.000Z</pubTime>
-        
-        <tag>最佳工程实践</tag>
-         
-        <tag>架构师</tag>
-         
-        <tag>DevOps</tag>
-         
-        <tag>Linux</tag>
-         
-        <tag>Developer</tag>
-         
-        <tag>数学与算法</tag>
-         
-        <tag>Machine-Learning</tag>
          
         <tag>最佳写作实践</tag>
          

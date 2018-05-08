@@ -6,13 +6,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>Machine Learning:神经网络基础 | Ribose Yim&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="摘要 Introduction 工作流程：Forward-Propagation、Backward Propagation、Partial Derivatives、Hyper Parameters 深度网络：A single layer Neural Network、Wide Neural Network  vs  Deep Neural Network 维度诅咒">
+  <meta name="description" content="摘要 Introduction 工作流程：Forward-Propagation、Backward Propagation、Partial Derivatives、Hyper Parameters 深度网络：A single layer Neural Network、Wide Neural Network  vs  Deep Neural Network 维度诅咒、权衡">
 <meta name="keywords" content="架构师,数学与算法,Machine-Learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Machine Learning:神经网络基础">
 <meta property="og:url" content="http://riboseyim.github.com/2018/05/07/Machine-Learning-Neural-Network/index.html">
 <meta property="og:site_name" content="Ribose Yim&#39;s Blog">
-<meta property="og:description" content="摘要 Introduction 工作流程：Forward-Propagation、Backward Propagation、Partial Derivatives、Hyper Parameters 深度网络：A single layer Neural Network、Wide Neural Network  vs  Deep Neural Network 维度诅咒">
+<meta property="og:description" content="摘要 Introduction 工作流程：Forward-Propagation、Backward Propagation、Partial Derivatives、Hyper Parameters 深度网络：A single layer Neural Network、Wide Neural Network  vs  Deep Neural Network 维度诅咒、权衡">
+<meta property="og:image" content="http://omb2onfvy.bkt.clouddn.com/AI-Neurons.jpg">
 <meta property="og:image" content="http://omb2onfvy.bkt.clouddn.com/NeuralNetwork-Basic-1.jpg">
 <meta property="og:image" content="http://omb2onfvy.bkt.clouddn.com/NeuralNetwork-Basic-2.png">
 <meta property="og:image" content="http://omb2onfvy.bkt.clouddn.com/NeuralNetwork-Basic-3.jpg">
@@ -29,11 +30,11 @@
 <meta property="og:image" content="http://omb2onfvy.bkt.clouddn.com/NeuralNetwork-Basic-14.png">
 <meta property="og:image" content="http://omb2onfvy.bkt.clouddn.com/NeuralNetwork-Basic-15.jpg">
 <meta property="og:image" content="http://p11slcnom.bkt.clouddn.com/banner-MLM-201803.png">
-<meta property="og:updated_time" content="2018-05-07T13:00:58.268Z">
+<meta property="og:updated_time" content="2018-05-08T01:56:09.840Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Machine Learning:神经网络基础">
-<meta name="twitter:description" content="摘要 Introduction 工作流程：Forward-Propagation、Backward Propagation、Partial Derivatives、Hyper Parameters 深度网络：A single layer Neural Network、Wide Neural Network  vs  Deep Neural Network 维度诅咒">
-<meta name="twitter:image" content="http://omb2onfvy.bkt.clouddn.com/NeuralNetwork-Basic-1.jpg">
+<meta name="twitter:description" content="摘要 Introduction 工作流程：Forward-Propagation、Backward Propagation、Partial Derivatives、Hyper Parameters 深度网络：A single layer Neural Network、Wide Neural Network  vs  Deep Neural Network 维度诅咒、权衡">
+<meta name="twitter:image" content="http://omb2onfvy.bkt.clouddn.com/AI-Neurons.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Ribose Yim&#39;s Blog" type="application/atom+xml">
   
@@ -104,7 +105,7 @@
 						<li>Links</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -295,9 +296,10 @@
 <li>Introduction</li>
 <li>工作流程：Forward-Propagation、Backward Propagation、Partial Derivatives、Hyper Parameters</li>
 <li>深度网络：A single layer Neural Network、Wide Neural Network  vs  Deep Neural Network</li>
-<li>维度诅咒</li>
+<li>维度诅咒、权衡</li>
 </ul>
 <a id="more"></a>
+<p><img src="http://omb2onfvy.bkt.clouddn.com/AI-Neurons.jpg" alt=""></p>
 <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>神经网络试图复制人脑的工作以使事情更加智能化。</p>
 <p>神经网络通常是一种有监督的学习方法。这意味着需要有一套训练集。理想情况下，训练集合包含了绝对真值（tags | 标签，classes | 类 ）的例子。例如在文本情感分析的情况下，训练集是句子列表和它们各自对应的情绪。（注意：未标记的数据集也可以用来训练神经网络，但这里仅考虑最基本的情况。）</p>
 <p>例如：将文本称为 X ，将它们的标签称为 Y 。 有一些函数可以定义 X 和 Y 之间的关系，比如是什么特征（词/短语/句子结构等）导致一个句子是否定的或肯定的的含义。早期的人们习惯于手动查找这些特征，这被称为特征工程（feature engineering）。神经网络使得这一过程实现自动化处理。</p>
