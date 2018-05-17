@@ -2,6 +2,48 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://riboseyim.github.com/2016/05/31/AboutMe/</loc>
+    
+    <lastmod>2018-05-17T08:51:30.082Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2018/04/27/DevOps-OpenCensus/</loc>
+    
+    <lastmod>2018-05-17T07:57:16.554Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2016/07/28/DevOps/</loc>
+    
+    <lastmod>2018-05-17T05:45:31.041Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2017/05/05/Language-Go-lang/</loc>
+    
+    <lastmod>2018-05-16T09:00:29.151Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2017/06/19/Machine-Learning/</loc>
+    
+    <lastmod>2018-05-16T05:26:03.973Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2017/08/15/Commander-Sergeant/</loc>
+    
+    <lastmod>2018-05-15T09:23:56.696Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://riboseyim.github.com/2018/04/10/Artistic-Classical/</loc>
     
     <lastmod>2018-05-15T05:54:49.523Z</lastmod>
@@ -135,13 +177,6 @@
   </url>
   
   <url>
-    <loc>http://riboseyim.github.com/2018/04/27/DevOps-OpenCensus/</loc>
-    
-    <lastmod>2018-05-13T12:25:37.471Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://riboseyim.github.com/2017/06/24/History-Qing/</loc>
     
     <lastmod>2018-05-09T03:42:27.045Z</lastmod>
@@ -233,13 +268,6 @@
   </url>
   
   <url>
-    <loc>http://riboseyim.github.com/2017/06/19/Machine-Learning/</loc>
-    
-    <lastmod>2018-05-07T12:56:41.347Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://riboseyim.github.com/2018/03/26/DevOps-Deployment/</loc>
     
     <lastmod>2018-05-02T03:14:45.860Z</lastmod>
@@ -282,13 +310,6 @@
   </url>
   
   <url>
-    <loc>http://riboseyim.github.com/2017/05/05/Language-Go-lang/</loc>
-    
-    <lastmod>2018-04-27T10:49:51.783Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://riboseyim.github.com/2016/11/04/OpenSource-Ganglia/</loc>
     
     <lastmod>2018-04-27T10:46:30.528Z</lastmod>
@@ -299,20 +320,6 @@
     <loc>http://riboseyim.github.com/2016/08/15/OpenSource-Kafka/</loc>
     
     <lastmod>2018-04-27T10:21:29.503Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2016/05/31/AboutMe/</loc>
-    
-    <lastmod>2018-04-26T02:20:41.622Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2016/07/28/DevOps/</loc>
-    
-    <lastmod>2018-04-26T02:13:22.252Z</lastmod>
     
   </url>
   
@@ -1433,13 +1440,6 @@
     <loc>http://riboseyim.github.com/2017/05/28/History-Caoyun/</loc>
     
     <lastmod>2017-12-22T05:26:26.892Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2017/08/15/Commander-Sergeant/</loc>
-    
-    <lastmod>2017-12-22T05:26:26.804Z</lastmod>
     
   </url>
   

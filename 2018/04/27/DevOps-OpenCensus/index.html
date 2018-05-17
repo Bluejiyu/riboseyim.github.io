@@ -22,7 +22,7 @@
 <meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/DTM-OpenCensus-Language.png">
 <meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/DTM-OpenCensus-traceZ.png">
 <meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/DTM-Twitter-Zipkin.png">
-<meta property="og:updated_time" content="2018-05-13T12:25:37.471Z">
+<meta property="og:updated_time" content="2018-05-17T07:57:16.554Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DevOps 漫谈：基于OpenCensus构建分布式跟踪系统">
 <meta name="twitter:description" content="摘要 Distributed Tracing and Monitoring System OpenCensus: A framework for distributed tracing">
@@ -298,16 +298,16 @@
 <p><img src="http://og2061b3n.bkt.clouddn.com/DTM-OpenCensus-Micro-2.png" alt=""></p>
 <h2 id="Distributed-Tracing-and-Monitoring-System"><a href="#Distributed-Tracing-and-Monitoring-System" class="headerlink" title="Distributed Tracing and Monitoring System"></a>Distributed Tracing and Monitoring System</h2><p>讨论分布式跟踪，就一定会谈到 Dapper —— Google 公司研发并应用于自己生产环境的一款跟踪系统（设计之初参考了一些 Magpie 和 X-Trace 的理念 ）。Dapper 不仅为业内提供了非常有参考价值的实现，同步发表论文的也成为了当前分布式跟踪系统的重要理论基础。</p>
 <ul>
-<li><a href="https://static.googleusercontent.com/media/research.google.com/zh-CN//archive/papers/dapper-2010-1.pdf" target="_blank" rel="external">《Dapper, a Large-Scale Distributed Systems Tracing Infrastructure|Google Technical Report dapper-2010-1, April 2010》</a></li>
+<li><a href="https://static.googleusercontent.com/media/research.google.com/zh-CN//archive/papers/dapper-2010-1.pdf" target="_blank" rel="external">《Dapper, a Large-Scale Distributed Systems Tracing Infrastructure|Google Technical Report dapper-2010-1, April 2010》</a> <a href="https://bigbully.github.io/Dapper-translation/" target="_blank" rel="external">中译本@bigbully</a></li>
 </ul>
 <blockquote>
 <p>Modern Internet services are often implemented as complex, large-scale distributed systems.These applications are constructed from collections of software modules that may be developed by different teams, perhaps in different programming languages, and could span many thousands of machines across multiple physical facilities. Tools that aid in understanding system behavior and reasoning about performance issues are invaluable in such an environment.</p>
 </blockquote>
 <p>在这篇论文中，Google 提出了关于分布式跟踪系统的一些重要概念：</p>
 <ul>
-<li><p>Annotation-based，基于标注或植入点、埋点<br>在应用程序或中间件中明确定义全局标注（Annotation），一个特殊的ID，通过这个 ID 连接每一条请求记录。当然，这需要代码植入，在生产环境中可以通过一个通用组件开放给开发人员。</p>
+<li><p>Annotation-based，基于标注或植入点(埋点)<br>在应用程序或中间件中明确定义全局标注（Annotation），一个特殊的ID，通过这个 ID 连接每一条请求记录。当然，这需要代码植入，在生产环境中可以通过一个通用组件开放给开发人员。</p>
 </li>
-<li><p>跟踪树和span<br>在 Dapper 跟踪树（Trace tree）中，基本单元是树节点（分配 spanid）。节点之间通过连线表示父子关系，通过 parentId 和 spanId 把所有的关系串联起来，实现记录业务流的作用。</p>
+<li><p>跟踪树（trace tree）和 span<br>在 Dapper 跟踪树（Trace tree）中，基本单元是树节点（分配 spanid）。节点之间通过连线表示父子关系，通过 parentId 和 spanId 把所有的关系串联起来，实现记录业务流的作用。</p>
 </li>
 </ul>
 <p><img src="http://og2061b3n.bkt.clouddn.com/DTM-Dapper-TraceTree-Span.png" alt=""></p>
@@ -387,10 +387,37 @@
 <h4 id="Zipkin-ABC"><a href="#Zipkin-ABC" class="headerlink" title="Zipkin ABC"></a>Zipkin ABC</h4><ul>
 <li><a href="https://medium.com/devthoughts/instrumenting-a-go-application-with-zipkin-b79cc858ac3e" target="_blank" rel="external">Instrumenting a Go application with Zipkin</a></li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">$ docker image pull openzipkin/zipkin</div><div class="line">Using default tag: latest</div><div class="line">latest: Pulling from openzipkin/zipkin</div><div class="line">3a9e9033596c: Pull complete</div><div class="line">e41580404458: Pull complete</div><div class="line">c68a1262225d: Pull complete</div><div class="line">Digest: sha256:0a216d66e753de48d63e9aa36526781af6967549ce9ab4c8bcaf02ac4031912b</div><div class="line">Status: Downloaded newer image <span class="keyword">for</span> openzipkin/zipkin:latest</div><div class="line"></div><div class="line">$ docker container run openzipkin/zipkin</div><div class="line"><span class="built_in">log</span>4j:WARN No appenders could be found <span class="keyword">for</span> logger (org.springframework.web.context.support.StandardServletEnvironment).</div><div class="line"><span class="built_in">log</span>4j:WARN Please initialize the <span class="built_in">log</span>4j system properly.</div><div class="line">                                    ********</div><div class="line">                                  **        **</div><div class="line">                                 *            *</div><div class="line">                                **            **</div><div class="line">                                **            **</div><div class="line">                                 **          **</div><div class="line">                                  **        **</div><div class="line">                                    ********</div><div class="line">                                      ****</div><div class="line">                                      ****</div><div class="line">        ****                          ****</div><div class="line">     ******                           ****                                 ***</div><div class="line">  ****************************************************************************</div><div class="line">    *******                           ****                                 ***</div><div class="line">        ****                          ****</div><div class="line">                                       **</div><div class="line">                                       **</div><div class="line"></div><div class="line"></div><div class="line">             *****      **     *****     ** **       **     **   **</div><div class="line">               **       **     **  *     ***         **     **** **</div><div class="line">              **        **     *****     ****        **     **  ***</div><div class="line">             ******     **     **        **  **      **     **   **</div><div class="line"></div><div class="line">:: Powered by Spring Boot ::         (v2.0.1.RELEASE)</div><div class="line"></div><div class="line">$ docker container ls --all</div><div class="line">CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                        PORTS                              NAMES</div><div class="line">f9935fcaf4ba        openzipkin/zipkin   <span class="string">"/bin/sh -c 'test -n"</span>   5 seconds ago       Up 4 seconds                  9410/tcp, 0.0.0.0:9411-&gt;9411/tcp   musing_jepsen</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">$ docker image pull openzipkin/zipkin</div><div class="line">Using default tag: latest</div><div class="line">latest: Pulling from openzipkin/zipkin</div><div class="line">3a9e9033596c: Pull complete</div><div class="line">e41580404458: Pull complete</div><div class="line">c68a1262225d: Pull complete</div><div class="line">Digest: sha256:0a216d66e753de48d63e9aa36526781af6967549ce9ab4c8bcaf02ac4031912b</div><div class="line">Status: Downloaded newer image <span class="keyword">for</span> openzipkin/zipkin:latest</div><div class="line"></div><div class="line">$ docker container run -p 9411:9411 openzipkin/zipkin</div><div class="line"><span class="built_in">log</span>4j:WARN No appenders could be found <span class="keyword">for</span> logger (org.springframework.web.context.support.StandardServletEnvironment).</div><div class="line"><span class="built_in">log</span>4j:WARN Please initialize the <span class="built_in">log</span>4j system properly.</div><div class="line">                                    ********</div><div class="line">                                  **        **</div><div class="line">                                 *            *</div><div class="line">                                **            **</div><div class="line">                                **            **</div><div class="line">                                 **          **</div><div class="line">                                  **        **</div><div class="line">                                    ********</div><div class="line">                                      ****</div><div class="line">                                      ****</div><div class="line">        ****                          ****</div><div class="line">     ******                           ****                                 ***</div><div class="line">  ****************************************************************************</div><div class="line">    *******                           ****                                 ***</div><div class="line">        ****                          ****</div><div class="line">                                       **</div><div class="line">                                       **</div><div class="line"></div><div class="line"></div><div class="line">             *****      **     *****     ** **       **     **   **</div><div class="line">               **       **     **  *     ***         **     **** **</div><div class="line">              **        **     *****     ****        **     **  ***</div><div class="line">             ******     **     **        **  **      **     **   **</div><div class="line"></div><div class="line">:: Powered by Spring Boot ::         (v2.0.1.RELEASE)</div><div class="line"></div><div class="line">$ docker container ls --all</div><div class="line">CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                        PORTS                              NAMES</div><div class="line">f9935fcaf4ba        openzipkin/zipkin   <span class="string">"/bin/sh -c 'test -n"</span>   5 seconds ago       Up 4 seconds                  9410/tcp, 0.0.0.0:9411-&gt;9411/tcp   musing_jepsen</div></pre></td></tr></table></figure>
 <p><img src="http://og2061b3n.bkt.clouddn.com/DTM-Twitter-Zipkin.png" alt=""></p>
 <h2 id="读者问题"><a href="#读者问题" class="headerlink" title="读者问题"></a>读者问题</h2><ul>
 <li>OpenCensus vs <a href="http://opentracing.io/" target="_blank" rel="external">OpenTracing</a></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Future</th>
+<th>OpenTracing</th>
+<th>OpenCensus</th>
+<th>Google</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>API 支持</td>
+<td><a href="https://github.com/opentracing/opentracing-go" target="_blank" rel="external">Go</a>、 <a href="https://github.com/opentracing/opentracing-python" target="_blank" rel="external">Python</a>、<a href="https://github.com/opentracing/opentracing-javascript" target="_blank" rel="external">Javascript</a>、 <a href="https://github.com/opentracing/opentracing-objc" target="_blank" rel="external">Objective-C</a><br><a href="https://github.com/opentracing/opentracing-java" target="_blank" rel="external">Java</a>、<a href="https://github.com/opentracing/opentracing-cpp" target="_blank" rel="external">C++</a> <br> 研发中：<a href="#">PHP</a> 、<a href="#">Ruby </a></td>
+<td>Go、Java、C++、.Net，Node.js，Erlang <br> 研发中：<br> Python(STATS In Progress) 、 PHP(STATS Planned) 、 Ruby(STATS Planned)</td>
+<td>–</td>
+</tr>
+<tr>
+<td>EXPORTERS</td>
+<td>–</td>
+<td>SignalFX (Java、C++) <br> Prometheus (Java、C++、Go、Erlang) <br> Jaeger (Java、Go) <br> Stackdriver (Java、C++、Go、Python、ERLANG-Trace Only) <br> Zipkin (Java、C++、Go、Erlang) <br> Instana (Java)</td>
+<td>–</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><a href="https://opencensus.io/roadmap.html" target="_blank" rel="external">OpenCensus ROADMAP</a></li>
 </ul>
 <h2 id="OpenTracing"><a href="#OpenTracing" class="headerlink" title="OpenTracing"></a>OpenTracing</h2><ul>
 <li><p>待续</p>
@@ -469,7 +496,7 @@
       授权：保持署名-非商业性使用-禁止演绎| License BY-NC-ND 4.0 </a>
     </div>
       	<div class="footer-right">
-      		<a href="https://riboseyim.github.io/2016/05/31/AboutMe/" target="_blank">聪明秀出谓之英，胆力过人谓之雄 | 联系作者 </a>
+      		<a href="https://riboseyim.github.io/resume.html" target="_blank"> 联系作者 </a>
       	</div>
     </div>
   </div>

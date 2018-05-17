@@ -13,7 +13,7 @@
 <meta property="og:url" content="http://riboseyim.github.com/2017/05/05/Language-Go-lang/index.html">
 <meta property="og:site_name" content="Ribose Yim&#39;s Blog">
 <meta property="og:description" content="摘要 基于 Golang 的应用">
-<meta property="og:updated_time" content="2018-04-27T10:49:51.783Z">
+<meta property="og:updated_time" content="2018-05-16T09:00:29.151Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Catalog：玩转编程语言 - Golang 专题">
 <meta name="twitter:description" content="摘要 基于 Golang 的应用">
@@ -343,10 +343,11 @@
 </li>
 <li><a href="https://github.com/rapidloop/vlan-nats" target="_blank" rel="external">vlan-nats</a></li>
 <li><a href="https://github.com/go-ego/riot" target="_blank" rel="external">riot：Go Open Source, Distributed, Simple and efficient Search Engine</a></li>
-<li><p><a href="https://k6.io" target="_blank" rel="external">K6: A modern load testing tool, using Go and JavaScript</a></p>
-</li>
-<li><p><a href="https://github.com/elazarl/goproxy" target="_blank" rel="external">Advanced Forwarding with Go github.com/elazarl/goproxy</a></p>
-</li>
+<li><a href="https://k6.io" target="_blank" rel="external">K6: A modern load testing tool, using Go and JavaScript</a></li>
+</ul>
+<h4 id="goproxy"><a href="#goproxy" class="headerlink" title="goproxy"></a><a href="https://github.com/snail007/goproxy/blob/master/README_ZH.md" target="_blank" rel="external">goproxy</a></h4><p>golang实现的高性能http,https,websocket,tcp,udp,socks5代理服务器,支持正向代理、反向代理、透明代理、内网穿透、TCP/UDP端口映射、SSH中转，TLS加密传输，协议转换</p>
+<ul>
+<li><a href="https://github.com/elazarl/goproxy" target="_blank" rel="external">Advanced Forwarding with Go github.com/elazarl/goproxy</a></li>
 <li><a href="https://git.oschina.net/tavenli/port-forward" target="_blank" rel="external">TavenLi/port-forward</a></li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#依赖 glibc-2.14</span></div><div class="line">[root@localhost ~]<span class="comment"># checking for symlinks in /opt/glibc-2.14/include... ok</span></div><div class="line">running configure fragment <span class="keyword">for</span> nptl/sysdeps/x86_64</div><div class="line">checking <span class="keyword">for</span> .cfi_personality and .cfi_lsda pseudo-ops... no</div><div class="line">configure: error: assembler too old, .cfi_personality support missing</div><div class="line"></div><div class="line">//For versioning you need recent binutils (binutils-2.8.1.0.23 or newer).</div><div class="line"></div><div class="line"><span class="comment"># tar xvf glibc-2.14.tar.gz</span></div><div class="line">[root@localhost ~]<span class="comment"># cd glibc-2.14</span></div><div class="line">[root@localhost glibc-2.14]<span class="comment"># mkdir build</span></div><div class="line">[root@localhost glibc-2.14]<span class="comment"># cd ./build</span></div><div class="line">[root@localhost build]<span class="comment"># ../configure --prefix=/opt/glibc-2.14</span></div><div class="line">[root@localhost build]<span class="comment"># make -j4</span></div><div class="line">[root@localhost build]<span class="comment"># make install</span></div><div class="line">[root@localhost build]<span class="comment"># export LD_LIBRARY_PATH=/opt/glibc-2.14/lib:$LD_LIBRARY_PATH</span></div><div class="line">[root@localhost build]<span class="comment"># strings /lib64/libc.so.6 |grep GLIBC</span></div><div class="line">GLIBC_2.2.5</div><div class="line">GLIBC_2.2.6</div><div class="line">GLIBC_2.3</div><div class="line">GLIBC_2.3.2</div></pre></td></tr></table></figure>
@@ -418,7 +419,7 @@
       授权：保持署名-非商业性使用-禁止演绎| License BY-NC-ND 4.0 </a>
     </div>
       	<div class="footer-right">
-      		<a href="https://riboseyim.github.io/2016/05/31/AboutMe/" target="_blank">聪明秀出谓之英，胆力过人谓之雄 | 联系作者 </a>
+      		<a href="https://riboseyim.github.io/resume.html" target="_blank"> 联系作者 </a>
       	</div>
     </div>
   </div>
