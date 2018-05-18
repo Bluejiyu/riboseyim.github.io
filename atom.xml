@@ -377,7 +377,7 @@
     <link href="http://riboseyim.github.com/2018/04/27/DevOps-OpenCensus/"/>
     <id>http://riboseyim.github.com/2018/04/27/DevOps-OpenCensus/</id>
     <published>2018-04-27T02:33:09.000Z</published>
-    <updated>2018-05-17T07:57:16.554Z</updated>
+    <updated>2018-05-18T02:58:01.833Z</updated>
     
     <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
 <li>Distributed Tracing and Monitoring System</li>
@@ -402,7 +402,7 @@
 <ul>
 <li><p>Annotation-based，基于标注或植入点(埋点)<br>在应用程序或中间件中明确定义全局标注（Annotation），一个特殊的ID，通过这个 ID 连接每一条请求记录。当然，这需要代码植入，在生产环境中可以通过一个通用组件开放给开发人员。</p>
 </li>
-<li><p>跟踪树（trace tree）和 span<br>在 Dapper 跟踪树（Trace tree）中，基本单元是树节点（分配 spanid）。节点之间通过连线表示父子关系，通过 parentId 和 spanId 把所有的关系串联起来，实现记录业务流的作用。</p>
+<li><p>跟踪树（trace tree）和 span<br>在 Dapper 跟踪树中，基本单元是树节点（分配 spanid）。节点之间通过连线表示父子关系，通过 parentId 和 spanId 把所有的关系串联起来，实现记录业务流的作用。</p>
 </li>
 </ul>
 <p><img src="http://og2061b3n.bkt.clouddn.com/DTM-Dapper-TraceTree-Span.png" alt=""></p>
