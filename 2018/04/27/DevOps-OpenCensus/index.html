@@ -25,7 +25,7 @@
 <meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/zipkin-%E4%B8%B2%E8%A1%8C.png">
 <meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/zipkin-%E5%B9%B6%E8%A1%8C.png">
 <meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/DTM-Twitter-Zipkin.png">
-<meta property="og:updated_time" content="2018-05-18T06:37:02.153Z">
+<meta property="og:updated_time" content="2018-05-18T06:58:20.132Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DevOps 漫谈：基于OpenCensus构建分布式跟踪系统">
 <meta name="twitter:description" content="摘要 Distributed Tracing and Monitoring System OpenCensus: A framework for distributed tracing">
@@ -364,15 +364,21 @@
 </ul>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"> <span class="keyword">import</span> (</div><div class="line"> 	 <span class="string">"go.opencensus.io/exporter/prometheus"</span></div><div class="line">   <span class="string">"go.opencensus.io/exporter/stackdriver"</span></div><div class="line">    openzipkin <span class="string">"github.com/openzipkin/zipkin-go"</span></div><div class="line">  	 <span class="string">"go.opencensus.io/exporter/zipkin"</span></div><div class="line">  	 <span class="string">"go.opencensus.io/trace"</span></div><div class="line">   <span class="string">"go.opencensus.io/stats/view"</span></div><div class="line">)</div><div class="line"></div><div class="line"><span class="comment">// Export to Prometheus Monitoring.</span></div><div class="line"> Exporter, err := prometheus.NewExporter(prometheus.Options&#123;&#125;)</div><div class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</div><div class="line">	logger.Error(<span class="string">"Error creating prometheus exporter  "</span>, zap.Error(err))</div><div class="line">&#125;</div><div class="line">view.RegisterExporter(pExporter)</div><div class="line"></div><div class="line"></div><div class="line"> <span class="comment">// Export to Stackdriver Monitoring.</span></div><div class="line">sExporter, err := stackdriver.NewExporter(stackdriver.Options&#123;ProjectID: config.ProjectID&#125;)</div><div class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</div><div class="line">	logger.Error(<span class="string">"Error creating stackdriver exporter  "</span>, zap.Error(err))</div><div class="line">&#125;</div><div class="line">view.RegisterExporter(sExporter)</div><div class="line"></div><div class="line"> <span class="comment">// Export to Zipkin Monitoring.</span></div><div class="line">localEndpoint, err := openzipkin.NewEndpoint(<span class="string">"service-A"</span>, <span class="string">"127.0.1.1:8080"</span>)</div><div class="line">reporter := http.NewReporter(<span class="string">"http://127.0.1.110:9411/api/v2/spans"</span>)</div><div class="line"><span class="keyword">defer</span> reporter.Close()</div><div class="line">exporter := zipkin.NewExporter(reporter, localEndpoint)</div><div class="line">trace.RegisterExporter(exporter)</div></pre></td></tr></table></figure>
 <h4 id="OpenZipkin-数据可视化示例"><a href="#OpenZipkin-数据可视化示例" class="headerlink" title="OpenZipkin 数据可视化示例"></a>OpenZipkin 数据可视化示例</h4><ul>
-<li><p>函数内容为空（微秒级）<br><img src="http://og2061b3n.bkt.clouddn.com/zipkin-%E7%A9%BA%E6%96%B9%E6%B3%95.png" alt=""></p>
-</li>
-<li><p>串行调用函数方法，内容包括网络访问和持久化操作（毫秒级）<br><img src="http://og2061b3n.bkt.clouddn.com/zipkin-%E4%B8%B2%E8%A1%8C.png" alt=""></p>
-</li>
-<li><p>并行调用函数方法（Go routine），内容与上同<br><img src="http://og2061b3n.bkt.clouddn.com/zipkin-%E5%B9%B6%E8%A1%8C.png" alt=""></p>
-</li>
-<li><p>多服务调用<br><img src="http://og2061b3n.bkt.clouddn.com/DTM-Twitter-Zipkin.png" alt="OpenZipkin"></p>
-</li>
+<li>函数内容为空（微秒级）</li>
 </ul>
+<p><img src="http://og2061b3n.bkt.clouddn.com/zipkin-%E7%A9%BA%E6%96%B9%E6%B3%95.png" alt=""></p>
+<ul>
+<li>串行调用函数方法，内容包括网络访问和持久化操作（毫秒级）</li>
+</ul>
+<p><img src="http://og2061b3n.bkt.clouddn.com/zipkin-%E4%B8%B2%E8%A1%8C.png" alt=""></p>
+<ul>
+<li>并行调用函数方法（Go routine），内容与上同</li>
+</ul>
+<p><img src="http://og2061b3n.bkt.clouddn.com/zipkin-%E5%B9%B6%E8%A1%8C.png" alt=""></p>
+<ul>
+<li>多服务调用</li>
+</ul>
+<p><img src="http://og2061b3n.bkt.clouddn.com/DTM-Twitter-Zipkin.png" alt="OpenZipkin"></p>
 <h2 id="OpenCensus-Principle-工作原理-待续"><a href="#OpenCensus-Principle-工作原理-待续" class="headerlink" title="OpenCensus Principle | 工作原理 (待续)"></a>OpenCensus Principle | 工作原理 (待续)</h2><h4 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h4><p>Span 共有属性：</p>
 <ul>
 <li>TraceId</li>
