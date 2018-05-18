@@ -460,7 +460,7 @@
     <link href="http://riboseyim.github.com/2018/04/27/DevOps-OpenCensus/"/>
     <id>http://riboseyim.github.com/2018/04/27/DevOps-OpenCensus/</id>
     <published>2018-04-27T02:33:09.000Z</published>
-    <updated>2018-05-18T06:58:20.132Z</updated>
+    <updated>2018-05-18T07:09:36.526Z</updated>
     
     <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
 <li>Distributed Tracing and Monitoring System</li>
@@ -553,7 +553,7 @@
 <ul>
 <li>多服务调用</li>
 </ul>
-<p><img src="http://og2061b3n.bkt.clouddn.com/DTM-Twitter-Zipkin.png" alt="OpenZipkin"></p>
+<p><img src="http://og2061b3n.bkt.clouddn.com/DTM-Zipkin-Twitter.png" alt="OpenZipkin-Twitter"></p>
 <h2 id="OpenCensus-Principle-工作原理-待续"><a href="#OpenCensus-Principle-工作原理-待续" class="headerlink" title="OpenCensus Principle | 工作原理 (待续)"></a>OpenCensus Principle | 工作原理 (待续)</h2><h4 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h4><p>Span 共有属性：</p>
 <ul>
 <li>TraceId</li>
