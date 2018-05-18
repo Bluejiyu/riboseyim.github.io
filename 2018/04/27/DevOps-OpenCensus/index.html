@@ -22,7 +22,7 @@
 <meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/DTM-OpenCensus-Language.png">
 <meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/DTM-OpenCensus-traceZ.png">
 <meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/DTM-Twitter-Zipkin.png">
-<meta property="og:updated_time" content="2018-05-18T02:58:01.833Z">
+<meta property="og:updated_time" content="2018-05-18T03:59:09.892Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DevOps 漫谈：基于OpenCensus构建分布式跟踪系统">
 <meta name="twitter:description" content="摘要 Distributed Tracing and Monitoring System OpenCensus: A framework for distributed tracing">
@@ -321,7 +321,7 @@
 <p>OpenCensus 项目是 Google 开源的一个用来收集和追踪应用指标的第三方库。OpenCensus 能够提供了一套统一的测量工具：跨服务捕获跟踪跨度（span）、应用级别指标以及来自其他应用的元数据（例如日志）。OpenCensus 有如下一些主要特点：</p>
 <ul>
 <li>标准通信协议和一致的 API ：用于处理 metric 和 trace</li>
-<li>多语言库，包括Java，C++，Go，.Net，Python，PHP，Node.js，Erlang 和 Ruby</li>
+<li>多语言库，包括Java，C++，Go，.Net，<a href="https://github.com/census-instrumentation/opencensus-python" target="_blank" rel="external">Python</a>，PHP，Node.js，Erlang 和 Ruby</li>
 <li>与 RPC 框架的集成，可以提供开箱即用的追踪和指标。</li>
 <li>集成的存储和分析工具</li>
 <li>完全开源，支持第三方集成和输出的插件化</li>
@@ -333,25 +333,7 @@
 <h4 id="Stats-统计"><a href="#Stats-统计" class="headerlink" title="Stats | 统计"></a>Stats | 统计</h4><p>Stats 收集库和应用程序记录的测量结果，汇总、导出统计数据。</p>
 <h4 id="Trace-跟踪"><a href="#Trace-跟踪" class="headerlink" title="Trace | 跟踪"></a>Trace | 跟踪</h4><p>Trace 是嵌套 Span (跨度)的集合。Trace 包括单个用户请求的处理进度，直到用户请求得到响应。Trace 通常跨越分布式系统中的多个节点。跟踪由 TraceId 唯一标识， Trace 中的所有 Span 都具有相同的 TraceId 。</p>
 <p>一个 Span 代表一个操作或一个工作单位。多个 Span 可以是“Trace”的一部分，它代表跨多个进程/节点的执行路径（通常是分布式的）。同一轨迹内的 Span 具有相同的 TraceId。</p>
-<p>Span 共有属性：</p>
-<ul>
-<li>TraceId</li>
-<li>SpanId</li>
-<li>Start Time</li>
-<li>End Time</li>
-<li>Status</li>
-</ul>
-<p>Span 可选属性：</p>
-<ul>
-<li>Parent SpanId</li>
-<li>Remote Parent</li>
-<li>Attributes</li>
-<li>Annotations</li>
-<li>Message Events</li>
-<li>Links</li>
-</ul>
-<h4 id="Exporter-出口商"><a href="#Exporter-出口商" class="headerlink" title="Exporter | 出口商"></a>Exporter | 出口商</h4><p>OpenCensus is vendor-agnostic and can upload data to any backend with various exporter implementations. Even though, OpenCensus provides support for many backends, users can also implement their own exporters for proprietary and unofficially supported backends.</p>
-<p>OpenCensus 是独立于供应商的，可以通过各种 Exporter 实现将数据上传到任何后端。尽管OpenCensus 为一些后端服务提供了 API ，但用户也可以实现自己的 Exporter。</p>
+<h4 id="Exporter-数据可视化"><a href="#Exporter-数据可视化" class="headerlink" title="Exporter | 数据可视化"></a>Exporter | 数据可视化</h4><p>OpenCensus 是独立于供应商的，可以通过各种 Exporter 实现将数据上传到任何后端。尽管 OpenCensus 为一些后端服务提供了 API ，但用户也可以实现自己的 Exporter。</p>
 <h4 id="Introspection-内省"><a href="#Introspection-内省" class="headerlink" title="Introspection | 内省"></a>Introspection | 内省</h4><p>OpenCensus 提供在线仪表板，显示进程中的诊断数据。这些页面被称为 z-pages ，它们有助于了解如何查看来自特定进程的数据，而不必依赖任何度量收集器或分布式跟踪后端。</p>
 <p><img src="http://og2061b3n.bkt.clouddn.com/DTM-OpenCensus-traceZ.png" alt=""></p>
 <h2 id="OpenCensus-Examples"><a href="#OpenCensus-Examples" class="headerlink" title="OpenCensus Examples"></a>OpenCensus Examples</h2><h4 id="创建指标"><a href="#创建指标" class="headerlink" title="创建指标"></a>创建指标</h4><ul>
@@ -370,61 +352,40 @@
 <li>Call the Record method</li>
 </ul>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Go Code Example</span></div><div class="line"><span class="comment">// 说明：defer 用于资源的释放，会在函数返回之前进行调用。</span></div><div class="line"><span class="comment">// 如果有多个 defer表达式，调用顺序类似于栈，越后面的 defer 表达式越先被调用。</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="params">(c *Collector)</span> <span class="title">Collect</span><span class="params">(ctx *fasthttp.RequestCtx)</span></span> &#123;</div><div class="line">  <span class="keyword">defer</span> <span class="function"><span class="keyword">func</span><span class="params">(begin time.Time)</span></span> &#123;</div><div class="line">      responseTime := <span class="keyword">float64</span>(time.Since(begin).Nanoseconds() / <span class="number">1000</span>)</div><div class="line">      occtx, _ := tag.New(context.Background(), tag.Insert(codeKey, strconv.Itoa(ctx.Response.StatusCode())), )</div><div class="line">      stats.Record(occtx, requestCounter.M(<span class="number">1</span>))</div><div class="line">      stats.Record(occtx, requestlatency.M(responseTime))</div><div class="line">    &#125;(time.Now())</div><div class="line"></div><div class="line">    <span class="comment">/*do some stuff */</span></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="第三方监控系统接口"><a href="#第三方监控系统接口" class="headerlink" title="第三方监控系统接口"></a>第三方监控系统接口</h4><p>OpenCensus 收集和跟踪的应用指标可以在本地显示，也可将其发送到第三方分析工具或监控系统实现可视化，目前支持：</p>
+<h4 id="第三方监控系统接口"><a href="#第三方监控系统接口" class="headerlink" title="第三方监控系统接口"></a>第三方监控系统接口</h4><p>OpenCensus 收集和跟踪的应用指标可以在本地显示，也可将其发送到第三方分析工具或监控系统实现可视化，例如：</p>
 <ul>
 <li><a href="https://prometheus.io" target="_blank" rel="external">Prometheus|普罗米修斯</a></li>
-<li><a href="https://signalfx.com" target="_blank" rel="external">SignalFX</a></li>
 <li><a href="https://cloud.google.com/stackdriver/" target="_blank" rel="external">Stackdriver|适用于 Google Cloud Platform 与 AWS 应用的监控、日志记录和诊断工具</a></li>
 <li><a href="https://zipkin.io" target="_blank" rel="external">Zipkin</a></li>
-<li>AWS X-Ray</li>
 </ul>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"> <span class="keyword">import</span> (</div><div class="line"> 	 <span class="string">"go.opencensus.io/exporter/prometheus"</span></div><div class="line">   <span class="string">"go.opencensus.io/exporter/stackdriver"</span></div><div class="line">   <span class="string">"go.opencensus.io/stats/view"</span></div><div class="line">)</div><div class="line"></div><div class="line"><span class="comment">// Export to Prometheus Monitoring.</span></div><div class="line"> Exporter, err := prometheus.NewExporter(prometheus.Options&#123;&#125;)</div><div class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</div><div class="line">	logger.Error(<span class="string">"Error creating prometheus exporter  "</span>, zap.Error(err))</div><div class="line">&#125;</div><div class="line">view.RegisterExporter(pExporter)</div><div class="line"></div><div class="line"></div><div class="line"> <span class="comment">// Export to Stackdriver Monitoring.</span></div><div class="line">sExporter, err := stackdriver.NewExporter(stackdriver.Options&#123;ProjectID: config.ProjectID&#125;)</div><div class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</div><div class="line">	logger.Error(<span class="string">"Error creating stackdriver exporter  "</span>, zap.Error(err))</div><div class="line">&#125;</div><div class="line"></div><div class="line">view.RegisterExporter(sExporter)</div></pre></td></tr></table></figure>
-<h2 id="OpenCensus-Principle-工作原理"><a href="#OpenCensus-Principle-工作原理" class="headerlink" title="OpenCensus Principle | 工作原理"></a>OpenCensus Principle | 工作原理</h2><h4 id="Context"><a href="#Context" class="headerlink" title="Context"></a>Context</h4><ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"> <span class="keyword">import</span> (</div><div class="line"> 	 <span class="string">"go.opencensus.io/exporter/prometheus"</span></div><div class="line">   <span class="string">"go.opencensus.io/exporter/stackdriver"</span></div><div class="line">    openzipkin <span class="string">"github.com/openzipkin/zipkin-go"</span></div><div class="line">  	 <span class="string">"go.opencensus.io/exporter/zipkin"</span></div><div class="line">  	 <span class="string">"go.opencensus.io/trace"</span></div><div class="line">   <span class="string">"go.opencensus.io/stats/view"</span></div><div class="line">)</div><div class="line"></div><div class="line"><span class="comment">// Export to Prometheus Monitoring.</span></div><div class="line"> Exporter, err := prometheus.NewExporter(prometheus.Options&#123;&#125;)</div><div class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</div><div class="line">	logger.Error(<span class="string">"Error creating prometheus exporter  "</span>, zap.Error(err))</div><div class="line">&#125;</div><div class="line">view.RegisterExporter(pExporter)</div><div class="line"></div><div class="line"></div><div class="line"> <span class="comment">// Export to Stackdriver Monitoring.</span></div><div class="line">sExporter, err := stackdriver.NewExporter(stackdriver.Options&#123;ProjectID: config.ProjectID&#125;)</div><div class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</div><div class="line">	logger.Error(<span class="string">"Error creating stackdriver exporter  "</span>, zap.Error(err))</div><div class="line">&#125;</div><div class="line">view.RegisterExporter(sExporter)</div><div class="line"></div><div class="line"> <span class="comment">// Export to Zipkin Monitoring.</span></div><div class="line">localEndpoint, err := openzipkin.NewEndpoint(<span class="string">"service-A"</span>, <span class="string">"127.0.1.1:8080"</span>)</div><div class="line">reporter := http.NewReporter(<span class="string">"http://127.0.1.110:9411/api/v2/spans"</span>)</div><div class="line"><span class="keyword">defer</span> reporter.Close()</div><div class="line">exporter := zipkin.NewExporter(reporter, localEndpoint)</div><div class="line">trace.RegisterExporter(exporter)</div></pre></td></tr></table></figure>
+<ul>
+<li>示例：OpenZipkin</li>
+</ul>
+<p><img src="http://og2061b3n.bkt.clouddn.com/DTM-Twitter-Zipkin.png" alt="OpenZipkin"></p>
+<h2 id="OpenCensus-Principle-工作原理-待续"><a href="#OpenCensus-Principle-工作原理-待续" class="headerlink" title="OpenCensus Principle | 工作原理 (待续)"></a>OpenCensus Principle | 工作原理 (待续)</h2><h4 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h4><p>Span 共有属性：</p>
+<ul>
+<li>TraceId</li>
+<li>SpanId</li>
+<li>Start Time</li>
+<li>End Time</li>
+<li>Status</li>
+</ul>
+<p>Span 可选属性：</p>
+<ul>
+<li>Parent SpanId</li>
+<li>Remote Parent</li>
+<li>Attributes</li>
+<li>Annotations</li>
+<li>Message Events</li>
+<li>Links</li>
+</ul>
+<h4 id="Context"><a href="#Context" class="headerlink" title="Context"></a>Context</h4><ul>
 <li><a href="https://github.com/census-instrumentation/opencensus-go/blob/master/examples/helloworld/main.go" target="_blank" rel="external">opencensus-go-examples-helloworld-context</a></li>
 <li><a href="https://segmentfault.com/a/1190000006744213#articleHeader8" target="_blank" rel="external">Go语言并发模型：使用 context | oscarzhao 2016年08月29日</a></li>
 </ul>
-<h2 id="Zipkin"><a href="#Zipkin" class="headerlink" title="Zipkin"></a>Zipkin</h2><p><a href="https://zipkin.io" target="_blank" rel="external">Zipkin</a></p>
-<h4 id="Zipkin-ABC"><a href="#Zipkin-ABC" class="headerlink" title="Zipkin ABC"></a>Zipkin ABC</h4><ul>
-<li><a href="https://medium.com/devthoughts/instrumenting-a-go-application-with-zipkin-b79cc858ac3e" target="_blank" rel="external">Instrumenting a Go application with Zipkin</a></li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">$ docker image pull openzipkin/zipkin</div><div class="line">Using default tag: latest</div><div class="line">latest: Pulling from openzipkin/zipkin</div><div class="line">3a9e9033596c: Pull complete</div><div class="line">e41580404458: Pull complete</div><div class="line">c68a1262225d: Pull complete</div><div class="line">Digest: sha256:0a216d66e753de48d63e9aa36526781af6967549ce9ab4c8bcaf02ac4031912b</div><div class="line">Status: Downloaded newer image <span class="keyword">for</span> openzipkin/zipkin:latest</div><div class="line"></div><div class="line">$ docker container run -p 9411:9411 openzipkin/zipkin</div><div class="line"><span class="built_in">log</span>4j:WARN No appenders could be found <span class="keyword">for</span> logger (org.springframework.web.context.support.StandardServletEnvironment).</div><div class="line"><span class="built_in">log</span>4j:WARN Please initialize the <span class="built_in">log</span>4j system properly.</div><div class="line">                                    ********</div><div class="line">                                  **        **</div><div class="line">                                 *            *</div><div class="line">                                **            **</div><div class="line">                                **            **</div><div class="line">                                 **          **</div><div class="line">                                  **        **</div><div class="line">                                    ********</div><div class="line">                                      ****</div><div class="line">                                      ****</div><div class="line">        ****                          ****</div><div class="line">     ******                           ****                                 ***</div><div class="line">  ****************************************************************************</div><div class="line">    *******                           ****                                 ***</div><div class="line">        ****                          ****</div><div class="line">                                       **</div><div class="line">                                       **</div><div class="line"></div><div class="line"></div><div class="line">             *****      **     *****     ** **       **     **   **</div><div class="line">               **       **     **  *     ***         **     **** **</div><div class="line">              **        **     *****     ****        **     **  ***</div><div class="line">             ******     **     **        **  **      **     **   **</div><div class="line"></div><div class="line">:: Powered by Spring Boot ::         (v2.0.1.RELEASE)</div><div class="line"></div><div class="line">$ docker container ls --all</div><div class="line">CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                        PORTS                              NAMES</div><div class="line">f9935fcaf4ba        openzipkin/zipkin   <span class="string">"/bin/sh -c 'test -n"</span>   5 seconds ago       Up 4 seconds                  9410/tcp, 0.0.0.0:9411-&gt;9411/tcp   musing_jepsen</div></pre></td></tr></table></figure>
-<p><img src="http://og2061b3n.bkt.clouddn.com/DTM-Twitter-Zipkin.png" alt=""></p>
-<h2 id="读者问题"><a href="#读者问题" class="headerlink" title="读者问题"></a>读者问题</h2><ul>
-<li>OpenCensus vs <a href="http://opentracing.io/" target="_blank" rel="external">OpenTracing</a></li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>Future</th>
-<th>OpenTracing</th>
-<th>OpenCensus</th>
-<th>Google</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>API 支持</td>
-<td><a href="https://github.com/opentracing/opentracing-go" target="_blank" rel="external">Go</a>、 <a href="https://github.com/opentracing/opentracing-python" target="_blank" rel="external">Python</a>、<a href="https://github.com/opentracing/opentracing-javascript" target="_blank" rel="external">Javascript</a>、 <a href="https://github.com/opentracing/opentracing-objc" target="_blank" rel="external">Objective-C</a><br><a href="https://github.com/opentracing/opentracing-java" target="_blank" rel="external">Java</a>、<a href="https://github.com/opentracing/opentracing-cpp" target="_blank" rel="external">C++</a> <br> 研发中：<a href="#">PHP</a> 、<a href="#">Ruby </a></td>
-<td>Go、Java、C++、.Net，Node.js，Erlang <br> 研发中：<br> Python(STATS In Progress) 、 PHP(STATS Planned) 、 Ruby(STATS Planned)</td>
-<td>–</td>
-</tr>
-<tr>
-<td>EXPORTERS</td>
-<td>–</td>
-<td>SignalFX (Java、C++) <br> Prometheus (Java、C++、Go、Erlang) <br> Jaeger (Java、Go) <br> Stackdriver (Java、C++、Go、Python、ERLANG-Trace Only) <br> Zipkin (Java、C++、Go、Erlang) <br> Instana (Java)</td>
-<td>–</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li><a href="https://opencensus.io/roadmap.html" target="_blank" rel="external">OpenCensus ROADMAP</a></li>
-</ul>
-<h2 id="OpenTracing"><a href="#OpenTracing" class="headerlink" title="OpenTracing"></a>OpenTracing</h2><ul>
-<li><p>待续</p>
-</li>
-<li><p><a href="https://wu-sheng.gitbooks.io/opentracing-io/content/" target="_blank" rel="external">OpenTraing 文档 | 中文 </a></p>
-</li>
-<li><a href="https://medium.com/opentracing/the-difference-between-tracing-tracing-and-tracing-84b49b2d54ea" target="_blank" rel="external">The difference between tracing, tracing, and tracing</a></li>
+<h2 id="Others"><a href="#Others" class="headerlink" title="Others"></a>Others</h2><ul>
+<li><a href="https://github.com/orgs/census-instrumentation/people" target="_blank" rel="external">OpenCensus People</a></li>
 </ul>
 <h2 id="扩展阅读：开源架构技术漫谈"><a href="#扩展阅读：开源架构技术漫谈" class="headerlink" title="扩展阅读：开源架构技术漫谈"></a>扩展阅读：开源架构技术漫谈</h2><ul>
 <li><a href="https://riboseyim.github.io/2018/04/27/DevOps-OpenCensus" target="_blank" rel="external">DevOps 漫谈：基于OpenCensus构建分布式跟踪系统</a></li>

@@ -15,7 +15,7 @@
 <meta property="og:description" content="摘要 Linux Commands | Linux 常用命令 Learn By Example">
 <meta property="og:image" content="https://blog.flowblok.id.au/static/images/shell-startup.png">
 <meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/ebook-linuxperfmaster-1.png">
-<meta property="og:updated_time" content="2018-03-07T06:29:49.612Z">
+<meta property="og:updated_time" content="2018-05-18T03:21:20.984Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="操作系统原理：Linux Commands">
 <meta name="twitter:description" content="摘要 Linux Commands | Linux 常用命令 Learn By Example">
@@ -282,7 +282,7 @@
 <li>Learn By Example<a id="more"></a>
 </li>
 </ul>
-<h4 id="查看硬件信息"><a href="#查看硬件信息" class="headerlink" title="查看硬件信息"></a>查看硬件信息</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$ lscpu</div><div class="line">$ cat /proc/cpuinfo</div><div class="line">$ cat /proc/meminfo</div><div class="line">$ fdisk <span class="_">-l</span></div><div class="line">$ ifconfig <span class="_">-a</span></div><div class="line">$ lspci</div><div class="line">$ dmidecode -t bios</div><div class="line">$ dmidecode -q</div></pre></td></tr></table></figure>
+<h4 id="查看硬件信息"><a href="#查看硬件信息" class="headerlink" title="查看硬件信息"></a>查看硬件信息</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$ lscpu</div><div class="line">$ cat /proc/cpuinfo</div><div class="line">$ cat /proc/cpuinfo | grep <span class="string">'processor'</span> | wc <span class="_">-l</span> <span class="comment"># 逻辑CPU个数</span></div><div class="line">$ cat /proc/cpuinfo | grep <span class="string">'physical id'</span> | sort | uniq | wc <span class="_">-l</span> <span class="comment"># 物理CPU个数</span></div><div class="line">$ cat /proc/cpuinfo | grep <span class="string">'cpu cores'</span> | wc <span class="_">-l</span> <span class="comment"># 每个物理CPU中Core的个数</span></div><div class="line">$ cat /proc/meminfo</div><div class="line">$ fdisk <span class="_">-l</span></div><div class="line">$ ifconfig <span class="_">-a</span></div><div class="line">$ lspci</div><div class="line">$ dmidecode -t bios</div><div class="line">$ dmidecode -q</div></pre></td></tr></table></figure>
 <h2 id="Learn-By-Example"><a href="#Learn-By-Example" class="headerlink" title="Learn By Example"></a>Learn By Example</h2><ul>
 <li><a href="https://github.com/learnbyexample/Command-line-text-processing/blob/master/gnu_awk.md" target="_blank" rel="external">Command-line-text-processing</a></li>
 </ul>

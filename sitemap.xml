@@ -2,23 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://riboseyim.github.com/2016/05/31/AboutMe/</loc>
+    <loc>http://riboseyim.github.com/2018/04/27/DevOps-OpenCensus/</loc>
     
-    <lastmod>2018-05-18T03:16:33.736Z</lastmod>
+    <lastmod>2018-05-18T03:59:09.892Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://riboseyim.github.com/2018/04/27/DevOps-OpenCensus/</loc>
+    <loc>http://riboseyim.github.com/2018/05/18/DevOps-OpenTracing/</loc>
     
-    <lastmod>2018-05-18T02:58:01.833Z</lastmod>
+    <lastmod>2018-05-18T03:55:02.163Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2016/09/24/DevOps-GOPS/</loc>
+    
+    <lastmod>2018-05-18T03:28:27.548Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2016/07/28/DevOps/</loc>
     
-    <lastmod>2018-05-17T05:45:31.041Z</lastmod>
+    <lastmod>2018-05-18T03:26:42.765Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2016/06/03/Autobiography/</loc>
+    
+    <lastmod>2018-05-18T03:24:03.356Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2016/05/31/AboutMe/</loc>
+    
+    <lastmod>2018-05-18T03:22:41.149Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2017/04/26/Linux-Commands/</loc>
+    
+    <lastmod>2018-05-18T03:21:20.984Z</lastmod>
     
   </url>
   
@@ -348,13 +376,6 @@
     <loc>http://riboseyim.github.com/2016/04/26/TeamWork-Redmine/</loc>
     
     <lastmod>2018-04-26T02:09:53.118Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2016/09/24/DevOps-GOPS/</loc>
-    
-    <lastmod>2018-04-26T02:08:59.463Z</lastmod>
     
   </url>
   
@@ -845,13 +866,6 @@
     <loc>http://riboseyim.github.com/2017/07/05/Law-Of-Engineering/</loc>
     
     <lastmod>2018-03-07T06:31:35.307Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2017/04/26/Linux-Commands/</loc>
-    
-    <lastmod>2018-03-07T06:29:49.612Z</lastmod>
     
   </url>
   
@@ -1444,14 +1458,14 @@
   </url>
   
   <url>
-    <loc>http://riboseyim.github.com/2017/11/05/Commander-PHT-Stand/</loc>
+    <loc>http://riboseyim.github.com/2017/11/05/Commander-PHT-USArmy/</loc>
     
     <lastmod>2017-12-22T05:26:26.803Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://riboseyim.github.com/2017/11/05/Commander-PHT-USArmy/</loc>
+    <loc>http://riboseyim.github.com/2017/11/05/Commander-PHT-Stand/</loc>
     
     <lastmod>2017-12-22T05:26:26.803Z</lastmod>
     
@@ -1489,13 +1503,6 @@
     <loc>http://riboseyim.github.com/2017/07/02/BirdWatching-GZ-Wetland/</loc>
     
     <lastmod>2017-12-22T05:26:26.772Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2016/06/03/Autobiography/</loc>
-    
-    <lastmod>2017-12-22T05:26:26.765Z</lastmod>
     
   </url>
   
