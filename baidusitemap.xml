@@ -5,12 +5,14 @@
     
   <url>
     <loc>http://riboseyim.github.com/2018/04/27/DevOps-OpenCensus/</loc>
-    <lastmod>2018-05-18T07:09:36.526Z</lastmod>
+    <lastmod>2018-05-21T10:11:22.504Z</lastmod>
     <data>
         <display>
         <title>DevOps 漫谈：基于OpenCensus构建分布式跟踪系统</title>
         <pubTime>2018-04-27T02:33:09.000Z</pubTime>
         
+        <tag>架构师</tag>
+         
         <tag>OpenSource</tag>
          
         <tag>DevOps</tag>
