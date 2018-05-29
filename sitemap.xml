@@ -2,9 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://riboseyim.github.com/2018/04/27/DevOps-OpenCensus/</loc>
+    
+    <lastmod>2018-05-29T02:47:35.828Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://riboseyim.github.com/2018/05/18/DevOps-OpenTracing/</loc>
     
-    <lastmod>2018-05-22T11:17:29.110Z</lastmod>
+    <lastmod>2018-05-29T02:46:34.358Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2016/05/01/History/</loc>
+    
+    <lastmod>2018-05-28T09:24:55.787Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2017/11/05/Policy-Civil-Rights/</loc>
+    
+    <lastmod>2018-05-28T09:24:14.553Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2017/07/09/Law-Of-Intellectual-Property/</loc>
+    
+    <lastmod>2018-05-24T02:15:17.966Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2017/05/12/Visualization-Charts/</loc>
+    
+    <lastmod>2018-05-23T12:07:06.315Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2017/05/24/Log/</loc>
+    
+    <lastmod>2018-05-22T11:27:11.943Z</lastmod>
     
   </url>
   
@@ -19,27 +61,6 @@
     <loc>http://riboseyim.github.com/2016/04/26/OpenSource/</loc>
     
     <lastmod>2018-05-22T09:17:51.148Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2018/04/27/DevOps-OpenCensus/</loc>
-    
-    <lastmod>2018-05-22T07:24:50.927Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2016/05/01/History/</loc>
-    
-    <lastmod>2018-05-22T06:22:14.318Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2017/05/24/Log/</loc>
-    
-    <lastmod>2018-05-18T05:17:44.776Z</lastmod>
     
   </url>
   
@@ -597,20 +618,6 @@
   </url>
   
   <url>
-    <loc>http://riboseyim.github.com/2017/07/09/Law-Of-Intellectual-Property/</loc>
-    
-    <lastmod>2018-04-10T07:47:05.196Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2017/05/12/Visualization-Charts/</loc>
-    
-    <lastmod>2018-04-10T07:42:01.827Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://riboseyim.github.com/2016/07/03/Reading/</loc>
     
     <lastmod>2018-04-10T07:35:24.990Z</lastmod>
@@ -740,13 +747,6 @@
     <loc>http://riboseyim.github.com/2018/03/30/Lincoln-Chicago-Orchestra/</loc>
     
     <lastmod>2018-03-30T08:18:47.271Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2017/11/05/Policy-Civil-Rights/</loc>
-    
-    <lastmod>2018-03-30T08:14:20.852Z</lastmod>
     
   </url>
   
@@ -1458,14 +1458,14 @@
   </url>
   
   <url>
-    <loc>http://riboseyim.github.com/2017/11/05/Commander-PHT-Stand/</loc>
+    <loc>http://riboseyim.github.com/2017/11/05/Commander-PHT-USArmy/</loc>
     
     <lastmod>2017-12-22T05:26:26.803Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://riboseyim.github.com/2017/11/05/Commander-PHT-USArmy/</loc>
+    <loc>http://riboseyim.github.com/2017/11/05/Commander-PHT-Stand/</loc>
     
     <lastmod>2017-12-22T05:26:26.803Z</lastmod>
     

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://riboseyim.github.com/"/>
-  <updated>2018-05-22T11:17:29.110Z</updated>
+  <updated>2018-05-29T02:46:34.358Z</updated>
   <id>http://riboseyim.github.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://riboseyim.github.com/2018/05/18/DevOps-OpenTracing/"/>
     <id>http://riboseyim.github.com/2018/05/18/DevOps-OpenTracing/</id>
     <published>2018-05-18T03:36:46.000Z</published>
-    <updated>2018-05-22T11:17:29.110Z</updated>
+    <updated>2018-05-29T02:46:34.358Z</updated>
     
     <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
 <li>API</li>
@@ -35,13 +35,24 @@
 <li><p><a href="https://www.youtube.com/watch?v=Fbhhc4jtGW4&amp;feature=youtu.be" target="_blank" rel="external">Node.js Performance and Highly Scalable Micro-Services - Chris Bailey, IBM</a></p>
 </li>
 </ul>
-<h2 id="Uber-Jaeger"><a href="#Uber-Jaeger" class="headerlink" title="Uber Jaeger"></a>Uber Jaeger</h2><ul>
+<h2 id="Uber-Jaeger"><a href="#Uber-Jaeger" class="headerlink" title="Uber Jaeger"></a>Uber Jaeger</h2><p><img src="http://og2061b3n.bkt.clouddn.com/DTM-Uber-Jaeger.png" alt=""></p>
+<ul>
 <li><a href="https://github.com/jaegertracing/jaeger" target="_blank" rel="external">Github | CNCF Jaeger, a Distributed Tracing System</a></li>
-<li><a href="https://sematext.com/blog/opentracing-jaeger-as-distributed-tracer/?utm_source=getresponse&amp;utm_medium=email&amp;utm_campaign=devopslinks&amp;utm_content=DevOpsLinks+%23112:+Jenkins+Scripted+Pipelines,+The+State+Of+Stateful+Apps+on+K8S+%26+Never+Write+Your+Own+Database" target="_blank" rel="external">OpenTracing: Jaeger as Distributed Tracer</a></li>
+<li><p><a href="https://sematext.com/blog/opentracing-jaeger-as-distributed-tracer/?utm_source=getresponse&amp;utm_medium=email&amp;utm_campaign=devopslinks&amp;utm_content=DevOpsLinks+%23112:+Jenkins+Scripted+Pipelines,+The+State+Of+Stateful+Apps+on+K8S+%26+Never+Write+Your+Own+Database" target="_blank" rel="external">OpenTracing: Jaeger as Distributed Tracer</a></p>
+</li>
+<li><p>jaeger-client：支持多种语言的客户端库，如Go, Java, Python等语言</p>
+</li>
+<li>jaeger-agent：客户端代理负责将追踪数据转发到服务端，这样能方便应用的快速处理，同时减轻服务端的直接压力；另外可以在客户端代理动态调整采样的频率，进行追踪数据采样的控制</li>
+<li>jaeger-collector：数据收集器主要进行数据收集和处理，从客户端代理收集数据进行处理后持久化到数据存储中</li>
+<li>数据存储：目前支持将收集到的数据持久化到 Cassandra 、 Elasticsearch</li>
+<li>jaeger-query：主要根据不同的条件到数据存储中进行搜索，支撑前端页面的展示</li>
+<li>jaeger-ui：是一个基于React的前端 webui</li>
+<li>jaeger spark: 是一个基于spark的后处理和聚合数据管道，用以完成服务依赖分析</li>
 </ul>
 <h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><h2 id="Exporters-数据可视化"><a href="#Exporters-数据可视化" class="headerlink" title="Exporters | 数据可视化"></a>Exporters | 数据可视化</h2><h3 id="Prometheus-普罗米修斯"><a href="#Prometheus-普罗米修斯" class="headerlink" title="Prometheus|普罗米修斯"></a><a href="https://prometheus.io" target="_blank" rel="external">Prometheus|普罗米修斯</a></h3><h3 id="Stackdriver"><a href="#Stackdriver" class="headerlink" title="Stackdriver"></a><a href="https://cloud.google.com/stackdriver/" target="_blank" rel="external">Stackdriver</a></h3><p>适用于 Google Cloud Platform 与 AWS 应用的监控、日志记录和诊断工具</p>
 <h3 id="SignalFX"><a href="#SignalFX" class="headerlink" title="SignalFX"></a><a href="https://signalfx.com" target="_blank" rel="external">SignalFX</a></h3><h3 id="Amazon-AWS-X-Ray"><a href="#Amazon-AWS-X-Ray" class="headerlink" title="Amazon AWS X-Ray"></a>Amazon AWS X-Ray</h3><h3 id="Zipkin"><a href="#Zipkin" class="headerlink" title="Zipkin"></a><a href="https://zipkin.io" target="_blank" rel="external">Zipkin</a></h3><ul>
 <li><a href="https://medium.com/devthoughts/instrumenting-a-go-application-with-zipkin-b79cc858ac3e" target="_blank" rel="external">Instrumenting a Go application with Zipkin</a></li>
+<li><a href="http://manzhizhen.iteye.com/blog/2348175" target="_blank" rel="external">式跟踪系统（一）：Zipkin的背景和设计</a></li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">$ docker image pull openzipkin/zipkin</div><div class="line">Using default tag: latest</div><div class="line">latest: Pulling from openzipkin/zipkin</div><div class="line">3a9e9033596c: Pull complete</div><div class="line">e41580404458: Pull complete</div><div class="line">c68a1262225d: Pull complete</div><div class="line">Digest: sha256:0a216d66e753de48d63e9aa36526781af6967549ce9ab4c8bcaf02ac4031912b</div><div class="line">Status: Downloaded newer image <span class="keyword">for</span> openzipkin/zipkin:latest</div><div class="line"></div><div class="line">$ docker container run -p 9411:9411 openzipkin/zipkin</div><div class="line"><span class="built_in">log</span>4j:WARN No appenders could be found <span class="keyword">for</span> logger (org.springframework.web.context.support.StandardServletEnvironment).</div><div class="line"><span class="built_in">log</span>4j:WARN Please initialize the <span class="built_in">log</span>4j system properly.</div><div class="line">                                    ********</div><div class="line">                                  **        **</div><div class="line">                                 *            *</div><div class="line">                                **            **</div><div class="line">                                **            **</div><div class="line">                                 **          **</div><div class="line">                                  **        **</div><div class="line">                                    ********</div><div class="line">                                      ****</div><div class="line">                                      ****</div><div class="line">        ****                          ****</div><div class="line">     ******                           ****                                 ***</div><div class="line">  ****************************************************************************</div><div class="line">    *******                           ****                                 ***</div><div class="line">        ****                          ****</div><div class="line">                                       **</div><div class="line">                                       **</div><div class="line"></div><div class="line"></div><div class="line">             *****      **     *****     ** **       **     **   **</div><div class="line">               **       **     **  *     ***         **     **** **</div><div class="line">              **        **     *****     ****        **     **  ***</div><div class="line">             ******     **     **        **  **      **     **   **</div><div class="line"></div><div class="line">:: Powered by Spring Boot ::         (v2.0.1.RELEASE)</div><div class="line"></div><div class="line">$ docker container ls --all</div><div class="line">CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                        PORTS                              NAMES</div><div class="line">f9935fcaf4ba        openzipkin/zipkin   <span class="string">"/bin/sh -c 'test -n"</span>   5 seconds ago       Up 4 seconds                  9410/tcp, 0.0.0.0:9411-&gt;9411/tcp   musing_jepsen</div></pre></td></tr></table></figure>
 <h2 id="OpenCensus-vs-OpenTracing"><a href="#OpenCensus-vs-OpenTracing" class="headerlink" title="OpenCensus vs OpenTracing"></a><a href="https://zipkin.io" target="_blank" rel="external">OpenCensus</a> vs <a href="http://opentracing.io/" target="_blank" rel="external">OpenTracing</a></h2><table>
@@ -79,6 +90,10 @@
 
 
 <h2 id="Sensor-Sensibility-Format"><a href="#Sensor-Sensibility-Format" class="headerlink" title="Sensor Sensibility Format"></a>Sensor Sensibility Format</h2><p>The Sensor Sensibility Format — or SSF for short — is a language agnostic format for transmitting observability data such as trace spans, metrics, events and more. <a href="https://github.com/stripe/veneur/tree/master/ssf" target="_blank" rel="external">https://github.com/stripe/veneur/tree/master/ssf</a></p>
+<h2 id="专利申请情况"><a href="#专利申请情况" class="headerlink" title="专利申请情况"></a>专利申请情况</h2><ul>
+<li><a href="http://ginobefunny.com/post/learning_distributed_systems_tracing/" target="_blank" rel="external">分布式调用跟踪系统调研笔记</a></li>
+<li><a href="https://patents.google.com/patent/CN105224445B/zh" target="_blank" rel="external">CN105224445B 分布式追踪系统| 北京汇商融通信息技术有限公司 | 2015-10-28</a></li>
+</ul>
 <h2 id="扩展阅读：开源架构技术漫谈"><a href="#扩展阅读：开源架构技术漫谈" class="headerlink" title="扩展阅读：开源架构技术漫谈"></a>扩展阅读：开源架构技术漫谈</h2><ul>
 <li><a href="https://riboseyim.github.io/2018/04/27/DevOps-OpenCensus" target="_blank" rel="external">DevOps 漫谈：基于OpenCensus构建分布式跟踪系统</a></li>
 <li><a href="https://riboseyim.github.io/2017/05/23/RestfulAPI/" target="_blank" rel="external">基于Go语言快速构建一个RESTful API服务</a></li>
@@ -480,7 +495,7 @@
     <link href="http://riboseyim.github.com/2018/04/27/DevOps-OpenCensus/"/>
     <id>http://riboseyim.github.com/2018/04/27/DevOps-OpenCensus/</id>
     <published>2018-04-27T02:33:09.000Z</published>
-    <updated>2018-05-22T07:24:50.927Z</updated>
+    <updated>2018-05-29T02:47:35.828Z</updated>
     
     <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
 <li>Distributed Tracing and Monitoring System</li>
@@ -511,11 +526,10 @@
 </ul>
 <p><img src="http://og2061b3n.bkt.clouddn.com/DTM-Dapper-TraceTree-Span.png" alt=""></p>
 <p>Google Dapper 的理念影响了一批分布式跟踪系统的发展，例如 2012 年，Twitter 公司严格按照 Dapper 论文的要求实现了 Zipkin （Scala 编写，集成到 Twitter公司自己的分布式服务 Finagle ）；Uber 公司基于 Google Dapper 和 Twitter Zipkin 的灵感，开发了开源分布式跟踪系统 Jaeger，例如 Jaeger 规范中同样定义了 Span（跨度, 跨径，两个界限间的距离）。</p>
-<p><img src="http://og2061b3n.bkt.clouddn.com/DTM-Uber-Jaeger.png" alt=""></p>
-<p>然而，Google Dapper 的定位更准确的说是分析系统，并不能解决从生产服务中提取数据的难题，OpenCensus 项目为此提供了解决方案。</p>
 <h2 id="第二部分-OpenCensus-A-framework-for-distributed-tracing"><a href="#第二部分-OpenCensus-A-framework-for-distributed-tracing" class="headerlink" title="第二部分 OpenCensus: A framework for distributed tracing"></a>第二部分 OpenCensus: A framework for distributed tracing</h2><blockquote>
 <p>OpenCensus is a framework for stats collection and distributed tracing.</p>
 </blockquote>
+<p>Google Dapper 的定位更准确的说是分析系统，并不能解决从生产服务中提取数据的难题，OpenCensus 项目为此提供了解决方案。</p>
 <p><img src="http://og2061b3n.bkt.clouddn.com/DTM-OpenCensus-Logo.png" alt=""></p>
 <p>OpenCensus 项目是 Google 开源的一个用来收集和追踪应用指标的第三方库。OpenCensus 能够提供了一套统一的测量工具：跨服务捕获跟踪跨度（span）、应用级别指标以及来自其他应用的元数据（例如日志）。OpenCensus 有如下一些主要特点：</p>
 <ul>
@@ -628,6 +642,7 @@
 </ul>
 <p>视图注册之后开始收集给定的数据。一旦该视图被订阅，它就向已注册的 Exporter 报送数据。</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// source code : go.opencensus.io/view/worker.go</span></div><div class="line"></div><div class="line"><span class="comment">// Register begins collecting data for the given views.</span></div><div class="line"><span class="comment">// Once a view is subscribed, it reports data to the registered exporters.</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">Register</span><span class="params">(views ...*View)</span> <span class="title">error</span></span> &#123;</div><div class="line">	<span class="keyword">for</span> _, v := <span class="keyword">range</span> views &#123;</div><div class="line">		<span class="keyword">if</span> err := v.canonicalize(); err != <span class="literal">nil</span> &#123;</div><div class="line">			<span class="keyword">return</span> err</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	req := &amp;registerViewReq&#123;</div><div class="line">		views: views,</div><div class="line">		err:   <span class="built_in">make</span>(<span class="keyword">chan</span> error),</div><div class="line">	&#125;</div><div class="line">	defaultWorker.c &lt;- req</div><div class="line">	<span class="keyword">return</span> &lt;-req.err</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="Exporter"><a href="#Exporter" class="headerlink" title="Exporter"></a>Exporter</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// source: go.opencensus.io/trace/export.go</span></div><div class="line"></div><div class="line"><span class="comment">// SpanData contains all the information collected by a Span.</span></div><div class="line"><span class="keyword">type</span> SpanData <span class="keyword">struct</span> &#123;</div><div class="line">	SpanContext</div><div class="line">	ParentSpanID SpanID</div><div class="line">	SpanKind     <span class="keyword">int</span></div><div class="line">	Name         <span class="keyword">string</span></div><div class="line">	StartTime    time.Time</div><div class="line">	<span class="comment">// The wall clock time of EndTime will be adjusted to always be offset</span></div><div class="line">	<span class="comment">// from StartTime by the duration of the span.</span></div><div class="line">	EndTime time.Time</div><div class="line">	<span class="comment">// The values of Attributes each have type string, bool, or int64.</span></div><div class="line">	Attributes    <span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">interface</span>&#123;&#125;</div><div class="line">	Annotations   []Annotation</div><div class="line">	MessageEvents []MessageEvent</div><div class="line">	Status</div><div class="line">	Links           []Link</div><div class="line">	HasRemoteParent <span class="keyword">bool</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="Others"><a href="#Others" class="headerlink" title="Others"></a>Others</h2><ul>
 <li><a href="https://github.com/orgs/census-instrumentation/people" target="_blank" rel="external">OpenCensus People</a></li>
 </ul>

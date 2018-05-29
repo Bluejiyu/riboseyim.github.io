@@ -17,7 +17,6 @@
 <meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/DTM-OpenCensus-Micro-1.png">
 <meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/DTM-OpenCensus-Micro-2.png">
 <meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/DTM-Dapper-TraceTree-Span.png">
-<meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/DTM-Uber-Jaeger.png">
 <meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/DTM-OpenCensus-Logo.png">
 <meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/DTM-OpenCensus-Language.png">
 <meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/DTM-OpenCensus-traceZ.png">
@@ -26,7 +25,7 @@
 <meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/zipkin-%E5%B9%B6%E8%A1%8C.png">
 <meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/DTM-Zipkin-Twitter.png">
 <meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/DTM-Context.png">
-<meta property="og:updated_time" content="2018-05-22T07:24:50.927Z">
+<meta property="og:updated_time" content="2018-05-29T02:47:35.828Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DevOps 漫谈：基于OpenCensus构建分布式跟踪系统">
 <meta name="twitter:description" content="摘要 Distributed Tracing and Monitoring System OpenCensus: A framework for distributed tracing OpenCensus Principle: data structure 、Context">
@@ -317,11 +316,10 @@
 </ul>
 <p><img src="http://og2061b3n.bkt.clouddn.com/DTM-Dapper-TraceTree-Span.png" alt=""></p>
 <p>Google Dapper 的理念影响了一批分布式跟踪系统的发展，例如 2012 年，Twitter 公司严格按照 Dapper 论文的要求实现了 Zipkin （Scala 编写，集成到 Twitter公司自己的分布式服务 Finagle ）；Uber 公司基于 Google Dapper 和 Twitter Zipkin 的灵感，开发了开源分布式跟踪系统 Jaeger，例如 Jaeger 规范中同样定义了 Span（跨度, 跨径，两个界限间的距离）。</p>
-<p><img src="http://og2061b3n.bkt.clouddn.com/DTM-Uber-Jaeger.png" alt=""></p>
-<p>然而，Google Dapper 的定位更准确的说是分析系统，并不能解决从生产服务中提取数据的难题，OpenCensus 项目为此提供了解决方案。</p>
 <h2 id="第二部分-OpenCensus-A-framework-for-distributed-tracing"><a href="#第二部分-OpenCensus-A-framework-for-distributed-tracing" class="headerlink" title="第二部分 OpenCensus: A framework for distributed tracing"></a>第二部分 OpenCensus: A framework for distributed tracing</h2><blockquote>
 <p>OpenCensus is a framework for stats collection and distributed tracing.</p>
 </blockquote>
+<p>Google Dapper 的定位更准确的说是分析系统，并不能解决从生产服务中提取数据的难题，OpenCensus 项目为此提供了解决方案。</p>
 <p><img src="http://og2061b3n.bkt.clouddn.com/DTM-OpenCensus-Logo.png" alt=""></p>
 <p>OpenCensus 项目是 Google 开源的一个用来收集和追踪应用指标的第三方库。OpenCensus 能够提供了一套统一的测量工具：跨服务捕获跟踪跨度（span）、应用级别指标以及来自其他应用的元数据（例如日志）。OpenCensus 有如下一些主要特点：</p>
 <ul>
@@ -434,6 +432,7 @@
 </ul>
 <p>视图注册之后开始收集给定的数据。一旦该视图被订阅，它就向已注册的 Exporter 报送数据。</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// source code : go.opencensus.io/view/worker.go</span></div><div class="line"></div><div class="line"><span class="comment">// Register begins collecting data for the given views.</span></div><div class="line"><span class="comment">// Once a view is subscribed, it reports data to the registered exporters.</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">Register</span><span class="params">(views ...*View)</span> <span class="title">error</span></span> &#123;</div><div class="line">	<span class="keyword">for</span> _, v := <span class="keyword">range</span> views &#123;</div><div class="line">		<span class="keyword">if</span> err := v.canonicalize(); err != <span class="literal">nil</span> &#123;</div><div class="line">			<span class="keyword">return</span> err</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	req := &amp;registerViewReq&#123;</div><div class="line">		views: views,</div><div class="line">		err:   <span class="built_in">make</span>(<span class="keyword">chan</span> error),</div><div class="line">	&#125;</div><div class="line">	defaultWorker.c &lt;- req</div><div class="line">	<span class="keyword">return</span> &lt;-req.err</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="Exporter"><a href="#Exporter" class="headerlink" title="Exporter"></a>Exporter</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// source: go.opencensus.io/trace/export.go</span></div><div class="line"></div><div class="line"><span class="comment">// SpanData contains all the information collected by a Span.</span></div><div class="line"><span class="keyword">type</span> SpanData <span class="keyword">struct</span> &#123;</div><div class="line">	SpanContext</div><div class="line">	ParentSpanID SpanID</div><div class="line">	SpanKind     <span class="keyword">int</span></div><div class="line">	Name         <span class="keyword">string</span></div><div class="line">	StartTime    time.Time</div><div class="line">	<span class="comment">// The wall clock time of EndTime will be adjusted to always be offset</span></div><div class="line">	<span class="comment">// from StartTime by the duration of the span.</span></div><div class="line">	EndTime time.Time</div><div class="line">	<span class="comment">// The values of Attributes each have type string, bool, or int64.</span></div><div class="line">	Attributes    <span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">interface</span>&#123;&#125;</div><div class="line">	Annotations   []Annotation</div><div class="line">	MessageEvents []MessageEvent</div><div class="line">	Status</div><div class="line">	Links           []Link</div><div class="line">	HasRemoteParent <span class="keyword">bool</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="Others"><a href="#Others" class="headerlink" title="Others"></a>Others</h2><ul>
 <li><a href="https://github.com/orgs/census-instrumentation/people" target="_blank" rel="external">OpenCensus People</a></li>
 </ul>

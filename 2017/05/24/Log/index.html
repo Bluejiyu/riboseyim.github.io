@@ -15,7 +15,7 @@
 <meta property="og:description" content="摘要程序中记录日志的首要目的：Troubleshooting。通过记录程序中对外部系统与模块的依赖调用、重要状态信息的变化、关键变量、关键逻辑等，显示基于时间轴的程序运行轨迹，显示业务是否正常、是否存在非预期执行，在出问题时方便还原现场，推断程序运行过程、理清问题的方向。 本文将讨论在实现日志功能过程中常见的一些问题，包括基础API、格式化、日志转发及可视化等方面，代码采用Go语言描述。">
 <meta property="og:image" content="http://o8m8ngokc.bkt.clouddn.com/logmatic_demo_1.png">
 <meta property="og:image" content="http://o8m8ngokc.bkt.clouddn.com/logmatic_demo_2.png">
-<meta property="og:updated_time" content="2018-05-18T05:17:44.776Z">
+<meta property="og:updated_time" content="2018-05-22T11:27:11.943Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开源技术架构漫谈：应用程序的日志管理及可视化">
 <meta name="twitter:description" content="摘要程序中记录日志的首要目的：Troubleshooting。通过记录程序中对外部系统与模块的依赖调用、重要状态信息的变化、关键变量、关键逻辑等，显示基于时间轴的程序运行轨迹，显示业务是否正常、是否存在非预期执行，在出问题时方便还原现场，推断程序运行过程、理清问题的方向。 本文将讨论在实现日志功能过程中常见的一些问题，包括基础API、格式化、日志转发及可视化等方面，代码采用Go语言描述。">
@@ -306,7 +306,13 @@
 <figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">    <span class="comment">// instantiate a new Logger with your Logmatic APIKey</span></div><div class="line">    <span class="comment">// 国内访问比较慢</span></div><div class="line">  	log.AddHook(logmatic.NewLogmaticHook(<span class="string">"p53uTkOhSEqI3-116DynkQ"</span>))</div><div class="line"></div><div class="line">    <span class="comment">// ..........</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>效果如下：<br><img src="http://o8m8ngokc.bkt.clouddn.com/logmatic_demo_1.png" alt=""></p>
 <p><img src="http://o8m8ngokc.bkt.clouddn.com/logmatic_demo_2.png" alt=""></p>
-<h3 id="六、加密与安全性（待续）"><a href="#六、加密与安全性（待续）" class="headerlink" title="六、加密与安全性（待续）"></a>六、加密与安全性（待续）</h3><h2 id="扩展阅读：开发语言-amp-代码工程"><a href="#扩展阅读：开发语言-amp-代码工程" class="headerlink" title="扩展阅读：开发语言&amp;代码工程"></a>扩展阅读：开发语言&amp;代码工程</h2><ul>
+<h3 id="六、加密与安全性（待续）"><a href="#六、加密与安全性（待续）" class="headerlink" title="六、加密与安全性（待续）"></a>六、加密与安全性（待续）</h3><p><a href="https://zvelo.com/securely-logging-tracing-http-requests-go/" target="_blank" rel="external">https://zvelo.com/securely-logging-tracing-http-requests-go/</a></p>
+<ul>
+<li><a href="https://nacl.cr.yp.to/box.html" target="_blank" rel="external">NaCl: Networking and Cryptography library</a></li>
+<li><a href="https://godoc.org/golang.org/x/crypto/openpgp" target="_blank" rel="external">package golang.org/x/crypto/openpgp</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/PGP" target="_blank" rel="external">维基百科：PGP</a></li>
+</ul>
+<h2 id="扩展阅读：开发语言-amp-代码工程"><a href="#扩展阅读：开发语言-amp-代码工程" class="headerlink" title="扩展阅读：开发语言&amp;代码工程"></a>扩展阅读：开发语言&amp;代码工程</h2><ul>
 <li><a href="https://riboseyim.github.io/2017/07/23/CloudComputing/" target="_blank" rel="external">Stack Overflow：2017年最赚钱的编程语言</a></li>
 <li><a href="https://riboseyim.github.io/2017/12/21/Language-Auto-Generator/" target="_blank" rel="external">玩转编程语言:构建自定义代码生成器</a></li>
 <li><a href="https://riboseyim.github.io/2017/10/30/Protocol-gRPC/" target="_blank" rel="external">远程通信协议：从 CORBA 到 gRPC</a></li>
