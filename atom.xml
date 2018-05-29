@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://riboseyim.github.com/"/>
-  <updated>2018-05-29T02:46:34.358Z</updated>
+  <updated>2018-05-29T07:28:28.779Z</updated>
   <id>http://riboseyim.github.com/</id>
   
   <author>
@@ -20,40 +20,125 @@
     <link href="http://riboseyim.github.com/2018/05/18/DevOps-OpenTracing/"/>
     <id>http://riboseyim.github.com/2018/05/18/DevOps-OpenTracing/</id>
     <published>2018-05-18T03:36:46.000Z</published>
-    <updated>2018-05-29T02:46:34.358Z</updated>
+    <updated>2018-05-29T07:28:28.779Z</updated>
     
     <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
 <li>API</li>
 <li>Exporters | 数据可视化</li>
-<li>Google Dapper vs OpenTracing vs OpenCensus vs Uber Jaeger</li>
+<li>Google Dapper vs OpenTracing vs OpenCensus</li>
+<li>Google Dapper Family : Uber Jaeger</li>
 <li>Key Words: Metrics · Traces · Logs</li>
 </ul>
 <a id="more"></a>
-<h2 id="OpenTracing"><a href="#OpenTracing" class="headerlink" title="OpenTracing"></a>OpenTracing</h2><ul>
-<li><p>待续</p>
-</li>
-<li><p><a href="https://www.youtube.com/watch?v=Fbhhc4jtGW4&amp;feature=youtu.be" target="_blank" rel="external">Node.js Performance and Highly Scalable Micro-Services - Chris Bailey, IBM</a></p>
-</li>
+<h2 id="API-OpenTracing"><a href="#API-OpenTracing" class="headerlink" title="API:OpenTracing"></a>API:OpenTracing</h2><ul>
+<li><a href="https://www.youtube.com/watch?v=Fbhhc4jtGW4&amp;feature=youtu.be" target="_blank" rel="external">Node.js Performance and Highly Scalable Micro-Services - Chris Bailey, IBM</a></li>
 </ul>
-<h2 id="Uber-Jaeger"><a href="#Uber-Jaeger" class="headerlink" title="Uber Jaeger"></a>Uber Jaeger</h2><p><img src="http://og2061b3n.bkt.clouddn.com/DTM-Uber-Jaeger.png" alt=""></p>
+<h2 id="Google-Dapper-Family"><a href="#Google-Dapper-Family" class="headerlink" title="Google Dapper Family"></a>Google Dapper Family</h2><ul>
+<li><strong>不完全统计</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>原理</th>
+<th>客户端</th>
+<th>依赖分析</th>
+<th>存储</th>
+<th>可视化</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Google Dapper</td>
+<td>TraceID</td>
+<td>—–</td>
+<td>—–</td>
+<td>—–</td>
+<td>—–</td>
+</tr>
+<tr>
+<td>OpenTracing</td>
+<td>TraceID</td>
+<td>go,java,python,js,objective-c,c++</td>
+<td>—–</td>
+<td>—–</td>
+<td>—–</td>
+</tr>
+<tr>
+<td>OpenCensus</td>
+<td>TraceID</td>
+<td>go,java,python,C++,.Net,js,Erlang</td>
+<td>—–</td>
+<td>—–</td>
+<td>no web-ui,Support Exporter</td>
+</tr>
+<tr>
+<td>Uber Jaeger</td>
+<td>TraceID</td>
+<td>java,go,python <br> Support Agent Proxy</td>
+<td>Spark</td>
+<td>Cassandra、ES</td>
+<td>React Web-ui</td>
+</tr>
+<tr>
+<td>淘宝 EagleEye（鹰眼）</td>
+<td>TraceID</td>
+<td>yes</td>
+<td>MapReduce</td>
+<td>HDFS(全量) HBase（实时）</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>微博 Watchman系统</td>
+<td>日志</td>
+<td>watchman-aspect</td>
+<td>Storm</td>
+<td>HBase</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>京东 CallGraph</td>
+<td>TraceID</td>
+<td>Agent-&gt;JMQ</td>
+<td>Storm</td>
+<td>JimDB（实时） ES/Spark（离线）</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>美团 MTrace</td>
+<td>TraceID</td>
+<td>Agent-&gt; Kafka <br> Support Agent  Proxy</td>
+<td>Storm</td>
+<td>HBase（实时） Hive（离线）</td>
+<td>yes</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Uber-Jaeger"><a href="#Uber-Jaeger" class="headerlink" title="Uber Jaeger"></a>Uber Jaeger</h4><p><img src="http://og2061b3n.bkt.clouddn.com/DTM-Uber-Jaeger.png" alt=""></p>
+<p><a href="http://www.infoq.com/cn/articles/evolving-distributed-tracing-at-uber-engineering" target="_blank" rel="external">Uber Jaeger</a> 是 Uber 工程团队开源的分布式追踪系统。Jaeger自 2016年 起，在 Uber 内部实现了大范围的运用。Uber 同时开发了一种适用于 RPC 的网络多路复用和框架协议 —— <a href="https://github.com/uber/tchannel" target="_blank" rel="external">TChannel | Support: Node.js,Python,Go,Java</a>，该协议融入了分布式追踪能力。TChannel 协议规范在二进制格式中直接定义了追踪字段：“ spanid:8 parentid:8 traceid:8 traceflags:1 ”。</p>
 <ul>
-<li><a href="https://github.com/jaegertracing/jaeger" target="_blank" rel="external">Github | CNCF Jaeger, a Distributed Tracing System</a></li>
-<li><p><a href="https://sematext.com/blog/opentracing-jaeger-as-distributed-tracer/?utm_source=getresponse&amp;utm_medium=email&amp;utm_campaign=devopslinks&amp;utm_content=DevOpsLinks+%23112:+Jenkins+Scripted+Pipelines,+The+State+Of+Stateful+Apps+on+K8S+%26+Never+Write+Your+Own+Database" target="_blank" rel="external">OpenTracing: Jaeger as Distributed Tracer</a></p>
-</li>
-<li><p>jaeger-client：支持多种语言的客户端库，如Go, Java, Python等语言</p>
-</li>
+<li>jaeger-client：支持多种语言的客户端库，如Go, Java, Python等语言</li>
 <li>jaeger-agent：客户端代理负责将追踪数据转发到服务端，这样能方便应用的快速处理，同时减轻服务端的直接压力；另外可以在客户端代理动态调整采样的频率，进行追踪数据采样的控制</li>
 <li>jaeger-collector：数据收集器主要进行数据收集和处理，从客户端代理收集数据进行处理后持久化到数据存储中</li>
 <li>数据存储：目前支持将收集到的数据持久化到 Cassandra 、 Elasticsearch</li>
 <li>jaeger-query：主要根据不同的条件到数据存储中进行搜索，支撑前端页面的展示</li>
-<li>jaeger-ui：是一个基于React的前端 webui</li>
-<li>jaeger spark: 是一个基于spark的后处理和聚合数据管道，用以完成服务依赖分析</li>
+<li>jaeger-ui：一个基于 React 的前端 webui</li>
+<li>jaeger spark: 是一个基于 Spark 聚合数据管道，用以完成服务依赖分析</li>
 </ul>
-<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><h2 id="Exporters-数据可视化"><a href="#Exporters-数据可视化" class="headerlink" title="Exporters | 数据可视化"></a>Exporters | 数据可视化</h2><h3 id="Prometheus-普罗米修斯"><a href="#Prometheus-普罗米修斯" class="headerlink" title="Prometheus|普罗米修斯"></a><a href="https://prometheus.io" target="_blank" rel="external">Prometheus|普罗米修斯</a></h3><h3 id="Stackdriver"><a href="#Stackdriver" class="headerlink" title="Stackdriver"></a><a href="https://cloud.google.com/stackdriver/" target="_blank" rel="external">Stackdriver</a></h3><p>适用于 Google Cloud Platform 与 AWS 应用的监控、日志记录和诊断工具</p>
-<h3 id="SignalFX"><a href="#SignalFX" class="headerlink" title="SignalFX"></a><a href="https://signalfx.com" target="_blank" rel="external">SignalFX</a></h3><h3 id="Amazon-AWS-X-Ray"><a href="#Amazon-AWS-X-Ray" class="headerlink" title="Amazon AWS X-Ray"></a>Amazon AWS X-Ray</h3><h3 id="Zipkin"><a href="#Zipkin" class="headerlink" title="Zipkin"></a><a href="https://zipkin.io" target="_blank" rel="external">Zipkin</a></h3><ul>
-<li><a href="https://medium.com/devthoughts/instrumenting-a-go-application-with-zipkin-b79cc858ac3e" target="_blank" rel="external">Instrumenting a Go application with Zipkin</a></li>
-<li><a href="http://manzhizhen.iteye.com/blog/2348175" target="_blank" rel="external">式跟踪系统（一）：Zipkin的背景和设计</a></li>
+<h4 id="淘宝-EagleEye（鹰眼）"><a href="#淘宝-EagleEye（鹰眼）" class="headerlink" title="淘宝 EagleEye（鹰眼）"></a>淘宝 EagleEye（鹰眼）</h4><p><a href="http://jm.taobao.org/2014/03/04/3465/" target="_blank" rel="external">EagleEye（鹰眼）</a> 是Google 的分布式调用跟踪系统 Dapper 在淘宝的实现。主要特点是通过每台应用机器上的 Agent 实时抓取 EagleEye 日志，按照日志类型不分别处理：</p>
+<ul>
+<li>全量原始日志直接存储到 HDFS ；创建 MapReduce 任务完成调用链合并、分析和统计；</li>
+<li>有实时标记的原始日志存储到 HBase ；</li>
+<li>业务日志：一部分会被直接处理存储到 HBase，有一部分会作为消息发送出去，由特定的业务系统订阅处理；</li>
+<li>调用实时统计，提供分钟级别的实时链路调用视图，辅助故障定位。</li>
 </ul>
+<h4 id="国内其他衍生系统"><a href="#国内其他衍生系统" class="headerlink" title="国内其他衍生系统"></a>国内其他衍生系统</h4><ul>
+<li><a href="http://www.infoq.com/cn/articles/weibo-watchman" target="_blank" rel="external">微博 Watchman系统</a>：微博平台的链路追踪及服务质量保障系统。watchman-aspect 组件通过异步日志（async-logger）在各个节点上输出日志文件；以流式的方式处理数据，watchman-prism 组件（基于 Scribe），将日志推送到 watchman-stream 组件（基于Storm）, 根据需求进行聚合、统计等计算（针对性能数据），规范化、排序（针对调用链数据），之后写入 HBase 。</li>
+<li><a href="http://zhuanlan.51cto.com/art/201701/528304.htm" target="_blank" rel="external">京东 CallGraph</a>：全局 TraceID 的调用链。核心包（完成埋点逻辑，日志存放在内存磁盘上由 Agent 收集发送到JMQ）、JMQ（日志数据管道）、Storm（对数据日志并行整理和计算）、存储（实时数据存储JimDB/HBase/ES，离线数据存储包括HDFS和Spark）、CallGraph-UI（用户交互界面）、UCC（存放配置信息并同步到各服务器）、管理元数据（存放链路签名与应用映射关系等）。日志格式：固定部分（TraceID、RpcID、开始时间、调用类型、对端IP、调用耗时、调用结果等）、可变部分。</li>
+<li><a href="https://tech.meituan.com/mt-mtrace.html" target="_blank" rel="external">美团 MTrace</a>：美团点评内部的分布式会话跟踪系统。基于全局 TraceID 的调用链，客户端与后端服务之间有一层 Kafka，实现两边工程的解耦。实时数据主要使用 Hbase ，traceID 作为 RowKey；离线数据主要使用 Hive，可以通过 SQL 进行一些结构化数据的定制分析。</li>
+</ul>
+<h2 id="Exporters-数据可视化"><a href="#Exporters-数据可视化" class="headerlink" title="Exporters | 数据可视化"></a>Exporters | 数据可视化</h2><h3 id="Prometheus-普罗米修斯"><a href="#Prometheus-普罗米修斯" class="headerlink" title="Prometheus|普罗米修斯"></a><a href="https://prometheus.io" target="_blank" rel="external">Prometheus|普罗米修斯</a></h3><h3 id="Stackdriver"><a href="#Stackdriver" class="headerlink" title="Stackdriver"></a><a href="https://cloud.google.com/stackdriver/" target="_blank" rel="external">Stackdriver</a></h3><p>适用于 Google Cloud Platform 与 AWS 应用的监控、日志记录和诊断工具</p>
+<h3 id="SignalFX"><a href="#SignalFX" class="headerlink" title="SignalFX"></a><a href="https://signalfx.com" target="_blank" rel="external">SignalFX</a></h3><h3 id="Amazon-AWS-X-Ray"><a href="#Amazon-AWS-X-Ray" class="headerlink" title="Amazon AWS X-Ray"></a>Amazon AWS X-Ray</h3><h3 id="Zipkin"><a href="#Zipkin" class="headerlink" title="Zipkin"></a><a href="https://zipkin.io" target="_blank" rel="external">Zipkin</a></h3><p>Zipkin 的 Span 模型几乎完全仿造了 Dapper 中的 Span 设计，Zipkin 的 Span 包括基础数据（traceId、spanId、parentId、name、timestamp 和 duration，主要用于表示跟踪树中节点的关联关系）、 Annotation（记录请求特定事件相关信息）、BinaryAnnotation（扩展信息）。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">$ docker image pull openzipkin/zipkin</div><div class="line">Using default tag: latest</div><div class="line">latest: Pulling from openzipkin/zipkin</div><div class="line">3a9e9033596c: Pull complete</div><div class="line">e41580404458: Pull complete</div><div class="line">c68a1262225d: Pull complete</div><div class="line">Digest: sha256:0a216d66e753de48d63e9aa36526781af6967549ce9ab4c8bcaf02ac4031912b</div><div class="line">Status: Downloaded newer image <span class="keyword">for</span> openzipkin/zipkin:latest</div><div class="line"></div><div class="line">$ docker container run -p 9411:9411 openzipkin/zipkin</div><div class="line"><span class="built_in">log</span>4j:WARN No appenders could be found <span class="keyword">for</span> logger (org.springframework.web.context.support.StandardServletEnvironment).</div><div class="line"><span class="built_in">log</span>4j:WARN Please initialize the <span class="built_in">log</span>4j system properly.</div><div class="line">                                    ********</div><div class="line">                                  **        **</div><div class="line">                                 *            *</div><div class="line">                                **            **</div><div class="line">                                **            **</div><div class="line">                                 **          **</div><div class="line">                                  **        **</div><div class="line">                                    ********</div><div class="line">                                      ****</div><div class="line">                                      ****</div><div class="line">        ****                          ****</div><div class="line">     ******                           ****                                 ***</div><div class="line">  ****************************************************************************</div><div class="line">    *******                           ****                                 ***</div><div class="line">        ****                          ****</div><div class="line">                                       **</div><div class="line">                                       **</div><div class="line"></div><div class="line"></div><div class="line">             *****      **     *****     ** **       **     **   **</div><div class="line">               **       **     **  *     ***         **     **** **</div><div class="line">              **        **     *****     ****        **     **  ***</div><div class="line">             ******     **     **        **  **      **     **   **</div><div class="line"></div><div class="line">:: Powered by Spring Boot ::         (v2.0.1.RELEASE)</div><div class="line"></div><div class="line">$ docker container ls --all</div><div class="line">CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                        PORTS                              NAMES</div><div class="line">f9935fcaf4ba        openzipkin/zipkin   <span class="string">"/bin/sh -c 'test -n"</span>   5 seconds ago       Up 4 seconds                  9410/tcp, 0.0.0.0:9411-&gt;9411/tcp   musing_jepsen</div></pre></td></tr></table></figure>
 <h2 id="OpenCensus-vs-OpenTracing"><a href="#OpenCensus-vs-OpenTracing" class="headerlink" title="OpenCensus vs OpenTracing"></a><a href="https://zipkin.io" target="_blank" rel="external">OpenCensus</a> vs <a href="http://opentracing.io/" target="_blank" rel="external">OpenTracing</a></h2><table>
 <thead>
@@ -90,9 +175,10 @@
 
 
 <h2 id="Sensor-Sensibility-Format"><a href="#Sensor-Sensibility-Format" class="headerlink" title="Sensor Sensibility Format"></a>Sensor Sensibility Format</h2><p>The Sensor Sensibility Format — or SSF for short — is a language agnostic format for transmitting observability data such as trace spans, metrics, events and more. <a href="https://github.com/stripe/veneur/tree/master/ssf" target="_blank" rel="external">https://github.com/stripe/veneur/tree/master/ssf</a></p>
+<h2 id="管理负载"><a href="#管理负载" class="headerlink" title="管理负载"></a>管理负载</h2><p><strong>淘宝 EagleEye</strong> ：1）专属日志输出实现，日志异步写入来避免 hang 住业务线程，可调节日志输出缓冲大小，控制每秒写日志的 IO 次数等。2）全局采样开关，在运行期控制调用链的采样率（根据 TraceId 来决定当前的这一次访问日志是否输出）。比如采样率被设置为 10，一部分调用链日志完全不输出，只有 hash(traceId) mod 10 的值等于0的日志才会输出。例如核心入口的调用量样本空间足够大（每日百万次以上级别），假设统计误差 0.1% ，即使开启1/10的采样总和误差也是可以接受的。</p>
+<p><strong>微博 Watchman</strong>：如某个服务由于瞬时访问高峰，造成底层资源压力变大从而服务响应时间变长，控制策略可以根据设定随机丢弃后续的请求，如果情况加剧就会自动降级该服务，保证核心服务路径。</p>
 <h2 id="专利申请情况"><a href="#专利申请情况" class="headerlink" title="专利申请情况"></a>专利申请情况</h2><ul>
-<li><a href="http://ginobefunny.com/post/learning_distributed_systems_tracing/" target="_blank" rel="external">分布式调用跟踪系统调研笔记</a></li>
-<li><a href="https://patents.google.com/patent/CN105224445B/zh" target="_blank" rel="external">CN105224445B 分布式追踪系统| 北京汇商融通信息技术有限公司 | 2015-10-28</a></li>
+<li><a href="https://patents.google.com/patent/WO2017071134A1/zh" target="_blank" rel="external">CN105224445B | WO2017071134A1 | 分布式追踪系统| 北京汇商融通信息技术有限公司 | 2015-10-28</a></li>
 </ul>
 <h2 id="扩展阅读：开源架构技术漫谈"><a href="#扩展阅读：开源架构技术漫谈" class="headerlink" title="扩展阅读：开源架构技术漫谈"></a>扩展阅读：开源架构技术漫谈</h2><ul>
 <li><a href="https://riboseyim.github.io/2018/04/27/DevOps-OpenCensus" target="_blank" rel="external">DevOps 漫谈：基于OpenCensus构建分布式跟踪系统</a></li>
@@ -112,8 +198,14 @@
 <li><a href="https://wu-sheng.gitbooks.io/opentracing-io/content/" target="_blank" rel="external">OpenTraing 文档 | 中文 </a></li>
 <li><a href="https://medium.com/opentracing/the-difference-between-tracing-tracing-and-tracing-84b49b2d54ea" target="_blank" rel="external">The difference between tracing, tracing, and tracing</a></li>
 <li><a href="https://medium.com/jaegertracing/using-opentracing-with-istio-envoy-d8a4246bdc15" target="_blank" rel="external">Using OpenTracing with Istio/Envoy</a></li>
+<li><a href="http://www.infoq.com/cn/articles/evolving-distributed-tracing-at-uber-engineering" target="_blank" rel="external">优步分布式追踪技术再度精进</a></li>
 <li><a href="https://zhuanlan.zhihu.com/p/34318538" target="_blank" rel="external">开放分布式追踪（OpenTracing）入门与 Jaeger 实现</a></li>
+<li><a href="https://github.com/jaegertracing/jaeger" target="_blank" rel="external">Github | CNCF Jaeger, a Distributed Tracing System</a></li>
+<li><a href="https://sematext.com/blog/opentracing-jaeger-as-distributed-tracer/?utm_source=getresponse&amp;utm_medium=email&amp;utm_campaign=devopslinks&amp;utm_content=DevOpsLinks+%23112:+Jenkins+Scripted+Pipelines,+The+State+Of+Stateful+Apps+on+K8S+%26+Never+Write+Your+Own+Database" target="_blank" rel="external">OpenTracing: Jaeger as Distributed Tracer</a></li>
 <li><a href="https://medium.com/@Pinterest_Engineering/distributed-tracing-at-pinterest-with-new-open-source-tools-a4f8a5562f6b" target="_blank" rel="external">Distributed tracing at Pinterest with new open source tools</a></li>
+<li><a href="https://medium.com/devthoughts/instrumenting-a-go-application-with-zipkin-b79cc858ac3e" target="_blank" rel="external">Instrumenting a Go application with Zipkin</a></li>
+<li><a href="http://manzhizhen.iteye.com/blog/2348175" target="_blank" rel="external">式跟踪系统（一）：Zipkin的背景和设计</a></li>
+<li><a href="http://ginobefunny.com/post/learning_distributed_systems_tracing/" target="_blank" rel="external">分布式调用跟踪系统调研笔记</a></li>
 </ul>
 ]]></content>
     
@@ -122,7 +214,8 @@
       &lt;h2 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;API&lt;/li&gt;
 &lt;li&gt;Exporters | 数据可视化&lt;/li&gt;
-&lt;li&gt;Google Dapper vs OpenTracing vs OpenCensus vs Uber Jaeger&lt;/li&gt;
+&lt;li&gt;Google Dapper vs OpenTracing vs OpenCensus&lt;/li&gt;
+&lt;li&gt;Google Dapper Family : Uber Jaeger&lt;/li&gt;
 &lt;li&gt;Key Words: Metrics · Traces · Logs&lt;/li&gt;
 &lt;/ul&gt;
     
@@ -495,7 +588,7 @@
     <link href="http://riboseyim.github.com/2018/04/27/DevOps-OpenCensus/"/>
     <id>http://riboseyim.github.com/2018/04/27/DevOps-OpenCensus/</id>
     <published>2018-04-27T02:33:09.000Z</published>
-    <updated>2018-05-29T02:47:35.828Z</updated>
+    <updated>2018-05-29T02:57:50.652Z</updated>
     
     <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
 <li>Distributed Tracing and Monitoring System</li>
@@ -525,7 +618,7 @@
 </li>
 </ul>
 <p><img src="http://og2061b3n.bkt.clouddn.com/DTM-Dapper-TraceTree-Span.png" alt=""></p>
-<p>Google Dapper 的理念影响了一批分布式跟踪系统的发展，例如 2012 年，Twitter 公司严格按照 Dapper 论文的要求实现了 Zipkin （Scala 编写，集成到 Twitter公司自己的分布式服务 Finagle ）；Uber 公司基于 Google Dapper 和 Twitter Zipkin 的灵感，开发了开源分布式跟踪系统 Jaeger，例如 Jaeger 规范中同样定义了 Span（跨度, 跨径，两个界限间的距离）。</p>
+<p>Google Dapper 的理念影响了一批分布式跟踪系统的发展，例如 2012 年，Twitter 公司严格按照 Dapper 论文的要求实现了 Zipkin （Scala 编写，集成到 Twitter公司自己的分布式服务 Finagle ）；Uber 公司基于 Google Dapper 和 Twitter Zipkin 的灵感，开发了开源分布式跟踪系统 Jaeger。</p>
 <h2 id="第二部分-OpenCensus-A-framework-for-distributed-tracing"><a href="#第二部分-OpenCensus-A-framework-for-distributed-tracing" class="headerlink" title="第二部分 OpenCensus: A framework for distributed tracing"></a>第二部分 OpenCensus: A framework for distributed tracing</h2><blockquote>
 <p>OpenCensus is a framework for stats collection and distributed tracing.</p>
 </blockquote>
