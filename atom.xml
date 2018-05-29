@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://riboseyim.github.com/"/>
-  <updated>2018-05-29T10:27:14.561Z</updated>
+  <updated>2018-05-29T10:29:35.288Z</updated>
   <id>http://riboseyim.github.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://riboseyim.github.com/2018/05/18/DevOps-OpenTracing/"/>
     <id>http://riboseyim.github.com/2018/05/18/DevOps-OpenTracing/</id>
     <published>2018-05-18T03:36:46.000Z</published>
-    <updated>2018-05-29T10:27:14.561Z</updated>
+    <updated>2018-05-29T10:29:35.288Z</updated>
     
     <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
 <li>Key Words: metrics、logging、tracing</li>
@@ -34,7 +34,7 @@
 <h4 id="tracing"><a href="#tracing" class="headerlink" title="tracing"></a>tracing</h4><p>跟踪（tracing）的特征：跟踪处理的是请求范围内的信息（request-scoped）。系统生命周期中可以绑定到单个事务性对象的任何元数据。例如：调用 RPC 远程服务的持续时间，SQL 语句在数据库的实际执行时间或 HTTP 请求。</p>
 <h2 id="Google-Dapper-Family"><a href="#Google-Dapper-Family" class="headerlink" title="Google Dapper Family"></a>Google Dapper Family</h2><p>讨论分布式跟踪，就一定会谈到 Dapper —— Google 公司研发并应用于自己生产环境的一款跟踪系统（设计之初参考了一些 Magpie 和 X-Trace 的理念 ）。Dapper 不仅为业内提供了非常有参考价值的实现，同步发表论文的也成为了当前分布式跟踪系统的重要理论基础。Google Dapper 的理念影响了一批分布式跟踪系统的发展，例如 2012 年，Twitter 公司严格按照 Dapper 论文的要求实现了 Zipkin （Scala 编写，集成到 Twitter 公司自己的分布式服务 Finagle ）；Uber 公司基于 Google Dapper 和 Twitter Zipkin 的灵感，开发了开源分布式跟踪系统 Jaeger。</p>
 <ul>
-<li><a href="https://static.googleusercontent.com/media/research.google.com/zh-CN//archive/papers/dapper-2010-1.pdf" target="_blank" rel="external">《Dapper, a Large-Scale Distributed Systems Tracing Infrastructure|Google Technical Report dapper-2010-1, April 2010》</a> <a href="https://bigbully.github.io/Dapper-translation/" target="_blank" rel="external">中译本@bigbully</a></li>
+<li><a href="https://static.googleusercontent.com/media/research.google.com/zh-CN//archive/papers/dapper-2010-1.pdf" target="_blank" rel="external">《Dapper, a Large-Scale Distributed Systems Tracing Infrastructure|Google Technical Report dapper-2010-1, April 2010》</a> </li>
 </ul>
 <h4 id="Uber-Jaeger"><a href="#Uber-Jaeger" class="headerlink" title="Uber Jaeger"></a>Uber Jaeger</h4><p><img src="http://og2061b3n.bkt.clouddn.com/DTM-Uber-Jaeger.png" alt=""></p>
 <p><a href="http://www.infoq.com/cn/articles/evolving-distributed-tracing-at-uber-engineering" target="_blank" rel="external">Uber Jaeger</a> 是 Uber 工程团队开源的分布式追踪系统。自 2016年 起，Jaeger 在 Uber 内部实现大范围应用。Uber 同时开发了一种适用于 RPC 的网络多路复用和框架协议 —— <a href="https://github.com/uber/tchannel" target="_blank" rel="external">TChannel | Support: Node.js,Python,Go,Java</a>，该协议融入了分布式追踪能力。TChannel 协议规范在二进制格式中直接定义了追踪字段：“ spanid:8 parentid:8 traceid:8 traceflags:1 ”。</p>
