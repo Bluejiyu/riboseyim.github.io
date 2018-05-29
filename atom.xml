@@ -588,7 +588,7 @@
     <link href="http://riboseyim.github.com/2018/04/27/DevOps-OpenCensus/"/>
     <id>http://riboseyim.github.com/2018/04/27/DevOps-OpenCensus/</id>
     <published>2018-04-27T02:33:09.000Z</published>
-    <updated>2018-05-29T02:57:50.652Z</updated>
+    <updated>2018-05-29T07:34:08.701Z</updated>
     
     <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
 <li>Distributed Tracing and Monitoring System</li>
@@ -617,8 +617,8 @@
 <li><p>跟踪树（trace tree）和 span<br>在 Dapper 跟踪树中，基本单元是树节点（分配 spanid）。节点之间通过连线表示父子关系，通过 parentId 和 spanId 把所有的关系串联起来，实现记录业务流的作用。</p>
 </li>
 </ul>
+<p>Google Dapper 的理念影响了一批分布式跟踪系统的发展，例如 2012 年，Twitter 公司严格按照 Dapper 论文的要求实现了 Zipkin （Scala 编写，集成到 Twitter 公司自己的分布式服务 Finagle ）；Uber 公司基于 Google Dapper 和 Twitter Zipkin 的灵感，开发了开源分布式跟踪系统 Jaeger。</p>
 <p><img src="http://og2061b3n.bkt.clouddn.com/DTM-Dapper-TraceTree-Span.png" alt=""></p>
-<p>Google Dapper 的理念影响了一批分布式跟踪系统的发展，例如 2012 年，Twitter 公司严格按照 Dapper 论文的要求实现了 Zipkin （Scala 编写，集成到 Twitter公司自己的分布式服务 Finagle ）；Uber 公司基于 Google Dapper 和 Twitter Zipkin 的灵感，开发了开源分布式跟踪系统 Jaeger。</p>
 <h2 id="第二部分-OpenCensus-A-framework-for-distributed-tracing"><a href="#第二部分-OpenCensus-A-framework-for-distributed-tracing" class="headerlink" title="第二部分 OpenCensus: A framework for distributed tracing"></a>第二部分 OpenCensus: A framework for distributed tracing</h2><blockquote>
 <p>OpenCensus is a framework for stats collection and distributed tracing.</p>
 </blockquote>
