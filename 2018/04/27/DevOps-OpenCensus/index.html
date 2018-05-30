@@ -24,8 +24,9 @@
 <meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/zipkin-%E4%B8%B2%E8%A1%8C.png">
 <meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/zipkin-%E5%B9%B6%E8%A1%8C.png">
 <meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/DTM-Zipkin-Twitter.png">
+<meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/OpenCensus-DataModel-Base.png">
 <meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/DTM-Context.png">
-<meta property="og:updated_time" content="2018-05-29T10:26:56.512Z">
+<meta property="og:updated_time" content="2018-05-30T05:58:37.791Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DevOps 漫谈：开源分布式跟踪系统 OpenCensus">
 <meta name="twitter:description" content="摘要 Distributed Tracing and Monitoring System OpenCensus: A framework for distributed tracing OpenCensus Principle: data structure 、Context">
@@ -100,7 +101,7 @@
 						<li>Links</li>
 						
 						
-						<li>Über</li>
+						<li>About</li>
 						
 					</ul>
 				</div>
@@ -407,6 +408,7 @@
 <li>Links</li>
 </ul>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//go.opencensus.io/trace.go</span></div><div class="line"></div><div class="line"><span class="keyword">type</span> Span <span class="keyword">struct</span> &#123;</div><div class="line">	<span class="comment">// data contains information recorded about the span.</span></div><div class="line">	<span class="comment">//</span></div><div class="line">	<span class="comment">// It will be non-nil if we are exporting the span or recording events for it.</span></div><div class="line">	<span class="comment">// Otherwise, data is nil, and the Span is simply a carrier for the</span></div><div class="line">	<span class="comment">// SpanContext, so that the trace ID is propagated.</span></div><div class="line">	data        *SpanData</div><div class="line">   <span class="comment">// protects the contents of *data (but not the pointer value.)</span></div><div class="line">	mu          sync.Mutex</div><div class="line">	spanContext SpanContext</div><div class="line">	<span class="comment">// spanStore is the spanStore this span belongs to, if any, otherwise it is nil.</span></div><div class="line">	*spanStore</div><div class="line"></div><div class="line">	endOnce sync.Once</div><div class="line"></div><div class="line">	executionTracerTaskEnd <span class="function"><span class="keyword">func</span><span class="params">()</span></span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="title">type</span> <span class="title">SpanContext</span> <span class="title">struct</span> &#123;</div><div class="line">	TraceID      TraceID</div><div class="line">	SpanID       SpanID</div><div class="line">	TraceOptions TraceOptions</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://og2061b3n.bkt.clouddn.com/OpenCensus-DataModel-Base.png" alt=""></p>
 <h4 id="上下文-Context"><a href="#上下文-Context" class="headerlink" title="上下文 Context"></a>上下文 Context</h4><p><img src="http://og2061b3n.bkt.clouddn.com/DTM-Context.png" alt=""></p>
 <p>上下文 Context 按照树型关系构建。以 Golang 为例，创建 Context 树第一步就是通过 context.Background() 得到根节点，再由 WithCancel()、WithTimeout() 等函数创建其它的子节点，孙节点。子节点从父节点复制得到，在子节点也可以设定新的状态值，如此就可以使元数据在子节点之间层层传递。</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">Background</span><span class="params">()</span> <span class="title">Context</span></span></div><div class="line"></div><div class="line"><span class="title">func</span> <span class="title">WithCancel</span><span class="params">(parent Context)</span> <span class="params">(ctx Context, cancel CancelFunc)</span></div><div class="line"></div><div class="line"><span class="title">func</span> <span class="title">WithDeadline</span><span class="params">(parent Context, deadline time.Time)</span> <span class="params">(Context, CancelFunc)</span></div><div class="line"></div><div class="line"><span class="title">func</span> <span class="title">WithTimeout</span><span class="params">(parent Context, timeout time.Duration)</span> <span class="params">(Context, CancelFunc)</span></div><div class="line"></div><div class="line"><span class="title">func</span> <span class="title">WithValue</span><span class="params">(parent Context, key <span class="keyword">interface</span>&#123;&#125;, val <span class="keyword">interface</span>&#123;&#125;)</span> <span class="title">Context</span></div></pre></td></tr></table></figure>
@@ -453,7 +455,7 @@
 <li><a href="http://www.infoq.com/cn/articles/evolving-distributed-tracing-at-uber-engineering" target="_blank" rel="external">Uber优步分布式追踪技术再度精进</a></li>
 <li><a href="https://blog.doit-intl.com/measure-once-export-anywhere-opencensus-in-the-wild-61724f44eb00" target="_blank" rel="external">Measure Once — Export Anywhere: OpenCensus in the wild</a></li>
 <li><a href="https://github.com/census-instrumentation/opencensus-go/blob/master/examples/helloworld/main.go" target="_blank" rel="external">opencensus-go-examples-helloworld-context</a></li>
-<li><a href="https://medium.com/@orijtech/opencensus-for-go-grpc-developers-7f3ee1ac3d6d" target="_blank" rel="external">OpenCensus for Go gRPC developers</a></li>
+<li><a href="https://medium.com/@orijtech/mongodb-driver-instrumented-with-opencensus-in-go-e691370b8184" target="_blank" rel="external">MongoDB driver instrumented with OpenCensus in Go</a></li>
 <li><a href="https://segmentfault.com/a/1190000006744213#articleHeader8" target="_blank" rel="external">Go语言并发模型：使用 context | oscarzhao 2016年08月29日</a></li>
 <li><a href="http://lanlingzi.cn/post/technical/2016/0802_go_context/" target="_blank" rel="external">理解Go Context机制 | 时间： 2016-08-02</a></li>
 <li><a href="http://www.flysnow.org/2017/05/12/go-in-action-go-context.html" target="_blank" rel="external">Go语言实战笔记（二十）| Go Context | May 12, 2017</a></li>

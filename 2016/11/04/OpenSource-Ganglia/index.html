@@ -29,7 +29,7 @@
 <meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/Ganglia_DIE.png">
 <meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/Ganglia_WACM.png">
 <meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/Ganglia_ADAM.png">
-<meta property="og:updated_time" content="2018-04-27T10:46:30.528Z">
+<meta property="og:updated_time" content="2018-05-30T03:43:21.971Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开源技术架构漫谈:基于 Ganglia 实现集群性能态势感知">
 <meta name="twitter:description" content="摘要本文以开源项目Ganglia为例，介绍多集群环境下，利用监控系统进行故障诊断、性能瓶颈分析的一般方法。">
@@ -104,7 +104,7 @@
 						<li>Links</li>
 						
 						
-						<li>Über</li>
+						<li>About</li>
 						
 					</ul>
 				</div>
@@ -299,7 +299,7 @@
 <p>在真实的工程实践中，并不能总是通过几行简单的命令，直接获得性能问题的答案。一般不会存在一台单独运行的服务器，它们一定属于某个服务集群之中，就算是同一集群的服务器，也可能属于不同建设周期、硬件配置不同、分工角色不同。或者由不同机房、不通集群的服务器共同协作完成任务。</p>
 <p>另外，很多性能问题也需要长时间的追踪、对比才能作出判断。正如任何一个高明的医生，都需要尽可能多地了解、记录病人的病史，不掌握这些情况，盲目下药，无异于庸医杀人。诚如医者曰：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">夫经方之难精，由来尚矣。今病有内同而外异，亦有内异而外，</div><div class="line">故五脏六腑之盈虚，血脉荣卫之通塞，固非耳目之所察，</div><div class="line">必先诊候以审之。世有愚者，读方三年，便谓天下无病可治；</div><div class="line">及治病三年，乃知天下无方可用。</div></pre></td></tr></table></figure>
-<p>基于Ganglia项目，我们可以快速搭建一套高性能的监控系统，展开故障诊断分析、资源扩容预算甚至故障预测。</p>
+<p>基于 Ganglia 项目我们可以快速搭建一套高性能的监控系统，展开故障诊断分析、资源扩容预算甚至故障预测。</p>
 <h4 id="Ganglia框架简析"><a href="#Ganglia框架简析" class="headerlink" title="Ganglia框架简析"></a>Ganglia框架简析</h4><p><img src="http://og2061b3n.bkt.clouddn.com/Ganglia_Arch_Top.png" alt=""></p>
 <!--more-->
 <p>一般应用中，需要用到两个核心组件：</p>

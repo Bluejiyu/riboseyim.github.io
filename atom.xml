@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://riboseyim.github.com/"/>
-  <updated>2018-05-29T10:29:35.288Z</updated>
+  <updated>2018-05-30T06:31:50.246Z</updated>
   <id>http://riboseyim.github.com/</id>
   
   <author>
@@ -20,21 +20,23 @@
     <link href="http://riboseyim.github.com/2018/05/18/DevOps-OpenTracing/"/>
     <id>http://riboseyim.github.com/2018/05/18/DevOps-OpenTracing/</id>
     <published>2018-05-18T03:36:46.000Z</published>
-    <updated>2018-05-29T10:29:35.288Z</updated>
+    <updated>2018-05-30T06:31:50.246Z</updated>
     
     <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
 <li>Key Words: metrics、logging、tracing</li>
-<li>数据可视化 | Exporters</li>
 <li>Google Dapper Family : Uber Jaeger、淘宝 EagleEye、微博 Watchman、京东 CallGraph、美团 MTrace</li>
+<li>数据可视化 | Exporters</li>
 </ul>
 <a id="more"></a>
 <h2 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h2><p>讨论分布式追踪技术，首先需要明确的是：什么是跟踪 ？</p>
-<h4 id="metrics"><a href="#metrics" class="headerlink" title="metrics"></a>metrics</h4><p>度量（metrics）的特征是聚合: 它们是在一段时间内组成单一逻辑标尺、计数器或直方图的跨度。例如：HTTP 请求的数量可以建模为计数器(counter）, 其更新逻辑很简单，只需通过加法聚合 ; 如果设定一段持续的观察时间，请求数可以被建模成一个直方图。</p>
-<h4 id="logging"><a href="#logging" class="headerlink" title="logging"></a>logging</h4><p>日志（logging）的特征是处理离散事件。例如: 通过 syslog 将应用程序调试或错误消息发送到 Elasticsearch ; 审计记录通过 Kafka 将数据推送到类似 BigTable 的数据池; 从服务调用中提取特定的请求元数据, 并发送错误跟踪服务（例如 <a href="https://ruby-china.org/topics/22379" target="_blank" rel="external">NewRelic</a>）。</p>
-<h4 id="tracing"><a href="#tracing" class="headerlink" title="tracing"></a>tracing</h4><p>跟踪（tracing）的特征：跟踪处理的是请求范围内的信息（request-scoped）。系统生命周期中可以绑定到单个事务性对象的任何元数据。例如：调用 RPC 远程服务的持续时间，SQL 语句在数据库的实际执行时间或 HTTP 请求。</p>
+<h4 id="metrics"><a href="#metrics" class="headerlink" title="metrics"></a>metrics</h4><p>度量（metrics）的特征是聚合: 它们是在一段时间内组成单一逻辑标尺、计数器或直方图的跨度。例如：HTTP 请求的数量可以建模为计数器(counter）, 其更新逻辑很简单，只需通过加法聚合; 如果设定一段持续的观察时间，请求数可以被建模成一个直方图。<a href="https://riboseyim.github.io/2016/11/04/OpenSource-Ganglia/" target="_blank" rel="external">《基于Ganglia实现服务集群性能态势感知》</a> 介绍的就是以记录度量为主的故障监控系统。</p>
+<h4 id="logging"><a href="#logging" class="headerlink" title="logging"></a>logging</h4><p>日志（logging）的特征是处理离散事件。按照事件发生的源可以分为 Application Events、System Events、Service Events、DNS Events 等。通常也包含针对原始记录的处理过程，例如：通过 Syslog 将应用程序调试或错误消息发送到 Elasticsearch ; 审计记录通过 Kafka 将数据推送到类似 BigTable 的数据池; 从服务调用中提取特定的请求元数据, 并发送错误跟踪服务（例如 <a href="https://ruby-china.org/topics/22379" target="_blank" rel="external">NewRelic</a>）。</p>
+<h4 id="tracing"><a href="#tracing" class="headerlink" title="tracing"></a>tracing</h4><p>跟踪（tracing）的特征：跟踪处理的是请求范围内的信息（request-scoped），例如 SQL 语句在数据库的实际执行时间或 HTTP 请求耗时。以 DTrace &amp; SystemTap 为代表的 <a href="https://riboseyim.github.io/2016/11/26/DTrace/" target="_blank" rel="external">动态追踪技术</a> 基于操作系统内核，不需要埋点就可以提供高级性能分析和调试功能。但是在分布式架构场景中也有一些不足，例如某些功能需要多次调用 RPC 远程服务，这些服务分布在多台不同的 host/vm/docker 中，如果需要测量该功能响应的完整持续时间就有难度。</p>
+<p><img src="http://og2061b3n.bkt.clouddn.com/DTM-MetricsTracingLogging.png" alt=""></p>
+<p>就分布式追踪技术而言，也有很多不同的实现。例如，Zipkin 专注于 tracing 领域；Prometheus 开始专注于 metrics，同时可能会发展更多的 tracing 功能，但不太可能深入 logging 领域；基于 ELK 之类的日志系统专注于 logging 领域，但也可能集成其他领域的特性。总之，各式各样的分布式追踪系统都是以 tracing 为基础，同时根据自己的需要在其他两个领域各有所侧重而已。</p>
 <h2 id="Google-Dapper-Family"><a href="#Google-Dapper-Family" class="headerlink" title="Google Dapper Family"></a>Google Dapper Family</h2><p>讨论分布式跟踪，就一定会谈到 Dapper —— Google 公司研发并应用于自己生产环境的一款跟踪系统（设计之初参考了一些 Magpie 和 X-Trace 的理念 ）。Dapper 不仅为业内提供了非常有参考价值的实现，同步发表论文的也成为了当前分布式跟踪系统的重要理论基础。Google Dapper 的理念影响了一批分布式跟踪系统的发展，例如 2012 年，Twitter 公司严格按照 Dapper 论文的要求实现了 Zipkin （Scala 编写，集成到 Twitter 公司自己的分布式服务 Finagle ）；Uber 公司基于 Google Dapper 和 Twitter Zipkin 的灵感，开发了开源分布式跟踪系统 Jaeger。</p>
 <ul>
-<li><a href="https://static.googleusercontent.com/media/research.google.com/zh-CN//archive/papers/dapper-2010-1.pdf" target="_blank" rel="external">《Dapper, a Large-Scale Distributed Systems Tracing Infrastructure|Google Technical Report dapper-2010-1, April 2010》</a> </li>
+<li><a href="https://static.googleusercontent.com/media/research.google.com/zh-CN//archive/papers/dapper-2010-1.pdf" target="_blank" rel="external">《Dapper, a Large-Scale Distributed Systems Tracing Infrastructure|Google Technical Report dapper-2010-1, April 2010》</a></li>
 </ul>
 <h4 id="Uber-Jaeger"><a href="#Uber-Jaeger" class="headerlink" title="Uber Jaeger"></a>Uber Jaeger</h4><p><img src="http://og2061b3n.bkt.clouddn.com/DTM-Uber-Jaeger.png" alt=""></p>
 <p><a href="http://www.infoq.com/cn/articles/evolving-distributed-tracing-at-uber-engineering" target="_blank" rel="external">Uber Jaeger</a> 是 Uber 工程团队开源的分布式追踪系统。自 2016年 起，Jaeger 在 Uber 内部实现大范围应用。Uber 同时开发了一种适用于 RPC 的网络多路复用和框架协议 —— <a href="https://github.com/uber/tchannel" target="_blank" rel="external">TChannel | Support: Node.js,Python,Go,Java</a>，该协议融入了分布式追踪能力。TChannel 协议规范在二进制格式中直接定义了追踪字段：“ spanid:8 parentid:8 traceid:8 traceflags:1 ”。</p>
@@ -143,6 +145,14 @@
 <h2 id="Exporters-数据可视化"><a href="#Exporters-数据可视化" class="headerlink" title="Exporters | 数据可视化"></a>Exporters | 数据可视化</h2><h3 id="Prometheus-普罗米修斯"><a href="#Prometheus-普罗米修斯" class="headerlink" title="Prometheus|普罗米修斯"></a><a href="https://prometheus.io" target="_blank" rel="external">Prometheus|普罗米修斯</a></h3><h3 id="Stackdriver"><a href="#Stackdriver" class="headerlink" title="Stackdriver"></a><a href="https://cloud.google.com/stackdriver/" target="_blank" rel="external">Stackdriver</a></h3><p>适用于 Google Cloud Platform 与 AWS 应用的监控、日志记录和诊断工具</p>
 <h3 id="SignalFX"><a href="#SignalFX" class="headerlink" title="SignalFX"></a><a href="https://signalfx.com" target="_blank" rel="external">SignalFX</a></h3><h3 id="Amazon-AWS-X-Ray"><a href="#Amazon-AWS-X-Ray" class="headerlink" title="Amazon AWS X-Ray"></a>Amazon AWS X-Ray</h3><h3 id="Zipkin"><a href="#Zipkin" class="headerlink" title="Zipkin"></a><a href="https://zipkin.io" target="_blank" rel="external">Zipkin</a></h3><p>Zipkin 的 Span 模型几乎完全仿造了 Dapper 中的 Span 设计，Zipkin 的 Span 包括基础数据（traceId、spanId、parentId、name、timestamp 和 duration，主要用于表示跟踪树中节点的关联关系）、 Annotation（记录请求特定事件相关信息）、BinaryAnnotation（扩展信息）。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">$ docker image pull openzipkin/zipkin</div><div class="line"></div><div class="line">$ docker container run -p 9411:9411 openzipkin/zipkin</div><div class="line">                                    ********</div><div class="line">                                  **        **</div><div class="line">                                 *            *</div><div class="line">                                **            **</div><div class="line">                                **            **</div><div class="line">                                 **          **</div><div class="line">                                  **        **</div><div class="line">                                    ********</div><div class="line">                                      ****</div><div class="line">                                      ****</div><div class="line">        ****                          ****</div><div class="line">     ******                           ****                                 ***</div><div class="line">  ****************************************************************************</div><div class="line">    *******                           ****                                 ***</div><div class="line">        ****                          ****</div><div class="line">                                       **</div><div class="line">                                       **</div><div class="line"></div><div class="line"></div><div class="line">             *****      **     *****     ** **       **     **   **</div><div class="line">               **       **     **  *     ***         **     **** **</div><div class="line">              **        **     *****     ****        **     **  ***</div><div class="line">             ******     **     **        **  **      **     **   **</div><div class="line"></div><div class="line">:: Powered by Spring Boot ::         (v2.0.1.RELEASE)</div><div class="line"></div><div class="line">$ docker container ls --all</div><div class="line">CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                        PORTS                              NAMES</div><div class="line">f9935fcaf4ba        openzipkin/zipkin   <span class="string">"/bin/sh -c 'test -n"</span>   5 seconds ago       Up 4 seconds                  9410/tcp, 0.0.0.0:9411-&gt;9411/tcp   musing_jepsen</div></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://logz.io/blog/zipkin-elk/?utm_source=twitter&amp;utm_medium=social&amp;utm_content=zipkin-elk/&amp;utm_campaign=blog_post" target="_blank" rel="external">扩展阅读 | Distributed Tracing with Zipkin and ELK</a></li>
+</ul>
+<p><img src="https://logz.io/wp-content/uploads/2018/05/zipkin_and_elk_-_article.jpg" alt=""></p>
+<ul>
+<li><a href="https://medium.com/merapar/exposing-zipkin-trace-id-and-span-id-in-logging-for-use-in-kibana-25d1e5b6bfbb" target="_blank" rel="external">扩展阅读 | Tracing microservices with Zipkin and Kibana</a></li>
+</ul>
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*edyzJ1zutH1IA2jpITp5Pg.png" alt=""></p>
 <h2 id="OpenCensus-vs-OpenTracing"><a href="#OpenCensus-vs-OpenTracing" class="headerlink" title="OpenCensus vs OpenTracing"></a><a href="https://zipkin.io" target="_blank" rel="external">OpenCensus</a> vs <a href="http://opentracing.io/" target="_blank" rel="external">OpenTracing</a></h2><table>
 <thead>
 <tr>
@@ -210,6 +220,8 @@
 <li><a href="http://manzhizhen.iteye.com/blog/2348175" target="_blank" rel="external">分布式跟踪系统（一）：Zipkin的背景和设计</a></li>
 <li><a href="http://ginobefunny.com/post/learning_distributed_systems_tracing/" target="_blank" rel="external">分布式调用跟踪系统调研笔记</a></li>
 <li><a href="https://www.youtube.com/watch?v=Fbhhc4jtGW4&amp;feature=youtu.be" target="_blank" rel="external">Node.js Performance and Highly Scalable Micro-Services - Chris Bailey, IBM</a></li>
+<li><a href="https://tech.meituan.com/mt-mtrace.html" target="_blank" rel="external">分布式会话跟踪系统架构设计与实践 | 美团点评技术团队 | 志桐 ·2016-10-14 18:13</a></li>
+<li><a href="http://peter.bourgon.org/blog/2017/02/21/metrics-tracing-and-logging.html" target="_blank" rel="external">Metrics, tracing, and logging | 2017 02 21</a></li>
 </ul>
 ]]></content>
     
@@ -217,8 +229,8 @@
     
       &lt;h2 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;Key Words: metrics、logging、tracing&lt;/li&gt;
-&lt;li&gt;数据可视化 | Exporters&lt;/li&gt;
 &lt;li&gt;Google Dapper Family : Uber Jaeger、淘宝 EagleEye、微博 Watchman、京东 CallGraph、美团 MTrace&lt;/li&gt;
+&lt;li&gt;数据可视化 | Exporters&lt;/li&gt;
 &lt;/ul&gt;
     
     </summary>
@@ -594,7 +606,7 @@
     <link href="http://riboseyim.github.com/2018/04/27/DevOps-OpenCensus/"/>
     <id>http://riboseyim.github.com/2018/04/27/DevOps-OpenCensus/</id>
     <published>2018-04-27T02:33:09.000Z</published>
-    <updated>2018-05-29T10:26:56.512Z</updated>
+    <updated>2018-05-30T05:58:37.791Z</updated>
     
     <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
 <li>Distributed Tracing and Monitoring System</li>
@@ -716,6 +728,7 @@
 <li>Links</li>
 </ul>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//go.opencensus.io/trace.go</span></div><div class="line"></div><div class="line"><span class="keyword">type</span> Span <span class="keyword">struct</span> &#123;</div><div class="line">	<span class="comment">// data contains information recorded about the span.</span></div><div class="line">	<span class="comment">//</span></div><div class="line">	<span class="comment">// It will be non-nil if we are exporting the span or recording events for it.</span></div><div class="line">	<span class="comment">// Otherwise, data is nil, and the Span is simply a carrier for the</span></div><div class="line">	<span class="comment">// SpanContext, so that the trace ID is propagated.</span></div><div class="line">	data        *SpanData</div><div class="line">   <span class="comment">// protects the contents of *data (but not the pointer value.)</span></div><div class="line">	mu          sync.Mutex</div><div class="line">	spanContext SpanContext</div><div class="line">	<span class="comment">// spanStore is the spanStore this span belongs to, if any, otherwise it is nil.</span></div><div class="line">	*spanStore</div><div class="line"></div><div class="line">	endOnce sync.Once</div><div class="line"></div><div class="line">	executionTracerTaskEnd <span class="function"><span class="keyword">func</span><span class="params">()</span></span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="title">type</span> <span class="title">SpanContext</span> <span class="title">struct</span> &#123;</div><div class="line">	TraceID      TraceID</div><div class="line">	SpanID       SpanID</div><div class="line">	TraceOptions TraceOptions</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://og2061b3n.bkt.clouddn.com/OpenCensus-DataModel-Base.png" alt=""></p>
 <h4 id="上下文-Context"><a href="#上下文-Context" class="headerlink" title="上下文 Context"></a>上下文 Context</h4><p><img src="http://og2061b3n.bkt.clouddn.com/DTM-Context.png" alt=""></p>
 <p>上下文 Context 按照树型关系构建。以 Golang 为例，创建 Context 树第一步就是通过 context.Background() 得到根节点，再由 WithCancel()、WithTimeout() 等函数创建其它的子节点，孙节点。子节点从父节点复制得到，在子节点也可以设定新的状态值，如此就可以使元数据在子节点之间层层传递。</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">Background</span><span class="params">()</span> <span class="title">Context</span></span></div><div class="line"></div><div class="line"><span class="title">func</span> <span class="title">WithCancel</span><span class="params">(parent Context)</span> <span class="params">(ctx Context, cancel CancelFunc)</span></div><div class="line"></div><div class="line"><span class="title">func</span> <span class="title">WithDeadline</span><span class="params">(parent Context, deadline time.Time)</span> <span class="params">(Context, CancelFunc)</span></div><div class="line"></div><div class="line"><span class="title">func</span> <span class="title">WithTimeout</span><span class="params">(parent Context, timeout time.Duration)</span> <span class="params">(Context, CancelFunc)</span></div><div class="line"></div><div class="line"><span class="title">func</span> <span class="title">WithValue</span><span class="params">(parent Context, key <span class="keyword">interface</span>&#123;&#125;, val <span class="keyword">interface</span>&#123;&#125;)</span> <span class="title">Context</span></div></pre></td></tr></table></figure>
@@ -762,7 +775,7 @@
 <li><a href="http://www.infoq.com/cn/articles/evolving-distributed-tracing-at-uber-engineering" target="_blank" rel="external">Uber优步分布式追踪技术再度精进</a></li>
 <li><a href="https://blog.doit-intl.com/measure-once-export-anywhere-opencensus-in-the-wild-61724f44eb00" target="_blank" rel="external">Measure Once — Export Anywhere: OpenCensus in the wild</a></li>
 <li><a href="https://github.com/census-instrumentation/opencensus-go/blob/master/examples/helloworld/main.go" target="_blank" rel="external">opencensus-go-examples-helloworld-context</a></li>
-<li><a href="https://medium.com/@orijtech/opencensus-for-go-grpc-developers-7f3ee1ac3d6d" target="_blank" rel="external">OpenCensus for Go gRPC developers</a></li>
+<li><a href="https://medium.com/@orijtech/mongodb-driver-instrumented-with-opencensus-in-go-e691370b8184" target="_blank" rel="external">MongoDB driver instrumented with OpenCensus in Go</a></li>
 <li><a href="https://segmentfault.com/a/1190000006744213#articleHeader8" target="_blank" rel="external">Go语言并发模型：使用 context | oscarzhao 2016年08月29日</a></li>
 <li><a href="http://lanlingzi.cn/post/technical/2016/0802_go_context/" target="_blank" rel="external">理解Go Context机制 | 时间： 2016-08-02</a></li>
 <li><a href="http://www.flysnow.org/2017/05/12/go-in-action-go-context.html" target="_blank" rel="external">Go语言实战笔记（二十）| Go Context | May 12, 2017</a></li>

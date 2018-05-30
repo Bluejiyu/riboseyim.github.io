@@ -4,14 +4,49 @@
   <url>
     <loc>http://riboseyim.github.com/2018/05/18/DevOps-OpenTracing/</loc>
     
-    <lastmod>2018-05-29T10:29:35.288Z</lastmod>
+    <lastmod>2018-05-30T06:31:50.246Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2018/04/27/DevOps-OpenCensus/</loc>
     
-    <lastmod>2018-05-29T10:26:56.512Z</lastmod>
+    <lastmod>2018-05-30T05:58:37.791Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2017/04/17/DTrace_FTrace/</loc>
+    
+    <lastmod>2018-05-30T04:00:43.925Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2016/11/26/DTrace/</loc>
+    
+    <lastmod>2018-05-30T04:00:04.984Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2017/11/05/OpenSource-Operational/</loc>
+    
+    <lastmod>2018-05-30T03:44:55.523Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2016/11/04/OpenSource-Ganglia/</loc>
+    
+    <lastmod>2018-05-30T03:43:21.971Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2017/06/19/Machine-Learning/</loc>
+    
+    <lastmod>2018-05-30T02:41:43.697Z</lastmod>
     
   </url>
   
@@ -103,13 +138,6 @@
     <loc>http://riboseyim.github.com/2017/05/05/Language-Go-lang/</loc>
     
     <lastmod>2018-05-16T09:00:29.151Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2017/06/19/Machine-Learning/</loc>
-    
-    <lastmod>2018-05-16T05:26:03.973Z</lastmod>
     
   </url>
   
@@ -387,13 +415,6 @@
   </url>
   
   <url>
-    <loc>http://riboseyim.github.com/2016/11/04/OpenSource-Ganglia/</loc>
-    
-    <lastmod>2018-04-27T10:46:30.528Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://riboseyim.github.com/2016/08/15/OpenSource-Kafka/</loc>
     
     <lastmod>2018-04-27T10:21:29.503Z</lastmod>
@@ -621,13 +642,6 @@
     <loc>http://riboseyim.github.com/2016/07/03/Reading/</loc>
     
     <lastmod>2018-04-10T07:35:24.990Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2016/11/26/DTrace/</loc>
-    
-    <lastmod>2018-04-10T07:04:08.595Z</lastmod>
     
   </url>
   
@@ -929,13 +943,6 @@
     <loc>http://riboseyim.github.com/2017/06/27/DTrace_bcc/</loc>
     
     <lastmod>2018-02-16T12:31:05.425Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2017/04/17/DTrace_FTrace/</loc>
-    
-    <lastmod>2018-02-16T12:30:54.143Z</lastmod>
     
   </url>
   
@@ -1321,13 +1328,6 @@
     <loc>http://riboseyim.github.com/2016/07/17/OpenSource-StackOverflow/</loc>
     
     <lastmod>2017-12-22T05:26:27.078Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2017/11/05/OpenSource-Operational/</loc>
-    
-    <lastmod>2017-12-22T05:26:27.072Z</lastmod>
     
   </url>
   
