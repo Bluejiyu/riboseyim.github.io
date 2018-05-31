@@ -5,10 +5,10 @@
     
   <url>
     <loc>http://riboseyim.github.com/2018/05/18/DevOps-OpenTracing/</loc>
-    <lastmod>2018-05-30T06:31:50.246Z</lastmod>
+    <lastmod>2018-05-31T02:45:17.517Z</lastmod>
     <data>
         <display>
-        <title>DevOps 漫谈:分布式追踪系统体系</title>
+        <title>DevOps 漫谈:分布式追踪系统标准体系</title>
         <pubTime>2018-05-18T03:36:46.000Z</pubTime>
         
         <tag>OpenSource</tag>
@@ -26,7 +26,7 @@
     
   <url>
     <loc>http://riboseyim.github.com/2018/04/27/DevOps-OpenCensus/</loc>
-    <lastmod>2018-05-30T05:58:37.791Z</lastmod>
+    <lastmod>2018-05-31T02:44:31.036Z</lastmod>
     <data>
         <display>
         <title>DevOps 漫谈：开源分布式跟踪系统 OpenCensus</title>
@@ -39,6 +39,29 @@
         <tag>DevOps</tag>
          
         <tag>Linux</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2017/05/24/Log/</loc>
+    <lastmod>2018-05-30T10:32:20.963Z</lastmod>
+    <data>
+        <display>
+        <title>开源技术架构漫谈：应用程序的日志管理及可视化</title>
+        <pubTime>2017-05-24T06:22:56.000Z</pubTime>
+        
+        <tag>架构师</tag>
+         
+        <tag>DevOps</tag>
+         
+        <tag>Developer</tag>
+         
+        <tag>Golang</tag>
          
          
            
@@ -214,29 +237,6 @@
         <pubTime>2017-05-12T10:45:50.000Z</pubTime>
         
         <tag>数据可视化</tag>
-         
-        <tag>Developer</tag>
-         
-        <tag>Golang</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://riboseyim.github.com/2017/05/24/Log/</loc>
-    <lastmod>2018-05-22T11:27:11.943Z</lastmod>
-    <data>
-        <display>
-        <title>开源技术架构漫谈：应用程序的日志管理及可视化</title>
-        <pubTime>2017-05-24T06:22:56.000Z</pubTime>
-        
-        <tag>架构师</tag>
-         
-        <tag>DevOps</tag>
          
         <tag>Developer</tag>
          
