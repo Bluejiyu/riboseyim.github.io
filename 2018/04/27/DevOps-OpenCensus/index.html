@@ -26,7 +26,7 @@
 <meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/DTM-Zipkin-Twitter.png">
 <meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/OpenCensus-DataModel-Base.png">
 <meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/DTM-Context.png">
-<meta property="og:updated_time" content="2018-05-31T02:44:31.036Z">
+<meta property="og:updated_time" content="2018-05-31T05:36:31.116Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DevOps 漫谈：开源分布式跟踪系统 OpenCensus">
 <meta name="twitter:description" content="摘要 Distributed Tracing and Monitoring System OpenCensus: A framework for distributed tracing OpenCensus Principle: data structure 、Context">
@@ -379,7 +379,7 @@
 <li><a href="https://medium.com/@DazWilkin/opencensus-tracing-w-jaeger-2ada1656a2bf" target="_blank" rel="external">OpenCensus Tracing with Uber’s Jaeger project</a></li>
 </ul>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"> <span class="keyword">import</span> (</div><div class="line"> 	 <span class="string">"go.opencensus.io/exporter/prometheus"</span></div><div class="line">   <span class="string">"go.opencensus.io/exporter/stackdriver"</span></div><div class="line">    openzipkin <span class="string">"github.com/openzipkin/zipkin-go"</span></div><div class="line">  	 <span class="string">"go.opencensus.io/exporter/zipkin"</span></div><div class="line">    xray <span class="string">"github.com/census-instrumentation/opencensus-go-exporter-aws"</span></div><div class="line">  	 <span class="string">"go.opencensus.io/trace"</span></div><div class="line">   <span class="string">"go.opencensus.io/stats/view"</span></div><div class="line">)</div><div class="line"></div><div class="line"><span class="comment">// Opention: Export to Prometheus Monitoring.</span></div><div class="line"> Exporter, err := prometheus.NewExporter(prometheus.Options&#123;&#125;)</div><div class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</div><div class="line">	logger.Error(<span class="string">"Error creating prometheus exporter  "</span>, zap.Error(err))</div><div class="line">&#125;</div><div class="line">view.RegisterExporter(pExporter)</div><div class="line"></div><div class="line"></div><div class="line"> <span class="comment">// Opention: Export to Stackdriver Monitoring.</span></div><div class="line">sExporter, err := stackdriver.NewExporter(stackdriver.Options&#123;ProjectID: config.ProjectID&#125;)</div><div class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</div><div class="line">	logger.Error(<span class="string">"Error creating stackdriver exporter  "</span>, zap.Error(err))</div><div class="line">&#125;</div><div class="line">view.RegisterExporter(sExporter)</div><div class="line"></div><div class="line"> <span class="comment">// Opention: Export to Zipkin Monitoring.</span></div><div class="line">localEndpoint, err := openzipkin.NewEndpoint(<span class="string">"service-A"</span>, <span class="string">"127.0.1.1:8080"</span>)</div><div class="line">reporter := http.NewReporter(<span class="string">"http://127.0.1.110:9411/api/v2/spans"</span>)</div><div class="line"><span class="keyword">defer</span> reporter.Close()</div><div class="line">exporter := zipkin.NewExporter(reporter, localEndpoint)</div><div class="line">trace.RegisterExporter(exporter)</div><div class="line"></div><div class="line"> <span class="comment">// Opention: Export to AWS X-Ray</span></div><div class="line">xe, err := xray.NewExporter(xray.WithVersion(<span class="string">"latest"</span>))</div><div class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</div><div class="line">	log.Fatalf(<span class="string">"Failed to create AWS X-Ray exporter: %v"</span>, err)</div><div class="line">&#125;</div><div class="line">trace.RegisterExporter(xe)</div></pre></td></tr></table></figure>
-<h4 id="数据可视化-OpenZipkin-示例"><a href="#数据可视化-OpenZipkin-示例" class="headerlink" title="数据可视化 | OpenZipkin 示例"></a>数据可视化 | OpenZipkin 示例</h4><ul>
+<h4 id="数据可视化"><a href="#数据可视化" class="headerlink" title="数据可视化"></a>数据可视化</h4><ul>
 <li>函数内容为空（微秒级）</li>
 </ul>
 <p><img src="http://og2061b3n.bkt.clouddn.com/zipkin-%E7%A9%BA%E6%96%B9%E6%B3%95.png" alt=""></p>
@@ -438,18 +438,23 @@
 <h2 id="Others"><a href="#Others" class="headerlink" title="Others"></a>Others</h2><ul>
 <li><a href="https://github.com/orgs/census-instrumentation/people" target="_blank" rel="external">OpenCensus People</a></li>
 </ul>
-<h2 id="扩展阅读：开源架构技术漫谈"><a href="#扩展阅读：开源架构技术漫谈" class="headerlink" title="扩展阅读：开源架构技术漫谈"></a>扩展阅读：开源架构技术漫谈</h2><ul>
-<li><a href="https://riboseyim.github.io/2018/04/27/DevOps-OpenCensus" target="_blank" rel="external">DevOps 漫谈：基于OpenCensus构建分布式跟踪系统</a></li>
-<li><a href="https://riboseyim.github.io/2017/05/23/RestfulAPI/" target="_blank" rel="external">基于Go语言快速构建一个RESTful API服务</a></li>
-<li><a href="https://riboseyim.github.io/2017/06/12/OpenSource-Kafka-Microservice/" target="_blank" rel="external">基于Kafka构建事件溯源型微服务</a></li>
+<h2 id="扩展阅读：分布式追踪系统"><a href="#扩展阅读：分布式追踪系统" class="headerlink" title="扩展阅读：分布式追踪系统"></a>扩展阅读：分布式追踪系统</h2><ul>
+<li><a href="https://riboseyim.github.io/2018/04/27/DevOps-OpenCensus" target="_blank" rel="external">DevOps 漫谈：开源分布式跟踪系统 OpenCensus</a></li>
+<li><a href="https://riboseyim.github.io/2018/05/18/DevOps-OpenTracing/" target="_blank" rel="external">DevOps 漫谈：分布式追踪系统标准体系</a></li>
 <li><a href="https://riboseyim.github.io/2017/10/30/Protocol-gRPC/" target="_blank" rel="external">远程通信协议：从 CORBA 到 gRPC</a></li>
 <li><a href="https://riboseyim.github.io/2017/05/24/Log/" target="_blank" rel="external">应用程序开发中的日志管理(Go语言描述)</a></li>
-<li><a href="https://riboseyim.github.io/2017/12/04/Visualization-Graphite/" target="_blank" rel="external">数据可视化（七）Graphite 体系结构详解</a></li>
+</ul>
+<h2 id="扩展阅读：动态追踪技术"><a href="#扩展阅读：动态追踪技术" class="headerlink" title="扩展阅读：动态追踪技术"></a>扩展阅读：动态追踪技术</h2><ul>
 <li><a href="https://riboseyim.github.io/2016/11/26/DTrace/" target="_blank" rel="external">动态追踪技术(一)：DTrace 导论</a></li>
 <li><a href="https://mp.weixin.qq.com/s?__biz=MjM5MTY1MjQ3Nw==&amp;mid=2651939588&amp;idx=1&amp;sn=35f71c5f88d1edf23cb2efc812ab8e6c&amp;chksm=bd578c168a20050041c08618281691f0111f61c789097a69095933057618637fc54817815921#rd" target="_blank" rel="external">动态追踪技术(二)：strace+gdb 溯源 Nginx 内存溢出异常 </a></li>
 <li><a href="https://riboseyim.github.io/2017/04/17/DTrace_FTrace/" target="_blank" rel="external">动态追踪技术(三)：Tracing Your Kernel Function!</a></li>
 <li><a href="https://riboseyim.github.io/2017/06/27/DTrace_bcc/" target="_blank" rel="external">动态追踪技术(四)：基于 Linux bcc/BPF 实现 Go 程序动态追踪</a></li>
 <li><a href="https://riboseyim.github.io/2018/02/16/DTrace-Linux/" target="_blank" rel="external">动态追踪技术(五)：Welcome DTrace for Linux</a></li>
+</ul>
+<h2 id="扩展阅读：开源架构技术漫谈"><a href="#扩展阅读：开源架构技术漫谈" class="headerlink" title="扩展阅读：开源架构技术漫谈"></a>扩展阅读：开源架构技术漫谈</h2><ul>
+<li><a href="https://riboseyim.github.io/2017/05/23/RestfulAPI/" target="_blank" rel="external">基于Go语言快速构建一个RESTful API服务</a></li>
+<li><a href="https://riboseyim.github.io/2017/06/12/OpenSource-Kafka-Microservice/" target="_blank" rel="external">基于Kafka构建事件溯源型微服务</a></li>
+<li><a href="https://riboseyim.github.io/2017/12/04/Visualization-Graphite/" target="_blank" rel="external">数据可视化（七）Graphite 体系结构详解</a></li>
 <li><a href="https://riboseyim.github.io/2016/08/15/OpenSource-Kafka/" target="_blank" rel="external">DevOps 资讯 | LinkedIn 开源 Kafka Monitor</a></li>
 </ul>
 <h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>

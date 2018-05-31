@@ -5,10 +5,10 @@
     
   <url>
     <loc>http://riboseyim.github.com/2018/05/18/DevOps-OpenTracing/</loc>
-    <lastmod>2018-05-31T02:45:17.517Z</lastmod>
+    <lastmod>2018-05-31T06:28:59.162Z</lastmod>
     <data>
         <display>
-        <title>DevOps 漫谈:分布式追踪系统标准体系</title>
+        <title>DevOps 漫谈:分布式追踪系统体系概要</title>
         <pubTime>2018-05-18T03:36:46.000Z</pubTime>
         
         <tag>OpenSource</tag>
@@ -25,8 +25,29 @@
 
     
   <url>
+    <loc>http://riboseyim.github.com/2016/07/28/DevOps/</loc>
+    <lastmod>2018-05-31T05:38:01.627Z</lastmod>
+    <data>
+        <display>
+        <title>DevOps 漫谈系列</title>
+        <pubTime>2016-07-28T03:44:21.000Z</pubTime>
+        
+        <tag>最佳工程实践</tag>
+         
+        <tag>架构师</tag>
+         
+        <tag>DevOps</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://riboseyim.github.com/2018/04/27/DevOps-OpenCensus/</loc>
-    <lastmod>2018-05-31T02:44:31.036Z</lastmod>
+    <lastmod>2018-05-31T05:36:31.116Z</lastmod>
     <data>
         <display>
         <title>DevOps 漫谈：开源分布式跟踪系统 OpenCensus</title>
@@ -310,27 +331,6 @@
         <tag>DevOps</tag>
          
         <tag>Linux</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://riboseyim.github.com/2016/07/28/DevOps/</loc>
-    <lastmod>2018-05-18T03:26:42.765Z</lastmod>
-    <data>
-        <display>
-        <title>DevOps 漫谈系列</title>
-        <pubTime>2016-07-28T03:44:21.000Z</pubTime>
-        
-        <tag>最佳工程实践</tag>
-         
-        <tag>架构师</tag>
-         
-        <tag>DevOps</tag>
          
          
            
