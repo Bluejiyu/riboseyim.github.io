@@ -1984,7 +1984,7 @@
     <link href="http://riboseyim.github.com/2018/03/02/eBook-DVM/"/>
     <id>http://riboseyim.github.com/2018/03/02/eBook-DVM/</id>
     <published>2018-03-02T07:46:04.000Z</published>
-    <updated>2018-04-13T02:25:03.963Z</updated>
+    <updated>2018-05-31T17:15:41.257Z</updated>
     
     <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p><a href="https://legacy.gitbook.com/book/riboseyim/ebook-data-visualization-master" target="_blank" rel="external">https://legacy.gitbook.com/book/riboseyim/ebook-data-visualization-master</a><br><a id="more"></a></p>
 <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><a href="https://legacy.gitbook.com/book/riboseyim/ebook-data-visualization-master" target="_blank" rel="external">https://legacy.gitbook.com/book/riboseyim/ebook-data-visualization-master</a></p>
@@ -2001,8 +2001,6 @@
     
       <category term="最佳工程实践" scheme="http://riboseyim.github.com/tags/%E6%9C%80%E4%BD%B3%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/"/>
     
-      <category term="架构师" scheme="http://riboseyim.github.com/tags/%E6%9E%B6%E6%9E%84%E5%B8%88/"/>
-    
       <category term="DevOps" scheme="http://riboseyim.github.com/tags/DevOps/"/>
     
       <category term="数据可视化" scheme="http://riboseyim.github.com/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
@@ -2013,6 +2011,8 @@
     
       <category term="最佳写作实践" scheme="http://riboseyim.github.com/tags/%E6%9C%80%E4%BD%B3%E5%86%99%E4%BD%9C%E5%AE%9E%E8%B7%B5/"/>
     
+      <category term="eBook" scheme="http://riboseyim.github.com/tags/eBook/"/>
+    
   </entry>
   
   <entry>
@@ -2020,7 +2020,7 @@
     <link href="http://riboseyim.github.com/2018/03/02/eBook-CSM/"/>
     <id>http://riboseyim.github.com/2018/03/02/eBook-CSM/</id>
     <published>2018-03-02T07:45:44.000Z</published>
-    <updated>2018-03-29T06:16:40.632Z</updated>
+    <updated>2018-05-31T17:15:49.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p><img src="http://p11slcnom.bkt.clouddn.com/banner-CSM-201803.png" alt=""><br><a href="https://www.gitbook.com/book/riboseyim/cyber-security-manual" target="_blank" rel="external">https://www.gitbook.com/book/riboseyim/cyber-security-manual</a></p>
 <a id="more"></a>
@@ -2054,8 +2054,6 @@
     
       <category term="最佳工程实践" scheme="http://riboseyim.github.com/tags/%E6%9C%80%E4%BD%B3%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/"/>
     
-      <category term="架构师" scheme="http://riboseyim.github.com/tags/%E6%9E%B6%E6%9E%84%E5%B8%88/"/>
-    
       <category term="DevOps" scheme="http://riboseyim.github.com/tags/DevOps/"/>
     
       <category term="Policy&amp;Law" scheme="http://riboseyim.github.com/tags/Policy-Law/"/>
@@ -2069,6 +2067,8 @@
       <category term="SRE" scheme="http://riboseyim.github.com/tags/SRE/"/>
     
       <category term="最佳写作实践" scheme="http://riboseyim.github.com/tags/%E6%9C%80%E4%BD%B3%E5%86%99%E4%BD%9C%E5%AE%9E%E8%B7%B5/"/>
+    
+      <category term="eBook" scheme="http://riboseyim.github.com/tags/eBook/"/>
     
   </entry>
   
