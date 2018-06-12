@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://riboseyim.github.com/"/>
-  <updated>2018-05-31T06:28:59.162Z</updated>
+  <updated>2018-06-12T13:30:48.914Z</updated>
   <id>http://riboseyim.github.com/</id>
   
   <author>
@@ -14,6 +14,228 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2018 Docker 用户报告 - Sysdig Edition</title>
+    <link href="http://riboseyim.github.com/2018/06/12/DevOps-Container-Usage/"/>
+    <id>http://riboseyim.github.com/2018/06/12/DevOps-Container-Usage/</id>
+    <published>2018-06-12T05:22:14.000Z</published>
+    <updated>2018-06-12T13:30:48.914Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
+<li>应用排行榜</li>
+<li>容器运行环境</li>
+<li>容器编排器</li>
+<li>容器监控</li>
+</ul>
+<a id="more"></a>
+<p>This article is part of an <strong>Virtualization Technology</strong> tutorial series. Make sure to check out my other articles as well:</p>
+<ul>
+<li><a href="https://riboseyim.github.io/2018/06/12/DevOps-Container-Usage/" target="_blank" rel="external">2018 年度 Docker 用户报告 - Sysdig Edition </a></li>
+<li><a href="https://riboseyim.github.io/2017/11/12/DevOps-Container-Security/" target="_blank" rel="external">Cyber-Security: Linux 容器安全的十重境界</a></li>
+<li><a href="https://riboseyim.github.io/2017/08/21/DevOps-Docker/" target="_blank" rel="external">DevOps漫谈：Docker ABC</a></li>
+</ul>
+<p>根据 <a href="https://sysdig.com/opensource/" target="_blank" rel="external">Sysdig</a> 发表的年度 Docker 用户报告，在容器市场 Docker 仍然是事实上的行业标准，但是其它品牌的容器运行环境正在发展；Kubernetes 仍然是容器编排领域的王者。报告的数据来源主要依据 Sysdig Monitor 和 Sysdig Secure cloud service 提供的容器使用状况的实时快照报告，它们从容器健康、性能和安全性等方面提供度量指标和可视化服务。样本集包括垂直行业和各类规模不等的大中型企业，地域覆盖北美洲、拉丁美洲、EMEA（欧洲、中东、非洲）和亚太地区。与去年一样，这份报告并不是用来代表整个容器市场。因为数据仅限于 Sysdig 客户，所以对于那些选择商业和开源解决方案的公司来说不具有代表性。但是来自 90000 个容器用户汇总数据，确实提供了了解真实生产环境容器使用状况的独特视角。</p>
+<h2 id="2018-Docker-用户报告-Sysdig-Edition"><a href="#2018-Docker-用户报告-Sysdig-Edition" class="headerlink" title="2018 Docker 用户报告 - Sysdig Edition"></a>2018 Docker 用户报告 - Sysdig Edition</h2><h4 id="容器应用排行榜"><a href="#容器应用排行榜" class="headerlink" title="容器应用排行榜"></a>容器应用排行榜</h4><p>容器部署应用帮手：Java Virtual Machines (JVM)。在容器时代之前，Java 就广泛应用于企业级服务，目前两者 —— Java 和容器更加紧密地融合到了一起。</p>
+<p>我们还看到数据库解决方案的使用在增加, 例如在容器环境中运行 PostgreSQL 和 MongoDB 。这是一个信号, 表明在容器中部署有状态服务已经成为现实。容器的短暂性，让许多人对于在容器中运行高价值数据服务抱有怀疑态度, 但是市场回答了问题的解决方案–即为微服务设计的持久、便携和共享存储。数据显示, 客户开始转向完全由容器驱动的环境。</p>
+<p><img src="http://omb2onfvy.bkt.clouddn.com/Docker_2018_01.png" alt=""></p>
+<h4 id="容器密度"><a href="#容器密度" class="headerlink" title="容器密度"></a>容器密度</h4><p>在2017年每个主机的容器数的中位数是 10 。2018年，这个数字上升到 15，同比增长 50% 。另一方面，我们看到一个客户的单台主机上运行了 154 个容器，比我们去年观察到的最大 95 个增长了。</p>
+<p><img src="http://omb2onfvy.bkt.clouddn.com/Docker_2018_02.png" alt=""></p>
+<p><img src="http://omb2onfvy.bkt.clouddn.com/Docker_2018_03.png" alt=""></p>
+<h4 id="容器运行环境"><a href="#容器运行环境" class="headerlink" title="容器运行环境"></a>容器运行环境</h4><blockquote>
+<p>Docker still reigns, but we’re seeing what might be the first signs of cracks in the dam.</p>
+</blockquote>
+<p>事实上的容器运行环境依然是 Docker 。我们在 2017 年的报告中没有提及其他容器运行环境的详细信息, 因为在当时 Docker 的占有率接近 99% 。但是, 鉴于最近的一些变化： Red Hat  收购 CoreOS 的 (RKT 的制造商)，以及 Open Container Initiative (OCI) 项目 — 旨在推进容器运行环境和镜像标准化。</p>
+<p>事实上，在过去的一年里, 客户对其他平台的使用增加了。CoreOS RKT 显著增长到 12% , Mesos containerizer 占有 4% 。LXC 也在增长, 尽管从业人员规模比例还较低。数据显示, 客户在生产环境中使用 “non-Docker” 解决方案更加便利了。</p>
+<p><img src="http://omb2onfvy.bkt.clouddn.com/Docker_2018_04.png" alt="Container runtimes: Docker leads, followed by rkt and Mesos."></p>
+<h4 id="容器存活周期"><a href="#容器存活周期" class="headerlink" title="容器存活周期"></a>容器存活周期</h4><p>95% 的容器存活时间低于一周。</p>
+<p><img src="http://omb2onfvy.bkt.clouddn.com/Docker_2018_05.png" alt=""></p>
+<p>容器和服务的生存时间是多少？ 我们观察了容器、容器镜像和服务的数量, 它们在短时间内开始并停止, 存活10秒或更短, 或者一周或更长。下图显示不同间隔内的容器百分比。 11% 的容器活了不到10秒。大部分容器（27%） 的生存期在五分钟之内。</p>
+<p>为什么这么多的容器寿命如此之短呢？我们知道许多定制的系统都是按照需求来扩展的。容器被创建, 做他们的工作, 然后离开。例如, 一个客户为他们在 Jenkins 创建的每个作业配置一个容器，执行变更测试, 然后关闭容器。对他们来说, 类似活动每天会发生上千次。（Jenkins：一个用 Java 编写的开源持续集成工具，MIT许可证。它支持软件配置管理工具，如CVS、Subversion 和 Git 等，可以执行基于 Apache Ant 和 Apache Maven 的项目，以及任意的Shell 脚本/批处理命令。）</p>
+<h4 id="镜像存活周期"><a href="#镜像存活周期" class="headerlink" title="镜像存活周期"></a>镜像存活周期</h4><p>我们还观察了容器镜像的使用时间。通过查看这些数据, 我们了解到客户在 DevOps CI/CD 流程的一部分中是如何频繁地进行新的容器更新部署的。 一小部分 – 一个百分点–在不到10秒内更新。69% 的容器镜像在一周的跨度内更新。</p>
+<p><img src="http://omb2onfvy.bkt.clouddn.com/Docker_2018_06.png" alt=""></p>
+<h4 id="服务存活周期"><a href="#服务存活周期" class="headerlink" title="服务存活周期"></a>服务存活周期</h4><p>“服务的寿命是多少？” 在 Kubernetes 中, 服务抽象定义了一组提供特定函数以及如何访问它们的 Pods 。服务允许 Pods 在不影响应用程序的情况下注销和复制。例如, 一个群集可以运行一个 Node.js  JavaScript 运行时服务、MySQL 数据库服务和 NGINX 前端服务。</p>
+<p>我们看到大多数服务(67%)生存期超过一周。少量的服务在更频繁的基础上被停止, 但是对于大多数客户来说, 目标是让应用程序 24 小时持续工作。容器和 Pods 可能会来了又走, 但是服务持续处于启动并且可用状态。</p>
+<p><img src="http://omb2onfvy.bkt.clouddn.com/Docker_2018_07.png" alt="Most container-based services stay up beyond a week."></p>
+<h4 id="容器编排器"><a href="#容器编排器" class="headerlink" title="容器编排器"></a>容器编排器</h4><blockquote>
+<p>First place goes to Kubernetes, followed by Kubernetes and then Kubernetes.</p>
+</blockquote>
+<p>例如, Mesosphere 能够在 DC/OS 环境中部署和管理 “Kubernetes-as-a-service”。可以将多个 Kubernetes 群集部署在一个 Mesosphere 群集上。</p>
+<p>今年 Docker Swarm 的排名上升到第二位, 超过了基于 Mesos 的工具。根据 Sysdig ServiceVision 我们能自动标识出是否使用编排器, 并将逻辑基础结构对象与容器度量关联起来。在 2018 年, Kubernetes 可以确保领先地位。</p>
+<ol>
+<li><p>Swarm 的进入门槛<br>例如, 微软使用 Kubernetes 为其 Azure Kubernetes 服务 (AKS), IBM 的云容器服务和私有云产品也是基于 Kubernetes 。即使是 Docker 和 Mesosphere 也增加支持了 Kubernetes 的功能。</p>
+</li>
+<li><p>Docker 企业版, 具有通用控制平面 (Universal Control Plane (UCP) ), 在许多操作层面上降低了启动 Swarm 的门槛。</p>
+</li>
+</ol>
+<p><img src="http://omb2onfvy.bkt.clouddn.com/Docker_2018_08.png" alt="编排器份额： Kubernetes 和 Swarm 增长, Mesos 萎缩。"></p>
+<h4 id="容器集群大小"><a href="#容器集群大小" class="headerlink" title="容器集群大小"></a>容器集群大小</h4><blockquote>
+<p>Mesos owns the big cluster game.</p>
+</blockquote>
+<p>”集群大小对与组织选择编排器的影响是什么？“<br>这项研究显示基于 Mesos 的编排器, 包括 Mesos Marathon 和 Mesosphere DC/OS 降至第三位。在使用 Mesos 的地方, 部署的容器数（中位数）比 Kubernetes 环境多 50% 。鉴于 Mesos 倾向于在大规模的容器和云部署, 所以这是有意义的。因此, 虽然 Mesos 集群的数量较少, 但是 Mesos 集群通常是意味着更大的企业规模。</p>
+<p>我们的客户, 往往是更大的企业（在私有数据中心运行 Sysdig 解决方案）采用 OpenShift 的数量比我们的 SaaS 客户数量还要多。 Rancher Labs 于 2015 年出现, 为 Docker Swarm 和 Kubernetes 提供支持。直到 2017 年, Rancher （“大农场主”）才完全兼容 Kubernetes 作为其编排器。</p>
+<p><img src="http://omb2onfvy.bkt.clouddn.com/Docker_2018_09.png" alt="Mesos clusters 50% larger than Kubernetes. Swarm 30% smaller."></p>
+<h4 id="Kubernetes-分发版"><a href="#Kubernetes-分发版" class="headerlink" title="Kubernetes 分发版"></a>Kubernetes 分发版</h4><p>今年我们分析了使用 Kubernetes 的“品牌”分布, 看看在使用的 Kubernetes 是开源版本, 或由特定供应商提供的软件包。我们发现开源 Kubernetes 继续占有最大的份额, 但是 OpenShift 似乎正在取得突破进展, Rancher 也占有了一些份额。</p>
+<p>OpenShift 获得接受不应该是一个惊喜。Kubernetes 于 2014 年诞生于 Google , Red Hat 也发布了该平台的 OpenShift 分发版, 并提出了针对企业客户实现 Kubernetes 的目标。</p>
+<p><img src="http://omb2onfvy.bkt.clouddn.com/Docker_2018_10.png" alt="Open source Kubernetes most used, followed by OpenShift and Rancher distributions."></p>
+<h4 id="容器健康与应用性能监控"><a href="#容器健康与应用性能监控" class="headerlink" title="容器健康与应用性能监控"></a>容器健康与应用性能监控</h4><p>了解用户体验的四个“黄金信号” ：延迟（latency），流量（traffic），错误（errors）和饱和度（saturation）。<br>响应时间（Response time）是配置最广泛的告警类型，紧随其后的是正常运行时间（uptime）和停机告警。基于主机的告警是最常用的，包括主要资源指标 -  CPU ，内存和磁盘使用率等仍然被广泛使用。用户想知道托管 Docker 的服务器（物理机，虚拟机或云实例）是否处于资源紧张或达到容量上限的状态。这些告警的触发条件通常设置在利用率达到 80%-95％ 之间。</p>
+<p>同时，出现了越来越多的以容器为中心的资源告警。最主要有两种风格：</p>
+<ul>
+<li>1）资源利用率</li>
+<li>2）容器数量</li>
+</ul>
+<p><img src="http://omb2onfvy.bkt.clouddn.com/Docker_2018_11.png" alt="最流行的告警条件：服务响应时间和正常运行时间"></p>
+<p><strong>默认情况下容器没有资源限制</strong> 。鉴于客户越来越注意容器限制方面的告警，这意味着他们正在使用 Docker运行时配置来控制容器使用内存，CPU或磁盘I / O 的上限，用户希望知道何时会超出阈值，应用程序的性能风险需要处于可控状态。</p>
+<p>对于容器数量来说，这个问题通常与用户至少需要 X 个给定类型的容器并运行以提供所需的服务级别有关，特别是在微服务部署中。例如，“我知道如果需要确保应用程序运行良好，至少有三个 NGINX 容器可用。如果任何一个有问题，我都想知道。”</p>
+<p>基于编排的告警（Orchestration-focused alerts）也越来越受欢迎。与我们 2017 年的报告类似，“Pod Restart Count” 位列榜首。在一个 Pod 中，一个或多个容器是定位相同、共同调度（通常作为微服务的一部分）。如果某个容器重新启动太频繁，则表示存在可能影响应用程序性能的问题。</p>
+<p>Kubernetes 管理员也经常使用基于事件的告警（ Event-based alerts ）。与基于度量的告警相比，它的区别在于，监控程序需要查找环境中生成的事件消息，例如 Kurthnetes “CrashLoopBackoff” 条件 — 代表 Pod 反复失败或重启，或者“Liveness probe failed”，表示容器是否为活跃和运行。这些告警有助于 DevOps 工程师快速定位问题。</p>
+<p>Http 错误可能表明软件或基础架构存在问题，最终会影响性能。</p>
+<p><img src="http://omb2onfvy.bkt.clouddn.com/Docker_2018_12.png" alt="Kubernetes pod and namespace rises to top of alert scoping in 2018."></p>
+<blockquote>
+<p>Alerts are not a one-size-fits-all approach.</p>
+</blockquote>
+<p>告警不是一种万能的方法。有时需要设置基于指定范围的告警，无论是逻辑或物理实体，还是整个基础结构（注：Sysdig 通过标签实现）。</p>
+<p>在 2018 年的研究中，用于确定告警范围的最常用标签与 Kubernetes 有关（Scoping by pods），命名空间（namespace）紧随其后。特定的容器范围（Container specific scoping）也很受欢迎，包括容器名称，容器镜像和容器 ID 。2018年再次名列榜首的是云服务提供商标签，通常针对“名称”，“环境”，“ID”和“区域”标签以区分开发、测试和生产资源，以及标记云数据中心的位置。</p>
+<h4 id="容器和基础设施自定义监控指标"><a href="#容器和基础设施自定义监控指标" class="headerlink" title="容器和基础设施自定义监控指标"></a>容器和基础设施自定义监控指标</h4><blockquote>
+<p>There’s no one custom metrics format to rule them all.</p>
+</blockquote>
+<p>“在环境中运行容器的客户，使用自定义指标的比例是多少，都是哪些？”</p>
+<p>55％ 的 Sysdig SaaS 用户使用与 Java 应用程序相关的 JMX 指标。这与我们看到的 Java 应用程序部署非常广泛的事实一致。 StatsD 占有 29％ 的份额，Prometheus 占有 20％ 的份额（预计这个数字会随着时间的推移而增长）。</p>
+<p><img src="http://omb2onfvy.bkt.clouddn.com/Docker_2018_13.png" alt="JMX is the most used custom metric format."></p>
+<h4 id="容器注册"><a href="#容器注册" class="headerlink" title="容器注册"></a>容器注册</h4><blockquote>
+<p>It’s a split decision - registries are critical but there’s no clear leader.</p>
+</blockquote>
+<p>注册管理机构至关重要，但是目前没有明确的领导者。<br>容器注册表（container registry）是任何容器部署的基本组件。市场上有许多解决方案：一些是公共的，一些是私有的，一些是作为服务提供，一些是作为本地软件（private registry）部署。</p>
+<p>2018 年前三名中，Google Container Registry（GCR）的比例最高，其次是 Quay ,之后是 Docker和 Amazon Elastic Container Registry（ECR）。 GCR 和 ACR 都是完全基于云托管的（private Docker container registries）。Quay 和 Docker 既可以用作本地解决方案也可以在云中运行（注：Sysdig 的用户群只有 50％ 能够清楚地识别出容器注册方案）</p>
+<p><img src="http://omb2onfvy.bkt.clouddn.com/Docker_2018_14.png" alt="Container registry use is divided across public and private solutions."></p>
+<blockquote>
+<p>New approaches are maturing and helping organizations develop applications more quickly to solve real business challenges and compete in the digital marketplace.</p>
+</blockquote>
+<h2 id="扩展阅读-网络安全专题合辑《Cyber-Security-Manual》"><a href="#扩展阅读-网络安全专题合辑《Cyber-Security-Manual》" class="headerlink" title="扩展阅读: 网络安全专题合辑《Cyber-Security Manual》"></a>扩展阅读: 网络安全专题合辑《Cyber-Security Manual》</h2><ul>
+<li><a href="https://riboseyim.github.io/2017/11/12/DevOps-Container-Security/" target="_blank" rel="external">Cyber-Security: Linux 容器安全的十重境界</a></li>
+<li><a href="https://riboseyim.github.io/2017/10/29/CyberSecurity-WiFi/" target="_blank" rel="external">Cyber-Security: 警惕 Wi-Fi 漏洞，争取安全上网</a></li>
+<li><a href="https://riboseyim.github.io/2017/08/31/CyberSecurity-Headers/" target="_blank" rel="external">Cyber-Security: Web应用安全：攻击、防护和检测</a></li>
+<li><a href="https://riboseyim.github.io/2017/08/09/Protocol-IPv6/" target="_blank" rel="external">Cyber-Security: IPv6 &amp; Security</a></li>
+<li><a href="https://riboseyim.github.io/2016/10/06/CyberSecurity-SSH/" target="_blank" rel="external">Cyber-Security: OpenSSH 并不安全</a></li>
+<li><a href="https://riboseyim.github.io/2016/06/12/CyberSecurity-Trojan/" target="_blank" rel="external">Cyber-Security: Linux/XOR.DDoS 木马样本分析</a></li>
+<li><a href="https://riboseyim.github.io/2017/07/14/Network-sFlow/" target="_blank" rel="external">浅谈基于数据分析的网络态势感知</a></li>
+<li><a href="https://riboseyim.github.io/2017/06/16/Network-Pcap/" target="_blank" rel="external">Packet Capturing:关于网络数据包的捕获、过滤和分析</a></li>
+<li><a href="https://riboseyim.github.io/2016/04/26/Network-Ntopng/" target="_blank" rel="external">新一代Ntopng网络流量监控—可视化和架构分析</a></li>
+<li><a href="http://www.jianshu.com/p/670c4d2bb419" target="_blank" rel="external">Cyber-Security: 事与愿违的后门程序 | Economist</a></li>
+<li><a href="https://riboseyim.github.io/2016/10/07/CyberSecurity/" target="_blank" rel="external">Cyber-Security: 美国网络安全立法策略</a></li>
+<li><a href="https://riboseyim.github.io/2017/04/09/CyberSecurity-CSTCB/" target="_blank" rel="external">Cyber-Security: 香港警务处拟增设网络安全与科技罪案总警司</a></li>
+</ul>
+<h2 id="扩展阅读：DevOps-漫谈系列"><a href="#扩展阅读：DevOps-漫谈系列" class="headerlink" title="扩展阅读：DevOps 漫谈系列"></a>扩展阅读：<a href="https://riboseyim.github.io/2016/07/28/DevOps/" target="_blank" rel="external">DevOps 漫谈系列</a></h2><ul>
+<li><a href="https://riboseyim.github.io/2018/04/10/DevOps-Phoenix/" target="_blank" rel="external">《凤凰项目》：从作坊到工厂的寓言故事</a></li>
+<li><a href="https://riboseyim.github.io/2017/08/06/TeamWork-Kanban/" target="_blank" rel="external">Kanban 看板管理实践</a></li>
+<li><a href="https://riboseyim.github.io/2018/03/26/DevOps-Deployment/" target="_blank" rel="external">DevOps 漫谈：基础设施部署和配置管理</a></li>
+<li><a href="https://riboseyim.github.io/2017/11/12/DevOps-Container-Security/" target="_blank" rel="external">Linux 容器安全的十重境界</a></li>
+<li><a href="https://riboseyim.github.io/2017/06/27/Technology-English/" target="_blank" rel="external">工程师的自我修养：全英文技术学习实践</a></li>
+</ul>
+<h4 id="DevOps-实践的本质是文化"><a href="#DevOps-实践的本质是文化" class="headerlink" title="DevOps 实践的本质是文化"></a><a href="https://riboseyim.github.io/2018/03/29/DevOps-Culture/" target="_blank" rel="external">DevOps 实践的本质是文化</a></h4><ul>
+<li>学习力－团队生命之根</li>
+<li>带领团队翻译书籍</li>
+<li>Don’t make me think</li>
+<li>凡是被很多人不断重复的好习惯，要将其自动化整合到工具</li>
+</ul>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
+<li><a href="https://www.ibm.com/developerworks/cn/linux/1607_caoyq_sysdig/index.html" target="_blank" rel="external">用 Sysdig 监控服务器和 Docker 容器 | 曹元其 | 2016 年 7 月 15 日发布</a></li>
+<li><a href="http://cizixs.com/2017/04/27/sysdig-for-linux-system-monitor-and-analysis" target="_blank" rel="external">使用 sysdig 进行监控和调试 linux 机器</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;应用排行榜&lt;/li&gt;
+&lt;li&gt;容器运行环境&lt;/li&gt;
+&lt;li&gt;容器编排器&lt;/li&gt;
+&lt;li&gt;容器监控&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="DevOps" scheme="http://riboseyim.github.com/tags/DevOps/"/>
+    
+      <category term="Cyber-Security" scheme="http://riboseyim.github.com/tags/Cyber-Security/"/>
+    
+      <category term="网络协议" scheme="http://riboseyim.github.com/tags/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux-Perf-App</title>
+    <link href="http://riboseyim.github.com/2018/06/11/Linux-Perf-App/"/>
+    <id>http://riboseyim.github.com/2018/06/11/Linux-Perf-App/</id>
+    <published>2018-06-11T06:57:15.000Z</published>
+    <updated>2018-06-11T07:01:14.226Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>应用性能分析</p>
+<a id="more"></a>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
+<li><a href="https://www.ibm.com/developerworks/cn/java/j-lo-performance-tuning-practice/index.html" target="_blank" rel="external">Java 应用性能调优实践</a></li>
+<li><a href="https://mp.weixin.qq.com/s/4Y77jUqfgKeBS2hnitrUrg" target="_blank" rel="external">动态追踪技术-应用性能瓶颈排障利器之火焰图</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h2&gt;&lt;p&gt;应用性能分析&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Linux-FileSystems</title>
+    <link href="http://riboseyim.github.com/2018/06/07/Linux-FileSystems/"/>
+    <id>http://riboseyim.github.com/2018/06/07/Linux-FileSystems/</id>
+    <published>2018-06-07T09:45:08.000Z</published>
+    <updated>2018-06-08T06:04:21.322Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
+<li><a href="https://docs.oracle.com/cd/E26926_01/html/E25884/fscreate-6.html" target="_blank" rel="external">创建和挂载 Oracle Solaris 文件系统</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h2&gt;&lt;h2 id=&quot;参考文献&quot;&gt;&lt;a href=&quot;#参考文献&quot; class=&quot;headerlink&quot; title=&quot;参考文献&quot;&gt;&lt;/a&gt;参考文献&lt;/h
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>TeamWork-Project-Risk</title>
+    <link href="http://riboseyim.github.com/2018/06/05/TeamWork-Project-Risk/"/>
+    <id>http://riboseyim.github.com/2018/06/05/TeamWork-Project-Risk/</id>
+    <published>2018-06-05T02:54:27.000Z</published>
+    <updated>2018-06-05T04:05:01.134Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><a id="more"></a>
+<h2 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h2><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ul>
+<li>What is Risk ?</li>
+</ul>
+<p>风险是损失或收益发生的不确定性。风险通常指一定时期内，某一事件的预期结果与实际结果的变动程度，变动程度越大，风险越大。</p>
+<h2 id="How-to-Manage-Risk"><a href="#How-to-Manage-Risk" class="headerlink" title="How to Manage Risk"></a>How to Manage Risk</h2><h4 id="Risk-Management-Framework"><a href="#Risk-Management-Framework" class="headerlink" title="Risk Management Framework"></a>Risk Management Framework</h4><h4 id="Risk-Management-Plan"><a href="#Risk-Management-Plan" class="headerlink" title="Risk Management Plan"></a>Risk Management Plan</h4><h4 id="Risk-Identification"><a href="#Risk-Identification" class="headerlink" title="Risk Identification"></a>Risk Identification</h4><h4 id="Risk-Response-Planning"><a href="#Risk-Response-Planning" class="headerlink" title="Risk Response Planning"></a>Risk Response Planning</h4><h2 id="Managing-Risk-throughout-the-Organization"><a href="#Managing-Risk-throughout-the-Organization" class="headerlink" title="Managing Risk throughout the Organization"></a>Managing Risk throughout the Organization</h2><h2 id="Risk-Analysis"><a href="#Risk-Analysis" class="headerlink" title="Risk Analysis"></a>Risk Analysis</h2><h4 id="Risk-Efficiency-measurement"><a href="#Risk-Efficiency-measurement" class="headerlink" title="Risk Efficiency measurement"></a>Risk Efficiency measurement</h4><h4 id="Risk-Metrics"><a href="#Risk-Metrics" class="headerlink" title="Risk Metrics"></a>Risk Metrics</h4><h4 id="Risk-Audit"><a href="#Risk-Audit" class="headerlink" title="Risk Audit"></a>Risk Audit</h4><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
+<li><a href="https://en.wikipedia.org/wiki/Project_risk_management" target="_blank" rel="external">维基百科：Project risk management</a></li>
+<li><a href="https://www.projectsmart.co.uk/10-golden-rules-of-project-risk-management.php" target="_blank" rel="external">10 GOLDEN RULES OF PROJECT RISK MANAGEMENT | ~ By Bart Jutte</a></li>
+<li><a href="https://www.pmi.org/learning/library/risk-analysis-project-management-7070" target="_blank" rel="external">Risk analysis and management | a vital key to effective project management | 3 March 2008 Lavanya, N. | Malarvizhi, T.</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h2&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>DevOps 漫谈:分布式追踪系统体系概要</title>
@@ -419,9 +641,9 @@
     
       <category term="Science" scheme="http://riboseyim.github.com/tags/Science/"/>
     
-      <category term="Economist" scheme="http://riboseyim.github.com/tags/Economist/"/>
-    
       <category term="Health" scheme="http://riboseyim.github.com/tags/Health/"/>
+    
+      <category term="Economist" scheme="http://riboseyim.github.com/tags/Economist/"/>
     
   </entry>
   
@@ -1916,159 +2138,13 @@
     
       <category term="Science" scheme="http://riboseyim.github.com/tags/Science/"/>
     
-      <category term="Policy&amp;Law" scheme="http://riboseyim.github.com/tags/Policy-Law/"/>
-    
       <category term="Economist" scheme="http://riboseyim.github.com/tags/Economist/"/>
+    
+      <category term="Policy&amp;Law" scheme="http://riboseyim.github.com/tags/Policy-Law/"/>
     
       <category term="Manager" scheme="http://riboseyim.github.com/tags/Manager/"/>
     
       <category term="Machine-Learning" scheme="http://riboseyim.github.com/tags/Machine-Learning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Machine-Learning-Keras</title>
-    <link href="http://riboseyim.github.com/2018/03/07/Machine-Learning-Keras/"/>
-    <id>http://riboseyim.github.com/2018/03/07/Machine-Learning-Keras/</id>
-    <published>2018-03-07T06:14:22.000Z</published>
-    <updated>2018-03-07T10:13:35.005Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><a id="more"></a>
-<h2 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h2><ul>
-<li><a href="https://github.com/emilwallner/Screenshot-to-code-in-Keras" target="_blank" rel="external">A neural network that transforms a screenshot into a static website</a></li>
-</ul>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
-<li><a href="http://blog.cloudera.com/blog/2017/07/prophecy-fulfilled-keras-and-cloudera-data-science-workbench/" target="_blank" rel="external">Prophecy Fulfilled: Keras and Cloudera Data Science Workbench</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h2&gt;
-    
-    </summary>
-    
-    
-      <category term="Machine-Learning" scheme="http://riboseyim.github.com/tags/Machine-Learning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Machine-Learning-NLP</title>
-    <link href="http://riboseyim.github.com/2018/03/07/Machine-Learning-NLP/"/>
-    <id>http://riboseyim.github.com/2018/03/07/Machine-Learning-NLP/</id>
-    <published>2018-03-07T06:10:01.000Z</published>
-    <updated>2018-03-07T10:08:57.826Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><a id="more"></a>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
-<li><a href="https://blog.insightdatascience.com/how-to-solve-90-of-nlp-problems-a-step-by-step-guide-fda605278e4e" target="_blank" rel="external">How to solve 90% of NLP problems: a step-by-step guide | Using Machine Learning to understand and leverage text</a></li>
-<li><a href="https://unsupervisedmethods.com/learning-machine-learning-and-nlp-from-185-quora-questions-cebe42e47da8?source=rss----604640a9497a---4" target="_blank" rel="external">Robbie Allen:Learning Machine Learning and NLP from 187 Quora Questions</a></li>
-<li><a href="http://www.infoq.com/cn/news/2017/02/zero-shot-translation?utm_campaign=infoq_content&amp;utm_source=infoq&amp;utm_medium=feed&amp;utm_term=global" target="_blank" rel="external">Google神经机器翻译系统实现Zero-Shot翻译</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h2&gt;
-    
-    </summary>
-    
-    
-      <category term="Machine-Learning" scheme="http://riboseyim.github.com/tags/Machine-Learning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>电子书：《数据可视化》</title>
-    <link href="http://riboseyim.github.com/2018/03/02/eBook-DVM/"/>
-    <id>http://riboseyim.github.com/2018/03/02/eBook-DVM/</id>
-    <published>2018-03-02T07:46:04.000Z</published>
-    <updated>2018-05-31T17:15:41.257Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p><a href="https://legacy.gitbook.com/book/riboseyim/ebook-data-visualization-master" target="_blank" rel="external">https://legacy.gitbook.com/book/riboseyim/ebook-data-visualization-master</a><br><a id="more"></a></p>
-<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><a href="https://legacy.gitbook.com/book/riboseyim/ebook-data-visualization-master" target="_blank" rel="external">https://legacy.gitbook.com/book/riboseyim/ebook-data-visualization-master</a></p>
-<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>国内用户访问GitBook不太稳定，提供百度云快捷下载，同时提供了pdf、mobi、ePub三种格式。</p>
-<h2 id="历史版本"><a href="#历史版本" class="headerlink" title="历史版本"></a>历史版本</h2><p><strong>基本原则：持续发布，争取做到每四个月发布一个新版本</strong></p>
-<h4 id="Edition-0-1"><a href="#Edition-0-1" class="headerlink" title="Edition 0.1"></a>Edition 0.1</h4>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://legacy.gitbook.com/book/riboseyim/ebook-data-visualization-master&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://legacy.gitbook.com/book/riboseyim/ebook-data-visualization-master&lt;/a&gt;&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="最佳工程实践" scheme="http://riboseyim.github.com/tags/%E6%9C%80%E4%BD%B3%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/"/>
-    
-      <category term="DevOps" scheme="http://riboseyim.github.com/tags/DevOps/"/>
-    
-      <category term="数据可视化" scheme="http://riboseyim.github.com/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
-    
-      <category term="Linux" scheme="http://riboseyim.github.com/tags/Linux/"/>
-    
-      <category term="Developer" scheme="http://riboseyim.github.com/tags/Developer/"/>
-    
-      <category term="最佳写作实践" scheme="http://riboseyim.github.com/tags/%E6%9C%80%E4%BD%B3%E5%86%99%E4%BD%9C%E5%AE%9E%E8%B7%B5/"/>
-    
-      <category term="eBook" scheme="http://riboseyim.github.com/tags/eBook/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>电子书：《The Cyber-Security Master》</title>
-    <link href="http://riboseyim.github.com/2018/03/02/eBook-CSM/"/>
-    <id>http://riboseyim.github.com/2018/03/02/eBook-CSM/</id>
-    <published>2018-03-02T07:45:44.000Z</published>
-    <updated>2018-05-31T17:15:49.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p><img src="http://p11slcnom.bkt.clouddn.com/banner-CSM-201803.png" alt=""><br><a href="https://www.gitbook.com/book/riboseyim/cyber-security-manual" target="_blank" rel="external">https://www.gitbook.com/book/riboseyim/cyber-security-manual</a></p>
-<a id="more"></a>
-<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
-<li>Chapter 1: 网络监控技术</li>
-<li>性能优化思路：从珠海航展交通管控实践谈起</li>
-<li>新一代Ntopng网络流量监控—可视化和架构分析</li>
-<li>基于数据分析的网络态势感知</li>
-<li>网络数据包的捕获、过滤和分析</li>
-<li>Chapter 2: 网络安全技术</li>
-<li>警惕 Wi-Fi 漏洞，争取安全上网</li>
-<li>Web应用安全：攻击、防护和检测</li>
-<li>IPv6 网络协议与网络安全</li>
-<li>OpenSSH 并不安全</li>
-<li>Linux/XOR.DDoS 木马样本分析</li>
-<li>Chapter 3: 网络安全治理</li>
-<li>事与愿违的后门程序</li>
-<li>美国网络安全立法策略</li>
-<li>香港警务处网络安全与科技罪案调查科</li>
-</ul>
-<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>国内用户访问GitBook不太稳定，提供百度云快捷下载，同时提供了pdf、mobi、ePub三种格式。</p>
-<h2 id="历史版本"><a href="#历史版本" class="headerlink" title="历史版本"></a>历史版本</h2><p><strong>基本原则：持续发布，争取做到每四个月发布一个新版本</strong></p>
-<h4 id="Edition-0-1"><a href="#Edition-0-1" class="headerlink" title="Edition 0.1"></a>Edition 0.1</h4>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;http://p11slcnom.bkt.clouddn.com/banner-CSM-201803.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;&lt;a href=&quot;https://www.gitbook.com/book/riboseyim/cyber-security-manual&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://www.gitbook.com/book/riboseyim/cyber-security-manual&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="最佳工程实践" scheme="http://riboseyim.github.com/tags/%E6%9C%80%E4%BD%B3%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/"/>
-    
-      <category term="DevOps" scheme="http://riboseyim.github.com/tags/DevOps/"/>
-    
-      <category term="Policy&amp;Law" scheme="http://riboseyim.github.com/tags/Policy-Law/"/>
-    
-      <category term="Cyber-Security" scheme="http://riboseyim.github.com/tags/Cyber-Security/"/>
-    
-      <category term="Linux" scheme="http://riboseyim.github.com/tags/Linux/"/>
-    
-      <category term="Developer" scheme="http://riboseyim.github.com/tags/Developer/"/>
-    
-      <category term="SRE" scheme="http://riboseyim.github.com/tags/SRE/"/>
-    
-      <category term="最佳写作实践" scheme="http://riboseyim.github.com/tags/%E6%9C%80%E4%BD%B3%E5%86%99%E4%BD%9C%E5%AE%9E%E8%B7%B5/"/>
-    
-      <category term="eBook" scheme="http://riboseyim.github.com/tags/eBook/"/>
     
   </entry>
   
