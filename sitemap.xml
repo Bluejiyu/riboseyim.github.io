@@ -2,9 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://riboseyim.github.com/2018/04/27/DevOps-OpenCensus/</loc>
+    
+    <lastmod>2018-06-14T05:27:35.866Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2016/05/15/Policy-Education/</loc>
+    
+    <lastmod>2018-06-13T10:15:37.429Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2017/08/21/DevOps-Docker/</loc>
+    
+    <lastmod>2018-06-13T07:08:23.703Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://riboseyim.github.com/2018/06/12/DevOps-Container-Usage/</loc>
     
-    <lastmod>2018-06-12T13:30:48.914Z</lastmod>
+    <lastmod>2018-06-13T06:57:28.332Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2018/01/01/Check2018/</loc>
+    
+    <lastmod>2018-06-12T13:59:01.897Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2017/05/26/Catalog/</loc>
+    
+    <lastmod>2018-06-12T13:57:05.098Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2017/06/03/Writing-WriterToolChain/</loc>
+    
+    <lastmod>2018-06-12T13:53:25.129Z</lastmod>
     
   </url>
   
@@ -12,13 +54,6 @@
     <loc>http://riboseyim.github.com/2016/07/28/DevOps/</loc>
     
     <lastmod>2018-06-12T10:11:53.170Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2017/08/21/DevOps-Docker/</loc>
-    
-    <lastmod>2018-06-12T10:11:15.515Z</lastmod>
     
   </url>
   
@@ -82,13 +117,6 @@
     <loc>http://riboseyim.github.com/2018/06/07/Linux-FileSystems/</loc>
     
     <lastmod>2018-06-08T06:04:21.322Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2018/01/01/Check2018/</loc>
-    
-    <lastmod>2018-06-06T10:35:01.276Z</lastmod>
     
   </url>
   
@@ -345,13 +373,6 @@
   </url>
   
   <url>
-    <loc>http://riboseyim.github.com/2017/06/03/Writing-WriterToolChain/</loc>
-    
-    <lastmod>2018-05-31T17:18:43.537Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://riboseyim.github.com/2016/06/11/Writing/</loc>
     
     <lastmod>2018-05-31T17:18:38.170Z</lastmod>
@@ -397,13 +418,6 @@
     <loc>http://riboseyim.github.com/2018/05/18/DevOps-OpenTracing/</loc>
     
     <lastmod>2018-05-31T06:28:59.162Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2018/04/27/DevOps-OpenCensus/</loc>
-    
-    <lastmod>2018-05-31T05:36:31.116Z</lastmod>
     
   </url>
   
@@ -509,13 +523,6 @@
     <loc>http://riboseyim.github.com/2018/04/10/Artistic-Classical/</loc>
     
     <lastmod>2018-05-15T05:54:49.523Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2017/05/26/Catalog/</loc>
-    
-    <lastmod>2018-05-15T05:53:44.894Z</lastmod>
     
   </url>
   
@@ -929,13 +936,6 @@
     <loc>http://riboseyim.github.com/2017/06/16/Network-Pcap/</loc>
     
     <lastmod>2018-04-10T06:32:05.336Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2016/05/15/Policy-Education/</loc>
-    
-    <lastmod>2018-04-10T06:31:08.315Z</lastmod>
     
   </url>
   
