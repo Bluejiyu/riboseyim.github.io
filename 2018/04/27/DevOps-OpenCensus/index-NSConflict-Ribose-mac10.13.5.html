@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>DevOps 漫谈：开源分布式跟踪系统 OpenCensus | Ribose Yim&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="摘要 Distributed Tracing and Monitoring System OpenCensus: A framework for distributed tracing OpenCensus Principle: data structure 、Context">
+<meta name="keywords" content="架构师,OpenSource,DevOps,Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DevOps 漫谈：开源分布式跟踪系统 OpenCensus">
+<meta property="og:url" content="http://riboseyim.github.com/2018/04/27/DevOps-OpenCensus/index.html">
+<meta property="og:site_name" content="Ribose Yim&#39;s Blog">
+<meta property="og:description" content="摘要 Distributed Tracing and Monitoring System OpenCensus: A framework for distributed tracing OpenCensus Principle: data structure 、Context">
+<meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/DTM-OpenCensus-Theme.png">
+<meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/DTM-OpenCensus-Micro-1.png">
+<meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/DTM-OpenCensus-Micro-2.png">
+<meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/DTM-Dapper-TraceTree-Span.png">
+<meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/DTM-OpenCensus-Logo.png">
+<meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/DTM-OpenCensus-Language.png">
+<meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/DTM-OpenCensus-traceZ.png">
+<meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/zipkin-%E7%A9%BA%E6%96%B9%E6%B3%95.png">
+<meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/zipkin-%E4%B8%B2%E8%A1%8C.png">
+<meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/zipkin-%E5%B9%B6%E8%A1%8C.png">
+<meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/DTM-Zipkin-Twitter.png">
+<meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/OpenCensus-DataModel-Base.png">
+<meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/DTM-Context.png">
+<meta property="og:updated_time" content="2018-05-31T05:36:31.116Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DevOps 漫谈：开源分布式跟踪系统 OpenCensus">
+<meta name="twitter:description" content="摘要 Distributed Tracing and Monitoring System OpenCensus: A framework for distributed tracing OpenCensus Principle: data structure 、Context">
+<meta name="twitter:image" content="http://og2061b3n.bkt.clouddn.com/DTM-OpenCensus-Theme.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Ribose Yim&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://o8m8ngokc.bkt.clouddn.com/icon_cangshu.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://o8m8ngokc.bkt.clouddn.com/icon_macbook.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">RiboseYim</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">愿交天下士，罄我怀中藏。</p>
+		
+
+		<form id="search-form" class="search">  <!-- 搜索框相关 -->
+    <input type="text" id="st-search-input" name="q" results="0" class="st-default-search-input" maxlength="30" placeholder="Search..." autocomplete="off" autocorrect="off">
+		</form>
+		<div id="local-search-result"></div> <!-- 搜索结果区 -->
+	  <p class='no-result'>No results found </p> 
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/DevOps">DevOps</a></li>
+				        
+							<li><a href="/tags/eBook">电子书</a></li>
+				        
+							<li><a href="/tags/Art">艺术评论</a></li>
+				        
+							<li><a href="/tags/Commander">讲武堂</a></li>
+				        
+							<li><a href="/tags/Economist">经济学人</a></li>
+				        
+							<li><a href="/tags/Policy-Law">Policy&amp;Law</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="twitter" target="_blank" href="https://twitter.com/RiboseYim" title="twitter">twitter</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/riboseyim" title="zhihu">zhihu</a>
+					        
+								<a class="github" target="_blank" href="https://github.com/riboseyim" title="github">github</a>
+					        
+								<a class="linkedin" target="_blank" href="http://www.linkedin.com/in/%E7%9D%BF-%E4%B8%A5-b39028110" title="linkedin">linkedin</a>
+					        
+						</div>
+					</nav>
+				</section>
+
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Art/" style="font-size: 15.24px;">Art</a> <a href="/tags/Books/" style="font-size: 10px;">Books</a> <a href="/tags/Commander/" style="font-size: 12.38px;">Commander</a> <a href="/tags/Cyber-Security/" style="font-size: 14.29px;">Cyber-Security</a> <a href="/tags/DTrace/" style="font-size: 11.43px;">DTrace</a> <a href="/tags/DevOps/" style="font-size: 20px;">DevOps</a> <a href="/tags/Developer/" style="font-size: 19.05px;">Developer</a> <a href="/tags/Develper/" style="font-size: 10px;">Develper</a> <a href="/tags/Economist/" style="font-size: 17.62px;">Economist</a> <a href="/tags/Education/" style="font-size: 10px;">Education</a> <a href="/tags/Golang/" style="font-size: 13.33px;">Golang</a> <a href="/tags/Health/" style="font-size: 10.48px;">Health</a> <a href="/tags/History/" style="font-size: 17.14px;">History</a> <a href="/tags/Lincoln/" style="font-size: 10.48px;">Lincoln</a> <a href="/tags/Linux/" style="font-size: 18.1px;">Linux</a> <a href="/tags/Machine-Learning/" style="font-size: 15.71px;">Machine-Learning</a> <a href="/tags/Manager/" style="font-size: 16.67px;">Manager</a> <a href="/tags/Medical/" style="font-size: 13.33px;">Medical</a> <a href="/tags/Nodejs/" style="font-size: 10.95px;">Nodejs</a> <a href="/tags/OpenSource/" style="font-size: 15.24px;">OpenSource</a> <a href="/tags/PHT/" style="font-size: 10.95px;">PHT</a> <a href="/tags/Policy-Law/" style="font-size: 19.52px;">Policy&Law</a> <a href="/tags/Redology/" style="font-size: 10.95px;">Redology</a> <a href="/tags/SDN/" style="font-size: 12.86px;">SDN</a> <a href="/tags/SRE/" style="font-size: 15.71px;">SRE</a> <a href="/tags/Science/" style="font-size: 14.76px;">Science</a> <a href="/tags/Sport/" style="font-size: 11.43px;">Sport</a> <a href="/tags/eBook/" style="font-size: 13.81px;">eBook</a> <a href="/tags/工具癖/" style="font-size: 11.9px;">工具癖</a> <a href="/tags/我的自传/" style="font-size: 11.9px;">我的自传</a> <a href="/tags/摄影/" style="font-size: 11.43px;">摄影</a> <a href="/tags/数学与算法/" style="font-size: 14.76px;">数学与算法</a> <a href="/tags/数据可视化/" style="font-size: 14.29px;">数据可视化</a> <a href="/tags/数据库/" style="font-size: 10.48px;">数据库</a> <a href="/tags/最佳写作实践/" style="font-size: 12.38px;">最佳写作实践</a> <a href="/tags/最佳工程实践/" style="font-size: 16.67px;">最佳工程实践</a> <a href="/tags/架构师/" style="font-size: 18.57px;">架构师</a> <a href="/tags/科技史/" style="font-size: 10.48px;">科技史</a> <a href="/tags/移动互联网/" style="font-size: 10px;">移动互联网</a> <a href="/tags/网络协议/" style="font-size: 16.19px;">网络协议</a> <a href="/tags/讲武堂/" style="font-size: 10.48px;">讲武堂</a>
+					</div>
+				</section>
+				
+
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/f2ea0605db4b">专题-经济学人翻译社</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.gitbook.com/book/riboseyim/linux-perf-master/details">电子书《Linux Perf Master》</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/9a817d8a67ea">简书专题-系统运维专家</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/0886ffd76168">简书专题-网络与信息安全</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/9ae32222e422">简书专题-操作系统与动态追踪技术</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/8d40a3a05825">简书专题-数据可视化</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://riboseyim.github.io/2017/11/16/QuickStart/">快捷目录</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://riboseyim.github.io/2017/05/26/Catalog/">总目录</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">Engineer &amp; Writer</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">RiboseYim</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="http://o8m8ngokc.bkt.clouddn.com/icon_macbook.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">RiboseYim</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">愿交天下士，罄我怀中藏。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/DevOps">DevOps</a></li>
+		        
+					<li><a href="/tags/eBook">电子书</a></li>
+		        
+					<li><a href="/tags/Art">艺术评论</a></li>
+		        
+					<li><a href="/tags/Commander">讲武堂</a></li>
+		        
+					<li><a href="/tags/Economist">经济学人</a></li>
+		        
+					<li><a href="/tags/Policy-Law">Policy&amp;Law</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="twitter" target="_blank" href="https://twitter.com/RiboseYim" title="twitter">twitter</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/riboseyim" title="zhihu">zhihu</a>
+			        
+						<a class="github" target="_blank" href="https://github.com/riboseyim" title="github">github</a>
+			        
+						<a class="linkedin" target="_blank" href="http://www.linkedin.com/in/%E7%9D%BF-%E4%B8%A5-b39028110" title="linkedin">linkedin</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-DevOps-OpenCensus" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/04/27/DevOps-OpenCensus/" class="article-date">
+  	<time datetime="2018-04-27T02:33:09.000Z" itemprop="datePublished">2018-04-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      DevOps 漫谈：开源分布式跟踪系统 OpenCensus
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DevOps/">DevOps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OpenSource/">OpenSource</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/架构师/">架构师</a></li></ul>
+	</div>
+
+        
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
+<li>Distributed Tracing and Monitoring System</li>
+<li>OpenCensus: A framework for distributed tracing</li>
+<li>OpenCensus Principle: data structure 、Context</li>
+</ul>
+<a id="more"></a>
+<p><img src="http://og2061b3n.bkt.clouddn.com/DTM-OpenCensus-Theme.png" alt=""></p>
+<p>This article is part of an <strong>Distributed Tracing and Monitoring System</strong> tutorial series. Make sure to check out my other articles as well:</p>
+<ul>
+<li><a href="https://riboseyim.github.io/2018/04/27/DevOps-OpenCensus" target="_blank" rel="external">DevOps 漫谈：开源分布式跟踪系统 OpenCensus</a></li>
+<li><a href="https://riboseyim.github.io/2018/05/18/DevOps-OpenTracing/" target="_blank" rel="external">DevOps 漫谈：分布式追踪系统标准体系</a></li>
+</ul>
+<h2 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h2><p>随着互联网技术的高速发展，以往单应用的服务架构已经很难处理如山洪般增长的信息数据，随着云计算技术的大规模应用，以微服务、RESTful 为代表的各种软件架构广泛应用，跨团队、跨编程语言的大规模分布式系统也越来越多。相对而言，现在要理解系统行为，追踪诊断性能问题会复杂得多。</p>
+<p>在单应用环境下，业务都在同一个服务器上，如果出现错误和异常只需要盯住一个点，就可以快速定位和处理问题；但是在微服务的架构下，功能模块天然是分布式部署运行的，前后台的业务流会经过很多个微服务的处理和传递，就连日志监控都会成为一个大问题（日志分散在多个服务器、无状态服务下如何查看业务流的处理顺序等），更不要说服务之间还有复杂的交互关系。</p>
+<p>用户的一个请求在系统中会经过多个子系统（或者多个微服务）的处理，而且是发生在不同机器甚至是不同集群，当发生异常时需要快速发现问题，并准确定位到是哪个环节出了问题。对系统行为进行跟踪必须持续进行，因为异常的发生是无法预料的，有些甚至难以重现。跟踪需要无所不在，否则可能会遗漏某些重要的故障点。</p>
+<p>为了解决上述问题，分布式跟踪系统 —— 一种帮助理解分布式系统行为、帮助分析性能问题的工具应运而生。</p>
+<p><img src="http://og2061b3n.bkt.clouddn.com/DTM-OpenCensus-Micro-1.png" alt=""></p>
+<p><img src="http://og2061b3n.bkt.clouddn.com/DTM-OpenCensus-Micro-2.png" alt=""></p>
+<h2 id="第一部分-Google-Dapper-Distributed-Tracing-and-Monitoring-System"><a href="#第一部分-Google-Dapper-Distributed-Tracing-and-Monitoring-System" class="headerlink" title="第一部分 Google Dapper : Distributed Tracing and Monitoring System"></a>第一部分 Google Dapper : Distributed Tracing and Monitoring System</h2><blockquote>
+<p>Modern Internet services are often implemented as complex, large-scale distributed systems.These applications are constructed from collections of software modules that may be developed by different teams, perhaps in different programming languages, and could span many thousands of machines across multiple physical facilities. Tools that aid in understanding system behavior and reasoning about performance issues are invaluable in such an environment.</p>
+</blockquote>
+<p>在分布式追踪领域著名的论文<a href="https://static.googleusercontent.com/media/research.google.com/zh-CN//archive/papers/dapper-2010-1.pdf" target="_blank" rel="external">《Dapper, a Large-Scale Distributed Systems Tracing Infrastructure|Google Technical Report dapper-2010-1, April 2010》</a> Google 工程师提出了关于分布式跟踪系统的一些重要概念：</p>
+<ul>
+<li><p>Annotation-based，基于标注或植入点(埋点)<br>在应用程序或中间件中明确定义全局标注（Annotation），一个特殊的ID，通过这个 ID 连接每一条请求记录。当然，这需要代码植入，在生产环境中可以通过一个通用组件开放给开发人员。</p>
+</li>
+<li><p>跟踪树（trace tree）和 span<br>在 Dapper 跟踪树中，基本单元是树节点（分配 spanid）。节点之间通过连线表示父子关系，通过 parentId 和 spanId 把所有的关系串联起来，实现记录业务流的作用。</p>
+</li>
+</ul>
+<p><img src="http://og2061b3n.bkt.clouddn.com/DTM-Dapper-TraceTree-Span.png" alt=""></p>
+<h2 id="第二部分-OpenCensus-A-framework-for-distributed-tracing"><a href="#第二部分-OpenCensus-A-framework-for-distributed-tracing" class="headerlink" title="第二部分 OpenCensus: A framework for distributed tracing"></a>第二部分 OpenCensus: A framework for distributed tracing</h2><blockquote>
+<p>OpenCensus is a framework for stats collection and distributed tracing.</p>
+</blockquote>
+<p>Google Dapper 的定位更准确的说是分析系统，并不能解决从生产服务中提取数据的难题，OpenCensus 项目为此提供了解决方案。</p>
+<p><img src="http://og2061b3n.bkt.clouddn.com/DTM-OpenCensus-Logo.png" alt=""></p>
+<p>OpenCensus 项目是 Google 开源的一个用来收集和追踪应用指标的第三方库。OpenCensus 能够提供了一套统一的测量工具：跨服务捕获跟踪跨度（span）、应用级别指标以及来自其他应用的元数据（例如日志）。OpenCensus 有如下一些主要特点：</p>
+<ul>
+<li>标准通信协议和一致的 API ：用于处理 metric 和 trace</li>
+<li>多语言库，包括Java，C++，Go，.Net，<a href="https://github.com/census-instrumentation/opencensus-python" target="_blank" rel="external">Python</a>，PHP，Node.js，Erlang 和 Ruby</li>
+<li>与 RPC 框架的集成，可以提供开箱即用的追踪和指标。</li>
+<li>集成的存储和分析工具</li>
+<li>完全开源，支持第三方集成和输出的插件化</li>
+<li>不需要额外的服务器或守护进程来支持 OpenCensus</li>
+<li>In process debugging：一个可选的代理程序，用于在目标主机上显示请求和指标数据</li>
+</ul>
+<p><img src="http://og2061b3n.bkt.clouddn.com/DTM-OpenCensus-Language.png" alt=""></p>
+<h2 id="OpenCensus-Concepts"><a href="#OpenCensus-Concepts" class="headerlink" title="OpenCensus Concepts"></a>OpenCensus Concepts</h2><h4 id="Tags-标签"><a href="#Tags-标签" class="headerlink" title="Tags | 标签"></a>Tags | 标签</h4><p>OpenCensus 允许系统在记录时将度量与维度相关联。记录的数据使我们能够从各种不同的角度分析测量结果，即使在高度互连和复杂的系统中也能够应付。<br>标签以键值对的形式在上下文中传递，并且允许在当前上下文中添加或修改。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ctx, err = tag.New(ctx,</div><div class="line">	tag.Insert(osKey, <span class="string">"macOS-10.12.5"</span>),</div><div class="line">	tag.Upsert(userIDKey, <span class="string">"cde36753ed"</span>),</div><div class="line">)</div></pre></td></tr></table></figure>
+<h4 id="Stats-统计"><a href="#Stats-统计" class="headerlink" title="Stats | 统计"></a>Stats | 统计</h4><p>Stats 收集库和应用程序记录的测量结果，汇总、导出统计数据。为了实现低开销（ a low-overhead framework even if instrumentation is always enabled ），数据点记录和数据聚合是分离的，OpenCensus 统计收集分两个阶段进行：</p>
+<ul>
+<li>测量的定义和数据点的记录 | Definition of measures and recording of data points</li>
+<li>视图的定义和记录数据的聚合 | Definition of views and aggregation of the recorded data</li>
+</ul>
+<h4 id="Recording-记录"><a href="#Recording-记录" class="headerlink" title="Recording | 记录"></a>Recording | 记录</h4><p>量度 (Measurements) 是与测量相关联的数据点。(Measurements are data points associated with a measure.)<br>记录 (Recording) 利用上下文中所提供的标签隐式地标记量度集合。(Recording implicitly tags the set of Measurements with the tags from the provided context.)</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">stats.Record(ctx, videoSize.M(<span class="number">102478</span>))</div></pre></td></tr></table></figure>
+<h4 id="Trace-跟踪"><a href="#Trace-跟踪" class="headerlink" title="Trace | 跟踪"></a>Trace | 跟踪</h4><p>Trace 是嵌套 Span (跨度)的集合。Trace 包括单个用户请求的处理进度，直到用户请求得到响应。Trace 通常跨越分布式系统中的多个节点。跟踪由 TraceId 唯一标识， Trace 中的所有 Span 都具有相同的 TraceId 。</p>
+<p>一个 Span 代表一个操作或一个工作单位。多个 Span 可以是“Trace”的一部分，它代表跨多个进程/节点的执行路径（通常是分布式的）。同一轨迹内的 Span 具有相同的 TraceId。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ctx, span := trace.StartSpan(ctx, <span class="string">"your function name"</span>)</div><div class="line"><span class="keyword">defer</span> span.End()</div></pre></td></tr></table></figure>
+<h4 id="视图-Views"><a href="#视图-Views" class="headerlink" title="视图 | Views"></a>视图 | Views</h4><p>视图用于聚合测量结果。你可以把它们看作是对记录数据点（量度）集合的查询。<br>视图包括两个部分：分组标签（group by）和聚合类型（aggregation type）。<br>目前 OpenCensus  ( Golang API ) 支持三种类型的聚合：</p>
+<ul>
+<li>CountAggregation 用于记录被抽样的次数；</li>
+<li>DistributionAggregation 用于提供包含一系列样本值的直方图；</li>
+<li>SumAggregation 用于汇总所有样本值。</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">distAgg := view.Distribution(<span class="number">0</span>, <span class="number">1</span>&lt;&lt;<span class="number">32</span>, <span class="number">2</span>&lt;&lt;<span class="number">32</span>, <span class="number">3</span>&lt;&lt;<span class="number">32</span>)</div><div class="line">countAgg := view.Count()</div><div class="line">sumAgg := view.Sum()</div></pre></td></tr></table></figure>
+<p>示例：创建一个视图（ DistributionAggregation，指标 “videoSize” ）<br><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> err := view.Register(&amp;view.View&#123;</div><div class="line">	Name:        <span class="string">"my.org/video_size_distribution"</span>,</div><div class="line">	Description: <span class="string">"distribution of processed video size over time"</span>,</div><div class="line">	Measure:     videoSize,</div><div class="line">	Aggregation: view.Distribution(<span class="number">0</span>, <span class="number">1</span>&lt;&lt;<span class="number">32</span>, <span class="number">2</span>&lt;&lt;<span class="number">32</span>, <span class="number">3</span>&lt;&lt;<span class="number">32</span>),</div><div class="line">&#125;); err != <span class="literal">nil</span> &#123;</div><div class="line">	log.Fatalf(<span class="string">"Failed to subscribe to view: %v"</span>, err)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="Introspection-内省"><a href="#Introspection-内省" class="headerlink" title="Introspection | 内省"></a>Introspection | 内省</h4><p>OpenCensus 提供在线仪表板，显示进程中的诊断数据。这些页面被称为 z-pages ，它们有助于了解如何查看来自特定进程的数据，而不必依赖任何度量收集器或分布式跟踪后端。</p>
+<p><img src="http://og2061b3n.bkt.clouddn.com/DTM-OpenCensus-traceZ.png" alt=""></p>
+<h2 id="OpenCensus-Examples"><a href="#OpenCensus-Examples" class="headerlink" title="OpenCensus Examples"></a>OpenCensus Examples</h2><h4 id="创建指标"><a href="#创建指标" class="headerlink" title="创建指标"></a>创建指标</h4><ul>
+<li>定义指标类型</li>
+<li>定义显示方式</li>
+</ul>
+<p>Track Metrics 一般需要考虑服务负载（Server Load）、响应时间（Response Time）、误码率(Error Rates)等。</p>
+<p>实例：</p>
+<ul>
+<li><a href="https://github.com/census-instrumentation/opencensus-go/blob/master/examples/http/helloworld_server/main.go" target="_blank" rel="external">opencensus-go-examples-helloworld</a></li>
+<li><a href="https://github.com/census-instrumentation/opencensus-java" target="_blank" rel="external">opencensus-java-examples</a></li>
+<li><a href="https://medium.com/@orijtech/hello-world-for-web-servers-in-go-with-opencensus-29955b3f02c6" target="_blank" rel="external">“Hello, world!” for web servers in Go with OpenCensus</a></li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> (</div><div class="line">  <span class="string">"go.opencensus.io/stats"</span></div><div class="line">  <span class="string">"go.opencensus.io/tag"</span></div><div class="line">  <span class="string">"go.opencensus.io/stats/view"</span></div><div class="line">)</div><div class="line"></div><div class="line"><span class="keyword">var</span> (</div><div class="line">  requestCounter             *stats.Float64Measure</div><div class="line">  codeKey                    tag.Key</div><div class="line">  DefaultLatencyDistribution = view.DistributionAggregation&#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">10</span>, <span class="number">13</span>, <span class="number">16</span>, <span class="number">20</span>, <span class="number">25</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">50</span>, <span class="number">65</span>, <span class="number">80</span>, <span class="number">100</span>, <span class="number">130</span>, <span class="number">160</span>, <span class="number">200</span>, <span class="number">250</span>, <span class="number">300</span>, <span class="number">400</span>, <span class="number">500</span>, <span class="number">650</span>, <span class="number">800</span>, <span class="number">1000</span>, <span class="number">2000</span>, <span class="number">5000</span>, <span class="number">10000</span>, <span class="number">20000</span>, <span class="number">50000</span>, <span class="number">100000</span>&#125;</div><div class="line">)</div><div class="line">	codeKey, _ = tag.NewKey(<span class="string">"banias/keys/code"</span>)</div><div class="line"></div><div class="line">  requestCounter, _ = stats.Float64(<span class="string">"banias/measures/request_count"</span>, <span class="string">"Count of HTTP requests processed"</span>, stats.UnitNone)</div><div class="line">	view.Subscribe(</div><div class="line">		&amp;view.View&#123;</div><div class="line">			Name:        <span class="string">"request_count"</span>,</div><div class="line">			Description: <span class="string">"Count of HTTP requests processed"</span>,</div><div class="line">			TagKeys:     []tag.Key&#123;codeKey&#125;,</div><div class="line">			Measure:     requestCounter,</div><div class="line">			Aggregation: view.CountAggregation&#123;&#125;,</div><div class="line">		&#125;)</div><div class="line"></div><div class="line">    <span class="comment">// requestlatency .....</span></div><div class="line"></div><div class="line">	view.SetReportingPeriod(<span class="number">1</span> * time.Second)</div></pre></td></tr></table></figure>
+<h4 id="收集指标数据"><a href="#收集指标数据" class="headerlink" title="收集指标数据"></a>收集指标数据</h4><ul>
+<li>Call the Record method</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Go Code Example</span></div><div class="line"><span class="comment">// 说明：defer 用于资源的释放，会在函数返回之前进行调用。</span></div><div class="line"><span class="comment">// 如果有多个 defer表达式，调用顺序类似于栈，越后面的 defer 表达式越先被调用。</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="params">(c *Collector)</span> <span class="title">Collect</span><span class="params">(ctx *fasthttp.RequestCtx)</span></span> &#123;</div><div class="line"></div><div class="line">  <span class="keyword">defer</span> <span class="function"><span class="keyword">func</span><span class="params">(begin time.Time)</span></span> &#123;</div><div class="line">      responseTime := <span class="keyword">float64</span>(time.Since(begin).Nanoseconds() / <span class="number">1000</span>)</div><div class="line">      occtx, _ := tag.New(context.Background(), tag.Insert(codeKey, strconv.Itoa(ctx.Response.StatusCode())), )</div><div class="line"></div><div class="line">      stats.Record(occtx, requestCounter.M(<span class="number">1</span>))</div><div class="line">      stats.Record(occtx, requestlatency.M(responseTime))</div><div class="line"></div><div class="line">    &#125;(time.Now())</div><div class="line"></div><div class="line">    <span class="comment">/*do some stuff */</span></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="第三方数据接口-Exporter"><a href="#第三方数据接口-Exporter" class="headerlink" title="第三方数据接口 | Exporter"></a>第三方数据接口 | Exporter</h4><p>OpenCensus 是独立于供应商的。OpenCensus 收集和跟踪的应用指标可以在本地显示，也可将其发送到第三方分析工具或监控系统实现可视化，例如：</p>
+<ul>
+<li><a href="https://prometheus.io" target="_blank" rel="external">Prometheus|普罗米修斯</a></li>
+<li><a href="https://cloud.google.com/stackdriver/" target="_blank" rel="external">Stackdriver|适用于 Google Cloud Platform 与 AWS 应用的监控、日志记录和诊断工具</a> | <a href="https://medium.com/@orijtech/cloud-spanner-instrumented-by-opencensus-and-exported-to-stackdriver-6ed61ed6ab4e" target="_blank" rel="external">示例</a></li>
+<li><a href="https://zipkin.io" target="_blank" rel="external">Zipkin</a></li>
+<li><a href="https://medium.com/@DazWilkin/opencensus-tracing-w-jaeger-2ada1656a2bf" target="_blank" rel="external">OpenCensus Tracing with Uber’s Jaeger project</a></li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"> <span class="keyword">import</span> (</div><div class="line"> 	 <span class="string">"go.opencensus.io/exporter/prometheus"</span></div><div class="line">   <span class="string">"go.opencensus.io/exporter/stackdriver"</span></div><div class="line">    openzipkin <span class="string">"github.com/openzipkin/zipkin-go"</span></div><div class="line">  	 <span class="string">"go.opencensus.io/exporter/zipkin"</span></div><div class="line">    xray <span class="string">"github.com/census-instrumentation/opencensus-go-exporter-aws"</span></div><div class="line">  	 <span class="string">"go.opencensus.io/trace"</span></div><div class="line">   <span class="string">"go.opencensus.io/stats/view"</span></div><div class="line">)</div><div class="line"></div><div class="line"><span class="comment">// Opention: Export to Prometheus Monitoring.</span></div><div class="line"> Exporter, err := prometheus.NewExporter(prometheus.Options&#123;&#125;)</div><div class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</div><div class="line">	logger.Error(<span class="string">"Error creating prometheus exporter  "</span>, zap.Error(err))</div><div class="line">&#125;</div><div class="line">view.RegisterExporter(pExporter)</div><div class="line"></div><div class="line"></div><div class="line"> <span class="comment">// Opention: Export to Stackdriver Monitoring.</span></div><div class="line">sExporter, err := stackdriver.NewExporter(stackdriver.Options&#123;ProjectID: config.ProjectID&#125;)</div><div class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</div><div class="line">	logger.Error(<span class="string">"Error creating stackdriver exporter  "</span>, zap.Error(err))</div><div class="line">&#125;</div><div class="line">view.RegisterExporter(sExporter)</div><div class="line"></div><div class="line"> <span class="comment">// Opention: Export to Zipkin Monitoring.</span></div><div class="line">localEndpoint, err := openzipkin.NewEndpoint(<span class="string">"service-A"</span>, <span class="string">"127.0.1.1:8080"</span>)</div><div class="line">reporter := http.NewReporter(<span class="string">"http://127.0.1.110:9411/api/v2/spans"</span>)</div><div class="line"><span class="keyword">defer</span> reporter.Close()</div><div class="line">exporter := zipkin.NewExporter(reporter, localEndpoint)</div><div class="line">trace.RegisterExporter(exporter)</div><div class="line"></div><div class="line"> <span class="comment">// Opention: Export to AWS X-Ray</span></div><div class="line">xe, err := xray.NewExporter(xray.WithVersion(<span class="string">"latest"</span>))</div><div class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</div><div class="line">	log.Fatalf(<span class="string">"Failed to create AWS X-Ray exporter: %v"</span>, err)</div><div class="line">&#125;</div><div class="line">trace.RegisterExporter(xe)</div></pre></td></tr></table></figure>
+<h4 id="数据可视化"><a href="#数据可视化" class="headerlink" title="数据可视化"></a>数据可视化</h4><ul>
+<li>函数内容为空（微秒级）</li>
+</ul>
+<p><img src="http://og2061b3n.bkt.clouddn.com/zipkin-%E7%A9%BA%E6%96%B9%E6%B3%95.png" alt=""></p>
+<ul>
+<li>串行调用函数方法，内容包括网络访问和持久化操作（毫秒级）</li>
+</ul>
+<p><img src="http://og2061b3n.bkt.clouddn.com/zipkin-%E4%B8%B2%E8%A1%8C.png" alt=""></p>
+<ul>
+<li>并行调用函数方法（Go routine），内容与上同</li>
+</ul>
+<p><img src="http://og2061b3n.bkt.clouddn.com/zipkin-%E5%B9%B6%E8%A1%8C.png" alt=""></p>
+<ul>
+<li>多服务调用</li>
+</ul>
+<p><img src="http://og2061b3n.bkt.clouddn.com/DTM-Zipkin-Twitter.png" alt="OpenZipkin-Twitter"></p>
+<h2 id="第三部分：OpenCensus-Principle-工作原理-待续"><a href="#第三部分：OpenCensus-Principle-工作原理-待续" class="headerlink" title="第三部分：OpenCensus Principle | 工作原理 (待续)"></a>第三部分：OpenCensus Principle | 工作原理 (待续)</h2><h4 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h4><p>Span 共有属性：</p>
+<ul>
+<li>TraceId</li>
+<li>SpanId</li>
+<li>Start Time</li>
+<li>End Time</li>
+<li>Status</li>
+</ul>
+<p>Span 可选属性：</p>
+<ul>
+<li>Parent SpanId</li>
+<li>Remote Parent</li>
+<li>Attributes</li>
+<li>Annotations</li>
+<li>Message Events</li>
+<li>Links</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//go.opencensus.io/trace.go</span></div><div class="line"></div><div class="line"><span class="keyword">type</span> Span <span class="keyword">struct</span> &#123;</div><div class="line">	<span class="comment">// data contains information recorded about the span.</span></div><div class="line">	<span class="comment">//</span></div><div class="line">	<span class="comment">// It will be non-nil if we are exporting the span or recording events for it.</span></div><div class="line">	<span class="comment">// Otherwise, data is nil, and the Span is simply a carrier for the</span></div><div class="line">	<span class="comment">// SpanContext, so that the trace ID is propagated.</span></div><div class="line">	data        *SpanData</div><div class="line">   <span class="comment">// protects the contents of *data (but not the pointer value.)</span></div><div class="line">	mu          sync.Mutex</div><div class="line">	spanContext SpanContext</div><div class="line">	<span class="comment">// spanStore is the spanStore this span belongs to, if any, otherwise it is nil.</span></div><div class="line">	*spanStore</div><div class="line"></div><div class="line">	endOnce sync.Once</div><div class="line"></div><div class="line">	executionTracerTaskEnd <span class="function"><span class="keyword">func</span><span class="params">()</span></span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="title">type</span> <span class="title">SpanContext</span> <span class="title">struct</span> &#123;</div><div class="line">	TraceID      TraceID</div><div class="line">	SpanID       SpanID</div><div class="line">	TraceOptions TraceOptions</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://og2061b3n.bkt.clouddn.com/OpenCensus-DataModel-Base.png" alt=""></p>
+<h4 id="上下文-Context"><a href="#上下文-Context" class="headerlink" title="上下文 Context"></a>上下文 Context</h4><p><img src="http://og2061b3n.bkt.clouddn.com/DTM-Context.png" alt=""></p>
+<p>上下文 Context 按照树型关系构建。以 Golang 为例，创建 Context 树第一步就是通过 context.Background() 得到根节点，再由 WithCancel()、WithTimeout() 等函数创建其它的子节点，孙节点。子节点从父节点复制得到，在子节点也可以设定新的状态值，如此就可以使元数据在子节点之间层层传递。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">Background</span><span class="params">()</span> <span class="title">Context</span></span></div><div class="line"></div><div class="line"><span class="title">func</span> <span class="title">WithCancel</span><span class="params">(parent Context)</span> <span class="params">(ctx Context, cancel CancelFunc)</span></div><div class="line"></div><div class="line"><span class="title">func</span> <span class="title">WithDeadline</span><span class="params">(parent Context, deadline time.Time)</span> <span class="params">(Context, CancelFunc)</span></div><div class="line"></div><div class="line"><span class="title">func</span> <span class="title">WithTimeout</span><span class="params">(parent Context, timeout time.Duration)</span> <span class="params">(Context, CancelFunc)</span></div><div class="line"></div><div class="line"><span class="title">func</span> <span class="title">WithValue</span><span class="params">(parent Context, key <span class="keyword">interface</span>&#123;&#125;, val <span class="keyword">interface</span>&#123;&#125;)</span> <span class="title">Context</span></div></pre></td></tr></table></figure>
+<ul>
+<li>gRPC Client</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">conn, err := grpc.Dial(address, grpc.WithStatsHandler(&amp;ocgrpc.ClientHandler&#123;&#125;), grpc.WithInsecure())</div><div class="line"><span class="keyword">defer</span> conn.Close()</div><div class="line"></div><div class="line">c := pb.NewGreeterClient(conn)</div><div class="line"></div><div class="line">...</div><div class="line"></div><div class="line"><span class="keyword">for</span> &#123;</div><div class="line">  r, err := c.SayHello(context.Background(), &amp;pb.HelloRequest&#123;Name: name&#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>gRPC Server</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// SayHello implements helloworld.GreeterServer</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="params">(s *server)</span> <span class="title">SayHello</span><span class="params">(ctx context.Context, in *pb.HelloRequest)</span> <span class="params">(*pb.HelloReply, error)</span></span> &#123;</div><div class="line">	ctx, span := trace.StartSpan(ctx, <span class="string">"sleep"</span>)</div><div class="line">	time.Sleep(time.Duration(rand.Float64() * <span class="keyword">float64</span>(time.Second)))</div><div class="line">	span.End()</div><div class="line">	<span class="keyword">return</span> &amp;pb.HelloReply&#123;Message: <span class="string">"Hello "</span> + in.Name&#125;, <span class="literal">nil</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>go.opencensus.io/trace.go</strong> 源码</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//go.opencensus.io/trace.go</span></div><div class="line"></div><div class="line"><span class="comment">// StartSpan starts a new child span of the current span in the context. If</span></div><div class="line"><span class="comment">// there is no span in the context, creates a new trace and span.</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">StartSpan</span><span class="params">(ctx context.Context, name <span class="keyword">string</span>, o ...StartOption)</span> <span class="params">(context.Context, *Span)</span></span> &#123;</div><div class="line">	<span class="keyword">var</span> opts StartOptions</div><div class="line">	<span class="keyword">var</span> parent SpanContext</div><div class="line">	<span class="keyword">if</span> p := FromContext(ctx); p != <span class="literal">nil</span> &#123;</div><div class="line">		parent = p.spanContext</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span> _, op := <span class="keyword">range</span> o &#123;</div><div class="line">		op(&amp;opts)</div><div class="line">	&#125;</div><div class="line">	span := startSpanInternal(name, parent != SpanContext&#123;&#125;, parent, <span class="literal">false</span>, opts)</div><div class="line"></div><div class="line">	ctx, end := startExecutionTracerTask(ctx, name)</div><div class="line">	span.executionTracerTaskEnd = end</div><div class="line">	<span class="keyword">return</span> NewContext(ctx, span), span</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// FromContext returns the Span stored in a context, or nil if there isn't one.</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">FromContext</span><span class="params">(ctx context.Context)</span> *<span class="title">Span</span></span> &#123;</div><div class="line">	s, _ := ctx.Value(contextKey&#123;&#125;).(*Span)</div><div class="line">	<span class="keyword">return</span> s</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h4><ul>
+<li>注册-订阅 模式</li>
+</ul>
+<p>视图注册之后开始收集给定的数据。一旦该视图被订阅，它就向已注册的 Exporter 报送数据。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// source code : go.opencensus.io/view/worker.go</span></div><div class="line"></div><div class="line"><span class="comment">// Register begins collecting data for the given views.</span></div><div class="line"><span class="comment">// Once a view is subscribed, it reports data to the registered exporters.</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">Register</span><span class="params">(views ...*View)</span> <span class="title">error</span></span> &#123;</div><div class="line">	<span class="keyword">for</span> _, v := <span class="keyword">range</span> views &#123;</div><div class="line">		<span class="keyword">if</span> err := v.canonicalize(); err != <span class="literal">nil</span> &#123;</div><div class="line">			<span class="keyword">return</span> err</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	req := &amp;registerViewReq&#123;</div><div class="line">		views: views,</div><div class="line">		err:   <span class="built_in">make</span>(<span class="keyword">chan</span> error),</div><div class="line">	&#125;</div><div class="line">	defaultWorker.c &lt;- req</div><div class="line">	<span class="keyword">return</span> &lt;-req.err</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="Exporter"><a href="#Exporter" class="headerlink" title="Exporter"></a>Exporter</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// source: go.opencensus.io/trace/export.go</span></div><div class="line"></div><div class="line"><span class="comment">// SpanData contains all the information collected by a Span.</span></div><div class="line"><span class="keyword">type</span> SpanData <span class="keyword">struct</span> &#123;</div><div class="line">	SpanContext</div><div class="line">	ParentSpanID SpanID</div><div class="line">	SpanKind     <span class="keyword">int</span></div><div class="line">	Name         <span class="keyword">string</span></div><div class="line">	StartTime    time.Time</div><div class="line">	<span class="comment">// The wall clock time of EndTime will be adjusted to always be offset</span></div><div class="line">	<span class="comment">// from StartTime by the duration of the span.</span></div><div class="line">	EndTime time.Time</div><div class="line">	<span class="comment">// The values of Attributes each have type string, bool, or int64.</span></div><div class="line">	Attributes    <span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">interface</span>&#123;&#125;</div><div class="line">	Annotations   []Annotation</div><div class="line">	MessageEvents []MessageEvent</div><div class="line">	Status</div><div class="line">	Links           []Link</div><div class="line">	HasRemoteParent <span class="keyword">bool</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Others"><a href="#Others" class="headerlink" title="Others"></a>Others</h2><ul>
+<li><a href="https://github.com/orgs/census-instrumentation/people" target="_blank" rel="external">OpenCensus People</a></li>
+</ul>
+<h2 id="扩展阅读：分布式追踪系统"><a href="#扩展阅读：分布式追踪系统" class="headerlink" title="扩展阅读：分布式追踪系统"></a>扩展阅读：分布式追踪系统</h2><ul>
+<li><a href="https://riboseyim.github.io/2018/04/27/DevOps-OpenCensus" target="_blank" rel="external">DevOps 漫谈：开源分布式跟踪系统 OpenCensus</a></li>
+<li><a href="https://riboseyim.github.io/2018/05/18/DevOps-OpenTracing/" target="_blank" rel="external">DevOps 漫谈：分布式追踪系统标准体系</a></li>
+<li><a href="https://riboseyim.github.io/2017/10/30/Protocol-gRPC/" target="_blank" rel="external">远程通信协议：从 CORBA 到 gRPC</a></li>
+<li><a href="https://riboseyim.github.io/2017/05/24/Log/" target="_blank" rel="external">应用程序开发中的日志管理(Go语言描述)</a></li>
+</ul>
+<h2 id="扩展阅读：动态追踪技术"><a href="#扩展阅读：动态追踪技术" class="headerlink" title="扩展阅读：动态追踪技术"></a>扩展阅读：动态追踪技术</h2><ul>
+<li><a href="https://riboseyim.github.io/2016/11/26/DTrace/" target="_blank" rel="external">动态追踪技术(一)：DTrace 导论</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MjM5MTY1MjQ3Nw==&amp;mid=2651939588&amp;idx=1&amp;sn=35f71c5f88d1edf23cb2efc812ab8e6c&amp;chksm=bd578c168a20050041c08618281691f0111f61c789097a69095933057618637fc54817815921#rd" target="_blank" rel="external">动态追踪技术(二)：strace+gdb 溯源 Nginx 内存溢出异常 </a></li>
+<li><a href="https://riboseyim.github.io/2017/04/17/DTrace_FTrace/" target="_blank" rel="external">动态追踪技术(三)：Tracing Your Kernel Function!</a></li>
+<li><a href="https://riboseyim.github.io/2017/06/27/DTrace_bcc/" target="_blank" rel="external">动态追踪技术(四)：基于 Linux bcc/BPF 实现 Go 程序动态追踪</a></li>
+<li><a href="https://riboseyim.github.io/2018/02/16/DTrace-Linux/" target="_blank" rel="external">动态追踪技术(五)：Welcome DTrace for Linux</a></li>
+</ul>
+<h2 id="扩展阅读：开源架构技术漫谈"><a href="#扩展阅读：开源架构技术漫谈" class="headerlink" title="扩展阅读：开源架构技术漫谈"></a>扩展阅读：开源架构技术漫谈</h2><ul>
+<li><a href="https://riboseyim.github.io/2017/05/23/RestfulAPI/" target="_blank" rel="external">基于Go语言快速构建一个RESTful API服务</a></li>
+<li><a href="https://riboseyim.github.io/2017/06/12/OpenSource-Kafka-Microservice/" target="_blank" rel="external">基于Kafka构建事件溯源型微服务</a></li>
+<li><a href="https://riboseyim.github.io/2017/12/04/Visualization-Graphite/" target="_blank" rel="external">数据可视化（七）Graphite 体系结构详解</a></li>
+<li><a href="https://riboseyim.github.io/2016/08/15/OpenSource-Kafka/" target="_blank" rel="external">DevOps 资讯 | LinkedIn 开源 Kafka Monitor</a></li>
+</ul>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
+<li><a href="https://medium.com/@orijtech/hello-world-for-web-servers-in-go-with-opencensus-29955b3f02c6" target="_blank" rel="external">“Hello, world!” for web servers in Go with OpenCensus</a></li>
+<li><a href="https://opensource.googleblog.com/2018/01/opencensus.html" target="_blank" rel="external">OpenCensus: A Stats Collection and Distributed Tracing Framework | Wednesday, January 17, 2018 | Google Open Source Blog</a></li>
+<li><a href="https://medium.com/@orijtech/opencensus-for-go-grpc-developers-7f3ee1ac3d6d" target="_blank" rel="external">OpenCensus for Go gRPC developers</a></li>
+<li><a href="http://www.infoq.com/cn/news/2017/11/Uber-open-spurce-Jaeger" target="_blank" rel="external">Uber正式开源其分布式跟踪系统Jaeger | 2017年11月9日</a></li>
+<li><a href="http://www.infoq.com/cn/articles/evolving-distributed-tracing-at-uber-engineering" target="_blank" rel="external">Uber优步分布式追踪技术再度精进</a></li>
+<li><a href="https://blog.doit-intl.com/measure-once-export-anywhere-opencensus-in-the-wild-61724f44eb00" target="_blank" rel="external">Measure Once — Export Anywhere: OpenCensus in the wild</a></li>
+<li><a href="https://github.com/census-instrumentation/opencensus-go/blob/master/examples/helloworld/main.go" target="_blank" rel="external">opencensus-go-examples-helloworld-context</a></li>
+<li><a href="https://medium.com/@orijtech/mongodb-driver-instrumented-with-opencensus-in-go-e691370b8184" target="_blank" rel="external">MongoDB driver instrumented with OpenCensus in Go</a></li>
+<li><a href="https://segmentfault.com/a/1190000006744213#articleHeader8" target="_blank" rel="external">Go语言并发模型：使用 context | oscarzhao 2016年08月29日</a></li>
+<li><a href="http://lanlingzi.cn/post/technical/2016/0802_go_context/" target="_blank" rel="external">理解Go Context机制 | 时间： 2016-08-02</a></li>
+<li><a href="http://www.flysnow.org/2017/05/12/go-in-action-go-context.html" target="_blank" rel="external">Go语言实战笔记（二十）| Go Context | May 12, 2017</a></li>
+</ul>
+
+      
+
+    </div>
+    
+  </div>
+  
+    <div class="article-entry" itemprop="articleBody">
+      <p>
+        更多精彩内容扫码关注公众号,RiboseYim's Blog：<a href="https://riboseyim.github.io" target="_blank" rel="external">https://riboseyim.github.io</a>
+        <br>
+        <a href="http://o8m8ngokc.bkt.clouddn.com/ID_RiboseYim_201706.png" title="微信公众号@睿哥杂货铺" rel="fancy-group" class="fancy-ctn fancybox">
+          <img src="http://o8m8ngokc.bkt.clouddn.com/ID_RiboseYim_201706.png" title="微信公众号@睿哥杂货铺">
+          <img src="http://o8m8ngokc.bkt.clouddn.com/quanzi-rui-small.png" title="睿哥读书会">
+        </a>
+      </p>
+    </div>
+    
+<nav id="article-nav">
+  
+    <a href="/2018/04/27/Language-Go-lang-Web/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          玩转编程语言:基于Golang开发Web应用
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/04/10/DevOps-Phoenix/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">DevOps 漫谈:从作坊到工厂的寓言故事</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		  <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" target="_blank">Copyright 2016-2018 RiboseYim
+      授权：保持署名-非商业性使用-禁止演绎| License BY-NC-ND 4.0 </a>
+    </div>
+      	<div class="footer-right">
+      		<a href="https://riboseyim.github.io/2016/05/31/AboutMe/" target="_blank"> 联系作者 </a>
+      	</div>
+    </div>
+  </div>
+</footer>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1258500076'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1258500076%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: true
+	}
+</script>
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+  </div>
+</body>
+</html>

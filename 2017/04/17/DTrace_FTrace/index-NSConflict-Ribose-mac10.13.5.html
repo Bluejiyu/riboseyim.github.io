@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>动态追踪技术(三) ：Tracing your kernel Functions! | Ribose Yim&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="摘要Ftrace 是一个设计用来帮助开发者和设计者监视内核的追踪器，可用于调试或分析延迟以及性能问题。ftrace 令人印象最深刻的是作为一个 function tracer，内核函数调用、耗时等情况一览无余。另外，ftrace 最常见的用途是事件追踪，通过内核是成百上千的静态事件点，看到系统内核的哪些部分在运行。实际上，ftrace 更是一个追踪框架，它具备丰富工具集：延迟跟踪检查、何时发生中断">
+<meta name="keywords" content="DevOps,Linux,DTrace">
+<meta property="og:type" content="article">
+<meta property="og:title" content="动态追踪技术(三) ：Tracing your kernel Functions!">
+<meta property="og:url" content="http://riboseyim.github.com/2017/04/17/DTrace_FTrace/index.html">
+<meta property="og:site_name" content="Ribose Yim&#39;s Blog">
+<meta property="og:description" content="摘要Ftrace 是一个设计用来帮助开发者和设计者监视内核的追踪器，可用于调试或分析延迟以及性能问题。ftrace 令人印象最深刻的是作为一个 function tracer，内核函数调用、耗时等情况一览无余。另外，ftrace 最常见的用途是事件追踪，通过内核是成百上千的静态事件点，看到系统内核的哪些部分在运行。实际上，ftrace 更是一个追踪框架，它具备丰富工具集：延迟跟踪检查、何时发生中断">
+<meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/DTrace_ftrace_tracers.png">
+<meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/DTrace_ftrace_arch.png">
+<meta property="og:image" content="https://static.lwn.net/images/2011/ks-success-zoom-task.png">
+<meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/DTrace_ftrace_KernelShark_Filters.png">
+<meta property="og:updated_time" content="2018-05-30T04:00:43.925Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="动态追踪技术(三) ：Tracing your kernel Functions!">
+<meta name="twitter:description" content="摘要Ftrace 是一个设计用来帮助开发者和设计者监视内核的追踪器，可用于调试或分析延迟以及性能问题。ftrace 令人印象最深刻的是作为一个 function tracer，内核函数调用、耗时等情况一览无余。另外，ftrace 最常见的用途是事件追踪，通过内核是成百上千的静态事件点，看到系统内核的哪些部分在运行。实际上，ftrace 更是一个追踪框架，它具备丰富工具集：延迟跟踪检查、何时发生中断">
+<meta name="twitter:image" content="http://og2061b3n.bkt.clouddn.com/DTrace_ftrace_tracers.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Ribose Yim&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://o8m8ngokc.bkt.clouddn.com/icon_cangshu.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://o8m8ngokc.bkt.clouddn.com/icon_macbook.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">RiboseYim</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">愿交天下士，罄我怀中藏。</p>
+		
+
+		<form id="search-form" class="search">  <!-- 搜索框相关 -->
+    <input type="text" id="st-search-input" name="q" results="0" class="st-default-search-input" maxlength="30" placeholder="Search..." autocomplete="off" autocorrect="off">
+		</form>
+		<div id="local-search-result"></div> <!-- 搜索结果区 -->
+	  <p class='no-result'>No results found </p> 
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/DevOps">DevOps</a></li>
+				        
+							<li><a href="/tags/eBook">电子书</a></li>
+				        
+							<li><a href="/tags/Art">艺术评论</a></li>
+				        
+							<li><a href="/tags/Commander">讲武堂</a></li>
+				        
+							<li><a href="/tags/Economist">经济学人</a></li>
+				        
+							<li><a href="/tags/Policy-Law">Policy&amp;Law</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="twitter" target="_blank" href="https://twitter.com/RiboseYim" title="twitter">twitter</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/riboseyim" title="zhihu">zhihu</a>
+					        
+								<a class="github" target="_blank" href="https://github.com/riboseyim" title="github">github</a>
+					        
+								<a class="linkedin" target="_blank" href="http://www.linkedin.com/in/%E7%9D%BF-%E4%B8%A5-b39028110" title="linkedin">linkedin</a>
+					        
+						</div>
+					</nav>
+				</section>
+
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Art/" style="font-size: 15.24px;">Art</a> <a href="/tags/Books/" style="font-size: 10px;">Books</a> <a href="/tags/Commander/" style="font-size: 12.38px;">Commander</a> <a href="/tags/Cyber-Security/" style="font-size: 14.29px;">Cyber-Security</a> <a href="/tags/DTrace/" style="font-size: 11.43px;">DTrace</a> <a href="/tags/DevOps/" style="font-size: 20px;">DevOps</a> <a href="/tags/Developer/" style="font-size: 19.05px;">Developer</a> <a href="/tags/Develper/" style="font-size: 10px;">Develper</a> <a href="/tags/Economist/" style="font-size: 17.62px;">Economist</a> <a href="/tags/Education/" style="font-size: 10px;">Education</a> <a href="/tags/Golang/" style="font-size: 13.33px;">Golang</a> <a href="/tags/Health/" style="font-size: 10.48px;">Health</a> <a href="/tags/History/" style="font-size: 17.14px;">History</a> <a href="/tags/Lincoln/" style="font-size: 10.48px;">Lincoln</a> <a href="/tags/Linux/" style="font-size: 18.1px;">Linux</a> <a href="/tags/Machine-Learning/" style="font-size: 15.71px;">Machine-Learning</a> <a href="/tags/Manager/" style="font-size: 16.67px;">Manager</a> <a href="/tags/Medical/" style="font-size: 13.33px;">Medical</a> <a href="/tags/Nodejs/" style="font-size: 10.95px;">Nodejs</a> <a href="/tags/OpenSource/" style="font-size: 15.24px;">OpenSource</a> <a href="/tags/PHT/" style="font-size: 10.95px;">PHT</a> <a href="/tags/Policy-Law/" style="font-size: 19.52px;">Policy&Law</a> <a href="/tags/Redology/" style="font-size: 10.95px;">Redology</a> <a href="/tags/SDN/" style="font-size: 12.86px;">SDN</a> <a href="/tags/SRE/" style="font-size: 15.71px;">SRE</a> <a href="/tags/Science/" style="font-size: 14.76px;">Science</a> <a href="/tags/Sport/" style="font-size: 11.43px;">Sport</a> <a href="/tags/eBook/" style="font-size: 13.81px;">eBook</a> <a href="/tags/工具癖/" style="font-size: 11.9px;">工具癖</a> <a href="/tags/我的自传/" style="font-size: 11.9px;">我的自传</a> <a href="/tags/摄影/" style="font-size: 11.43px;">摄影</a> <a href="/tags/数学与算法/" style="font-size: 14.76px;">数学与算法</a> <a href="/tags/数据可视化/" style="font-size: 14.29px;">数据可视化</a> <a href="/tags/数据库/" style="font-size: 10.48px;">数据库</a> <a href="/tags/最佳写作实践/" style="font-size: 12.38px;">最佳写作实践</a> <a href="/tags/最佳工程实践/" style="font-size: 16.67px;">最佳工程实践</a> <a href="/tags/架构师/" style="font-size: 18.57px;">架构师</a> <a href="/tags/科技史/" style="font-size: 10.48px;">科技史</a> <a href="/tags/移动互联网/" style="font-size: 10px;">移动互联网</a> <a href="/tags/网络协议/" style="font-size: 16.19px;">网络协议</a> <a href="/tags/讲武堂/" style="font-size: 10.48px;">讲武堂</a>
+					</div>
+				</section>
+				
+
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/f2ea0605db4b">专题-经济学人翻译社</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.gitbook.com/book/riboseyim/linux-perf-master/details">电子书《Linux Perf Master》</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/9a817d8a67ea">简书专题-系统运维专家</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/0886ffd76168">简书专题-网络与信息安全</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/9ae32222e422">简书专题-操作系统与动态追踪技术</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/8d40a3a05825">简书专题-数据可视化</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://riboseyim.github.io/2017/11/16/QuickStart/">快捷目录</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://riboseyim.github.io/2017/05/26/Catalog/">总目录</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">Engineer &amp; Writer</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">RiboseYim</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="http://o8m8ngokc.bkt.clouddn.com/icon_macbook.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">RiboseYim</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">愿交天下士，罄我怀中藏。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/DevOps">DevOps</a></li>
+		        
+					<li><a href="/tags/eBook">电子书</a></li>
+		        
+					<li><a href="/tags/Art">艺术评论</a></li>
+		        
+					<li><a href="/tags/Commander">讲武堂</a></li>
+		        
+					<li><a href="/tags/Economist">经济学人</a></li>
+		        
+					<li><a href="/tags/Policy-Law">Policy&amp;Law</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="twitter" target="_blank" href="https://twitter.com/RiboseYim" title="twitter">twitter</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/riboseyim" title="zhihu">zhihu</a>
+			        
+						<a class="github" target="_blank" href="https://github.com/riboseyim" title="github">github</a>
+			        
+						<a class="linkedin" target="_blank" href="http://www.linkedin.com/in/%E7%9D%BF-%E4%B8%A5-b39028110" title="linkedin">linkedin</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-DTrace_FTrace" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/04/17/DTrace_FTrace/" class="article-date">
+  	<time datetime="2017-04-17T10:02:57.000Z" itemprop="datePublished">2017-04-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      动态追踪技术(三) ：Tracing your kernel Functions!
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DTrace/">DTrace</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DevOps/">DevOps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+	</div>
+
+        
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>Ftrace 是一个设计用来帮助开发者和设计者监视内核的追踪器，可用于调试或分析延迟以及性能问题。ftrace 令人印象最深刻的是作为一个 function tracer，内核函数调用、耗时等情况一览无余。另外，ftrace 最常见的用途是事件追踪，通过内核是成百上千的静态事件点，看到系统内核的哪些部分在运行。实际上，ftrace 更是一个追踪框架，它具备丰富工具集：延迟跟踪检查、何时发生中断、任务的启用、禁用及抢占等。在 ftrace 的基线版本之上，还有很多第三方提供的开源工具，用于简化操作或者提供数据可视化等扩展应用。</p>
+<a id="more"></a>
+<h2 id="一、Introduction"><a href="#一、Introduction" class="headerlink" title="一、Introduction"></a>一、Introduction</h2><p>Developer(s):    Steven Rostedt(RedHat) and others<br>Initial release: October 9, 2008;<br>Operating system:    Linux （merged into the Linux kernel mainline in kernel version 2.6.27）<br>Type:    Kernel extension<br>License: GNU GPL<br>Website: <a href="www.kernel.org/doc/Documentation/trace">www.kernel.org/doc/Documentation/trace</a></p>
+<h2 id="二、ABC"><a href="#二、ABC" class="headerlink" title="二、ABC"></a>二、ABC</h2><p>在使用ftrace之前，需要确认调试目录是否已经挂载，默认目录：<strong>/sys/kernel/debug/</strong> 。</p>
+<p>debugfs是Linux内核中一种特殊的文件系统，非常易用、基于RAM，专门设计用于调试。（since version 2.6.10-rc3，<a href="https://en.wikipedia.org/wiki/Debugfs)。" target="_blank" rel="external">https://en.wikipedia.org/wiki/Debugfs)。</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mount -t debugfs none /sys/kernel/debug</div><div class="line">或者指定到自己的目录</div><div class="line">mkdir /debug</div><div class="line">mount -t debugfs nodev /debug</div></pre></td></tr></table></figure>
+<p>挂载之后会自动创建如下文件：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">/sys/kernel/debug<span class="comment"># ls -lrt</span></div><div class="line">drwxr-xr-x.  2 root root 0 12月 28 17:24 x86</div><div class="line">drwxr-xr-x.  3 root root 0 12月 28 17:24 boot_params</div><div class="line">drwxr-xr-x. 34 root root 0 12月 28 17:24 bdi</div><div class="line">-r--r--r--.  1 root root 0 12月 28 17:24 gpio</div><div class="line">drwxr-xr-x.  3 root root 0 12月 28 17:24 usb</div><div class="line">drwxr-xr-x.  4 root root 0 12月 28 17:24 xen</div><div class="line">drwxr-xr-x.  6 root root 0 12月 28 17:24 tracing</div><div class="line">drwxr-xr-x.  2 root root 0 12月 28 17:24 extfrag</div><div class="line">drwxr-xr-x.  2 root root 0 12月 28 17:24 dynamic_debug</div><div class="line">drwxr-xr-x.  2 root root 0 12月 28 17:24 hid</div><div class="line">-rw-r--r--.  1 root root 0 12月 28 17:24 sched_features</div><div class="line">drwxr-xr-x.  2 root root 0 12月 28 17:24 mce</div><div class="line">drwxr-xr-x.  2 root root 0 12月 28 17:24 kprobes</div><div class="line">-r--r--r--.  1 root root 0 12月 28 17:24 vmmemctl</div><div class="line">/sys/kernel/debug/tracing<span class="comment"># ls -lrt</span></div><div class="line">-rw-r--r--.  1 root root 0 12月 28 17:24 tracing_thresh</div><div class="line">-rw-r--r--.  1 root root 0 12月 28 17:24 tracing_on</div><div class="line">-rw-r--r--.  1 root root 0 12月 28 17:24 tracing_max_latency</div><div class="line">-rw-r--r--.  1 root root 0 12月 28 17:24 tracing_enabled</div><div class="line">-rw-r--r--.  1 root root 0 12月 28 17:24 tracing_cpumask</div><div class="line">drwxr-xr-x.  2 root root 0 12月 28 17:24 trace_stat</div><div class="line">-r--r--r--.  1 root root 0 12月 28 17:24 trace_pipe</div><div class="line">-rw-r--r--.  1 root root 0 12月 28 17:24 trace_options</div><div class="line">--w--w----.  1 root root 0 12月 28 17:24 trace_marker</div><div class="line">-rw-r--r--.  1 root root 0 12月 28 17:24 trace_clock</div><div class="line">-rw-r--r--.  1 root root 0 12月 28 17:24 trace</div><div class="line">-rw-r--r--.  1 root root 0 12月 28 17:24 sysprof_sample_period</div><div class="line">-r--r--r--.  1 root root 0 12月 28 17:24 set_graph_function</div><div class="line">-rw-r--r--.  1 root root 0 12月 28 17:24 set_ftrace_pid</div><div class="line">-rw-r--r--.  1 root root 0 12月 28 17:24 set_ftrace_notrace</div><div class="line">-r--r--r--.  1 root root 0 12月 28 17:24 saved_cmdlines</div><div class="line">-r--r--r--.  1 root root 0 12月 28 17:24 README</div><div class="line">drwxr-xr-x.  2 root root 0 12月 28 17:24 options</div><div class="line">-rw-r--r--.  1 root root 0 12月 28 17:24 function_profile_enabled</div><div class="line">-r--r--r--.  1 root root 0 12月 28 17:24 dyn_ftrace_total_info</div><div class="line">-rw-r--r--.  1 root root 0 12月 28 17:24 buffer_size_kb</div><div class="line">-r--r--r--.  1 root root 0 12月 28 17:24 available_tracers</div><div class="line">-r--r--r--.  1 root root 0 12月 28 17:24 available_filter_functions</div><div class="line">-rw-r--r--.  1 root root 0 12月 28 17:24 set_event</div><div class="line">-r--r--r--.  1 root root 0 12月 28 17:24 printk_formats</div><div class="line">drwxr-xr-x. 34 root root 0 12月 28 17:24 per_cpu</div><div class="line">drwxr-xr-x. 24 root root 0 12月 28 17:24 events</div><div class="line">-r--r--r--.  1 root root 0 12月 28 17:24 available_events</div><div class="line">-r--r--r--.  1 root root 0 12月 28 17:24 kprobe_profile</div><div class="line">-rw-r--r--.  1 root root 0 12月 28 17:24 kprobe_events</div><div class="line">-r--r--r--.  1 root root 0 12月 28 17:24 stack_trace</div><div class="line">-rw-r--r--.  1 root root 0 12月 28 17:24 stack_max_size</div><div class="line">-rw-r--r--.  1 root root 0 5月  31 11:50 current_tracer</div><div class="line">-rwxr-xr-x.  1 root root 0 5月  31 11:57 set_ftrace_filter</div></pre></td></tr></table></figure></p>
+<h2 id="三、BASIC"><a href="#三、BASIC" class="headerlink" title="三、BASIC"></a>三、BASIC</h2><h3 id="1-Function-tracer"><a href="#1-Function-tracer" class="headerlink" title="1. Function tracer"></a>1. Function tracer</h3><p>以Function tracer为例，结果存储在 <strong>trace</strong>，该文件类似一张报表，该表将显示 4 列信息。首先是进程信息，包括进程名和PID ；第二列是CPU；第三列是时间戳；第四列是函数信息，缺省情况下，这里将显示内核函数名以及它的上一层调用函数。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">cd /sys/kernel/debug/tracing</div><div class="line">echo function &gt; current_tracer</div><div class="line">cat trace</div><div class="line"></div><div class="line"># tracer: function</div><div class="line">#</div><div class="line">#  TASK-PID   CPU#  TIMESTAMP        FUNCTION</div><div class="line">#   |  |       |  </div><div class="line">gmond<span class="number">-6684</span>  [<span class="number">004</span>] <span class="number">13285965.088308</span>: _spin_lock &lt;-hrtimer_interrupt</div><div class="line">gmond<span class="number">-6684</span>  [<span class="number">004</span>] <span class="number">13285965.088308</span>: ktime_get_update_offsets &lt;-hrtimer_interrupt</div><div class="line">gmond<span class="number">-6684</span>  [<span class="number">004</span>] <span class="number">13285965.088309</span>: __run_hrtimer &lt;-hrtimer_interrupt</div><div class="line">gmond<span class="number">-6684</span>  [<span class="number">004</span>] <span class="number">13285965.088309</span>: __remove_hrtimer &lt;-__run_hrtimer</div><div class="line">gmond<span class="number">-6684</span>  [<span class="number">004</span>] <span class="number">13285965.088309</span>: tick_sched_timer &lt;-__run_hrtimer</div><div class="line">gmond<span class="number">-6684</span>  [<span class="number">004</span>] <span class="number">13285965.088309</span>: ktime_get &lt;-tick_sched_timer</div><div class="line">gmond<span class="number">-6684</span>  [<span class="number">004</span>] <span class="number">13285965.088310</span>: tick_do_update_jiffies64 &lt;-tick_sched_timer</div><div class="line">gmond<span class="number">-6684</span>  [<span class="number">004</span>] <span class="number">13285965.088310</span>: update_process_times &lt;-tick_sched_timer</div></pre></td></tr></table></figure>
+<h3 id="2-Function-graph-tracer"><a href="#2-Function-graph-tracer" class="headerlink" title="2. Function graph tracer"></a>2. Function graph tracer</h3><p>Function graph tracer 和 function tracer 类似，但输出为函数调用图，更加容易阅读：<br><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"># tracer: function_graph</div><div class="line">#</div><div class="line">#     TIME        CPU  DURATION                  FUNCTION CALLS</div><div class="line">#      |          |     |   |                     |   |   |   |</div><div class="line"> <span class="number">21</span>)   ==========&gt; |</div><div class="line"> <span class="number">21</span>)               |  smp_apic_timer_interrupt() &#123;</div><div class="line"> <span class="number">31</span>)   ==========&gt; |</div><div class="line"> <span class="number">31</span>)               |  smp_apic_timer_interrupt() &#123;</div><div class="line"> <span class="number">8</span>)               |  smp_apic_timer_interrupt() &#123;</div><div class="line"> <span class="number">11</span>)   <span class="number">2.598</span> us    |    native_apic_mem_write();</div><div class="line"> <span class="number">18</span>)   <span class="number">3.106</span> us    |    native_apic_mem_write();</div><div class="line"> <span class="number">30</span>)   ==========&gt; |</div><div class="line"> <span class="number">30</span>)               |  smp_apic_timer_interrupt() &#123;</div><div class="line">  <span class="number">3</span>)   <span class="number">3.590</span> us    |    native_apic_mem_write();</div><div class="line"> <span class="number">22</span>)   <span class="number">2.944</span> us    |    native_apic_mem_write();</div><div class="line">  <span class="number">7</span>)   <span class="number">3.392</span> us    |    native_apic_mem_write();</div><div class="line"> <span class="number">17</span>)   ==========&gt; |</div><div class="line"> <span class="number">17</span>)               |  smp_apic_timer_interrupt() &#123;</div><div class="line"> <span class="number">27</span>)   ==========&gt; |</div><div class="line"> <span class="number">27</span>)               |  smp_apic_timer_interrupt() &#123;</div><div class="line"> <span class="number">16</span>)   ==========&gt; |</div><div class="line"> <span class="number">16</span>)               |  smp_apic_timer_interrupt() &#123;</div></pre></td></tr></table></figure></p>
+<p><img src="http://og2061b3n.bkt.clouddn.com/DTrace_ftrace_tracers.png" alt="Linux ftrace tracers"></p>
+<h2 id="四、体系结构"><a href="#四、体系结构" class="headerlink" title="四、体系结构"></a>四、体系结构</h2><p>Ftrace有两大组成部分，framework和一系列的tracer 。每个tracer完成不同的功能，它们统一由framework管理。 ftrace 的trace信息保存在ring buffer中，由framework负责管理。Framework 利用debugfs建立tracing目录，并提供了一系列的控制文件。</p>
+<p><img src="http://og2061b3n.bkt.clouddn.com/DTrace_ftrace_arch.png" alt="Linux ftrace架构示意图"></p>
+<p><strong>ftrace is a dynamic tracing system.</strong> 当你开始“ftracing”一个内核函数的时候，该函数的代码实际上就已经发生变化了。内核将在程序集中插入一些额外的指令，使得函数调用时可以随时通知追踪程序。</p>
+<blockquote>
+<p>WARNNING:使用ftrace追踪内核将有可能对系统性能产生影响，追踪的函数越多，开销越大。<br>使用者必须提前做好准备工作，生产环境必须谨慎使用。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#cat available_tracers //查看支持的tracers</span></div><div class="line">blk kmemtrace function_graph wakeup_rt wakeup <span class="keyword">function</span> sysprof sched_switch initcall nop</div></pre></td></tr></table></figure>
+<h2 id="五、Useful-Tools"><a href="#五、Useful-Tools" class="headerlink" title="五、Useful Tools"></a>五、Useful Tools</h2><h3 id="1-trace-cmd"><a href="#1-trace-cmd" class="headerlink" title="1. trace-cmd"></a>1. trace-cmd</h3><p>trace-cmd是一个非常有用的Ftrace命令行工具。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install trace-cmd</div><div class="line">或者</div><div class="line">git <span class="built_in">clone</span> git://git.kernel.org/pub/scm/linux/kernel/git/rostedt/trace-cmd.git</div></pre></td></tr></table></figure></p>
+<p>使用方法：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">sudo trace-cmd record --help <span class="comment">#help</span></div><div class="line">sudo trace-cmd record -p <span class="keyword">function</span> -P 123456 <span class="comment">#record for PID</span></div><div class="line">sudo trace-cmd record -p <span class="keyword">function</span> <span class="_">-l</span> do_page_fault <span class="comment">#record for function</span></div><div class="line">  plugin <span class="string">'function'</span></div><div class="line">Hit Ctrl^C to stop recording</div></pre></td></tr></table></figure></p>
+<p>trace.dat<br><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$ sudo trace-cmd report</div><div class="line">          chrome<span class="number">-15144</span> [<span class="number">000</span>] <span class="number">11446.466121</span>: function:             do_page_fault</div><div class="line">          chrome<span class="number">-15144</span> [<span class="number">000</span>] <span class="number">11446.467910</span>: function:             do_page_fault</div><div class="line">          chrome<span class="number">-15144</span> [<span class="number">000</span>] <span class="number">11446.469174</span>: function:             do_page_fault</div><div class="line">          chrome<span class="number">-15144</span> [<span class="number">000</span>] <span class="number">11446.474225</span>: function:             do_page_fault</div><div class="line">          chrome<span class="number">-15144</span> [<span class="number">000</span>] <span class="number">11446.474386</span>: function:             do_page_fault</div><div class="line">          chrome<span class="number">-15144</span> [<span class="number">000</span>] <span class="number">11446.478768</span>: function:             do_page_fault</div><div class="line"> CompositorTileW<span class="number">-15154</span> [<span class="number">001</span>] <span class="number">11446.480172</span>: function:             do_page_fault</div><div class="line">          chrome<span class="number">-1830</span>  [<span class="number">003</span>] <span class="number">11446.486696</span>: function:             do_page_fault</div><div class="line"> CompositorTileW<span class="number">-15154</span> [<span class="number">001</span>] <span class="number">11446.488983</span>: function:             do_page_fault</div><div class="line"> CompositorTileW<span class="number">-15154</span> [<span class="number">001</span>] <span class="number">11446.489034</span>: function:             do_page_fault</div><div class="line"> CompositorTileW<span class="number">-15154</span> [<span class="number">001</span>] <span class="number">11446.489045</span>: function:             do_page_fault</div></pre></td></tr></table></figure></p>
+<p>在很有情况下不能使用函数追踪，需要依赖 <strong>事件追踪</strong> 的支持，例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># cat available_events  //查看支持的事件类型</span></div><div class="line">power:power_start</div><div class="line">power:power_frequency</div><div class="line">power:power_end</div><div class="line"></div><div class="line"><span class="built_in">sched</span>:sched_kthread_stop</div><div class="line"><span class="built_in">sched</span>:sched_kthread_stop_ret</div><div class="line"><span class="built_in">sched</span>:sched_wait_task</div><div class="line"><span class="built_in">sched</span>:sched_wakeup</div><div class="line"><span class="built_in">sched</span>:sched_wakeup_new</div><div class="line"><span class="built_in">sched</span>:sched_switch</div><div class="line"><span class="built_in">sched</span>:sched_migrate_task</div><div class="line"><span class="built_in">sched</span>:sched_process_free</div><div class="line"><span class="built_in">sched</span>:sched_process_exit</div><div class="line"><span class="built_in">sched</span>:sched_process_wait</div><div class="line"><span class="built_in">sched</span>:sched_process_fork</div><div class="line"><span class="built_in">sched</span>:sched_stat_wait</div><div class="line"><span class="built_in">sched</span>:sched_stat_sleep</div><div class="line"><span class="built_in">sched</span>:sched_stat_iowait</div><div class="line"><span class="built_in">sched</span>:sched_stat_runtime</div><div class="line"></div><div class="line">sudo trace-cmd record <span class="_">-e</span> <span class="built_in">sched</span>:sched_switch</div><div class="line">sudo trace-cmd report</div></pre></td></tr></table></figure>
+<p>输出如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">16169.624862:   Chrome_ChildIOT:24817 [112] S ==&gt; chrome:15144 [120]</div><div class="line">16169.624992:   chrome:15144 [120] S ==&gt; swapper/3:0 [120]</div><div class="line">16169.625202:   swapper/3:0 [120] R ==&gt; Chrome_ChildIOT:24817 [112]</div><div class="line">16169.625251:   Chrome_ChildIOT:24817 [112] R ==&gt; chrome:1561 [112]</div><div class="line">16169.625437:   chrome:1561 [112] S ==&gt; chrome:15144 [120]</div></pre></td></tr></table></figure></p>
+<p>切换路径：PID 24817 -&gt; 15144 -&gt; kernel -&gt; 24817 -&gt; 1561 -&gt; 15114。</p>
+<h3 id="2-perf-tools"><a href="#2-perf-tools" class="headerlink" title="2. perf-tools"></a>2. perf-tools</h3><p><strong>perf-tools</strong> 是性能调试大神Brendan Gregg开发的一个工具包，提供了很多强大的功能，例如：<br>iosnoop: 磁盘I/O分析详细包括延迟<br>iolatency: 磁盘I/O分析概要(柱状图)<br>execsnoop: 追踪进程exec()<br>opensnoop: 追踪open()系统调用，包含文件名<br>killsnoop: 追踪kill()信号（进程和信号详细）</p>
+<p>代码下载：<a href="https://github.com/brendangregg/perf-tools" target="_blank" rel="external">https://github.com/brendangregg/perf-tools</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># ./execsnoop  //显示新进程和参数：</span></div><div class="line">Tracing <span class="built_in">exec</span>()s. Ctrl-C to end.</div><div class="line">   PID   PPID ARGS</div><div class="line"> 22898  22004 man ls</div><div class="line"> 22905  22898 preconv <span class="_">-e</span> UTF-8</div><div class="line"> 22908  22898 pager <span class="_">-s</span></div><div class="line"> 22907  22898 nroff -mandoc -rLL=164n -rLT=164n -Tutf8</div><div class="line"> 22906  22898 tbl</div><div class="line"> 22911  22910 locale charmap</div><div class="line"> 22912  22907 groff -mtty-char -Tutf8 -mandoc -rLL=164n -rLT=164n</div><div class="line"> 22913  22912 troff -mtty-char -mandoc -rLL=164n -rLT=164n -Tutf8</div><div class="line"> 22914  22912 grotty</div><div class="line"></div><div class="line"><span class="comment"># ./iolatency -Q  //测量设备I/O延迟</span></div><div class="line">Tracing block I/O. Output every 1 seconds. Ctrl-C to end.</div><div class="line">  &gt;=(ms) .. &lt;(ms)   : I/O      |Distribution                          |</div><div class="line">       0 -&gt; 1       : 1913     |<span class="comment">######################################|</span></div><div class="line">       1 -&gt; 2       : 438      |<span class="comment">#########                             |</span></div><div class="line">       2 -&gt; 4       : 100      |<span class="comment">##                                    |</span></div><div class="line">       4 -&gt; 8       : 145      |<span class="comment">###                                   |</span></div><div class="line">       8 -&gt; 16      : 43       |<span class="comment">#                                     |</span></div><div class="line">      16 -&gt; 32      : 43       |<span class="comment">#                                     |</span></div><div class="line">      32 -&gt; 64      : 1        |<span class="comment">#                                     |</span></div><div class="line">[...]</div></pre></td></tr></table></figure>
+<h2 id="六、可视化工具-KernelShark"><a href="#六、可视化工具-KernelShark" class="headerlink" title="六、可视化工具:KernelShark"></a>六、可视化工具:KernelShark</h2><p>KernelShark是trace-cmd的前端工具，提供了对trace.dat的可视化分析（Graph View 、List View、Simple and Advance filtering）。<br><img src="https://static.lwn.net/images/2011/ks-success-zoom-task.png" alt="Linux ftrace KernelShark"></p>
+<p><img src="http://og2061b3n.bkt.clouddn.com/DTrace_ftrace_KernelShark_Filters.png" alt="Linux ftrace KernelShark Filters"></p>
+<h2 id="扩展阅读：动态追踪技术"><a href="#扩展阅读：动态追踪技术" class="headerlink" title="扩展阅读：动态追踪技术"></a>扩展阅读：动态追踪技术</h2><ul>
+<li><a href="https://riboseyim.github.io/2017/05/29/Linux-Works/" target="_blank" rel="external">操作系统原理 | How Linux Works（一）：How the Linux Kernel Boots</a></li>
+<li><a href="https://riboseyim.github.io/2017/05/29/Linux-Works/" target="_blank" rel="external">操作系统原理 | How Linux Works（二）：User Space &amp; RAM</a></li>
+<li><a href="https://riboseyim.github.io/2017/12/11/Linux-Works-Memory/" target="_blank" rel="external">操作系统原理 | How Linux Works（三）：Memory</a></li>
+<li><a href="https://riboseyim.github.io/2016/11/26/DTrace/" target="_blank" rel="external">动态追踪技术(一)：DTrace 导论</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MjM5MTY1MjQ3Nw==&amp;mid=2651939588&amp;idx=1&amp;sn=35f71c5f88d1edf23cb2efc812ab8e6c&amp;chksm=bd578c168a20050041c08618281691f0111f61c789097a69095933057618637fc54817815921#rd" target="_blank" rel="external">动态追踪技术(二)：strace+gdb 溯源 Nginx 内存溢出异常 </a></li>
+<li><a href="https://riboseyim.github.io/2017/04/17/DTrace_FTrace/" target="_blank" rel="external">动态追踪技术(三)：Tracing Your Kernel Function!</a></li>
+<li><a href="https://riboseyim.github.io/2017/06/27/DTrace_bcc/" target="_blank" rel="external">动态追踪技术(四)：基于 Linux bcc/BPF 实现 Go 程序动态追踪</a></li>
+<li><a href="https://riboseyim.github.io/2018/02/16/DTrace-Linux/" target="_blank" rel="external">动态追踪技术(五)：Welcome DTrace for Linux</a></li>
+</ul>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
+<li><a href="https://jvns.ca/blog/2017/03/19/getting-started-with-ftrace/" target="_blank" rel="external">(Key)Julia Evans:ftrace: trace your kernel functions!</a></li>
+<li><a href="https://www.ibm.com/developerworks/cn/linux/l-cn-ftrace/" target="_blank" rel="external">(Key)IBM developerWorks@刘明：ftrace简介,2009</a></li>
+<li><a href="https://lwn.net/Articles/365835/" target="_blank" rel="external">Debugging the kernel using Ftrace - part 1 (Dec 2009, Steven Rostedt)</a></li>
+<li><a href="https://lwn.net/Articles/366796/" target="_blank" rel="external">Debugging the kernel using Ftrace - part 2 (Dec 2009, Steven Rostedt</a></li>
+<li><a href="https://lwn.net/Articles/370423/" target="_blank" rel="external">Secrets of the Linux function tracer (Jan 2010, Steven Rostedt)</a></li>
+<li><a href="https://lwn.net/Articles/410200/" target="_blank" rel="external">trace-cmd: A front-end for Ftrace (Oct 2010, Steven Rostedt)</a></li>
+<li><a href="https://lwn.net/Articles/425583/" target="_blank" rel="external">Using KernelShark to analyze the real-time scheduler (2011, Steven Rostedt)</a></li>
+<li><a href="https://lwn.net/Articles/608497/" target="_blank" rel="external">Ftrace: The hidden light switch (2014, Brendan Gregg)</a></li>
+<li><a href="https://www.kernel.org/doc/Documentation/trace/ftrace.txt" target="_blank" rel="external">(Key)the kernel documentation:ftrace.txt</a></li>
+<li><a href="">documentation on events you can trace Documentation/events.txt</a></li>
+<li><a href="">some docs on ftrace design for linux kernel devs (not as useful, but interesting)</a></li>
+<li><a href="">Documentation/ftrace-design.txt</a></li>
+<li><a href="http://rostedt.homelinux.com/kernelshark/" target="_blank" rel="external">trace-cmd图形化工具：KernelShark</a></li>
+<li><a href="https://www.youtube.com/watch?v=ABRtzVtUVBo" target="_blank" rel="external">Youtube:ELC2011 Ftrace GUI (KernelShark)</a></li>
+<li><a href="http://elinux.org/images/6/64/Elc2011_rostedt.pdf" target="_blank" rel="external">(Key)StevenRostedt:ELC2011_KernelShark(quick tutorial)(PDF)</a></li>
+</ul>
+<p><a href="https://riboseyim.github.io/" target="_blank" rel="external">source:https://riboseyim.github.io/</a></p>
+
+      
+
+    </div>
+    
+  </div>
+  
+    <div class="article-entry" itemprop="articleBody">
+      <p>
+        更多精彩内容扫码关注公众号,RiboseYim's Blog：<a href="https://riboseyim.github.io" target="_blank" rel="external">https://riboseyim.github.io</a>
+        <br>
+        <a href="http://o8m8ngokc.bkt.clouddn.com/ID_RiboseYim_201706.png" title="微信公众号@睿哥杂货铺" rel="fancy-group" class="fancy-ctn fancybox">
+          <img src="http://o8m8ngokc.bkt.clouddn.com/ID_RiboseYim_201706.png" title="微信公众号@睿哥杂货铺">
+          <img src="http://o8m8ngokc.bkt.clouddn.com/quanzi-rui-small.png" title="睿哥读书会">
+        </a>
+      </p>
+    </div>
+    
+<nav id="article-nav">
+  
+    <a href="/2017/04/20/MrGuZhun/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          香山野史·豪侠列传:顾准
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/04/13/Artistic-Les-Miserables/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">世纪小说《悲惨世界》</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		  <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" target="_blank">Copyright 2016-2018 RiboseYim
+      授权：保持署名-非商业性使用-禁止演绎| License BY-NC-ND 4.0 </a>
+    </div>
+      	<div class="footer-right">
+      		<a href="https://riboseyim.github.io/2016/05/31/AboutMe/" target="_blank"> 联系作者 </a>
+      	</div>
+    </div>
+  </div>
+</footer>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1258500076'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1258500076%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: true
+	}
+</script>
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+  </div>
+</body>
+</html>

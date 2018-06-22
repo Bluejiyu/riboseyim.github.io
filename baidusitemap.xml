@@ -4,6 +4,716 @@
 
     
   <url>
+    <loc>http://riboseyim.github.com/2018/01/03/OpenSource-DB-PostgreSQL/</loc>
+    <lastmod>2018-06-22T10:50:06.544Z</lastmod>
+    <data>
+        <display>
+        <title>开源技术架构漫谈：PostgreSQL 数据库</title>
+        <pubTime>2018-01-03T06:26:23.000Z</pubTime>
+        
+        <tag>DevOps</tag>
+         
+        <tag>数据库</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2017/11/05/OpenSource-Operational/</loc>
+    <lastmod>2018-06-22T08:38:45.110Z</lastmod>
+    <data>
+        <display>
+        <title>引入开源软件的六大运营挑战</title>
+        <pubTime>2017-11-05T14:12:41.000Z</pubTime>
+        
+        <tag>OpenSource</tag>
+         
+        <tag>DevOps</tag>
+         
+        <tag>Linux</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2016/04/26/OpenSource/</loc>
+    <lastmod>2018-06-22T08:38:19.655Z</lastmod>
+    <data>
+        <display>
+        <title>开源技术架构漫谈:开源社区、产业与知识产权</title>
+        <pubTime>2016-04-26T08:52:53.000Z</pubTime>
+        
+        <tag>OpenSource</tag>
+         
+        <tag>DevOps</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2017/05/23/RestfulAPI/</loc>
+    <lastmod>2018-06-22T08:17:32.616Z</lastmod>
+    <data>
+        <display>
+        <title>开源技术架构漫谈：基于Go语言快速构建RESTful API服务</title>
+        <pubTime>2017-05-23T06:14:12.000Z</pubTime>
+        
+        <tag>DevOps</tag>
+         
+        <tag>Developer</tag>
+         
+        <tag>Golang</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2017/07/06/Visualization/</loc>
+    <lastmod>2018-06-21T04:05:14.981Z</lastmod>
+    <data>
+        <display>
+        <title>开源技术架构漫谈：数据可视化</title>
+        <pubTime>2017-07-06T06:37:06.000Z</pubTime>
+        
+        <tag>架构师</tag>
+         
+        <tag>DevOps</tag>
+         
+        <tag>数据可视化</tag>
+         
+        <tag>Developer</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2017/09/15/Visualization-Graphviz/</loc>
+    <lastmod>2018-06-21T04:04:11.091Z</lastmod>
+    <data>
+        <display>
+        <title>数据可视化（三）基于 Graphviz 实现程序化绘图</title>
+        <pubTime>2017-09-15T08:28:30.000Z</pubTime>
+        
+        <tag>架构师</tag>
+         
+        <tag>数据可视化</tag>
+         
+        <tag>Developer</tag>
+         
+        <tag>数学与算法</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2017/12/04/Visualization-Graphite/</loc>
+    <lastmod>2018-06-21T04:03:06.963Z</lastmod>
+    <data>
+        <display>
+        <title>数据可视化（七）Graphite 体系结构详解</title>
+        <pubTime>2017-12-04T03:11:49.000Z</pubTime>
+        
+        <tag>架构师</tag>
+         
+        <tag>数据可视化</tag>
+         
+        <tag>Developer</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2017/06/12/OpenSource-Kafka-Microservice/</loc>
+    <lastmod>2018-06-21T03:56:02.850Z</lastmod>
+    <data>
+        <display>
+        <title>开源架构技术漫谈：基于Kafka构建事件溯源模式的微服务</title>
+        <pubTime>2017-06-12T10:11:25.000Z</pubTime>
+        
+        <tag>OpenSource</tag>
+         
+        <tag>DevOps</tag>
+         
+        <tag>Developer</tag>
+         
+        <tag>Golang</tag>
+         
+        <tag>SRE</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2016/04/26/Law/</loc>
+    <lastmod>2018-06-21T03:53:37.786Z</lastmod>
+    <data>
+        <display>
+        <title>Catalog：法律</title>
+        <pubTime>2016-04-26T03:49:42.000Z</pubTime>
+        
+        <tag>Policy&amp;Law</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2018/02/02/Mathmetics-Tools/</loc>
+    <lastmod>2018-06-21T03:51:28.996Z</lastmod>
+    <data>
+        <display>
+        <title>数学工具指南</title>
+        <pubTime>2018-02-02T03:57:04.000Z</pubTime>
+        
+        <tag>架构师</tag>
+         
+        <tag>数学与算法</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2017/05/29/Linux-Works/</loc>
+    <lastmod>2018-06-21T03:50:38.759Z</lastmod>
+    <data>
+        <display>
+        <title>操作系统原理：How Linux Works(Initial)</title>
+        <pubTime>2017-05-29T12:39:19.000Z</pubTime>
+        
+        <tag>架构师</tag>
+         
+        <tag>DevOps</tag>
+         
+        <tag>Linux</tag>
+         
+        <tag>SRE</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2017/06/19/Machine-Learning/</loc>
+    <lastmod>2018-06-21T03:49:00.552Z</lastmod>
+    <data>
+        <display>
+        <title>机器学习(Machine Learning)小组</title>
+        <pubTime>2017-06-19T08:31:00.000Z</pubTime>
+        
+        <tag>架构师</tag>
+         
+        <tag>DevOps</tag>
+         
+        <tag>Developer</tag>
+         
+        <tag>数学与算法</tag>
+         
+        <tag>Machine-Learning</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2017/12/11/Linux-Works-Memory/</loc>
+    <lastmod>2018-06-21T03:47:30.014Z</lastmod>
+    <data>
+        <display>
+        <title>操作系统原理:How Linux Works(三):Memory</title>
+        <pubTime>2017-12-10T16:36:27.000Z</pubTime>
+        
+        <tag>架构师</tag>
+         
+        <tag>DevOps</tag>
+         
+        <tag>Linux</tag>
+         
+        <tag>SRE</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2017/12/19/Linux-Win-Mac/</loc>
+    <lastmod>2018-06-21T03:45:45.825Z</lastmod>
+    <data>
+        <display>
+        <title>Linux-Win-Mac</title>
+        <pubTime>2017-12-19T10:15:49.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2017/05/24/Log/</loc>
+    <lastmod>2018-06-21T03:45:06.974Z</lastmod>
+    <data>
+        <display>
+        <title>开源技术架构漫谈：应用程序的日志管理及可视化</title>
+        <pubTime>2017-05-24T06:22:56.000Z</pubTime>
+        
+        <tag>架构师</tag>
+         
+        <tag>DevOps</tag>
+         
+        <tag>Developer</tag>
+         
+        <tag>Golang</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2016/05/28/Linux/</loc>
+    <lastmod>2018-06-21T03:44:12.613Z</lastmod>
+    <data>
+        <display>
+        <title>Catalog:Linux 操作系统专题</title>
+        <pubTime>2016-05-28T09:27:39.000Z</pubTime>
+        
+        <tag>架构师</tag>
+         
+        <tag>OpenSource</tag>
+         
+        <tag>DevOps</tag>
+         
+        <tag>Linux</tag>
+         
+        <tag>Developer</tag>
+         
+        <tag>SRE</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2017/07/05/Law-Of-Engineering/</loc>
+    <lastmod>2018-06-21T03:43:05.413Z</lastmod>
+    <data>
+        <display>
+        <title>The Road To Leader：软件工程实践中的十大法则</title>
+        <pubTime>2017-07-05T14:26:05.000Z</pubTime>
+        
+        <tag>最佳工程实践</tag>
+         
+        <tag>DevOps</tag>
+         
+        <tag>Manager</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2017/05/05/Language-Go-lang/</loc>
+    <lastmod>2018-06-21T03:40:45.202Z</lastmod>
+    <data>
+        <display>
+        <title>Catalog：玩转编程语言 - Golang 专题</title>
+        <pubTime>2017-05-05T06:56:56.000Z</pubTime>
+        
+        <tag>架构师</tag>
+         
+        <tag>DevOps</tag>
+         
+        <tag>Developer</tag>
+         
+        <tag>Golang</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2017/05/16/Languae-R-lang/</loc>
+    <lastmod>2018-06-21T03:36:42.243Z</lastmod>
+    <data>
+        <display>
+        <title>玩转编程语言:R</title>
+        <pubTime>2017-05-16T02:13:04.000Z</pubTime>
+        
+        <tag>Developer</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2017/05/28/History-Caoyun/</loc>
+    <lastmod>2018-06-21T03:36:20.051Z</lastmod>
+    <data>
+        <display>
+        <title>黄仁宇：明代的漕运</title>
+        <pubTime>2017-05-28T14:13:11.000Z</pubTime>
+        
+        <tag>Economist</tag>
+         
+        <tag>History</tag>
+         
+        <tag>Policy&amp;Law</tag>
+         
+        <tag>Manager</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2016/11/26/DTrace/</loc>
+    <lastmod>2018-06-21T03:34:38.143Z</lastmod>
+    <data>
+        <display>
+        <title>动态追踪技术专题</title>
+        <pubTime>2016-11-25T17:21:31.000Z</pubTime>
+        
+        <tag>DevOps</tag>
+         
+        <tag>Linux</tag>
+         
+        <tag>DTrace</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2017/08/21/DevOps-Docker/</loc>
+    <lastmod>2018-06-21T03:30:50.547Z</lastmod>
+    <data>
+        <display>
+        <title>DevOps 漫谈：Docker</title>
+        <pubTime>2017-08-21T05:46:54.000Z</pubTime>
+        
+        <tag>架构师</tag>
+         
+        <tag>DevOps</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2017/11/15/DevOps-Container-Kubernetes/</loc>
+    <lastmod>2018-06-21T03:26:07.072Z</lastmod>
+    <data>
+        <display>
+        <title>DevOps-Container-Kubernetes</title>
+        <pubTime>2017-11-15T10:23:30.000Z</pubTime>
+        
+        <tag>DevOps</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2018/01/01/Check2018/</loc>
+    <lastmod>2018-06-21T03:21:54.354Z</lastmod>
+    <data>
+        <display>
+        <title>Autobiography:我的2018年度盘点</title>
+        <pubTime>2018-01-01T06:10:13.000Z</pubTime>
+        
+        <tag>我的自传</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2018/05/14/Addiction-Decision-Coffee/</loc>
+    <lastmod>2018-06-21T03:18:01.416Z</lastmod>
+    <data>
+        <display>
+        <title>嗑药简史：咖啡上瘾，喝还是不喝？</title>
+        <pubTime>2018-05-14T11:23:23.000Z</pubTime>
+        
+        <tag>Medical</tag>
+         
+        <tag>Science</tag>
+         
+        <tag>Health</tag>
+         
+        <tag>Economist</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2016/09/01/AAA/</loc>
+    <lastmod>2018-06-21T03:15:39.328Z</lastmod>
+    <data>
+        <display>
+        <title>基于LVS的AAA负载均衡架构实践</title>
+        <pubTime>2016-09-01T11:56:40.000Z</pubTime>
+        
+        <tag>最佳工程实践</tag>
+         
+        <tag>架构师</tag>
+         
+        <tag>OpenSource</tag>
+         
+        <tag>DevOps</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2018/06/19/Learning-Template/</loc>
+    <lastmod>2018-06-19T09:26:27.924Z</lastmod>
+    <data>
+        <display>
+        <title>Learning-Template</title>
+        <pubTime>2018-06-18T16:04:41.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2016/07/17/OpenSource-StackOverflow/</loc>
+    <lastmod>2018-06-16T06:38:49.000Z</lastmod>
+    <data>
+        <display>
+        <title>开源技术架构漫谈：Stack Overflow 架构全解析</title>
+        <pubTime>2016-07-17T06:12:37.000Z</pubTime>
+        
+        <tag>最佳工程实践</tag>
+         
+        <tag>DevOps</tag>
+         
+        <tag>Linux</tag>
+         
+        <tag>网络协议</tag>
+         
+        <tag>SRE</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2017/05/26/Protocol/</loc>
+    <lastmod>2018-06-16T06:34:05.000Z</lastmod>
+    <data>
+        <display>
+        <title>Catalog:计算机网络协议大全(Protocol)</title>
+        <pubTime>2017-05-26T02:30:59.000Z</pubTime>
+        
+        <tag>DevOps</tag>
+         
+        <tag>网络协议</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2017/05/16/Language-Node-lang/</loc>
+    <lastmod>2018-06-14T09:57:56.000Z</lastmod>
+    <data>
+        <display>
+        <title>玩转编程语言:Node.js</title>
+        <pubTime>2017-05-16T03:38:23.000Z</pubTime>
+        
+        <tag>Developer</tag>
+         
+        <tag>Nodejs</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2017/05/26/Catalog/</loc>
+    <lastmod>2018-06-14T09:46:57.000Z</lastmod>
+    <data>
+        <display>
+        <title>RiboseYim's Blog Root Catalog</title>
+        <pubTime>2017-05-26T02:50:49.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2016/10/07/CyberSecurity/</loc>
+    <lastmod>2018-06-14T07:06:56.000Z</lastmod>
+    <data>
+        <display>
+        <title>Cyber-Security:网络安全专题合集</title>
+        <pubTime>2016-10-06T16:57:40.000Z</pubTime>
+        
+        <tag>架构师</tag>
+         
+        <tag>DevOps</tag>
+         
+        <tag>Policy&amp;Law</tag>
+         
+        <tag>Cyber-Security</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2016/06/12/CyberSecurity-Trojan/</loc>
+    <lastmod>2018-06-14T07:05:56.000Z</lastmod>
+    <data>
+        <display>
+        <title>木马来袭:Linux/XOR.DDoS样本分析</title>
+        <pubTime>2016-06-12T01:46:57.000Z</pubTime>
+        
+        <tag>DevOps</tag>
+         
+        <tag>Cyber-Security</tag>
+         
+        <tag>Linux</tag>
+         
+        <tag>网络协议</tag>
+         
+        <tag>Developer</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2017/10/29/CyberSecurity-WiFi/</loc>
+    <lastmod>2018-06-14T07:05:49.000Z</lastmod>
+    <data>
+        <display>
+        <title>Cyber-Security:警惕Wi-Fi漏洞</title>
+        <pubTime>2017-10-29T09:39:02.000Z</pubTime>
+        
+        <tag>DevOps</tag>
+         
+        <tag>Policy&amp;Law</tag>
+         
+        <tag>Cyber-Security</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://riboseyim.github.com/2018/04/27/DevOps-OpenCensus/</loc>
     <lastmod>2018-06-14T05:27:35.866Z</lastmod>
     <data>
@@ -46,25 +756,6 @@
 
     
   <url>
-    <loc>http://riboseyim.github.com/2017/08/21/DevOps-Docker/</loc>
-    <lastmod>2018-06-13T07:08:23.703Z</lastmod>
-    <data>
-        <display>
-        <title>DevOps 漫谈：Docker</title>
-        <pubTime>2017-08-21T05:46:54.000Z</pubTime>
-        
-        <tag>架构师</tag>
-         
-        <tag>DevOps</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://riboseyim.github.com/2018/06/12/DevOps-Container-Usage/</loc>
     <lastmod>2018-06-13T06:57:28.332Z</lastmod>
     <data>
@@ -78,38 +769,6 @@
          
         <tag>网络协议</tag>
          
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://riboseyim.github.com/2018/01/01/Check2018/</loc>
-    <lastmod>2018-06-12T13:59:01.897Z</lastmod>
-    <data>
-        <display>
-        <title>Autobiography:我的2018年度盘点</title>
-        <pubTime>2018-01-01T06:10:13.000Z</pubTime>
-        
-        <tag>我的自传</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://riboseyim.github.com/2017/05/26/Catalog/</loc>
-    <lastmod>2018-06-12T13:57:05.098Z</lastmod>
-    <data>
-        <display>
-        <title>RiboseYim's Blog Root Catalog</title>
-        <pubTime>2017-05-26T02:50:49.000Z</pubTime>
-        
          
            
         </display>
@@ -158,23 +817,6 @@
 
     
   <url>
-    <loc>http://riboseyim.github.com/2017/11/15/DevOps-Container-Kubernetes/</loc>
-    <lastmod>2018-06-12T10:09:55.497Z</lastmod>
-    <data>
-        <display>
-        <title>DevOps-Container-Kubernetes</title>
-        <pubTime>2017-11-15T10:23:30.000Z</pubTime>
-        
-        <tag>DevOps</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://riboseyim.github.com/2017/11/12/DevOps-Container-Security/</loc>
     <lastmod>2018-06-12T10:09:30.690Z</lastmod>
     <data>
@@ -187,29 +829,6 @@
         <tag>Cyber-Security</tag>
          
         <tag>网络协议</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://riboseyim.github.com/2017/05/29/Linux-Works/</loc>
-    <lastmod>2018-06-11T07:04:37.098Z</lastmod>
-    <data>
-        <display>
-        <title>操作系统原理：How Linux Works(Initial)</title>
-        <pubTime>2017-05-29T12:39:19.000Z</pubTime>
-        
-        <tag>架构师</tag>
-         
-        <tag>DevOps</tag>
-         
-        <tag>Linux</tag>
-         
-        <tag>SRE</tag>
          
          
            
@@ -516,31 +1135,6 @@
 
     
   <url>
-    <loc>http://riboseyim.github.com/2017/06/12/OpenSource-Kafka-Microservice/</loc>
-    <lastmod>2018-05-31T17:25:00.009Z</lastmod>
-    <data>
-        <display>
-        <title>开源架构技术漫谈：基于Kafka构建事件溯源模式的微服务</title>
-        <pubTime>2017-06-12T10:11:25.000Z</pubTime>
-        
-        <tag>OpenSource</tag>
-         
-        <tag>DevOps</tag>
-         
-        <tag>Developer</tag>
-         
-        <tag>Golang</tag>
-         
-        <tag>SRE</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://riboseyim.github.com/2016/08/15/OpenSource-Kafka/</loc>
     <lastmod>2018-05-31T17:24:52.457Z</lastmod>
     <data>
@@ -553,27 +1147,6 @@
         <tag>DevOps</tag>
          
         <tag>SRE</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://riboseyim.github.com/2017/11/05/OpenSource-Operational/</loc>
-    <lastmod>2018-05-31T17:24:43.863Z</lastmod>
-    <data>
-        <display>
-        <title>The Linux Foundation：引入开源软件的六大运营挑战</title>
-        <pubTime>2017-11-05T14:12:41.000Z</pubTime>
-        
-        <tag>OpenSource</tag>
-         
-        <tag>DevOps</tag>
-         
-        <tag>Linux</tag>
          
          
            
@@ -600,31 +1173,6 @@
 
     
   <url>
-    <loc>http://riboseyim.github.com/2016/07/17/OpenSource-StackOverflow/</loc>
-    <lastmod>2018-05-31T17:24:19.610Z</lastmod>
-    <data>
-        <display>
-        <title>开源技术架构漫谈：Stack Overflow 架构全解析</title>
-        <pubTime>2016-07-17T06:12:37.000Z</pubTime>
-        
-        <tag>最佳工程实践</tag>
-         
-        <tag>DevOps</tag>
-         
-        <tag>Linux</tag>
-         
-        <tag>网络协议</tag>
-         
-        <tag>SRE</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://riboseyim.github.com/2016/04/26/OpenSource-ZeroMQ/</loc>
     <lastmod>2018-05-31T17:24:14.873Z</lastmod>
     <data>
@@ -633,25 +1181,6 @@
         <pubTime>2016-04-26T03:56:32.000Z</pubTime>
         
         <tag>OpenSource</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://riboseyim.github.com/2016/04/26/OpenSource/</loc>
-    <lastmod>2018-05-31T17:24:04.305Z</lastmod>
-    <data>
-        <display>
-        <title>开源技术架构漫谈:开源社区、产业与知识产权</title>
-        <pubTime>2016-04-26T08:52:53.000Z</pubTime>
-        
-        <tag>OpenSource</tag>
-         
-        <tag>DevOps</tag>
          
          
            
@@ -749,25 +1278,6 @@
         <display>
         <title>计算机网络协议：UDP</title>
         <pubTime>2017-05-12T10:22:19.000Z</pubTime>
-        
-        <tag>DevOps</tag>
-         
-        <tag>网络协议</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://riboseyim.github.com/2017/05/26/Protocol/</loc>
-    <lastmod>2018-05-31T17:22:53.936Z</lastmod>
-    <data>
-        <display>
-        <title>Catalog:计算机网络协议大全(Protocol)</title>
-        <pubTime>2017-05-26T02:30:59.000Z</pubTime>
         
         <tag>DevOps</tag>
          
@@ -896,27 +1406,6 @@
         <tag>网络协议</tag>
          
         <tag>SDN</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://riboseyim.github.com/2017/05/23/RestfulAPI/</loc>
-    <lastmod>2018-05-31T17:21:09.943Z</lastmod>
-    <data>
-        <display>
-        <title>开源技术架构漫谈：基于Go语言快速构建一个RESTful API服务</title>
-        <pubTime>2017-05-23T06:14:12.000Z</pubTime>
-        
-        <tag>DevOps</tag>
-         
-        <tag>Developer</tag>
-         
-        <tag>Golang</tag>
          
          
            
@@ -1264,56 +1753,12 @@
 
     
   <url>
-    <loc>http://riboseyim.github.com/2017/05/24/Log/</loc>
-    <lastmod>2018-05-30T10:32:20.963Z</lastmod>
-    <data>
-        <display>
-        <title>开源技术架构漫谈：应用程序的日志管理及可视化</title>
-        <pubTime>2017-05-24T06:22:56.000Z</pubTime>
-        
-        <tag>架构师</tag>
-         
-        <tag>DevOps</tag>
-         
-        <tag>Developer</tag>
-         
-        <tag>Golang</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://riboseyim.github.com/2017/04/17/DTrace_FTrace/</loc>
     <lastmod>2018-05-30T04:00:43.925Z</lastmod>
     <data>
         <display>
         <title>动态追踪技术(三) ：Tracing your kernel Functions!</title>
         <pubTime>2017-04-17T10:02:57.000Z</pubTime>
-        
-        <tag>DevOps</tag>
-         
-        <tag>Linux</tag>
-         
-        <tag>DTrace</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://riboseyim.github.com/2016/11/26/DTrace/</loc>
-    <lastmod>2018-05-30T04:00:04.984Z</lastmod>
-    <data>
-        <display>
-        <title>动态追踪技术专题</title>
-        <pubTime>2016-11-25T17:21:31.000Z</pubTime>
         
         <tag>DevOps</tag>
          
@@ -1339,31 +1784,6 @@
         <tag>OpenSource</tag>
          
         <tag>DevOps</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://riboseyim.github.com/2017/06/19/Machine-Learning/</loc>
-    <lastmod>2018-05-30T02:41:43.697Z</lastmod>
-    <data>
-        <display>
-        <title>机器学习(Machine Learning)小组</title>
-        <pubTime>2017-06-19T08:31:00.000Z</pubTime>
-        
-        <tag>架构师</tag>
-         
-        <tag>DevOps</tag>
-         
-        <tag>Developer</tag>
-         
-        <tag>数学与算法</tag>
-         
-        <tag>Machine-Learning</tag>
          
          
            
@@ -1512,29 +1932,6 @@
         <tag>DevOps</tag>
          
         <tag>Linux</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://riboseyim.github.com/2017/05/05/Language-Go-lang/</loc>
-    <lastmod>2018-05-16T09:00:29.151Z</lastmod>
-    <data>
-        <display>
-        <title>Catalog：玩转编程语言 - Golang 专题</title>
-        <pubTime>2017-05-05T06:56:56.000Z</pubTime>
-        
-        <tag>架构师</tag>
-         
-        <tag>DevOps</tag>
-         
-        <tag>Developer</tag>
-         
-        <tag>Golang</tag>
          
          
            
@@ -1738,29 +2135,6 @@
         <tag>Policy&amp;Law</tag>
          
         <tag>Manager</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://riboseyim.github.com/2018/05/14/Addiction-Decision-Coffee/</loc>
-    <lastmod>2018-05-15T05:50:55.921Z</lastmod>
-    <data>
-        <display>
-        <title>嗑药简史：咖啡上瘾，喝还是不喝？</title>
-        <pubTime>2018-05-14T11:23:23.000Z</pubTime>
-        
-        <tag>Medical</tag>
-         
-        <tag>Science</tag>
-         
-        <tag>Health</tag>
-         
-        <tag>Economist</tag>
          
          
            
@@ -2344,29 +2718,6 @@
 
     
   <url>
-    <loc>http://riboseyim.github.com/2016/10/07/CyberSecurity/</loc>
-    <lastmod>2018-04-23T06:49:04.567Z</lastmod>
-    <data>
-        <display>
-        <title>Cyber-Security:网络安全专题合集</title>
-        <pubTime>2016-10-06T16:57:40.000Z</pubTime>
-        
-        <tag>架构师</tag>
-         
-        <tag>DevOps</tag>
-         
-        <tag>Policy&amp;Law</tag>
-         
-        <tag>Cyber-Security</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://riboseyim.github.com/2018/04/09/Commander-Navy-Digital/</loc>
     <lastmod>2018-04-16T10:05:38.578Z</lastmod>
     <data>
@@ -2561,29 +2912,6 @@
 
     
   <url>
-    <loc>http://riboseyim.github.com/2017/12/11/Linux-Works-Memory/</loc>
-    <lastmod>2018-04-13T06:58:29.275Z</lastmod>
-    <data>
-        <display>
-        <title>操作系统原理:How Linux Works(三):Memory</title>
-        <pubTime>2017-12-10T16:36:27.000Z</pubTime>
-        
-        <tag>架构师</tag>
-         
-        <tag>DevOps</tag>
-         
-        <tag>Linux</tag>
-         
-        <tag>SRE</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://riboseyim.github.com/2018/03/20/Machine-Learning-TensorFlow-ProtoBuf/</loc>
     <lastmod>2018-04-13T01:49:16.809Z</lastmod>
     <data>
@@ -2659,69 +2987,6 @@
         <title>关于藏书与阅读</title>
         <pubTime>2016-07-03T06:26:57.000Z</pubTime>
         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://riboseyim.github.com/2016/09/01/AAA/</loc>
-    <lastmod>2018-04-10T07:03:17.297Z</lastmod>
-    <data>
-        <display>
-        <title>基于LVS的AAA负载均衡架构实践</title>
-        <pubTime>2016-09-01T11:56:40.000Z</pubTime>
-        
-        <tag>最佳工程实践</tag>
-         
-        <tag>架构师</tag>
-         
-        <tag>OpenSource</tag>
-         
-        <tag>DevOps</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://riboseyim.github.com/2016/04/26/Law/</loc>
-    <lastmod>2018-04-10T07:02:08.104Z</lastmod>
-    <data>
-        <display>
-        <title>Catalog：法律</title>
-        <pubTime>2016-04-26T03:49:42.000Z</pubTime>
-        
-        <tag>Policy&amp;Law</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://riboseyim.github.com/2017/07/06/Visualization/</loc>
-    <lastmod>2018-04-10T06:53:24.075Z</lastmod>
-    <data>
-        <display>
-        <title>开源技术架构漫谈：数据可视化</title>
-        <pubTime>2017-07-06T06:37:06.000Z</pubTime>
-        
-        <tag>架构师</tag>
-         
-        <tag>DevOps</tag>
-         
-        <tag>数据可视化</tag>
-         
-        <tag>Developer</tag>
-         
          
            
         </display>
@@ -2894,25 +3159,6 @@
 
     
   <url>
-    <loc>http://riboseyim.github.com/2017/05/16/Language-Node-lang/</loc>
-    <lastmod>2018-03-30T10:25:21.298Z</lastmod>
-    <data>
-        <display>
-        <title>玩转编程语言:Node.js</title>
-        <pubTime>2017-05-16T03:38:23.000Z</pubTime>
-        
-        <tag>Developer</tag>
-         
-        <tag>Nodejs</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://riboseyim.github.com/2016/05/31/TeamWork-Git/</loc>
     <lastmod>2018-03-30T10:10:50.972Z</lastmod>
     <data>
@@ -3031,31 +3277,6 @@
 
     
   <url>
-    <loc>http://riboseyim.github.com/2016/06/12/CyberSecurity-Trojan/</loc>
-    <lastmod>2018-03-12T03:14:15.675Z</lastmod>
-    <data>
-        <display>
-        <title>木马来袭:Linux/XOR.DDoS样本分析</title>
-        <pubTime>2016-06-12T01:46:57.000Z</pubTime>
-        
-        <tag>DevOps</tag>
-         
-        <tag>Cyber-Security</tag>
-         
-        <tag>Linux</tag>
-         
-        <tag>网络协议</tag>
-         
-        <tag>Developer</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://riboseyim.github.com/2018/01/08/Linux-Works-Network/</loc>
     <lastmod>2018-03-12T03:09:32.865Z</lastmod>
     <data>
@@ -3071,42 +3292,6 @@
          
         <tag>SRE</tag>
          
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://riboseyim.github.com/2017/10/29/CyberSecurity-WiFi/</loc>
-    <lastmod>2018-03-12T02:52:30.091Z</lastmod>
-    <data>
-        <display>
-        <title>Cyber-Security:警惕Wi-Fi漏洞</title>
-        <pubTime>2017-10-29T09:39:02.000Z</pubTime>
-        
-        <tag>DevOps</tag>
-         
-        <tag>Policy&amp;Law</tag>
-         
-        <tag>Cyber-Security</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://riboseyim.github.com/2017/12/19/Linux-Win-Mac/</loc>
-    <lastmod>2018-03-11T15:38:18.749Z</lastmod>
-    <data>
-        <display>
-        <title>Linux-Win-Mac</title>
-        <pubTime>2017-12-19T10:15:49.000Z</pubTime>
-        
          
            
         </display>
@@ -3189,69 +3374,6 @@
         <pubTime>2017-04-10T07:40:23.000Z</pubTime>
         
         <tag>我的自传</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://riboseyim.github.com/2017/07/05/Law-Of-Engineering/</loc>
-    <lastmod>2018-03-07T06:31:35.307Z</lastmod>
-    <data>
-        <display>
-        <title>The Road To Leader：软件工程实践中的十大法则</title>
-        <pubTime>2017-07-05T14:26:05.000Z</pubTime>
-        
-        <tag>最佳工程实践</tag>
-         
-        <tag>DevOps</tag>
-         
-        <tag>Manager</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://riboseyim.github.com/2018/01/03/OpenSource-DB-PostgreSQL/</loc>
-    <lastmod>2018-03-07T06:17:59.015Z</lastmod>
-    <data>
-        <display>
-        <title>开源技术架构漫谈：PostgreSQL 数据库</title>
-        <pubTime>2018-01-03T06:26:23.000Z</pubTime>
-        
-        <tag>DevOps</tag>
-         
-        <tag>数据库</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://riboseyim.github.com/2017/09/15/Visualization-Graphviz/</loc>
-    <lastmod>2018-03-07T06:04:02.387Z</lastmod>
-    <data>
-        <display>
-        <title>数据可视化（三）基于 Graphviz 实现程序化绘图</title>
-        <pubTime>2017-09-15T08:28:30.000Z</pubTime>
-        
-        <tag>架构师</tag>
-         
-        <tag>数据可视化</tag>
-         
-        <tag>Developer</tag>
-         
-        <tag>数学与算法</tag>
          
          
            
@@ -3391,23 +3513,6 @@
 
     
   <url>
-    <loc>http://riboseyim.github.com/2017/05/16/Languae-R-lang/</loc>
-    <lastmod>2018-02-10T09:26:34.754Z</lastmod>
-    <data>
-        <display>
-        <title>玩转编程语言:R</title>
-        <pubTime>2017-05-16T02:13:04.000Z</pubTime>
-        
-        <tag>Developer</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://riboseyim.github.com/2017/11/16/QuickStart/</loc>
     <lastmod>2018-02-09T16:27:48.426Z</lastmod>
     <data>
@@ -3473,25 +3578,6 @@
         <display>
         <title>Catalog:数学与算法</title>
         <pubTime>2017-06-14T05:37:12.000Z</pubTime>
-        
-        <tag>架构师</tag>
-         
-        <tag>数学与算法</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://riboseyim.github.com/2018/02/02/Mathmetics-Tools/</loc>
-    <lastmod>2018-02-02T05:54:16.361Z</lastmod>
-    <data>
-        <display>
-        <title>数学工具指南</title>
-        <pubTime>2018-02-02T03:57:04.000Z</pubTime>
         
         <tag>架构师</tag>
          
@@ -3909,27 +3995,6 @@
 
     
   <url>
-    <loc>http://riboseyim.github.com/2017/12/04/Visualization-Graphite/</loc>
-    <lastmod>2018-01-11T03:45:11.651Z</lastmod>
-    <data>
-        <display>
-        <title>数据可视化（七）Graphite 体系结构详解</title>
-        <pubTime>2017-12-04T03:11:49.000Z</pubTime>
-        
-        <tag>架构师</tag>
-         
-        <tag>数据可视化</tag>
-         
-        <tag>Developer</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://riboseyim.github.com/2017/11/23/Visualization-DashBoard/</loc>
     <lastmod>2018-01-11T03:44:39.572Z</lastmod>
     <data>
@@ -4123,33 +4188,6 @@
 
     
   <url>
-    <loc>http://riboseyim.github.com/2016/05/28/Linux/</loc>
-    <lastmod>2017-12-22T05:26:26.999Z</lastmod>
-    <data>
-        <display>
-        <title>Catalog:Linux 操作系统专题</title>
-        <pubTime>2016-05-28T09:27:39.000Z</pubTime>
-        
-        <tag>架构师</tag>
-         
-        <tag>OpenSource</tag>
-         
-        <tag>DevOps</tag>
-         
-        <tag>Linux</tag>
-         
-        <tag>Developer</tag>
-         
-        <tag>SRE</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://riboseyim.github.com/2017/10/24/Linux-Perf-Wan/</loc>
     <lastmod>2017-12-22T05:26:26.987Z</lastmod>
     <data>
@@ -4307,29 +4345,6 @@
         <tag>Economist</tag>
          
         <tag>History</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://riboseyim.github.com/2017/05/28/History-Caoyun/</loc>
-    <lastmod>2017-12-22T05:26:26.892Z</lastmod>
-    <data>
-        <display>
-        <title>黄仁宇：明代的漕运</title>
-        <pubTime>2017-05-28T14:13:11.000Z</pubTime>
-        
-        <tag>Economist</tag>
-         
-        <tag>History</tag>
-         
-        <tag>Policy&amp;Law</tag>
-         
-        <tag>Manager</tag>
          
          
            

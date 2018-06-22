@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://o8m8ngokc.bkt.clouddn.com/LB-AAA-LVS-Single.png">
 <meta property="og:image" content="http://o8m8ngokc.bkt.clouddn.com/LB-AAA-LVS-Cluster.png">
 <meta property="og:image" content="http://o8m8ngokc.bkt.clouddn.com/LB-Normal-Model.png">
-<meta property="og:updated_time" content="2018-04-10T07:03:17.297Z">
+<meta property="og:updated_time" content="2018-06-21T03:15:39.328Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于LVS的AAA负载均衡架构实践">
 <meta name="twitter:description" content="基于LVS的AAA负载均衡架构实践概要本次分享将从一次实际的负载均衡改造案例出发，通过介绍项目背景、选型思路、测试方法和问题分析等方面展开，总结负载均衡架构的一般套路和经验教训。 一、背景项目背景是某企业的AAA管理系统， AAA 即 Authentication（认证）、Authorization（授权）、Accounting（记账），是网络设备的一种集中化管理机制，可以在不同设备上为用户设置不">
@@ -377,7 +377,11 @@
 <h3 id="续集"><a href="#续集" class="headerlink" title="续集"></a>续集</h3><blockquote>
 <p>可能更新，也可能不更新，看天意。</p>
 </blockquote>
-<p>1、本次场景中， HAProxy方案为什么会失败？还缺少一个深度解释。<br>2、本次场景中，LVS方案采用默认的轮询算法是否最优？<br>3、本次场景中，7X24系统如何完成服务切换？<br>4、本次场景中， IPTables NAT 的性能瓶颈如何解释？<br>5、来一个关于Netfilter的讨论<br>6、阅读参考资料 VIPServer: A System for Dynamic Address Mapping and Environment Management</p>
+<p>1、本次场景中， HAProxy方案为什么会失败？还缺少一个深度解释。<br>2、本次场景中，LVS方案采用默认的轮询算法是否最优？<br>3、本次场景中，7X24系统如何完成服务切换？<br>4、本次场景中， IPTables NAT 的性能瓶颈如何解释？<br>5、来一个关于Netfilter的讨论</p>
+<h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><ul>
+<li><a href="https://code.facebook.com/posts/1906146702752923/open-sourcing-katran-a-scalable-network-load-balancer/" target="_blank" rel="external">Facebook Open-sourcing Katran, a scalable network load balancer</a></li>
+<li>VIPServer: A System for Dynamic Address Mapping and Environment Management</li>
+</ul>
 <h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ul>
 <li><a href="https://mp.weixin.qq.com/s?__biz=MjM5MDE0Mjc4MA==&amp;mid=2650992803&amp;idx=1&amp;sn=e2a46917301941faacc324af29013877&amp;scene=1&amp;srcid=0802RpC2Vu41WGWU7UBbBjXH#rd" target="_blank" rel="external">章文嵩博士和他背后的负载均衡帝国</a></li>
 <li><a href="https://mp.weixin.qq.com/s?__biz=MjM5MDE0Mjc4MA==&amp;mid=2650992696&amp;idx=1&amp;sn=c8a768b9acfa9ff1d0c9700a53c067a5&amp;scene=1&amp;srcid=0802JvqGeuM8Y3xbeTNSrIeO#rd" target="_blank" rel="external">章文嵩：怎样做开源才有意义？</a></li>

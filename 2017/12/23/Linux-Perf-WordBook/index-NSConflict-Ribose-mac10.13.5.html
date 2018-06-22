@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Linux-Perf-WordBook | Ribose Yim&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="摘要">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux-Perf-WordBook">
+<meta property="og:url" content="http://riboseyim.github.com/2017/12/23/Linux-Perf-WordBook/index.html">
+<meta property="og:site_name" content="Ribose Yim&#39;s Blog">
+<meta property="og:description" content="摘要">
+<meta property="og:updated_time" content="2017-12-28T12:51:54.003Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux-Perf-WordBook">
+<meta name="twitter:description" content="摘要">
+  
+    <link rel="alternative" href="/atom.xml" title="Ribose Yim&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://o8m8ngokc.bkt.clouddn.com/icon_cangshu.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://o8m8ngokc.bkt.clouddn.com/icon_macbook.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">RiboseYim</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">愿交天下士，罄我怀中藏。</p>
+		
+
+		<form id="search-form" class="search">  <!-- 搜索框相关 -->
+    <input type="text" id="st-search-input" name="q" results="0" class="st-default-search-input" maxlength="30" placeholder="Search..." autocomplete="off" autocorrect="off">
+		</form>
+		<div id="local-search-result"></div> <!-- 搜索结果区 -->
+	  <p class='no-result'>No results found </p> 
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/DevOps">DevOps</a></li>
+				        
+							<li><a href="/tags/eBook">电子书</a></li>
+				        
+							<li><a href="/tags/Art">艺术评论</a></li>
+				        
+							<li><a href="/tags/Commander">讲武堂</a></li>
+				        
+							<li><a href="/tags/Economist">经济学人</a></li>
+				        
+							<li><a href="/tags/Policy-Law">Policy&amp;Law</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="twitter" target="_blank" href="https://twitter.com/RiboseYim" title="twitter">twitter</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/riboseyim" title="zhihu">zhihu</a>
+					        
+								<a class="github" target="_blank" href="https://github.com/riboseyim" title="github">github</a>
+					        
+								<a class="linkedin" target="_blank" href="http://www.linkedin.com/in/%E7%9D%BF-%E4%B8%A5-b39028110" title="linkedin">linkedin</a>
+					        
+						</div>
+					</nav>
+				</section>
+
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Art/" style="font-size: 15.24px;">Art</a> <a href="/tags/Books/" style="font-size: 10px;">Books</a> <a href="/tags/Commander/" style="font-size: 12.38px;">Commander</a> <a href="/tags/Cyber-Security/" style="font-size: 14.29px;">Cyber-Security</a> <a href="/tags/DTrace/" style="font-size: 11.43px;">DTrace</a> <a href="/tags/DevOps/" style="font-size: 20px;">DevOps</a> <a href="/tags/Developer/" style="font-size: 19.05px;">Developer</a> <a href="/tags/Develper/" style="font-size: 10px;">Develper</a> <a href="/tags/Economist/" style="font-size: 17.62px;">Economist</a> <a href="/tags/Education/" style="font-size: 10px;">Education</a> <a href="/tags/Golang/" style="font-size: 13.33px;">Golang</a> <a href="/tags/Health/" style="font-size: 10.48px;">Health</a> <a href="/tags/History/" style="font-size: 17.14px;">History</a> <a href="/tags/Lincoln/" style="font-size: 10.48px;">Lincoln</a> <a href="/tags/Linux/" style="font-size: 18.1px;">Linux</a> <a href="/tags/Machine-Learning/" style="font-size: 15.71px;">Machine-Learning</a> <a href="/tags/Manager/" style="font-size: 16.67px;">Manager</a> <a href="/tags/Medical/" style="font-size: 13.33px;">Medical</a> <a href="/tags/Nodejs/" style="font-size: 10.95px;">Nodejs</a> <a href="/tags/OpenSource/" style="font-size: 15.24px;">OpenSource</a> <a href="/tags/PHT/" style="font-size: 10.95px;">PHT</a> <a href="/tags/Policy-Law/" style="font-size: 19.52px;">Policy&Law</a> <a href="/tags/Redology/" style="font-size: 10.95px;">Redology</a> <a href="/tags/SDN/" style="font-size: 12.86px;">SDN</a> <a href="/tags/SRE/" style="font-size: 15.71px;">SRE</a> <a href="/tags/Science/" style="font-size: 14.76px;">Science</a> <a href="/tags/Sport/" style="font-size: 11.43px;">Sport</a> <a href="/tags/eBook/" style="font-size: 13.81px;">eBook</a> <a href="/tags/工具癖/" style="font-size: 11.9px;">工具癖</a> <a href="/tags/我的自传/" style="font-size: 11.9px;">我的自传</a> <a href="/tags/摄影/" style="font-size: 11.43px;">摄影</a> <a href="/tags/数学与算法/" style="font-size: 14.76px;">数学与算法</a> <a href="/tags/数据可视化/" style="font-size: 14.29px;">数据可视化</a> <a href="/tags/数据库/" style="font-size: 10.48px;">数据库</a> <a href="/tags/最佳写作实践/" style="font-size: 12.38px;">最佳写作实践</a> <a href="/tags/最佳工程实践/" style="font-size: 16.67px;">最佳工程实践</a> <a href="/tags/架构师/" style="font-size: 18.57px;">架构师</a> <a href="/tags/科技史/" style="font-size: 10.48px;">科技史</a> <a href="/tags/移动互联网/" style="font-size: 10px;">移动互联网</a> <a href="/tags/网络协议/" style="font-size: 16.19px;">网络协议</a> <a href="/tags/讲武堂/" style="font-size: 10.48px;">讲武堂</a>
+					</div>
+				</section>
+				
+
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/f2ea0605db4b">专题-经济学人翻译社</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.gitbook.com/book/riboseyim/linux-perf-master/details">电子书《Linux Perf Master》</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/9a817d8a67ea">简书专题-系统运维专家</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/0886ffd76168">简书专题-网络与信息安全</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/9ae32222e422">简书专题-操作系统与动态追踪技术</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/8d40a3a05825">简书专题-数据可视化</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://riboseyim.github.io/2017/11/16/QuickStart/">快捷目录</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://riboseyim.github.io/2017/05/26/Catalog/">总目录</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">Engineer &amp; Writer</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">RiboseYim</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="http://o8m8ngokc.bkt.clouddn.com/icon_macbook.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">RiboseYim</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">愿交天下士，罄我怀中藏。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/DevOps">DevOps</a></li>
+		        
+					<li><a href="/tags/eBook">电子书</a></li>
+		        
+					<li><a href="/tags/Art">艺术评论</a></li>
+		        
+					<li><a href="/tags/Commander">讲武堂</a></li>
+		        
+					<li><a href="/tags/Economist">经济学人</a></li>
+		        
+					<li><a href="/tags/Policy-Law">Policy&amp;Law</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="twitter" target="_blank" href="https://twitter.com/RiboseYim" title="twitter">twitter</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/riboseyim" title="zhihu">zhihu</a>
+			        
+						<a class="github" target="_blank" href="https://github.com/riboseyim" title="github">github</a>
+			        
+						<a class="linkedin" target="_blank" href="http://www.linkedin.com/in/%E7%9D%BF-%E4%B8%A5-b39028110" title="linkedin">linkedin</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-Linux-Perf-WordBook" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/12/23/Linux-Perf-WordBook/" class="article-date">
+  	<time datetime="2017-12-23T11:33:36.000Z" itemprop="datePublished">2017-12-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Linux-Perf-WordBook
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><a id="more"></a>
+<p><strong>dynamic tracing，动态追踪技术</strong></p>
+<blockquote>
+<p>kk</p>
+</blockquote>
+<h3 id="指标"><a href="#指标" class="headerlink" title="指标"></a>指标</h3><p><strong>IOPS</strong></p>
+<blockquote>
+<p>每秒的I/O操作数</p>
+</blockquote>
+<p><strong>吞吐量</strong></p>
+<blockquote>
+<p>评价执行速率。<br>数据传输：字节／秒或比特／秒<br>数据库：秒操作数，秒业务数</p>
+</blockquote>
+<p><strong>延迟</strong></p>
+<blockquote>
+<p>描述操作里等待服务的时间。某些情况下等同于响应时间。</p>
+</blockquote>
+<h4 id="使用率"><a href="#使用率" class="headerlink" title="使用率"></a><strong>使用率</strong></h4><blockquote>
+<p>给定时间区间内，资源的繁忙程度。如内存使用率。<br>非空闲时间（Brendan定义）</p>
+</blockquote>
+<p>1.基于时间：<br>  U=B/T<br>U是使用率，B是T时间内系统繁忙时间，T是观测周期。</p>
+<p>2.基于容量：</p>
+<p><strong>observer effect ,观测者效应</strong>：指标的获取不是免费的。</p>
+<hr>
+<p><strong>响应时间</strong></p>
+<blockquote>
+<p>一次操作完成的时间。包括用于等待和服务的时间。</p>
+</blockquote>
+<p><strong>饱和度</strong></p>
+<blockquote>
+<p>指的是某一资源无法满足服务的排队工作量。<br>随着工作量增加而对资源的请求超过资源所能处理的程度。</p>
+</blockquote>
+<p><strong>瓶颈</strong></p>
+<blockquote>
+<p>限制性资源。</p>
+</blockquote>
+<p><strong>工作负载</strong></p>
+<blockquote>
+<p>系统的输入、输出对系统所施加的负载叫工作负载。<br>如数据库的工作负载就是客户端发出的请求和指令。</p>
+</blockquote>
+<p><strong>缓存</strong></p>
+<blockquote>
+<p>用于复制或存储一定量数据的高速存储区域。<br>ps:相对概念。只要存在高低速差，即可视为广义缓存？</p>
+</blockquote>
+<p>1.冷：填充的数据为空，或填充无用的数据，命中率为0<br>2.热：填充的都是常用数据<br>3.温：命中率还没有达到理想的高度<br>4.热度：</p>
+<h2 id="P"><a href="#P" class="headerlink" title="P"></a>P</h2><p><strong>Profiling 剖析</strong></p>
+<p><strong>Perturbation 扰动</strong></p>
+<blockquote>
+<p>同义词：</p>
+</blockquote>
+<p><strong>ROI 投资回报率</strong></p>
+<blockquote>
+<p>性能技术取决于投资回报率！<br>横跨大西洋连接纽约交易所和伦敦交易所的光缆，预算3亿美金，用以减少6ms的传输时延</p>
+</blockquote>
+<p><strong>SUT,system under test 受测系统</strong></p>
+<h2 id="方法论"><a href="#方法论" class="headerlink" title="方法论"></a>方法论</h2><p>分类：信息收集、观测分析、容量规划、统计分析、调优、实验分析</p>
+<h3 id="USE方法-（utilization-saturation-errors）"><a href="#USE方法-（utilization-saturation-errors）" class="headerlink" title="USE方法 （utilization,saturation,errors）"></a>USE方法 （utilization,saturation,errors）</h3><p>for(资源;所有资源;i++){<br>  1.出现错误？<br>  2.使用率高？<br>  3.饱和？<br>}</p>
+<h1 id="Scheduling-Algorithm-调度算法"><a href="#Scheduling-Algorithm-调度算法" class="headerlink" title="Scheduling Algorithm 调度算法"></a>Scheduling Algorithm 调度算法</h1><table>
+<thead>
+<tr>
+<th><strong>Code</strong></th>
+<th><strong>Name</strong></th>
+<th><strong>名称</strong></th>
+<th><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RR</td>
+<td><strong>round－robin</strong></td>
+<td>轮询调度</td>
+<td>单纯依次请求真实服务器。均等分发</td>
+</tr>
+<tr>
+<td>WRR</td>
+<td><strong>weighted round-robin</strong></td>
+<td>加权轮询调度</td>
+<td>引入加权值来控制分发比率。</td>
+</tr>
+<tr>
+<td>LC</td>
+<td><strong>least-connection</strong></td>
+<td>最小连接调度</td>
+<td>将新的请求连接到当前连接数最少的服务器</td>
+</tr>
+<tr>
+<td>WLC</td>
+<td><strong>weighted least-connection</strong></td>
+<td>加权最小连接调度</td>
+<td>（连接数＋1）／加权值。</td>
+</tr>
+<tr>
+<td>SED</td>
+<td><strong>shortest expected delay</strong></td>
+<td>最短预期延时调度</td>
+<td>选择响应速度最快的那台服务器，选择状态ESTABLISHED的连接数最少的服务器。与WLC类似，但WLC会把TIME_WAIT或FIN_WAIT的连接数计算在最小因素中</td>
+</tr>
+<tr>
+<td>NQ</td>
+<td><strong>never queue</strong></td>
+<td>不排队调度</td>
+<td>最优先选择连接数为0的服务器</td>
+</tr>
+<tr>
+<td>SH</td>
+<td><strong>source hashing</strong></td>
+<td>源地址散列调度</td>
+<td>对发出请求的IP地址计算散列值</td>
+</tr>
+<tr>
+<td>DH</td>
+<td><strong>destination hashing</strong></td>
+<td>目标地址散列调度</td>
+<td>对需要接收请求的目标地址计算散列值</td>
+</tr>
+<tr>
+<td>LBLC</td>
+<td><strong>locality-based least-connection</strong></td>
+<td>基于局部性的最小连接</td>
+<td>在连接数没有超过加权值指定的值时，将选择同一台服务器</td>
+</tr>
+<tr>
+<td>LBLCR</td>
+<td><strong>locality-based least-connection with replication</strong></td>
+<td>带复制的基于局部性最小连接</td>
+<td>当所有服务器的连结数都超过加权值指定的值时，将选择连接数最少的那台服务器</td>
+</tr>
+</tbody>
+</table>
+<h1 id="DevOps-WordBook"><a href="#DevOps-WordBook" class="headerlink" title="DevOps-WordBook"></a>DevOps-WordBook</h1><h2 id="A"><a href="#A" class="headerlink" title="A"></a>A</h2><p><strong>Availability</strong> () [可用性]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">系统停止的可能性。</div></pre></td></tr></table></figure></p>
+<p><strong>Algorithm</strong>()[算法]</p>
+<p><a href="SchedulingAlgorithm.md">Scheduling Algorithm 调度算法</a></p>
+<h2 id="B"><a href="#B" class="headerlink" title="B"></a>B</h2><p><strong>Bottleneck</strong> () [瓶颈]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">阻碍系统整体性能提升的地方。</div></pre></td></tr></table></figure></p>
+<h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><p><strong>CDN</strong> (Content Delivery Network) [内容分发网络]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">从散布在全世界的缓存服务器中，选择离客户端较近的服务器来发送信息，据此实现性能的提升</div></pre></td></tr></table></figure></p>
+<h2 id="D"><a href="#D" class="headerlink" title="D"></a>D</h2><p><strong>DC</strong> (Data Center) [数据中心]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">容纳服务器设备。配备空调，冗余电源。配备火灾、地震等应急措施。</div></pre></td></tr></table></figure></p>
+<p><strong>Daemon</strong> () [守护程序]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">在后台持续运行并发挥作用。</div></pre></td></tr></table></figure></p>
+<h2 id="E"><a href="#E" class="headerlink" title="E"></a>E</h2><p><strong>Environment</strong> () [环境]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Production Environment 生产环境</div><div class="line">Staging Environment  准生产环境</div></pre></td></tr></table></figure></p>
+<h2 id="F"><a href="#F" class="headerlink" title="F"></a>F</h2><p><strong>Failover</strong> () [故障转移]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">在冗余系统中，活动节点（Active Node）停止时，自动切换到备用节点（Backup Node）.</div><div class="line">如果不是自动切换，而是手动，通常叫作Switchover.</div></pre></td></tr></table></figure></p>
+<p><strong>Failback</strong> ()[故障恢复]</p>
+<p><strong>File System</strong> () [文件系统]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">分类：</div><div class="line">Memory File System:建立在内存中的文件系统</div></pre></td></tr></table></figure></p>
+<h2 id="G"><a href="#G" class="headerlink" title="G"></a>G</h2><p><em>**</em> () []<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
+<h2 id="H"><a href="#H" class="headerlink" title="H"></a>H</h2><p><strong>Health Check</strong> () [健康检查]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">确认检查对象的状态是否正常。</div><div class="line">例如：确认服务器是否能响应ping,是否能应答HTTP等。</div></pre></td></tr></table></figure></p>
+<h2 id="I"><a href="#I" class="headerlink" title="I"></a>I</h2><p><em>**</em> () []<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
+<h2 id="J"><a href="#J" class="headerlink" title="J"></a>J</h2><p><em>**</em> () []<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
+<h2 id="K"><a href="#K" class="headerlink" title="K"></a>K</h2><p><strong>Keepalived</strong> () [内容分发网络]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://www.keepalived.org</div></pre></td></tr></table></figure></p>
+<h2 id="L"><a href="#L" class="headerlink" title="L"></a>L</h2><p><strong>LVS</strong> (Linux Virtual Server) [Linux虚拟服务器]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">原伟项目名，旨在搭建具有可扩展性的、实用性高的系统。</div><div class="line">http://www.linuxvirtualserver.org</div></pre></td></tr></table></figure></p>
+<p><strong>Load Balancer</strong> () [负载均衡器]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">位于客户端和服务器之间，将客户端的请求分散到后端的多台服务器。</div><div class="line">Load［负载］大致力可分为“CPU负载”和“IO负载”。详见：http://www.jianshu.com/p/db8e8a2884ef</div></pre></td></tr></table></figure></p>
+<p><strong>Latency</strong> () [延迟]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">通常指数据投递完成所花费的时间。</div></pre></td></tr></table></figure></p>
+<h2 id="M"><a href="#M" class="headerlink" title="M"></a>M</h2><p><em>**</em> () []<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
+<h2 id="N"><a href="#N" class="headerlink" title="N"></a>N</h2><p><strong>NIC</strong> (Network Interface Card) [网络接口卡，网卡]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">网络接口的总称</div></pre></td></tr></table></figure></p>
+<p><strong>Netfilter</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Linux内核中操作网络数据包所需的协议框架。</div><div class="line">实现分组过滤的iptables和负载均衡的IPVS也应用了Netfilter协议。</div></pre></td></tr></table></figure></p>
+<h2 id="O"><a href="#O" class="headerlink" title="O"></a>O</h2><p><strong>OSI</strong> (Open Systems Interconnection) [参考模型]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">分为七层（Layer）框架，例如：</div><div class="line">第七层：应用层。HTTP及SMT等协议</div><div class="line">第四层：传输层。TCP及UDP</div><div class="line">第三层：网络层。IP、ARP及ICMP</div><div class="line">第二层：数据链路层。以太网等</div></pre></td></tr></table></figure></p>
+<p><strong>OSS</strong> (OpenSource Software) [开源软件]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">```</div><div class="line"></div><div class="line">## P</div><div class="line"></div><div class="line">**Proxy** () [代理]</div></pre></td></tr></table></figure></p>
+<p>Transparent Proxy:透明代理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">## Q</div><div class="line"></div><div class="line">**** () []</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## R</div><div class="line"></div><div class="line">**Redundancy** () [冗余]</div></pre></td></tr></table></figure>
+<p>将系统的构成要素配置多个，即使其中一个发生故障而停止运作，也可以切换到备用设备以使服务不停止。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">**Resource** () [资源]</div></pre></td></tr></table></figure></p>
+<p>指CPU,内存，磁盘空间等<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## S</div><div class="line"></div><div class="line">**Scalability** () [可扩展性]</div></pre></td></tr></table></figure></p>
+<p>随着用户的增多以及规模的扩大，在某种程度上扩展系统以加强应对的能力。<br>Scale-out:横向扩展。例如：将服务分摊到多台服务器<br>Scale-up:纵向扩展。 例如：提升单个服务器性能<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">**SPO** (Single Point of Failure) [单点故障]</div></pre></td></tr></table></figure></p>
+<p>若此处出现问题，就会令整个系统停止，即系统要害。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">## T</div><div class="line"></div><div class="line">**Throughput** () [吞吐量]</div></pre></td></tr></table></figure></p>
+<p>代表单位时间的传送量。<br>例如：大巴车和小汽车。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## U</div><div class="line"></div><div class="line">**** () []</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## V</div><div class="line"></div><div class="line">**VIP** (Virtual IP Address) [虚拟IP地址]</div></pre></td></tr></table></figure>
+<p>浮动分配给某项服务或功能的IP地址。例如负载均衡器中接收客户端请求的IP地址。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">## W</div><div class="line"></div><div class="line">**** () []</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## X</div><div class="line"></div><div class="line">**** () []</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## Y</div><div class="line"></div><div class="line">**** () []</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## Z</div><div class="line"></div><div class="line">**** () []</div></pre></td></tr></table></figure>
+<p>```</p>
+
+      
+
+    </div>
+    
+  </div>
+  
+    <div class="article-entry" itemprop="articleBody">
+      <p>
+        更多精彩内容扫码关注公众号,RiboseYim's Blog：<a href="https://riboseyim.github.io" target="_blank" rel="external">https://riboseyim.github.io</a>
+        <br>
+        <a href="http://o8m8ngokc.bkt.clouddn.com/ID_RiboseYim_201706.png" title="微信公众号@睿哥杂货铺" rel="fancy-group" class="fancy-ctn fancybox">
+          <img src="http://o8m8ngokc.bkt.clouddn.com/ID_RiboseYim_201706.png" title="微信公众号@睿哥杂货铺">
+          <img src="http://o8m8ngokc.bkt.clouddn.com/quanzi-rui-small.png" title="睿哥读书会">
+        </a>
+      </p>
+    </div>
+    
+<nav id="article-nav">
+  
+    <a href="/2018/01/01/Check2018/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Autobiography:我的2018年度盘点
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/12/21/Language-Auto-Generator/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">玩转编程语言:基于Node.js构建自定义代码生成器</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		  <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" target="_blank">Copyright 2016-2018 RiboseYim
+      授权：保持署名-非商业性使用-禁止演绎| License BY-NC-ND 4.0 </a>
+    </div>
+      	<div class="footer-right">
+      		<a href="https://riboseyim.github.io/2016/05/31/AboutMe/" target="_blank"> 联系作者 </a>
+      	</div>
+    </div>
+  </div>
+</footer>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1258500076'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1258500076%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: true
+	}
+</script>
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+  </div>
+</body>
+</html>

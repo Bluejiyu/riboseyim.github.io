@@ -4,18 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>开源技术架构漫谈：基于Go语言快速构建一个RESTful API服务 | Ribose Yim&#39;s Blog</title>
+  <title>开源技术架构漫谈：基于Go语言快速构建RESTful API服务 | Ribose Yim&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="摘要 What is a JSON API? 启动一个RESTful服务 抽象数据模型 增加路径分发功能 重构：Handlers &amp;amp; Router">
 <meta name="keywords" content="DevOps,Developer,Golang">
 <meta property="og:type" content="article">
-<meta property="og:title" content="开源技术架构漫谈：基于Go语言快速构建一个RESTful API服务">
+<meta property="og:title" content="开源技术架构漫谈：基于Go语言快速构建RESTful API服务">
 <meta property="og:url" content="http://riboseyim.github.com/2017/05/23/RestfulAPI/index.html">
 <meta property="og:site_name" content="Ribose Yim&#39;s Blog">
 <meta property="og:description" content="摘要 What is a JSON API? 启动一个RESTful服务 抽象数据模型 增加路径分发功能 重构：Handlers &amp;amp; Router">
-<meta property="og:updated_time" content="2018-05-31T17:21:09.943Z">
+<meta property="og:updated_time" content="2018-06-22T08:17:32.616Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="开源技术架构漫谈：基于Go语言快速构建一个RESTful API服务">
+<meta name="twitter:title" content="开源技术架构漫谈：基于Go语言快速构建RESTful API服务">
 <meta name="twitter:description" content="摘要 What is a JSON API? 启动一个RESTful服务 抽象数据模型 增加路径分发功能 重构：Handlers &amp;amp; Router">
   
     <link rel="alternative" href="/atom.xml" title="Ribose Yim&#39;s Blog" type="application/atom+xml">
@@ -253,7 +253,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      开源技术架构漫谈：基于Go语言快速构建一个RESTful API服务
+      开源技术架构漫谈：基于Go语言快速构建RESTful API服务
     </h1>
   
 
@@ -279,9 +279,9 @@
 <li>启动一个RESTful服务</li>
 <li>抽象数据模型</li>
 <li>增加路径分发功能</li>
-<li>重构：Handlers &amp; Router<a id="more"></a>
-</li>
+<li>重构：Handlers &amp; Router</li>
 </ul>
+<a id="more"></a>
 <p>In this post, we will not only cover how to use Go to create a RESTful JSON API, but we will also talk about good RESTful design.</p>
 <p>部分内容删减调整，原文请查看： <a href="https://thenewstack.io/make-a-restful-json-api-go/" target="_blank" rel="external">Making a RESTful JSON API in Go,2014Nov</a></p>
 <p><a href="http://www.linkedin.com/in/corylanou/" target="_blank" rel="external">Author:CORY LANOU</a>:a full stack technologist who has specialized in start-ups for the last 17 years. I’m currently working at InfluxDB on their core data team. I also help lead and organizer several community technology meetups and do Go training.</p>
@@ -312,6 +312,7 @@
 </li>
 </ol>
 <ul>
+<li><a href="https://t.co/HXbBiVorVO" target="_blank" rel="external">Getting Started with OAuth2 in Go | Youtube</a></li>
 <li><a href="https://github.com/ory/fosite" target="_blank" rel="external">Extensible security first OAuth 2.0 and OpenID Connect SDK for Go </a></li>
 </ul>
 <p>(2)<a href="https://jwt.io" target="_blank" rel="external">JSON web tokens,JWT is an authentication protocol</a>,<a href="https://tools.ietf.org/html/rfc7519" target="_blank" rel="external">RFC 7519</a><br>JWT是一种安全协议。基本思路就是用户提供用户名和密码给认证服务器，服务器验证用户提交信息信息的合法性；如果验证成功，会产生并返回一个Token（令牌），用户可以使用这个token访问服务器上受保护的资源。</p>
