@@ -16,7 +16,7 @@
 <meta property="og:image" content="http://omb2onfvy.bkt.clouddn.com/History_macOS_Linux.png">
 <meta property="og:image" content="http://omb2onfvy.bkt.clouddn.com/OS_Kernel_Model.png">
 <meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/ebook-linuxperfmaster-1.png">
-<meta property="og:updated_time" content="2018-07-06T15:56:50.714Z">
+<meta property="og:updated_time" content="2018-07-06T16:24:15.939Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="谁是王者：macOS vs Linux Kernels ？">
 <meta name="twitter:description" content="谁是王者：macOS vs Linux Kernels ？ Mac 快键键">
@@ -91,7 +91,7 @@
 						<li>Links</li>
 						
 						
-						<li>Über</li>
+						<li>About</li>
 						
 					</ul>
 				</div>
@@ -343,6 +343,9 @@
 <p>在过去的 27 年里, Linux 已经慢慢成长壮大，它不再是一个学生的业余项目。目前，Linux 运行在世界上大多数的计算设备和超级计算机上。</p>
 <p><img src="http://omb2onfvy.bkt.clouddn.com/History_macOS_Linux.png" alt=""></p>
 <h2 id="macOS-Kernel-特色"><a href="#macOS-Kernel-特色" class="headerlink" title="macOS Kernel 特色"></a>macOS Kernel 特色</h2><p>macOS kernel 的特色官方总结为: XNU。意思是 “XNU 不是 Unix”。根据苹果的 Github 页面, XNU 是 “一个混合内核, 奠基于卡耐基·梅隆大学开发的 Mach kernel , 它的组件来自 FreeBSD 和用于编写驱动程序的 C++ API “。BSD 子系统部分的代码 “通常作为微核心系统中实现用户空间服务”。Mach 部分的代码则负责较底层的工作, 例如多任务（multitasking）、内存保护（ protected memory）、虚拟内存管理（virtual memory management）、支持内核调试（kernel debugging）和控制台 I/O 。 Mach 的虚拟内存（VM）系统也被 BSD 的开发者用于 CSRG ，并出现在 BSD 派生的系统中，如 FreeBSD ，但是无论 macOS 还是 FreeBSD 都并未保留 Mach 首倡的微核心结构，除了 macOS 继续提供微核心于内部处理通信以及应用程序直接控制之外。</p>
+<blockquote>
+<p>他在旧版的SketchPad代码基础上进行了修改，让它运行在Macintosh上，并改名MacSketch。SketchPad通过菜单的方式选取图案和样式，Bill把它们放到屏幕下方，变成固定的调色板，并在屏幕左边另外增加一组调色板，包含了各种各样的绘图工具。后续还会不断增加新的工具，不过MacPaint早期的基本架构已经就此成形。<br>———《硅谷革命：成就苹果公司的疯狂往事》</p>
+</blockquote>
 <h2 id="Linux-Kernel-特色"><a href="#Linux-Kernel-特色" class="headerlink" title="Linux Kernel 特色"></a>Linux Kernel 特色</h2><p>如果说 macOS 内核的特点是结合了微核心 (microkernel ，Mach) 和宏内核 (monolithic kernel ，BSD)，那么 Linux 则仅仅是一个宏内核。宏内核负责管理 CPU、内存、进程间通信、设备驱动程序、文件系统和系统服务调用。</p>
 <p><img src="http://omb2onfvy.bkt.clouddn.com/OS_Kernel_Model.png" alt=""></p>
 <h2 id="一句话总结"><a href="#一句话总结" class="headerlink" title="一句话总结"></a>一句话总结</h2><p>macOS 内核代码 (XNU) 基于两个甚至包含古老代码基的组合。另一方面, Linux 的历史更短, 它从头开始编写并且应用广泛。</p>
