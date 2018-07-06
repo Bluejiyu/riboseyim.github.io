@@ -2,6 +2,48 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://riboseyim.github.com/2017/12/19/Linux-Win-Mac/</loc>
+    
+    <lastmod>2018-07-06T15:55:24.358Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2017/05/05/Language-Go-lang/</loc>
+    
+    <lastmod>2018-07-06T09:41:35.673Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2017/06/03/Writing-WriterToolChain/</loc>
+    
+    <lastmod>2018-07-03T09:34:28.236Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2016/04/26/Tools/</loc>
+    
+    <lastmod>2018-07-03T05:05:49.768Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2017/12/11/Linux-Works-Memory/</loc>
+    
+    <lastmod>2018-07-02T04:58:19.329Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2018/01/01/Check2018/</loc>
+    
+    <lastmod>2018-06-23T03:10:25.379Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://riboseyim.github.com/2018/01/03/OpenSource-DB-PostgreSQL/</loc>
     
     <lastmod>2018-06-22T11:51:27.793Z</lastmod>
@@ -86,20 +128,6 @@
   </url>
   
   <url>
-    <loc>http://riboseyim.github.com/2017/12/11/Linux-Works-Memory/</loc>
-    
-    <lastmod>2018-06-21T03:47:30.014Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2017/12/19/Linux-Win-Mac/</loc>
-    
-    <lastmod>2018-06-21T03:45:45.825Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://riboseyim.github.com/2017/05/24/Log/</loc>
     
     <lastmod>2018-06-21T03:45:06.974Z</lastmod>
@@ -117,13 +145,6 @@
     <loc>http://riboseyim.github.com/2017/07/05/Law-Of-Engineering/</loc>
     
     <lastmod>2018-06-21T03:43:05.413Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2017/05/05/Language-Go-lang/</loc>
-    
-    <lastmod>2018-06-21T03:40:45.202Z</lastmod>
     
   </url>
   
@@ -159,13 +180,6 @@
     <loc>http://riboseyim.github.com/2017/11/15/DevOps-Container-Kubernetes/</loc>
     
     <lastmod>2018-06-21T03:26:07.072Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2018/01/01/Check2018/</loc>
-    
-    <lastmod>2018-06-21T03:21:54.354Z</lastmod>
     
   </url>
   
@@ -257,13 +271,6 @@
     <loc>http://riboseyim.github.com/2018/06/12/DevOps-Container-Usage/</loc>
     
     <lastmod>2018-06-13T06:57:28.332Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2017/06/03/Writing-WriterToolChain/</loc>
-    
-    <lastmod>2018-06-12T13:53:25.129Z</lastmod>
     
   </url>
   
@@ -992,13 +999,6 @@
     <loc>http://riboseyim.github.com/2016/04/26/Architect/</loc>
     
     <lastmod>2018-04-12T06:43:52.182Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2016/04/26/Tools/</loc>
-    
-    <lastmod>2018-04-10T08:12:38.479Z</lastmod>
     
   </url>
   
