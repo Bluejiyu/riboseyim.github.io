@@ -2,9 +2,93 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://riboseyim.github.com/2017/04/21/Health/</loc>
+    
+    <lastmod>2018-07-07T19:18:03.474Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2016/04/26/Tools/</loc>
+    
+    <lastmod>2018-07-07T19:03:09.861Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2018/01/22/Health-Emotional/</loc>
+    
+    <lastmod>2018-07-07T18:52:25.347Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2017/05/05/Language-Go-lang/</loc>
+    
+    <lastmod>2018-07-07T11:43:54.191Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2018/07/07/Writing-Email/</loc>
+    
+    <lastmod>2018-07-07T11:27:22.656Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2017/07/14/Network-sFlow/</loc>
+    
+    <lastmod>2018-07-07T11:27:22.651Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2016/06/11/Writing/</loc>
+    
+    <lastmod>2018-07-07T09:34:56.020Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2017/09/15/Visualization-OmniGraffle/</loc>
+    
+    <lastmod>2018-07-07T09:28:28.317Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://riboseyim.github.com/2017/12/19/Linux-Win-Mac/</loc>
     
-    <lastmod>2018-07-06T22:50:42.159Z</lastmod>
+    <lastmod>2018-07-07T09:26:55.185Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2017/06/03/Writing-WriterToolChain/</loc>
+    
+    <lastmod>2018-07-07T09:25:22.462Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2018/02/10/Machine-Learning-Algorithms/</loc>
+    
+    <lastmod>2018-07-07T09:20:46.223Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2018/07/07/Language-React-lang/</loc>
+    
+    <lastmod>2018-07-07T09:19:08.815Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2017/05/26/Language/</loc>
+    
+    <lastmod>2018-07-07T08:52:35.837Z</lastmod>
     
   </url>
   
@@ -26,27 +110,6 @@
     <loc>http://riboseyim.github.com/2016/05/28/Linux/</loc>
     
     <lastmod>2018-07-06T16:24:56.220Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2017/05/05/Language-Go-lang/</loc>
-    
-    <lastmod>2018-07-06T09:41:35.673Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2017/06/03/Writing-WriterToolChain/</loc>
-    
-    <lastmod>2018-07-03T09:34:28.236Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2016/04/26/Tools/</loc>
-    
-    <lastmod>2018-07-03T05:05:49.768Z</lastmod>
     
   </url>
   
@@ -256,294 +319,273 @@
   <url>
     <loc>http://riboseyim.github.com/2018/04/27/DevOps-OpenCensus/</loc>
     
-    <lastmod>2018-06-14T05:27:35.866Z</lastmod>
+    <lastmod>2018-06-14T05:27:35.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2016/05/15/Policy-Education/</loc>
     
-    <lastmod>2018-06-13T10:15:37.429Z</lastmod>
+    <lastmod>2018-06-13T10:15:35.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2018/06/12/DevOps-Container-Usage/</loc>
     
-    <lastmod>2018-06-13T06:57:28.332Z</lastmod>
+    <lastmod>2018-06-13T06:57:27.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2016/07/28/DevOps/</loc>
     
-    <lastmod>2018-06-12T10:11:53.170Z</lastmod>
+    <lastmod>2018-06-12T10:11:51.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/11/12/DevOps-Container-Security/</loc>
     
-    <lastmod>2018-06-12T10:09:30.690Z</lastmod>
+    <lastmod>2018-06-12T10:09:28.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2018/06/11/Linux-Perf-App/</loc>
     
-    <lastmod>2018-06-11T07:01:14.226Z</lastmod>
+    <lastmod>2018-06-11T07:01:14.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/08/15/Commander-Sergeant/</loc>
     
-    <lastmod>2018-06-11T06:58:39.835Z</lastmod>
+    <lastmod>2018-06-11T06:58:28.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2016/04/26/Commander/</loc>
     
-    <lastmod>2018-06-11T06:57:52.292Z</lastmod>
+    <lastmod>2018-06-11T06:57:50.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2016/04/26/Policy/</loc>
     
-    <lastmod>2018-06-11T06:38:20.277Z</lastmod>
+    <lastmod>2018-06-11T06:38:17.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/04/09/Medal/</loc>
     
-    <lastmod>2018-06-11T06:12:04.161Z</lastmod>
+    <lastmod>2018-06-11T06:12:01.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2018/06/07/Linux-FileSystems/</loc>
     
-    <lastmod>2018-06-08T06:04:21.322Z</lastmod>
+    <lastmod>2018-06-08T06:04:18.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2018/06/05/TeamWork-Project-Risk/</loc>
     
-    <lastmod>2018-06-05T04:05:01.134Z</lastmod>
+    <lastmod>2018-06-05T04:05:00.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/06/27/TeamWork-Knowledge-Sharing/</loc>
     
-    <lastmod>2018-06-05T03:57:26.239Z</lastmod>
+    <lastmod>2018-06-05T03:57:23.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/07/14/Medal-HK/</loc>
     
-    <lastmod>2018-05-31T17:35:29.772Z</lastmod>
+    <lastmod>2018-05-31T17:35:29.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/11/05/Commander-PHT-USArmy/</loc>
     
-    <lastmod>2018-05-31T17:34:58.140Z</lastmod>
+    <lastmod>2018-05-31T17:34:58.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/11/05/Commander-PHT-Stand/</loc>
     
-    <lastmod>2018-05-31T17:34:54.971Z</lastmod>
+    <lastmod>2018-05-31T17:34:54.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/11/05/Commander-Art-Of-War-Chinese/</loc>
     
-    <lastmod>2018-05-31T17:34:47.515Z</lastmod>
+    <lastmod>2018-05-31T17:34:47.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2016/04/26/Network-Ntopng/</loc>
     
-    <lastmod>2018-05-31T17:25:40.773Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2017/07/14/Network-sFlow/</loc>
-    
-    <lastmod>2018-05-31T17:25:23.055Z</lastmod>
+    <lastmod>2018-05-31T17:25:40.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2016/11/20/Network-Traffic/</loc>
     
-    <lastmod>2018-05-31T17:25:16.225Z</lastmod>
+    <lastmod>2018-05-31T17:25:16.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2016/08/15/OpenSource-Kafka/</loc>
     
-    <lastmod>2018-05-31T17:24:52.457Z</lastmod>
+    <lastmod>2018-05-31T17:24:52.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/06/30/OpenSource-Spark/</loc>
     
-    <lastmod>2018-05-31T17:24:34.138Z</lastmod>
+    <lastmod>2018-05-31T17:24:34.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2016/04/26/OpenSource-ZeroMQ/</loc>
     
-    <lastmod>2018-05-31T17:24:14.873Z</lastmod>
+    <lastmod>2018-05-31T17:24:14.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/10/30/Protocol-gRPC/</loc>
     
-    <lastmod>2018-05-31T17:23:27.897Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2017/08/09/Protocol-IPv6/</loc>
-    
-    <lastmod>2018-05-31T17:23:23.128Z</lastmod>
+    <lastmod>2018-05-31T17:23:27.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/05/12/Protocol-RFC/</loc>
     
-    <lastmod>2018-05-31T17:23:16.679Z</lastmod>
+    <lastmod>2018-05-31T17:23:16.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/05/12/Protocol-TCP/</loc>
     
-    <lastmod>2018-05-31T17:23:11.792Z</lastmod>
+    <lastmod>2018-05-31T17:23:11.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/05/12/Protocol-UDP/</loc>
     
-    <lastmod>2018-05-31T17:23:09.194Z</lastmod>
+    <lastmod>2018-05-31T17:23:09.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/10/04/Redology-DunMing/</loc>
     
-    <lastmod>2018-05-31T17:21:47.279Z</lastmod>
+    <lastmod>2018-05-31T17:21:47.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2018/02/04/Redology-Intelligence/</loc>
     
-    <lastmod>2018-05-31T17:21:39.922Z</lastmod>
+    <lastmod>2018-05-31T17:21:39.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/08/28/Redology/</loc>
     
-    <lastmod>2018-05-31T17:21:37.147Z</lastmod>
+    <lastmod>2018-05-31T17:21:37.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/08/22/SDN-OpenFlow/</loc>
     
-    <lastmod>2018-05-31T17:21:19.841Z</lastmod>
+    <lastmod>2018-05-31T17:21:19.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/08/18/SDN-ONOS/</loc>
     
-    <lastmod>2018-05-31T17:21:17.270Z</lastmod>
+    <lastmod>2018-05-31T17:21:17.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/10/13/SDN-OpenvSwitch/</loc>
     
-    <lastmod>2018-05-31T17:21:15.032Z</lastmod>
+    <lastmod>2018-05-31T17:21:15.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/10/16/SDN-Cloud/</loc>
     
-    <lastmod>2018-05-31T17:20:55.560Z</lastmod>
+    <lastmod>2018-05-31T17:20:55.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/10/16/SDN-Controller/</loc>
     
-    <lastmod>2018-05-31T17:20:52.344Z</lastmod>
+    <lastmod>2018-05-31T17:20:52.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/05/12/SDN/</loc>
     
-    <lastmod>2018-05-31T17:20:30.652Z</lastmod>
+    <lastmod>2018-05-31T17:20:30.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2016/06/15/TeamWork/</loc>
     
-    <lastmod>2018-05-31T17:20:00.472Z</lastmod>
+    <lastmod>2018-05-31T17:20:00.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/06/27/Technology-English/</loc>
     
-    <lastmod>2018-05-31T17:19:47.008Z</lastmod>
+    <lastmod>2018-05-31T17:19:47.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/07/05/Technology-Writing-Reader-Question/</loc>
     
-    <lastmod>2018-05-31T17:19:31.896Z</lastmod>
+    <lastmod>2018-05-31T17:19:31.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/10/22/Technology-Writing-Publish/</loc>
     
-    <lastmod>2018-05-31T17:19:25.344Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2016/06/11/Writing/</loc>
-    
-    <lastmod>2018-05-31T17:18:38.170Z</lastmod>
+    <lastmod>2018-05-31T17:19:25.000Z</lastmod>
     
   </url>
   
@@ -557,1001 +599,973 @@
   <url>
     <loc>http://riboseyim.github.com/2018/03/02/eBook-DVM/</loc>
     
-    <lastmod>2018-05-31T17:15:41.257Z</lastmod>
+    <lastmod>2018-05-31T17:15:41.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/12/21/eBook-LPM/</loc>
     
-    <lastmod>2018-05-31T17:15:37.320Z</lastmod>
+    <lastmod>2018-05-31T17:15:37.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2018/03/02/eBook-MLM/</loc>
     
-    <lastmod>2018-05-31T17:15:32.313Z</lastmod>
+    <lastmod>2018-05-31T17:15:32.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/02/09/eBook/</loc>
     
-    <lastmod>2018-05-31T17:15:26.288Z</lastmod>
+    <lastmod>2018-05-31T17:15:26.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2018/05/18/DevOps-OpenTracing/</loc>
     
-    <lastmod>2018-05-31T06:28:59.162Z</lastmod>
+    <lastmod>2018-05-31T06:28:59.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/04/17/DTrace_FTrace/</loc>
     
-    <lastmod>2018-05-30T04:00:43.925Z</lastmod>
+    <lastmod>2018-05-30T04:00:42.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2016/11/04/OpenSource-Ganglia/</loc>
     
-    <lastmod>2018-05-30T03:43:21.971Z</lastmod>
+    <lastmod>2018-05-30T03:43:21.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2016/05/01/History/</loc>
     
-    <lastmod>2018-05-28T09:24:55.787Z</lastmod>
+    <lastmod>2018-05-28T09:24:52.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/11/05/Policy-Civil-Rights/</loc>
     
-    <lastmod>2018-05-28T09:24:14.553Z</lastmod>
+    <lastmod>2018-05-28T09:24:11.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/07/09/Law-Of-Intellectual-Property/</loc>
     
-    <lastmod>2018-05-24T02:15:17.966Z</lastmod>
+    <lastmod>2018-05-24T02:15:16.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/05/12/Visualization-Charts/</loc>
     
-    <lastmod>2018-05-23T12:07:06.315Z</lastmod>
+    <lastmod>2018-05-23T12:07:05.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2016/09/24/DevOps-GOPS/</loc>
     
-    <lastmod>2018-05-18T03:28:27.548Z</lastmod>
+    <lastmod>2018-05-18T03:28:27.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2016/06/03/Autobiography/</loc>
     
-    <lastmod>2018-05-18T03:24:03.356Z</lastmod>
+    <lastmod>2018-05-18T03:24:03.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2016/05/31/AboutMe/</loc>
     
-    <lastmod>2018-05-18T03:22:41.149Z</lastmod>
+    <lastmod>2018-05-18T03:22:41.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/04/26/Linux-Commands/</loc>
     
-    <lastmod>2018-05-18T03:21:20.984Z</lastmod>
+    <lastmod>2018-05-18T03:21:20.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2018/04/10/Artistic-Classical/</loc>
     
-    <lastmod>2018-05-15T05:54:49.523Z</lastmod>
+    <lastmod>2018-05-15T05:54:49.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/07/19/Medicine-Hepar/</loc>
     
-    <lastmod>2018-05-15T05:53:04.073Z</lastmod>
+    <lastmod>2018-05-15T05:53:03.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/08/15/Medicine/</loc>
     
-    <lastmod>2018-05-15T05:52:29.094Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2018/01/22/Health-Emotional/</loc>
-    
-    <lastmod>2018-05-15T05:52:18.583Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2017/04/21/Health/</loc>
-    
-    <lastmod>2018-05-15T05:52:10.848Z</lastmod>
+    <lastmod>2018-05-15T05:52:27.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2018/01/07/Addiction-Decision-Law/</loc>
     
-    <lastmod>2018-05-15T05:51:50.860Z</lastmod>
+    <lastmod>2018-05-15T05:51:48.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/11/06/Addiction-Decision-Fentanyl/</loc>
     
-    <lastmod>2018-05-15T05:51:43.283Z</lastmod>
+    <lastmod>2018-05-15T05:51:40.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2018/01/07/Addiction-Decision-Behavior/</loc>
     
-    <lastmod>2018-05-15T05:51:32.535Z</lastmod>
+    <lastmod>2018-05-15T05:51:31.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/12/20/Addiction-Decision-2016-USA-Students/</loc>
     
-    <lastmod>2018-05-15T05:51:24.967Z</lastmod>
+    <lastmod>2018-05-15T05:51:23.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/09/08/Policy-Poverty/</loc>
     
-    <lastmod>2018-05-15T01:53:07.583Z</lastmod>
+    <lastmod>2018-05-15T01:53:07.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2018/03/09/Machine-Learning-Economist/</loc>
     
-    <lastmod>2018-05-15T01:52:22.073Z</lastmod>
+    <lastmod>2018-05-15T01:52:22.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/04/21/Science-Humanics/</loc>
     
-    <lastmod>2018-05-15T01:48:23.554Z</lastmod>
+    <lastmod>2018-05-15T01:48:23.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2016/05/02/Science/</loc>
     
-    <lastmod>2018-05-15T01:48:12.030Z</lastmod>
+    <lastmod>2018-05-15T01:48:11.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/09/04/Addiction-Decision/</loc>
     
-    <lastmod>2018-05-15T01:47:25.115Z</lastmod>
+    <lastmod>2018-05-15T01:44:08.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2018/01/25/Machine-Learning-Books/</loc>
     
-    <lastmod>2018-05-14T11:54:45.677Z</lastmod>
+    <lastmod>2018-05-14T11:54:45.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/06/24/History-Qing/</loc>
     
-    <lastmod>2018-05-09T03:42:27.045Z</lastmod>
+    <lastmod>2018-05-09T03:42:27.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2018/05/07/Machine-Learning-Neural-Network/</loc>
     
-    <lastmod>2018-05-08T01:56:09.840Z</lastmod>
+    <lastmod>2018-05-08T02:43:39.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2018/04/02/Machine-Learning-Algorithms-Sheet/</loc>
     
-    <lastmod>2018-05-07T12:58:43.077Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2018/02/10/Machine-Learning-Algorithms/</loc>
-    
-    <lastmod>2018-05-07T12:58:29.495Z</lastmod>
+    <lastmod>2018-05-07T12:58:43.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2018/02/09/Machine-Learning-Articles/</loc>
     
-    <lastmod>2018-05-07T12:58:21.123Z</lastmod>
+    <lastmod>2018-05-07T12:58:21.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2018/02/16/Machine-Learning-Law/</loc>
     
-    <lastmod>2018-05-07T12:58:01.078Z</lastmod>
+    <lastmod>2018-05-07T12:58:01.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/08/29/Machine-Learning-News/</loc>
     
-    <lastmod>2018-05-07T12:57:44.988Z</lastmod>
+    <lastmod>2018-05-07T12:57:44.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2018/01/15/Machine-Learning-OpenCV/</loc>
     
-    <lastmod>2018-05-07T12:57:37.326Z</lastmod>
+    <lastmod>2018-05-07T12:57:37.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2018/02/09/Machine-Learning-Projects/</loc>
     
-    <lastmod>2018-05-07T12:57:31.853Z</lastmod>
+    <lastmod>2018-05-07T12:57:31.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2018/01/17/Machine-Learning-TensorFlow/</loc>
     
-    <lastmod>2018-05-07T12:57:20.463Z</lastmod>
+    <lastmod>2018-05-07T12:57:20.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2018/02/27/Machine-Learning-TrainModel/</loc>
     
-    <lastmod>2018-05-07T12:57:09.905Z</lastmod>
+    <lastmod>2018-05-07T12:57:09.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2018/03/21/Machine-Learning-WordBook/</loc>
     
-    <lastmod>2018-05-07T12:57:04.274Z</lastmod>
+    <lastmod>2018-05-07T12:57:04.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2018/03/26/DevOps-Deployment/</loc>
     
-    <lastmod>2018-05-02T03:14:45.860Z</lastmod>
+    <lastmod>2018-05-02T03:14:45.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2018/04/27/Language-Go-lang-Web/</loc>
     
-    <lastmod>2018-04-30T11:32:59.695Z</lastmod>
+    <lastmod>2018-04-30T11:32:59.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2018/04/10/DevOps-Phoenix/</loc>
     
-    <lastmod>2018-04-28T09:52:04.156Z</lastmod>
+    <lastmod>2018-04-28T09:52:04.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/08/06/TeamWork-Kanban/</loc>
     
-    <lastmod>2018-04-27T16:44:38.088Z</lastmod>
+    <lastmod>2018-04-27T16:44:38.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/05/12/Virtualization/</loc>
     
-    <lastmod>2018-04-27T10:50:38.920Z</lastmod>
+    <lastmod>2018-04-27T10:50:38.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2018/03/29/DevOps-Culture/</loc>
     
-    <lastmod>2018-04-26T02:11:18.984Z</lastmod>
+    <lastmod>2018-04-26T02:11:16.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2016/04/26/TeamWork-Redmine/</loc>
     
-    <lastmod>2018-04-26T02:09:53.118Z</lastmod>
+    <lastmod>2018-04-26T02:09:41.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/12/11/Linux-Perf-Netflix/</loc>
     
-    <lastmod>2018-04-23T06:53:33.775Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2016/04/26/Linux-Perf-Master/</loc>
-    
-    <lastmod>2018-04-23T06:53:18.715Z</lastmod>
+    <lastmod>2018-04-23T06:53:31.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/12/11/Linux-Perf-Load/</loc>
     
-    <lastmod>2018-04-23T06:53:08.350Z</lastmod>
+    <lastmod>2018-04-23T06:53:08.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2018/04/09/Commander-Navy-Digital/</loc>
     
-    <lastmod>2018-04-16T10:05:38.578Z</lastmod>
+    <lastmod>2018-04-16T10:05:38.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/04/20/MrTanSitong/</loc>
     
-    <lastmod>2018-04-15T08:26:12.921Z</lastmod>
+    <lastmod>2018-04-15T08:26:12.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2016/09/10/Lincoln/</loc>
     
-    <lastmod>2018-04-15T08:25:38.404Z</lastmod>
+    <lastmod>2018-04-15T08:25:36.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/05/13/Lincoln-Spielberg/</loc>
     
-    <lastmod>2018-04-15T08:25:30.992Z</lastmod>
+    <lastmod>2018-04-15T08:25:30.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/01/30/Artistic-Garden/</loc>
     
-    <lastmod>2018-04-15T08:24:27.915Z</lastmod>
+    <lastmod>2018-04-15T08:24:27.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2016/05/02/Artistic/</loc>
     
-    <lastmod>2018-04-15T05:42:45.466Z</lastmod>
+    <lastmod>2018-04-15T05:42:45.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/04/20/Artistic-The-Mad-Phoenix/</loc>
     
-    <lastmod>2018-04-15T05:42:27.619Z</lastmod>
+    <lastmod>2018-04-15T05:42:27.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/10/18/Artistic-Poetry/</loc>
     
-    <lastmod>2018-04-15T05:42:19.017Z</lastmod>
+    <lastmod>2018-04-15T05:42:19.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/04/13/Artistic-Les-Miserables/</loc>
     
-    <lastmod>2018-04-15T05:42:06.873Z</lastmod>
+    <lastmod>2018-04-15T05:42:06.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/11/22/Visualization-Grafana/</loc>
     
-    <lastmod>2018-04-13T07:05:13.831Z</lastmod>
+    <lastmod>2018-04-13T07:05:13.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2018/03/20/Machine-Learning-TensorFlow-ProtoBuf/</loc>
     
-    <lastmod>2018-04-13T01:49:16.809Z</lastmod>
+    <lastmod>2018-04-13T01:49:15.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2016/04/26/Architect/</loc>
     
-    <lastmod>2018-04-12T06:43:52.182Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2017/05/26/Language/</loc>
-    
-    <lastmod>2018-04-10T07:51:48.556Z</lastmod>
+    <lastmod>2018-04-12T06:43:49.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2016/07/03/Reading/</loc>
     
-    <lastmod>2018-04-10T07:35:24.990Z</lastmod>
+    <lastmod>2018-04-10T07:35:23.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2016/04/26/Economist/</loc>
     
-    <lastmod>2018-04-10T06:44:03.121Z</lastmod>
+    <lastmod>2018-04-10T06:44:00.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2016/04/26/Linux-Perf-Master/</loc>
+    
+    <lastmod>2018-04-10T06:40:01.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/06/16/Network-Pcap/</loc>
     
-    <lastmod>2018-04-10T06:32:05.336Z</lastmod>
+    <lastmod>2018-04-10T06:32:03.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2016/10/15/Artistic-Zhuhai-AirShow/</loc>
     
-    <lastmod>2018-04-10T06:11:11.394Z</lastmod>
+    <lastmod>2018-04-10T06:11:09.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/08/20/Artistic-Suona/</loc>
     
-    <lastmod>2018-04-10T06:10:47.475Z</lastmod>
+    <lastmod>2018-04-10T06:10:44.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/05/12/Artistic-Museum/</loc>
     
-    <lastmod>2018-04-10T06:10:38.311Z</lastmod>
+    <lastmod>2018-04-10T06:10:36.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/08/30/Mathmetics-Beauty/</loc>
     
-    <lastmod>2018-04-06T03:50:24.126Z</lastmod>
+    <lastmod>2018-04-06T03:50:23.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/05/09/Mathmetics-Markov-Model/</loc>
     
-    <lastmod>2018-04-06T03:44:14.049Z</lastmod>
+    <lastmod>2018-04-06T03:44:13.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/10/23/Accounting/</loc>
     
-    <lastmod>2018-04-03T03:17:54.979Z</lastmod>
+    <lastmod>2018-04-03T03:17:52.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2016/05/31/TeamWork-Git/</loc>
     
-    <lastmod>2018-03-30T10:10:50.972Z</lastmod>
+    <lastmod>2018-03-30T10:10:50.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2018/03/30/Lincoln-Chicago-Orchestra/</loc>
     
-    <lastmod>2018-03-30T08:18:47.271Z</lastmod>
+    <lastmod>2018-03-30T08:18:35.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2016/07/28/Policy-Publish/</loc>
     
-    <lastmod>2018-03-29T07:03:08.200Z</lastmod>
+    <lastmod>2018-03-29T07:03:07.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/04/26/SRE/</loc>
     
-    <lastmod>2018-03-29T02:20:52.205Z</lastmod>
+    <lastmod>2018-03-29T02:20:50.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/05/12/Visualization-GIS/</loc>
     
-    <lastmod>2018-03-28T03:49:02.278Z</lastmod>
+    <lastmod>2018-03-28T03:49:01.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2018/03/25/Mathmetics-Complexity/</loc>
     
-    <lastmod>2018-03-26T09:17:56.443Z</lastmod>
+    <lastmod>2018-03-26T09:17:53.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2018/01/08/Linux-Works-Network/</loc>
     
-    <lastmod>2018-03-12T03:09:32.865Z</lastmod>
+    <lastmod>2018-03-12T03:09:32.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2018/03/07/Machine-Learning-Keras/</loc>
     
-    <lastmod>2018-03-07T10:13:35.005Z</lastmod>
+    <lastmod>2018-03-07T10:13:33.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2018/03/07/Machine-Learning-NLP/</loc>
     
-    <lastmod>2018-03-07T10:08:57.826Z</lastmod>
+    <lastmod>2018-03-07T10:08:57.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/10/23/Religion-Buddha/</loc>
     
-    <lastmod>2018-03-07T09:53:43.835Z</lastmod>
+    <lastmod>2018-03-07T09:53:43.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/02/13/Master/</loc>
     
-    <lastmod>2018-03-07T08:57:10.411Z</lastmod>
+    <lastmod>2018-03-07T08:57:08.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/04/10/Check2017/</loc>
     
-    <lastmod>2018-03-07T07:30:24.232Z</lastmod>
+    <lastmod>2018-03-07T07:30:22.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/12/21/Language-Go-lang-Spider/</loc>
     
-    <lastmod>2018-03-06T05:51:41.298Z</lastmod>
+    <lastmod>2018-03-06T05:51:40.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2018/02/16/DTrace-Linux/</loc>
     
-    <lastmod>2018-03-01T07:18:03.900Z</lastmod>
+    <lastmod>2018-03-01T07:18:03.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/12/21/Language-Auto-Generator/</loc>
     
-    <lastmod>2018-02-27T06:14:34.382Z</lastmod>
+    <lastmod>2018-02-27T06:14:33.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/06/27/DTrace_bcc/</loc>
     
-    <lastmod>2018-02-16T12:31:05.425Z</lastmod>
+    <lastmod>2018-02-16T12:31:05.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2018/01/15/Visualization-DataSource/</loc>
     
-    <lastmod>2018-02-15T16:43:32.387Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2017/05/03/TeamWork-WorldBook/</loc>
-    
-    <lastmod>2018-02-15T16:42:58.828Z</lastmod>
+    <lastmod>2018-02-15T16:43:32.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/11/16/QuickStart/</loc>
     
-    <lastmod>2018-02-09T16:27:48.426Z</lastmod>
+    <lastmod>2018-02-09T16:27:48.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/05/09/CyberSecurity-Hacker/</loc>
     
-    <lastmod>2018-02-05T07:00:25.708Z</lastmod>
+    <lastmod>2018-02-05T07:00:23.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2018/01/07/History-Tang/</loc>
     
-    <lastmod>2018-02-03T12:53:50.081Z</lastmod>
+    <lastmod>2018-02-03T12:53:47.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/06/14/Mathmetics/</loc>
     
-    <lastmod>2018-02-02T05:55:47.551Z</lastmod>
+    <lastmod>2018-02-02T05:55:42.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2018/01/07/Policy-Law-Family/</loc>
     
-    <lastmod>2018-02-01T09:44:44.623Z</lastmod>
+    <lastmod>2018-02-01T09:44:44.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/11/06/CyberSecurity-BackDoor/</loc>
     
-    <lastmod>2018-02-01T09:10:29.872Z</lastmod>
+    <lastmod>2018-02-01T09:10:28.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/04/09/CyberSecurity-CSTCB/</loc>
     
-    <lastmod>2018-02-01T09:10:26.604Z</lastmod>
+    <lastmod>2018-02-01T09:10:24.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2016/10/06/CyberSecurity-SSH/</loc>
     
-    <lastmod>2018-02-01T09:09:22.036Z</lastmod>
+    <lastmod>2018-02-01T09:09:21.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/05/12/CyberSecurity-GFW/</loc>
     
-    <lastmod>2018-02-01T09:09:11.892Z</lastmod>
+    <lastmod>2018-02-01T09:09:11.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/08/31/CyberSecurity-Headers/</loc>
     
-    <lastmod>2018-02-01T09:09:05.324Z</lastmod>
+    <lastmod>2018-02-01T09:09:03.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2018/02/01/Economist-International-Relation/</loc>
     
-    <lastmod>2018-02-01T09:04:19.102Z</lastmod>
+    <lastmod>2018-02-01T09:04:17.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2016/12/09/Economist-Books-Year-2016/</loc>
     
-    <lastmod>2018-01-31T01:44:03.374Z</lastmod>
+    <lastmod>2018-01-31T01:44:03.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2018/01/30/Economist-Books-Year-2017/</loc>
     
-    <lastmod>2018-01-31T01:44:00.855Z</lastmod>
+    <lastmod>2018-01-31T01:43:59.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/05/12/Language-Compiler/</loc>
     
-    <lastmod>2018-01-30T14:44:40.134Z</lastmod>
+    <lastmod>2018-01-30T14:44:37.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/05/16/Language-Perl-lang/</loc>
     
-    <lastmod>2018-01-30T14:42:01.154Z</lastmod>
+    <lastmod>2018-01-30T14:42:00.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/06/19/Language-Python-lang/</loc>
     
-    <lastmod>2018-01-30T14:41:42.828Z</lastmod>
+    <lastmod>2018-01-30T14:41:41.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/05/16/Language-Ruby-lang/</loc>
     
-    <lastmod>2018-01-30T14:41:33.582Z</lastmod>
+    <lastmod>2018-01-30T14:41:30.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2016/04/26/Visualization-RunningApp/</loc>
     
-    <lastmod>2018-01-23T02:24:14.527Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2017/09/15/Visualization-OmniGraffle/</loc>
-    
-    <lastmod>2018-01-23T02:23:53.032Z</lastmod>
+    <lastmod>2018-01-23T02:24:14.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/12/19/Visualization-Canvas/</loc>
     
-    <lastmod>2018-01-23T02:18:18.550Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2017/03/16/Policy-Publish-Children/</loc>
-    
-    <lastmod>2018-01-23T02:17:20.519Z</lastmod>
+    <lastmod>2018-01-23T02:18:18.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/11/05/Policy-Public-Health/</loc>
     
-    <lastmod>2018-01-23T02:17:20.512Z</lastmod>
+    <lastmod>2018-01-23T02:17:20.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2017/03/16/Policy-Publish-Children/</loc>
+    
+    <lastmod>2018-01-23T02:17:20.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2017/05/03/TeamWork-WorldBook/</loc>
+    
+    <lastmod>2018-01-23T02:00:04.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2017/08/09/Protocol-IPv6/</loc>
+    
+    <lastmod>2018-01-23T01:33:18.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/11/05/Policy-Public-Finance/</loc>
     
-    <lastmod>2018-01-23T01:31:46.215Z</lastmod>
+    <lastmod>2018-01-23T01:31:46.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2018/01/17/History-Tang-DiRenjie/</loc>
     
-    <lastmod>2018-01-17T13:04:56.996Z</lastmod>
+    <lastmod>2018-01-17T13:04:56.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/12/09/Policy-Female/</loc>
     
-    <lastmod>2018-01-15T07:53:41.116Z</lastmod>
+    <lastmod>2018-01-15T07:53:41.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2016/04/26/PHT-Running/</loc>
     
-    <lastmod>2018-01-15T07:36:30.049Z</lastmod>
+    <lastmod>2018-01-15T07:36:30.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/11/23/Visualization-DashBoard/</loc>
     
-    <lastmod>2018-01-11T03:44:39.572Z</lastmod>
+    <lastmod>2018-01-11T03:44:39.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2016/12/19/Check2017-Plan/</loc>
     
-    <lastmod>2018-01-01T06:05:19.606Z</lastmod>
+    <lastmod>2018-01-01T06:05:17.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/12/23/Linux-Perf-WordBook/</loc>
     
-    <lastmod>2017-12-28T12:51:54.003Z</lastmod>
+    <lastmod>2017-12-28T12:51:51.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/04/21/Policy-Religion/</loc>
     
-    <lastmod>2017-12-26T02:29:10.470Z</lastmod>
+    <lastmod>2017-12-26T02:29:10.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/04/21/Technology-Thinking/</loc>
     
-    <lastmod>2017-12-22T05:26:27.135Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2016/06/12/Technology-Oracle/</loc>
-    
-    <lastmod>2017-12-22T05:26:27.133Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2017/04/10/Publish-MediaData/</loc>
-    
-    <lastmod>2017-12-22T05:26:27.106Z</lastmod>
+    <lastmod>2017-12-22T05:26:27.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2016/05/05/OpenSource-Coder/</loc>
     
-    <lastmod>2017-12-22T05:26:27.059Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2017/06/25/MrLizicheng/</loc>
-    
-    <lastmod>2017-12-22T05:26:27.041Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2017/04/20/MrGuZhun/</loc>
-    
-    <lastmod>2017-12-22T05:26:27.040Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2017/07/02/Manager/</loc>
-    
-    <lastmod>2017-12-22T05:26:27.005Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2017/10/24/Linux-Perf-Wan/</loc>
-    
-    <lastmod>2017-12-22T05:26:26.987Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2017/10/24/Linux-Perf-Picture/</loc>
-    
-    <lastmod>2017-12-22T05:26:26.984Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2016/04/24/LinusTorvalds/</loc>
-    
-    <lastmod>2017-12-22T05:26:26.973Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2017/11/05/History-USA-Virginia/</loc>
-    
-    <lastmod>2017-12-22T05:26:26.917Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2017/01/30/History-TaipingHeavenly/</loc>
-    
-    <lastmod>2017-12-22T05:26:26.914Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2017/10/22/History-Qing-ZhangJiXing/</loc>
-    
-    <lastmod>2017-12-22T05:26:26.912Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2017/11/27/History-Psychology/</loc>
-    
-    <lastmod>2017-12-22T05:26:26.908Z</lastmod>
+    <lastmod>2017-12-22T05:26:27.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/06/25/History-Ming/</loc>
     
-    <lastmod>2017-12-22T05:26:26.895Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2017/07/23/CloudComputing/</loc>
-    
-    <lastmod>2017-12-22T05:26:26.790Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2017/01/01/Check2016/</loc>
-    
-    <lastmod>2017-12-22T05:26:26.788Z</lastmod>
+    <lastmod>2017-12-22T05:26:26.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/04/28/Check2012/</loc>
     
-    <lastmod>2017-12-22T05:26:26.785Z</lastmod>
+    <lastmod>2017-12-22T05:26:26.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://riboseyim.github.com/2017/07/02/BirdWatching-GZ-Wetland/</loc>
+    <loc>http://riboseyim.github.com/2017/10/24/Linux-Perf-Wan/</loc>
     
-    <lastmod>2017-12-22T05:26:26.772Z</lastmod>
+    <lastmod>2017-12-22T05:26:26.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2017/10/24/Linux-Perf-Picture/</loc>
+    
+    <lastmod>2017-12-22T05:26:26.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/04/20/Artistic-Travel/</loc>
     
-    <lastmod>2017-12-22T05:26:26.763Z</lastmod>
+    <lastmod>2017-12-22T05:26:26.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2017/01/01/Check2016/</loc>
+    
+    <lastmod>2017-12-22T05:26:26.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2016/04/24/LinusTorvalds/</loc>
+    
+    <lastmod>2017-12-22T05:26:26.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2016/06/12/Technology-Oracle/</loc>
+    
+    <lastmod>2017-12-21T08:21:41.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2017/11/27/History-Psychology/</loc>
+    
+    <lastmod>2017-12-20T06:45:06.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2017/04/10/Publish-MediaData/</loc>
+    
+    <lastmod>2017-12-18T03:51:08.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://riboseyim.github.com/2017/08/21/Artistic-Flower/</loc>
     
-    <lastmod>2017-12-22T05:26:26.725Z</lastmod>
+    <lastmod>2017-12-11T06:01:19.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2017/07/02/BirdWatching-GZ-Wetland/</loc>
+    
+    <lastmod>2017-11-05T15:00:35.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2017/11/05/History-USA-Virginia/</loc>
+    
+    <lastmod>2017-11-05T11:45:30.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2017/07/02/Manager/</loc>
+    
+    <lastmod>2017-11-05T07:19:33.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2017/07/23/CloudComputing/</loc>
+    
+    <lastmod>2017-10-31T09:57:41.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2017/10/22/History-Qing-ZhangJiXing/</loc>
+    
+    <lastmod>2017-10-24T01:54:55.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2017/01/30/History-TaipingHeavenly/</loc>
+    
+    <lastmod>2017-10-22T12:02:16.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2017/06/25/MrLizicheng/</loc>
+    
+    <lastmod>2017-10-22T11:12:59.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2017/04/20/MrGuZhun/</loc>
+    
+    <lastmod>2017-10-22T11:11:48.000Z</lastmod>
     
   </url>
   

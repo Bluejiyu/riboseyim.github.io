@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://riboseyim.github.com/"/>
-  <updated>2018-06-19T09:26:27.924Z</updated>
+  <updated>2018-07-07T11:27:22.656Z</updated>
   <id>http://riboseyim.github.com/</id>
   
   <author>
@@ -14,6 +14,50 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Writing-Email</title>
+    <link href="http://riboseyim.github.com/2018/07/07/Writing-Email/"/>
+    <id>http://riboseyim.github.com/2018/07/07/Writing-Email/</id>
+    <published>2018-07-07T09:52:40.000Z</published>
+    <updated>2018-07-07T11:27:22.656Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><a id="more"></a>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
+<li><a href="https://unreasonable.is/the-7-emails-you-need-to-know-how-to-write/?utm_source=wanqu.co&amp;utm_campaign=Wanqu+Daily&amp;utm_medium=website" target="_blank" rel="external">The 7 Emails You Need to Know How to Write | TEJU RAVILOCHAN June 5, 2014</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h2&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Language-React-lang</title>
+    <link href="http://riboseyim.github.com/2018/07/07/Language-React-lang/"/>
+    <id>http://riboseyim.github.com/2018/07/07/Language-React-lang/</id>
+    <published>2018-07-07T09:17:22.000Z</published>
+    <updated>2018-07-07T09:19:08.815Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><a id="more"></a>
+<h2 id="Introduction-React-简介"><a href="#Introduction-React-简介" class="headerlink" title="Introduction | React 简介"></a>Introduction | React 简介</h2><ul>
+<li><a href="https://github.com/adam-golab/react-developer-roadmap" target="_blank" rel="external">React developer roadmap</a></li>
+</ul>
+<h2 id="Core-Concept-核心概念"><a href="#Core-Concept-核心概念" class="headerlink" title="Core Concept | 核心概念"></a>Core Concept | 核心概念</h2><h4 id="Concept-A"><a href="#Concept-A" class="headerlink" title="Concept A"></a>Concept A</h4><h4 id="Concept-B"><a href="#Concept-B" class="headerlink" title="Concept B"></a>Concept B</h4><h4 id="Concept-C"><a href="#Concept-C" class="headerlink" title="Concept C"></a>Concept C</h4><h2 id="Architecture-React-架构"><a href="#Architecture-React-架构" class="headerlink" title="Architecture | React 架构"></a>Architecture | React 架构</h2><h2 id="Best-Practice-React-最佳实践"><a href="#Best-Practice-React-最佳实践" class="headerlink" title="Best Practice | React 最佳实践"></a>Best Practice | React 最佳实践</h2><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h2&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Learning-Template</title>
@@ -44,7 +88,7 @@
     <link href="http://riboseyim.github.com/2018/06/12/DevOps-Container-Usage/"/>
     <id>http://riboseyim.github.com/2018/06/12/DevOps-Container-Usage/</id>
     <published>2018-06-12T05:22:14.000Z</published>
-    <updated>2018-06-13T06:57:28.332Z</updated>
+    <updated>2018-06-13T06:57:27.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
 <li>应用排行榜</li>
@@ -194,7 +238,7 @@
     <link href="http://riboseyim.github.com/2018/06/11/Linux-Perf-App/"/>
     <id>http://riboseyim.github.com/2018/06/11/Linux-Perf-App/</id>
     <published>2018-06-11T06:57:15.000Z</published>
-    <updated>2018-06-11T07:01:14.226Z</updated>
+    <updated>2018-06-11T07:01:14.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>应用性能分析</p>
 <a id="more"></a>
@@ -218,7 +262,7 @@
     <link href="http://riboseyim.github.com/2018/06/07/Linux-FileSystems/"/>
     <id>http://riboseyim.github.com/2018/06/07/Linux-FileSystems/</id>
     <published>2018-06-07T09:45:08.000Z</published>
-    <updated>2018-06-08T06:04:21.322Z</updated>
+    <updated>2018-06-08T06:04:18.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
 <li><a href="https://docs.oracle.com/cd/E26926_01/html/E25884/fscreate-6.html" target="_blank" rel="external">创建和挂载 Oracle Solaris 文件系统</a></li>
@@ -239,7 +283,7 @@
     <link href="http://riboseyim.github.com/2018/06/05/TeamWork-Project-Risk/"/>
     <id>http://riboseyim.github.com/2018/06/05/TeamWork-Project-Risk/</id>
     <published>2018-06-05T02:54:27.000Z</published>
-    <updated>2018-06-05T04:05:01.134Z</updated>
+    <updated>2018-06-05T04:05:00.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><a id="more"></a>
 <h2 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h2><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ul>
@@ -267,7 +311,7 @@
     <link href="http://riboseyim.github.com/2018/05/18/DevOps-OpenTracing/"/>
     <id>http://riboseyim.github.com/2018/05/18/DevOps-OpenTracing/</id>
     <published>2018-05-18T03:36:46.000Z</published>
-    <updated>2018-05-31T06:28:59.162Z</updated>
+    <updated>2018-05-31T06:28:59.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
 <li>Key Words: metrics、logging、tracing</li>
@@ -670,9 +714,9 @@
     
       <category term="Science" scheme="http://riboseyim.github.com/tags/Science/"/>
     
-      <category term="Health" scheme="http://riboseyim.github.com/tags/Health/"/>
-    
       <category term="Economist" scheme="http://riboseyim.github.com/tags/Economist/"/>
+    
+      <category term="Health" scheme="http://riboseyim.github.com/tags/Health/"/>
     
   </entry>
   
@@ -681,7 +725,7 @@
     <link href="http://riboseyim.github.com/2018/05/07/Machine-Learning-Neural-Network/"/>
     <id>http://riboseyim.github.com/2018/05/07/Machine-Learning-Neural-Network/</id>
     <published>2018-05-07T09:42:51.000Z</published>
-    <updated>2018-05-08T01:56:09.840Z</updated>
+    <updated>2018-05-08T02:43:39.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
 <li>Introduction</li>
@@ -842,9 +886,9 @@
     
       <category term="架构师" scheme="http://riboseyim.github.com/tags/%E6%9E%B6%E6%9E%84%E5%B8%88/"/>
     
-      <category term="数学与算法" scheme="http://riboseyim.github.com/tags/%E6%95%B0%E5%AD%A6%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
-    
       <category term="Machine-Learning" scheme="http://riboseyim.github.com/tags/Machine-Learning/"/>
+    
+      <category term="数学与算法" scheme="http://riboseyim.github.com/tags/%E6%95%B0%E5%AD%A6%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -853,7 +897,7 @@
     <link href="http://riboseyim.github.com/2018/04/27/Language-Go-lang-Web/"/>
     <id>http://riboseyim.github.com/2018/04/27/Language-Go-lang-Web/</id>
     <published>2018-04-27T09:39:48.000Z</published>
-    <updated>2018-04-30T11:32:59.695Z</updated>
+    <updated>2018-04-30T11:32:59.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><a id="more"></a>
 <h2 id="beego"><a href="#beego" class="headerlink" title="beego"></a>beego</h2><h4 id="Beego-ABC"><a href="#Beego-ABC" class="headerlink" title="Beego ABC"></a>Beego ABC</h4><ul>
@@ -890,7 +934,7 @@
     <link href="http://riboseyim.github.com/2018/04/27/DevOps-OpenCensus/"/>
     <id>http://riboseyim.github.com/2018/04/27/DevOps-OpenCensus/</id>
     <published>2018-04-27T02:33:09.000Z</published>
-    <updated>2018-06-14T05:27:35.866Z</updated>
+    <updated>2018-06-14T05:27:35.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
 <li>Distributed Tracing and Monitoring System</li>
@@ -1120,7 +1164,7 @@
     <link href="http://riboseyim.github.com/2018/04/10/DevOps-Phoenix/"/>
     <id>http://riboseyim.github.com/2018/04/10/DevOps-Phoenix/</id>
     <published>2018-04-10T07:12:14.000Z</published>
-    <updated>2018-04-28T09:52:04.156Z</updated>
+    <updated>2018-04-28T09:52:04.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
 <li>背景：《凤凰项目》的灵魂</li>
@@ -1306,11 +1350,11 @@
     </summary>
     
     
+      <category term="Manager" scheme="http://riboseyim.github.com/tags/Manager/"/>
+    
       <category term="最佳工程实践" scheme="http://riboseyim.github.com/tags/%E6%9C%80%E4%BD%B3%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/"/>
     
       <category term="DevOps" scheme="http://riboseyim.github.com/tags/DevOps/"/>
-    
-      <category term="Manager" scheme="http://riboseyim.github.com/tags/Manager/"/>
     
   </entry>
   
@@ -1319,7 +1363,7 @@
     <link href="http://riboseyim.github.com/2018/04/10/Artistic-Classical/"/>
     <id>http://riboseyim.github.com/2018/04/10/Artistic-Classical/</id>
     <published>2018-04-10T06:09:52.000Z</published>
-    <updated>2018-05-15T05:54:49.523Z</updated>
+    <updated>2018-05-15T05:54:49.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
 <li>古典音乐低俗史</li>
@@ -1444,7 +1488,7 @@
     <link href="http://riboseyim.github.com/2018/04/09/Commander-Navy-Digital/"/>
     <id>http://riboseyim.github.com/2018/04/09/Commander-Navy-Digital/</id>
     <published>2018-04-09T09:39:06.000Z</published>
-    <updated>2018-04-16T10:05:38.578Z</updated>
+    <updated>2018-04-16T10:05:38.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><a id="more"></a>
 <h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
@@ -1476,7 +1520,7 @@
     <link href="http://riboseyim.github.com/2018/04/02/Machine-Learning-Algorithms-Sheet/"/>
     <id>http://riboseyim.github.com/2018/04/02/Machine-Learning-Algorithms-Sheet/</id>
     <published>2018-04-02T07:28:39.000Z</published>
-    <updated>2018-05-07T12:58:43.077Z</updated>
+    <updated>2018-05-07T12:58:43.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
 <li>识别和应用机器学习算法解决问题</li>
@@ -1622,9 +1666,9 @@
     
       <category term="架构师" scheme="http://riboseyim.github.com/tags/%E6%9E%B6%E6%9E%84%E5%B8%88/"/>
     
-      <category term="数学与算法" scheme="http://riboseyim.github.com/tags/%E6%95%B0%E5%AD%A6%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
-    
       <category term="Machine-Learning" scheme="http://riboseyim.github.com/tags/Machine-Learning/"/>
+    
+      <category term="数学与算法" scheme="http://riboseyim.github.com/tags/%E6%95%B0%E5%AD%A6%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -1633,7 +1677,7 @@
     <link href="http://riboseyim.github.com/2018/03/30/Lincoln-Chicago-Orchestra/"/>
     <id>http://riboseyim.github.com/2018/03/30/Lincoln-Chicago-Orchestra/</id>
     <published>2018-03-30T08:17:42.000Z</published>
-    <updated>2018-03-30T08:18:47.271Z</updated>
+    <updated>2018-03-30T08:18:35.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
 <li><a href="https://zh.wikipedia.org/wiki/%E7%AE%A1%E5%BC%A6%E4%B9%90%E5%9B%A2%E5%88%97%E8%A1%A8" target="_blank" rel="external">维基百科：芝加哥交响乐团</a></li>
@@ -1655,7 +1699,7 @@
     <link href="http://riboseyim.github.com/2018/03/29/DevOps-Culture/"/>
     <id>http://riboseyim.github.com/2018/03/29/DevOps-Culture/</id>
     <published>2018-03-29T01:21:17.000Z</published>
-    <updated>2018-04-26T02:11:18.984Z</updated>
+    <updated>2018-04-26T02:11:16.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
 <li>DevOps实践的本质是文化</li>
@@ -1759,7 +1803,7 @@
     <link href="http://riboseyim.github.com/2018/03/26/DevOps-Deployment/"/>
     <id>http://riboseyim.github.com/2018/03/26/DevOps-Deployment/</id>
     <published>2018-03-26T10:01:39.000Z</published>
-    <updated>2018-05-02T03:14:45.860Z</updated>
+    <updated>2018-05-02T03:14:45.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
 <li>Ansible vs. Chef vs. Fabric vs. Puppet vs. SaltStack</li>
@@ -1947,7 +1991,7 @@
     <link href="http://riboseyim.github.com/2018/03/25/Mathmetics-Complexity/"/>
     <id>http://riboseyim.github.com/2018/03/25/Mathmetics-Complexity/</id>
     <published>2018-03-25T12:05:04.000Z</published>
-    <updated>2018-03-26T09:17:56.443Z</updated>
+    <updated>2018-03-26T09:17:53.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
 <li>复杂系统、复杂度(Complexity)</li>
@@ -2009,108 +2053,6 @@
       <category term="数学与算法" scheme="http://riboseyim.github.com/tags/%E6%95%B0%E5%AD%A6%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
     
       <category term="科技史" scheme="http://riboseyim.github.com/tags/%E7%A7%91%E6%8A%80%E5%8F%B2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Machine Learning:WordBook</title>
-    <link href="http://riboseyim.github.com/2018/03/21/Machine-Learning-WordBook/"/>
-    <id>http://riboseyim.github.com/2018/03/21/Machine-Learning-WordBook/</id>
-    <published>2018-03-21T03:08:01.000Z</published>
-    <updated>2018-05-07T12:57:04.274Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><a id="more"></a>
-<h2 id="Basic"><a href="#Basic" class="headerlink" title="Basic"></a>Basic</h2><h2 id="数学概念"><a href="#数学概念" class="headerlink" title="数学概念"></a>数学概念</h2><ul>
-<li>泰勒级数 Taylor series</li>
-</ul>
-<p>用无限项连加式——级数来表示一个函数，这些相加的项由函数在某一点的导数求得，以 1715 年发表了泰勒公式的英国数学家布鲁克·泰勒（Sir Brook Taylor）来命名。通过函数在自变量零点的导数求得的泰勒级数又叫做麦克劳林级数，以苏格兰数学家科林·麦克劳林的名字命名。</p>
-<ul>
-<li>导数 Derivative</li>
-</ul>
-<p>导数（Derivative）是微积分学中重要的基础概念。一个函数在某一点的导数描述了这个函数在这一点附近的变化率。导数的本质是通过极限的概念对函数进行局部的线性逼近。</p>
-<ul>
-<li>偏导数 Partial Derivatives</li>
-</ul>
-<p>在数学中，一个多变量的函数的偏导数是它关于其中一个变量的导数，而保持其他变量恒定（相对于全导数，在其中所有变量都允许变化）</p>
-<ul>
-<li>超参数 Hyper Parameter</li>
-</ul>
-<p>在机器学习中，超参数是在学习过程开始之前设置的一个参数。相比之下，其他参数的值是通过训练得到的。</p>
-<p>不同的模型训练算法需要不同的超参数，一些简单的算法（如普通最小二乘回归）不需要。给定这些超参数，训练算法从数据中学习参数。例如，LASSO 是一种算法，将正则化超参数添加到普通最小二乘回归中，它必须在通过训练算法估计参数之前设置。在深度学习中，常见的超参数有：学习速率，迭代次数，层数，每层神经元的个数等。</p>
-<ul>
-<li>激活函数 Activation Function</li>
-</ul>
-<p>在 计算网络中， 一个节点的激活函数定义了该节点在给定的输入或输入的集合下的输出</p>
-<h2 id="Deep-Learning"><a href="#Deep-Learning" class="headerlink" title="Deep Learning"></a>Deep Learning</h2><h4 id="Neural-Network"><a href="#Neural-Network" class="headerlink" title="Neural Network"></a>Neural Network</h4><ul>
-<li>神经网络（Neural Network，缩写 NN）</li>
-<li>人工神经网络（Artificial Neural Network，缩写 ANN）</li>
-</ul>
-<p>人工神经网络（Artificial neural network，缩写ANN），简称神经网络（neural network，缩写NN）或类神经网络，是一种模仿生物神经网络(动物的中枢神经系统，特别是大脑)的结构和功能的数学模型或计算模型。神经网络由大量的人工神经元联结进行计算。大多数情况下人工神经网络能在外界信息的基础上改变内部结构，是一种自适应系统。现代神经网络是一种非线性统计性数据建模工具，常用来对输入和输出间复杂的关系进行建模，或用来探索数据的模式。</p>
-<h4 id="Convolutional-Neural-Network"><a href="#Convolutional-Neural-Network" class="headerlink" title="Convolutional Neural Network"></a>Convolutional Neural Network</h4><ul>
-<li>卷积神经网络(Convolutional Neural Network,缩写 CNN )<br>In machine learning, a convolutional neural network (CNN, or ConvNet) is a type of feed-forward artificial neural network in which the connectivity pattern between its neurons is inspired by the organization of the animal visual cortex, whose individual neurons are arranged in such a way that they respond to overlapping regions tiling the visual field. Convolutional networks were inspired by biological processes and are variations of multilayer perceptrons designed to use minimal amounts of preprocessing. They have wide applications in image and video recognition, recommender systems and natural language processing.</li>
-</ul>
-<h4 id="RNN"><a href="#RNN" class="headerlink" title="RNN"></a>RNN</h4><ul>
-<li>RNN 一般指代时间递归神经网络(Recurrent Neural Network)</li>
-<li>结构递归神经网络(Recursive Neural Network)</li>
-</ul>
-<p>A recurrent neural network (RNN) is a class of artificial neural network where connections between units form a directed cycle. This creates an internal state of the network which allows it to exhibit dynamic temporal behavior. Unlike feedforward neural networks, RNNs can use their internal memory to process arbitrary sequences of inputs. This makes them applicable to tasks such as unsegmented connected handwriting recognition or speech recognition.</p>
-<p>递归神经网络（RNN）是两种人工神经网络的总称。时间递归神经网络的神经元间连接构成有向图，而结构递归神经网络利用相似的神经网络结构递归构造更为复杂的深度网络。单纯递归神经网络因为无法处理随着递归，权重指数级爆炸或消失的问题（Vanishing gradient problem），难以捕捉长期时间关联；而结合不同的LSTM可以很好解决这个问题。</p>
-<h4 id="GAN"><a href="#GAN" class="headerlink" title="GAN"></a>GAN</h4><p>Generative Adversarial Network，生成对抗网络<br>非监督式学习的一种方法，通过让两个神经网络相互博弈的方式进行学习。该方法由伊恩·古德费洛等人于2014年提出）</p>
-<h4 id="Autoencoders-自动编码"><a href="#Autoencoders-自动编码" class="headerlink" title="Autoencoders 自动编码"></a>Autoencoders 自动编码</h4><h4 id="Reinforcement-Learning-强化学习"><a href="#Reinforcement-Learning-强化学习" class="headerlink" title="Reinforcement Learning 强化学习"></a>Reinforcement Learning 强化学习</h4><p>Reinforcement learning is an area of machine learning inspired by behaviorist psychology, concerned with how software agents ought to take actions in an environment so as to maximize some notion of cumulative reward. The problem, due to its generality, is studied in many other disciplines, such as game theory, control theory, operations research, information theory, simulation-based optimization, multi-agent systems, swarm intelligence, statistics, and genetic algorithms. In the operations research and control literature, the field where reinforcement learning methods are studied is called approximate dynamic programming. The problem has been studied in the theory of optimal control, though most studies are concerned with the existence of optimal solutions and their characterization, and not with the learning or approximation aspects. In economics and game theory, reinforcement learning may be used to explain how equilibrium may arise under bounded rationality.</p>
-<p>强化学习是机器学习中的一个领域，强调如何基于环境而行动，以取得最大化的预期利益。其灵感来源于心理学中的行为主义理论，即有机体如何在环境给予的奖励或惩罚的刺激下，逐步形成对刺激的预期，产生能获得最大利益的习惯性行为。这个方法具有普适性，因此在其他许多领域都有研究，例如博弈论、控制论、运筹学、信息论、模拟优化方法、多主体系统学习、群体智能、统计学以及遗传算法。在运筹学和控制理论研究的语境下，强化学习被称作“近似动态规划”（approximate dynamic programming，ADP）。在最优控制理论中也有研究这个问题，虽然大部分的研究是关于最优解的存在和特性，并非是学习或者近似方面。在经济学和博弈论中，强化学习被用来解释在有限理性的条件下如何出现平衡。</p>
-<h2 id="Open-Source-Library"><a href="#Open-Source-Library" class="headerlink" title="Open Source Library"></a>Open Source Library</h2><h4 id="TensorFlow"><a href="#TensorFlow" class="headerlink" title="TensorFlow"></a>TensorFlow</h4><p>TensorFlow is an open source software library for machine learning in various kinds of perceptual and language understanding tasks. It is a second-generation API which is currently used for both research and production by 50 different teams in dozens of commercial Google products, such as speech recognition, Gmail, Google Photos, and Search. These teams had previously used DistBelief, a first-generation API. TensorFlow was originally developed by the Google Brain team for Google’s research and production purposes and later released under the Apache 2.0 open source license on November 9, 2015.</p>
-<h4 id="Scikit-Learn-机器学习算法库"><a href="#Scikit-Learn-机器学习算法库" class="headerlink" title="Scikit-Learn 机器学习算法库"></a>Scikit-Learn 机器学习算法库</h4><p>Scikit-Learn(formerly scikits.learn) is a free software machine learning library for the Python programming language. It features various classification, regression and clustering algorithms including support vector machines, random forests, gradient boosting, k-means and DBSCAN, and is designed to interoperate with the Python numerical and scientific libraries NumPy and SciPy.</p>
-<h4 id="COCO-SSD"><a href="#COCO-SSD" class="headerlink" title="COCO SSD"></a>COCO SSD</h4><p>Ok that worked pretty well, but how do we deal with images that show multiple objects. Well to recognize multiple objects in a single image, we will utilize what’s called a Single Shot Multibox Detector (SSD). In our second example we will look at a SSD model trained with the COCO (Common Object in Context) dataset. The model we are using has been trained on 84 different classes.</p>
-<h2 id="扩展阅读-《The-Machine-Learning-Master》"><a href="#扩展阅读-《The-Machine-Learning-Master》" class="headerlink" title="扩展阅读:《The Machine Learning Master》"></a>扩展阅读:<a href="https://www.gitbook.com/book/riboseyim/machine-learning" target="_blank" rel="external">《The Machine Learning Master》</a></h2><p><img src="http://p11slcnom.bkt.clouddn.com/banner-MLM-201803.png" alt=""></p>
-<ul>
-<li><a href="https://riboseyim.github.io/2018/01/17/Machine-Learning-TensorFlow/" target="_blank" rel="external">Machine Learning(一):基于 TensorFlow 实现宠物血统智能识别</a></li>
-<li><a href="https://riboseyim.github.io/2018/01/15/Machine-Learning-OpenCV/" target="_blank" rel="external">Machine Learning(二):宠物智能识别之 Using OpenCV with Node.js</a></li>
-<li><a href="https://riboseyim.github.io/2018/02/09/Machine-Learning-Projects/" target="_blank" rel="external">Machine Learning:机器学习项目</a></li>
-<li><a href="https://riboseyim.github.io/2018/02/10/Machine-Learning-Algorithms/" target="_blank" rel="external">Machine Learning:机器学习算法</a></li>
-<li><a href="https://riboseyim.github.io/2018/04/02/Machine-Learning-Algorithms-Sheet/" target="_blank" rel="external">Machine Learning:如何选择机器学习算法</a></li>
-<li><a href="https://riboseyim.github.io/2018/05/07/Machine-Learning-Neural-Network" target="_blank" rel="external">Machine Learning:神经网络基础</a></li>
-<li><a href="https://riboseyim.github.io/2018/01/25/Machine-Learning-Books/" target="_blank" rel="external">Machine Learning:机器学习书单</a></li>
-<li><a href="https://riboseyim.github.io/2017/08/29/Machine-Learning-News" target="_blank" rel="external">Machine Learning:人工智能媒体报道集</a></li>
-<li><a href="https://riboseyim.github.io/2018/02/16/Machine-Learning-Law/" target="_blank" rel="external">Machine Learning:机器学习技术与知识产权法</a></li>
-<li><a href="https://riboseyim.github.io/2018/03/09/Machine-Learning-Economist/" target="_blank" rel="external">Machine Learning:经济学家谈人工智能</a></li>
-<li><a href="https://riboseyim.github.io/2017/09/15/Visualization-Graphviz/" target="_blank" rel="external">数据可视化（三）基于 Graphviz 实现程序化绘图</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h2&gt;
-    
-    </summary>
-    
-    
-      <category term="Machine-Learning" scheme="http://riboseyim.github.com/tags/Machine-Learning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Machine-Learning-TensorFlow-ProtoBuf</title>
-    <link href="http://riboseyim.github.com/2018/03/20/Machine-Learning-TensorFlow-ProtoBuf/"/>
-    <id>http://riboseyim.github.com/2018/03/20/Machine-Learning-TensorFlow-ProtoBuf/</id>
-    <published>2018-03-20T09:41:30.000Z</published>
-    <updated>2018-04-13T01:49:16.809Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><a id="more"></a>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
-<li><a href="https://medium.com/@dboyliao/%E7%B0%A1%E4%BB%8B-google-protocol-buffer-1dd5fa2e1e69" target="_blank" rel="external">簡介 Google Protocol Buffer</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/31308381" target="_blank" rel="external">Tensorflow框架实现中的“三”种图</a></li>
-<li><a href="http://blog.csdn.net/huachao1001/article/details/78502910" target="_blank" rel="external">Tensorflow将模型导出为一个文件及接口设置</a></li>
-<li><a href="https://towardsdatascience.com/how-to-use-dataset-in-tensorflow-c758ef9e4428" target="_blank" rel="external">How to use Dataset in TensorFlow| The built-in Input Pipeline. Never use ‘feed-dict’ anymore</a></li>
-<li><a href="https://towardsdatascience.com/deploy-tensorflow-models-9813b5a705d5" target="_blank" rel="external">Deploy TensorFlow models | Super fast and concise tutorial</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h2&gt;
-    
-    </summary>
-    
     
   </entry>
   
