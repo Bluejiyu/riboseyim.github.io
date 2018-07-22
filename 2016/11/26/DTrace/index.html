@@ -17,7 +17,8 @@
 <meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/DTrace_Linux_Choose.png">
 <meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/DTrace_Flame_Java_01.png">
 <meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/DTrace_Linux_Types.png">
-<meta property="og:updated_time" content="2018-06-21T03:34:38.143Z">
+<meta property="og:image" content="http://p11slcnom.bkt.clouddn.com/banner-LPM-201803.png">
+<meta property="og:updated_time" content="2018-07-22T10:14:09.481Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="动态追踪技术专题">
 <meta name="twitter:description" content="摘要 动态追踪技术：DTrace for Linux Linux 追踪器选型   应用软件运行速度提升的关键在于有一个好的性能分析器(profiler)帮助指导程序开发。《黑客与画家》（Hackers &amp;amp; Painters）">
@@ -333,6 +334,7 @@
 <p>9、sysdig<br>一种新型追踪器， 能够基于类似tcpdump的命令操作 syscall events, 再用lua后处理。</p>
 <p>10、strace + gdb</p>
 <ul>
+<li><a href="http://man7.org/linux/man-pages/man1/strace.1.html" target="_blank" rel="external">strace - trace system calls and signals</a></li>
 <li><a href="https://mp.weixin.qq.com/s?__biz=MjM5MTY1MjQ3Nw==&amp;mid=2651939588&amp;idx=1&amp;sn=35f71c5f88d1edf23cb2efc812ab8e6c&amp;chksm=bd578c168a20050041c08618281691f0111f61c789097a69095933057618637fc54817815921#rd" target="_blank" rel="external">动态追踪技术（二）：strace+gdb 溯源 Nginx 内存溢出异常 </a></li>
 <li><a href="https://riboseyim.github.io/2017/06/27/DTrace_bcc/" target="_blank" rel="external">动态追踪技术（四）：基于 Linux bcc/BPF 实现 Go 程序动态追踪</a></li>
 <li><a href="https://github.com/golang/go/issues/25471#issuecomment-391906366" target="_blank" rel="external">time: Sleep requires ~7 syscalls</a></li>
@@ -347,14 +349,24 @@
 <li>No.001 初稿已删除【大家比较熟知的netfilter，就是基于BPF实现的动态编译器】<br>本来是想表达 iptables 对 bpf 的支持。</li>
 </ul>
 <h2 id="扩展阅读：动态追踪技术"><a href="#扩展阅读：动态追踪技术" class="headerlink" title="扩展阅读：动态追踪技术"></a>扩展阅读：动态追踪技术</h2><ul>
-<li><a href="https://riboseyim.github.io/2017/05/29/Linux-Works/" target="_blank" rel="external">操作系统原理 | How Linux Works（一）：How the Linux Kernel Boots</a></li>
-<li><a href="https://riboseyim.github.io/2017/05/29/Linux-Works/" target="_blank" rel="external">操作系统原理 | How Linux Works（二）：User Space &amp; RAM</a></li>
-<li><a href="https://riboseyim.github.io/2017/12/11/Linux-Works-Memory/" target="_blank" rel="external">操作系统原理 | How Linux Works（三）：Memory</a></li>
 <li><a href="https://riboseyim.github.io/2016/11/26/DTrace/" target="_blank" rel="external">动态追踪技术(一)：DTrace 导论</a></li>
 <li><a href="https://mp.weixin.qq.com/s?__biz=MjM5MTY1MjQ3Nw==&amp;mid=2651939588&amp;idx=1&amp;sn=35f71c5f88d1edf23cb2efc812ab8e6c&amp;chksm=bd578c168a20050041c08618281691f0111f61c789097a69095933057618637fc54817815921#rd" target="_blank" rel="external">动态追踪技术(二)：strace+gdb 溯源 Nginx 内存溢出异常 </a></li>
 <li><a href="https://riboseyim.github.io/2017/04/17/DTrace_FTrace/" target="_blank" rel="external">动态追踪技术(三)：Tracing Your Kernel Function!</a></li>
 <li><a href="https://riboseyim.github.io/2017/06/27/DTrace_bcc/" target="_blank" rel="external">动态追踪技术(四)：基于 Linux bcc/BPF 实现 Go 程序动态追踪</a></li>
 <li><a href="https://riboseyim.github.io/2018/02/16/DTrace-Linux/" target="_blank" rel="external">动态追踪技术(五)：Welcome DTrace for Linux</a></li>
+</ul>
+<h2 id="扩展阅读：电子书《Linux-Perf-Master》"><a href="#扩展阅读：电子书《Linux-Perf-Master》" class="headerlink" title="扩展阅读：电子书《Linux Perf Master》"></a>扩展阅读：电子书《Linux Perf Master》</h2><ul>
+<li><a href="https://riboseyim.gitbook.io/perf" target="_blank" rel="external">https://riboseyim.gitbook.io/perf</a></li>
+<li><a href="https://www.gitbook.com/book/riboseyim/linux-perf-master/details" target="_blank" rel="external">https://www.gitbook.com/book/riboseyim/linux-perf-master/details</a></li>
+</ul>
+<p><img src="http://p11slcnom.bkt.clouddn.com/banner-LPM-201803.png" alt=""></p>
+<h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><ul>
+<li><a href="https://riboseyim.github.io/2017/12/11/Linux-Perf-Load/" target="_blank" rel="external">Linux 性能诊断:负载评估</a></li>
+<li><a href="https://riboseyim.github.io/2017/12/11/Linux-Perf-Netflix/" target="_blank" rel="external">Linux 性能诊断:快速检查单</a></li>
+<li><a href="https://riboseyim.github.io/2017/05/29/Linux-Works/" target="_blank" rel="external">操作系统原理 | How Linux Works（一）：How the Linux Kernel Boots</a></li>
+<li><a href="https://riboseyim.github.io/2017/05/29/Linux-Works/" target="_blank" rel="external">操作系统原理 | How Linux Works（二）：User Space &amp; RAM</a></li>
+<li><a href="https://riboseyim.github.io/2017/12/11/Linux-Works-Memory/" target="_blank" rel="external">操作系统原理 | How Linux Works（三）：内存管理</a></li>
+<li><a href="https://riboseyim.github.io/2018/01/08/Linux-Works-Network/" target="_blank" rel="external">操作系统原理 | How Linux Works（三）：网络管理</a></li>
 </ul>
 <h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
 <li><a href="https://openresty.org/posts/dynamic-tracing/" target="_blank" rel="external">动态追踪技术漫谈 | 章亦春</a></li>
