@@ -4,18 +4,19 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Linux-Perf-App | Ribose Yim&#39;s Blog</title>
+  <title>Linux 性能诊断:应用性能分析 | Ribose Yim&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="摘要应用性能分析">
+  <meta name="description" content="摘要应用性能分析  Apache vs Nginx JVM vs Go">
+<meta name="keywords" content="DevOps,Linux,SRE">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux-Perf-App">
+<meta property="og:title" content="Linux 性能诊断:应用性能分析">
 <meta property="og:url" content="http://riboseyim.github.com/2018/06/11/Linux-Perf-App/index.html">
 <meta property="og:site_name" content="Ribose Yim&#39;s Blog">
-<meta property="og:description" content="摘要应用性能分析">
-<meta property="og:updated_time" content="2018-07-28T02:55:47.487Z">
+<meta property="og:description" content="摘要应用性能分析  Apache vs Nginx JVM vs Go">
+<meta property="og:updated_time" content="2018-07-29T01:51:23.649Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux-Perf-App">
-<meta name="twitter:description" content="摘要应用性能分析">
+<meta name="twitter:title" content="Linux 性能诊断:应用性能分析">
+<meta name="twitter:description" content="摘要应用性能分析  Apache vs Nginx JVM vs Go">
   
     <link rel="alternative" href="/atom.xml" title="Ribose Yim&#39;s Blog" type="application/atom+xml">
   
@@ -135,7 +136,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Art/" style="font-size: 15.45px;">Art</a> <a href="/tags/Books/" style="font-size: 10px;">Books</a> <a href="/tags/Commander/" style="font-size: 12.73px;">Commander</a> <a href="/tags/Cyber-Security/" style="font-size: 15px;">Cyber-Security</a> <a href="/tags/DTrace/" style="font-size: 11.36px;">DTrace</a> <a href="/tags/DevOps/" style="font-size: 20px;">DevOps</a> <a href="/tags/Developer/" style="font-size: 19.09px;">Developer</a> <a href="/tags/Develper/" style="font-size: 10px;">Develper</a> <a href="/tags/Economist/" style="font-size: 17.73px;">Economist</a> <a href="/tags/Education/" style="font-size: 10px;">Education</a> <a href="/tags/Golang/" style="font-size: 13.64px;">Golang</a> <a href="/tags/Health/" style="font-size: 10.91px;">Health</a> <a href="/tags/History/" style="font-size: 17.27px;">History</a> <a href="/tags/Lincoln/" style="font-size: 10.45px;">Lincoln</a> <a href="/tags/Linux/" style="font-size: 18.18px;">Linux</a> <a href="/tags/Mac/" style="font-size: 11.82px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 15.91px;">Machine-Learning</a> <a href="/tags/Manager/" style="font-size: 16.82px;">Manager</a> <a href="/tags/Medical/" style="font-size: 13.64px;">Medical</a> <a href="/tags/Nodejs/" style="font-size: 10.91px;">Nodejs</a> <a href="/tags/OpenSource/" style="font-size: 15.91px;">OpenSource</a> <a href="/tags/PHT/" style="font-size: 10.91px;">PHT</a> <a href="/tags/Policy-Law/" style="font-size: 19.55px;">Policy&Law</a> <a href="/tags/Redology/" style="font-size: 10.91px;">Redology</a> <a href="/tags/SDN/" style="font-size: 13.18px;">SDN</a> <a href="/tags/SRE/" style="font-size: 15.91px;">SRE</a> <a href="/tags/Science/" style="font-size: 15px;">Science</a> <a href="/tags/Sport/" style="font-size: 11.36px;">Sport</a> <a href="/tags/eBook/" style="font-size: 14.09px;">eBook</a> <a href="/tags/工具癖/" style="font-size: 12.27px;">工具癖</a> <a href="/tags/我的自传/" style="font-size: 12.27px;">我的自传</a> <a href="/tags/摄影/" style="font-size: 11.36px;">摄影</a> <a href="/tags/数学与算法/" style="font-size: 15px;">数学与算法</a> <a href="/tags/数据可视化/" style="font-size: 14.55px;">数据可视化</a> <a href="/tags/数据库/" style="font-size: 10.45px;">数据库</a> <a href="/tags/最佳写作实践/" style="font-size: 12.73px;">最佳写作实践</a> <a href="/tags/最佳工程实践/" style="font-size: 16.36px;">最佳工程实践</a> <a href="/tags/架构师/" style="font-size: 18.64px;">架构师</a> <a href="/tags/科技史/" style="font-size: 10.45px;">科技史</a> <a href="/tags/移动互联网/" style="font-size: 10px;">移动互联网</a> <a href="/tags/网络协议/" style="font-size: 16.82px;">网络协议</a> <a href="/tags/讲武堂/" style="font-size: 10.45px;">讲武堂</a>
+						<a href="/tags/Art/" style="font-size: 15.22px;">Art</a> <a href="/tags/Books/" style="font-size: 10px;">Books</a> <a href="/tags/Commander/" style="font-size: 12.61px;">Commander</a> <a href="/tags/Cyber-Security/" style="font-size: 14.78px;">Cyber-Security</a> <a href="/tags/DTrace/" style="font-size: 11.3px;">DTrace</a> <a href="/tags/DevOps/" style="font-size: 20px;">DevOps</a> <a href="/tags/Developer/" style="font-size: 19.13px;">Developer</a> <a href="/tags/Develper/" style="font-size: 10px;">Develper</a> <a href="/tags/Economist/" style="font-size: 17.83px;">Economist</a> <a href="/tags/Education/" style="font-size: 10px;">Education</a> <a href="/tags/Golang/" style="font-size: 13.48px;">Golang</a> <a href="/tags/Health/" style="font-size: 10.87px;">Health</a> <a href="/tags/History/" style="font-size: 17.39px;">History</a> <a href="/tags/Lincoln/" style="font-size: 10.43px;">Lincoln</a> <a href="/tags/Linux/" style="font-size: 18.26px;">Linux</a> <a href="/tags/Mac/" style="font-size: 11.74px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 15.65px;">Machine-Learning</a> <a href="/tags/Manager/" style="font-size: 16.96px;">Manager</a> <a href="/tags/Medical/" style="font-size: 13.48px;">Medical</a> <a href="/tags/Nodejs/" style="font-size: 10.87px;">Nodejs</a> <a href="/tags/OpenSource/" style="font-size: 15.65px;">OpenSource</a> <a href="/tags/PHT/" style="font-size: 10.87px;">PHT</a> <a href="/tags/Policy-Law/" style="font-size: 19.57px;">Policy&Law</a> <a href="/tags/Redology/" style="font-size: 10.87px;">Redology</a> <a href="/tags/SDN/" style="font-size: 13.04px;">SDN</a> <a href="/tags/SRE/" style="font-size: 16.09px;">SRE</a> <a href="/tags/Science/" style="font-size: 14.78px;">Science</a> <a href="/tags/Sport/" style="font-size: 11.3px;">Sport</a> <a href="/tags/eBook/" style="font-size: 13.91px;">eBook</a> <a href="/tags/工具癖/" style="font-size: 12.17px;">工具癖</a> <a href="/tags/我的自传/" style="font-size: 12.17px;">我的自传</a> <a href="/tags/摄影/" style="font-size: 11.3px;">摄影</a> <a href="/tags/数学与算法/" style="font-size: 14.78px;">数学与算法</a> <a href="/tags/数据可视化/" style="font-size: 14.35px;">数据可视化</a> <a href="/tags/数据库/" style="font-size: 10.43px;">数据库</a> <a href="/tags/最佳写作实践/" style="font-size: 12.61px;">最佳写作实践</a> <a href="/tags/最佳工程实践/" style="font-size: 16.52px;">最佳工程实践</a> <a href="/tags/架构师/" style="font-size: 18.7px;">架构师</a> <a href="/tags/科技史/" style="font-size: 10.43px;">科技史</a> <a href="/tags/移动互联网/" style="font-size: 10px;">移动互联网</a> <a href="/tags/网络协议/" style="font-size: 16.96px;">网络协议</a> <a href="/tags/讲武堂/" style="font-size: 10.43px;">讲武堂</a>
 					</div>
 				</section>
 				
@@ -252,7 +253,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Linux-Perf-App
+      Linux 性能诊断:应用性能分析
     </h1>
   
 
@@ -260,6 +261,10 @@
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DevOps/">DevOps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SRE/">SRE</a></li></ul>
+	</div>
+
         
 
 
@@ -270,9 +275,12 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>应用性能分析</p>
+<ul>
+<li>Apache vs Nginx</li>
+<li>JVM vs Go</li>
+</ul>
 <a id="more"></a>
-<p>##</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#</span></div><div class="line">[Wed Jul 25 22:19:05 2018] [error] server reached MaxClients setting, consider raising the MaxClients setting</div></pre></td></tr></table></figure>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#</span></div><div class="line">[Wed Jul 25 22:19:05 2018] [error] server reached MaxClients setting, consider raising the MaxClients setting</div></pre></td></tr></table></figure>
 <figure class="highlight perl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## 持续输出进程数</span></div><div class="line">$ watch <span class="string">"pgrep httpd | wc -l"</span></div><div class="line">Every <span class="number">2.0</span><span class="keyword">s</span>: pgrep httpd | wc -l     Thu Jul <span class="number">26</span> <span class="number">21</span>:<span class="number">12</span>:<span class="number">12</span> <span class="number">2018</span></div><div class="line"><span class="number">42</span></div><div class="line">$ ps  -ylC httpd --<span class="keyword">sort</span>:rss</div><div class="line">S   UID    PID   PPID  C PRI  NI   RSS    SZ WCHAN  TTY          TIME CMD</div><div class="line">S   <span class="number">501</span>  <span class="number">37620</span>      <span class="number">1</span>  <span class="number">0</span>  <span class="number">80</span>   <span class="number">0</span>  <span class="number">1268</span> <span class="number">11253</span> poll_s ?        <span class="number">00</span>:<span class="number">14</span>:<span class="number">17</span> httpd</div><div class="line">S   <span class="number">501</span>  <span class="number">37622</span>  <span class="number">37620</span>  <span class="number">0</span>  <span class="number">80</span>   <span class="number">0</span>  <span class="number">1708</span> <span class="number">11320</span> inet_c ?        <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span> httpd</div><div class="line">S   <span class="number">501</span>  <span class="number">37623</span>  <span class="number">37620</span>  <span class="number">0</span>  <span class="number">80</span>   <span class="number">0</span>  <span class="number">1708</span> <span class="number">11320</span> inet_c ?        <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span> httpd</div><div class="line">S   <span class="number">501</span>  <span class="number">37624</span>  <span class="number">37620</span>  <span class="number">0</span>  <span class="number">80</span>   <span class="number">0</span>  <span class="number">1708</span> <span class="number">11320</span> inet_c ?        <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span> httpd</div><div class="line">S   <span class="number">501</span>  <span class="number">37625</span>  <span class="number">37620</span>  <span class="number">0</span>  <span class="number">80</span>   <span class="number">0</span>  <span class="number">1708</span> <span class="number">11320</span> inet_c ?        <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span> httpd</div><div class="line">.....</div><div class="line"><span class="comment">## 当前连接数</span></div><div class="line">$ netstat -an | <span class="keyword">grep</span> :<span class="number">2003</span> | wc -l</div><div class="line"><span class="number">172</span></div><div class="line"><span class="comment"># 累计消耗内存（M）</span></div><div class="line">$ ps aux|<span class="keyword">grep</span> -v <span class="keyword">grep</span>|awk <span class="string">'/httpd/&#123;sum+=$6;n++&#125;;END&#123;print sum/1024&#125;'</span></div><div class="line"><span class="comment"># 平均每个进程消耗内存（M）</span></div><div class="line">$ ps aux|<span class="keyword">grep</span> -v <span class="keyword">grep</span>|awk <span class="string">'/httpd/&#123;sum+=$6;n++&#125;;END&#123;print sum/n/1024&#125;'</span></div></pre></td></tr></table></figure>
 <h4 id="Apache-Server-MPM"><a href="#Apache-Server-MPM" class="headerlink" title="Apache Server MPM"></a>Apache Server MPM</h4><blockquote>
 <p>问题：为什么 Apache HTTP Server 启动有多个进程</p>
@@ -289,7 +297,7 @@
 <li><p>Event 工作模式</p>
 </li>
 </ul>
-<h2 id="Apache-vs-Nginx"><a href="#Apache-vs-Nginx" class="headerlink" title="Apache vs. Nginx"></a>Apache vs. Nginx</h2><h2 id="JVM-vs-Go-App"><a href="#JVM-vs-Go-App" class="headerlink" title="JVM vs. Go App"></a>JVM vs. Go App</h2><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
+<h2 id="Apache-vs-Nginx"><a href="#Apache-vs-Nginx" class="headerlink" title="Apache vs. Nginx"></a>Apache vs. Nginx</h2><h2 id="JVM-vs-Go-App"><a href="#JVM-vs-Go-App" class="headerlink" title="JVM vs. Go App"></a>JVM vs. Go App</h2><h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
 <li><a href="https://www.ibm.com/developerworks/cn/java/j-lo-performance-tuning-practice/index.html" target="_blank" rel="external">Java 应用性能调优实践</a></li>
 <li><a href="https://mp.weixin.qq.com/s/4Y77jUqfgKeBS2hnitrUrg" target="_blank" rel="external">动态追踪技术-应用性能瓶颈排障利器之火焰图</a></li>
 <li><a href="http://blog.jobbole.com/91920/" target="_blank" rel="external">Apache的三种MPM模式比较：prefork，worker，event</a></li>

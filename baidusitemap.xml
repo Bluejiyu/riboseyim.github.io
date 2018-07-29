@@ -5,12 +5,18 @@
     
   <url>
     <loc>http://riboseyim.github.com/2018/06/11/Linux-Perf-App/</loc>
-    <lastmod>2018-07-28T02:55:47.487Z</lastmod>
+    <lastmod>2018-07-29T01:51:23.649Z</lastmod>
     <data>
         <display>
-        <title>Linux-Perf-App</title>
+        <title>Linux 性能诊断:应用性能分析</title>
         <pubTime>2018-06-11T06:57:15.000Z</pubTime>
         
+        <tag>DevOps</tag>
+         
+        <tag>Linux</tag>
+         
+        <tag>SRE</tag>
+         
          
            
         </display>
