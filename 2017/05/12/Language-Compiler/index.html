@@ -6,17 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>玩转编程语言:编译器与编译原理 | Ribose Yim&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="摘要">
+  <meta name="description" content="摘要 LLVM 构建 LLVM 和 Clang 开发工具库">
 <meta name="keywords" content="Developer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="玩转编程语言:编译器与编译原理">
 <meta property="og:url" content="http://riboseyim.github.com/2017/05/12/Language-Compiler/index.html">
 <meta property="og:site_name" content="Ribose Yim&#39;s Blog">
-<meta property="og:description" content="摘要">
-<meta property="og:updated_time" content="2018-01-30T14:44:37.000Z">
+<meta property="og:description" content="摘要 LLVM 构建 LLVM 和 Clang 开发工具库">
+<meta property="og:updated_time" content="2018-08-02T10:33:50.005Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="玩转编程语言:编译器与编译原理">
-<meta name="twitter:description" content="摘要">
+<meta name="twitter:description" content="摘要 LLVM 构建 LLVM 和 Clang 开发工具库">
   
     <link rel="alternative" href="/atom.xml" title="Ribose Yim&#39;s Blog" type="application/atom+xml">
   
@@ -87,7 +87,7 @@
 						<li>Links</li>
 						
 						
-						<li>Über</li>
+						<li>A propos</li>
 						
 					</ul>
 				</div>
@@ -274,11 +274,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><a id="more"></a>
-<h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><ul>
-<li><a href="https://riboseyim.github.io/2017/05/26/Language/" target="_blank" rel="external">玩转编程语言系列</a></li>
+        <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
+<li>LLVM</li>
+<li>构建 LLVM 和 Clang 开发工具库</li>
 </ul>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
+<a id="more"></a>
+<h2 id="LLVM"><a href="#LLVM" class="headerlink" title="LLVM"></a>LLVM</h2><p>LLVM（Low Level Virtual Machine）是一种编译器基础设施，以 C++ 写成。起源于 2000 年伊利诺伊大学厄巴纳-香槟分校维克拉姆·艾夫（Vikram Adve）与克里斯·拉特纳（Chris Lattner）的研究，他们想要为所有静态及动态语言创造出动态的编译技术。2005 年，Apple 直接雇用了克里斯·拉特纳及他的团队，为了苹果电脑开发应用程序，期间克里斯·拉特纳设计发明了 Swift 语言，LLVM 成为 Mac OS X 及 iOS 开发工具的一部分。LLVM 的范围早已经不局限于创建一个虚拟机，成为了众多编译工具及低级工具技术的统称，适用于 LLVM 下的所有项目，包含 LLVM 中介码（LLVM IR）、LLVM 除错工具、LLVM C++ 标准库等。</p>
+<p>目前 LLVM 已支持包括 ActionScript、Ada、D 语言、Fortran、GLSL、Haskell、Java字节码、Objective-C、Swift、Python、Ruby、Rust、Scala1 以及 C# 等语言。</p>
+<h4 id="LLVM-与-Clang"><a href="#LLVM-与-Clang" class="headerlink" title="LLVM 与 Clang"></a>LLVM 与 Clang</h4><p>Clang 是LLVM编译器工具集的前端（front-end），目的是输出代码对应的抽象语法树（Abstract Syntax Tree, AST），并将代码编译成LLVM Bitcode。接着在后端（back-end）使用 LLVM 编译成平台相关的机器语言 。Clang支持C、C++、Objective C。它的目标是提供一个 GCC 的替代品。作者是克里斯·拉特纳（Chris Lattner），在苹果公司的赞助支持下进行开发。Clang项目包括Clang前端和Clang静态分析器等。</p>
+<h4 id="构建-LLVM-和-Clang-开发工具库"><a href="#构建-LLVM-和-Clang-开发工具库" class="headerlink" title="构建 LLVM 和 Clang 开发工具库"></a>构建 LLVM 和 Clang 开发工具库</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># MacOS</span></div><div class="line">$ brew install --with-toolchain llvm</div><div class="line">$ brew info llvm</div><div class="line"><span class="comment"># Linux</span></div><div class="line">$ yum install gcc</div><div class="line">$ yum install gcc-g++</div><div class="line"></div><div class="line">wget https://cmake.org/files/v3.9/cmake-3.9.0-rc4.tar.gz</div><div class="line">tar -xvf cmake-3.9.0-rc4.tar.gz</div><div class="line"><span class="built_in">cd</span> cmake-3.9.0</div><div class="line">./bootstrap  </div><div class="line">gmake</div><div class="line">gmake install</div><div class="line"><span class="built_in">export</span> CMAKE_ROOT=/usr/<span class="built_in">local</span>/share/cmake-3.9.0</div><div class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$CMAKE_ROOT</span></div><div class="line"></div><div class="line">git <span class="built_in">clone</span> http://llvm.org/git/llvm.git</div><div class="line"><span class="built_in">cd</span> llvm/tools;</div><div class="line">git <span class="built_in">clone</span> http://llvm.org/git/clang.git</div><div class="line"><span class="built_in">cd</span> ..; mkdir -p build/install; <span class="built_in">cd</span> build</div><div class="line">cmake -G <span class="string">"Unix Makefiles"</span> -DLLVM_TARGETS_TO_BUILD=<span class="string">"BPF;X86"</span> -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=<span class="variable">$PWD</span>/install ..</div><div class="line">make</div><div class="line">make install</div><div class="line"><span class="built_in">export</span> PATH=<span class="variable">$PWD</span>/install/bin:<span class="variable">$PATH</span></div></pre></td></tr></table></figure>
+<h2 id="扩展阅读-玩转编程语言系列"><a href="#扩展阅读-玩转编程语言系列" class="headerlink" title="扩展阅读:玩转编程语言系列"></a>扩展阅读:<a href="https://riboseyim.github.io/2017/05/26/Language/" target="_blank" rel="external">玩转编程语言系列</a></h2><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
+<li><a href="http://www.cs.cornell.edu/~asampson/blog/llvm.html" target="_blank" rel="external">LLVM for Grad Students</a></li>
 <li><a href="https://medium.com/dailyjs/gentle-introduction-into-compilers-part-1-lexical-analysis-and-scanner-733246be6738" target="_blank" rel="external">Gentle introduction into compilers. Part 1: Lexical analysis and Scanner | A guide to understanding ECMAScript (JavaScript) spec lexical grammar and TypeScript scanner</a></li>
 </ul>
 

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://riboseyim.github.com/"/>
-  <updated>2018-07-07T11:27:22.656Z</updated>
+  <updated>2018-08-07T03:36:23.255Z</updated>
   <id>http://riboseyim.github.com/</id>
   
   <author>
@@ -14,6 +14,94 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>OpenSource-DB-ES</title>
+    <link href="http://riboseyim.github.com/2018/08/07/OpenSource-DB-ES/"/>
+    <id>http://riboseyim.github.com/2018/08/07/OpenSource-DB-ES/</id>
+    <published>2018-08-07T03:34:49.000Z</published>
+    <updated>2018-08-07T03:36:23.255Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><a id="more"></a>
+<h2 id="Introduction-Apache-Elasticsearch-简介"><a href="#Introduction-Apache-Elasticsearch-简介" class="headerlink" title="Introduction | Apache Elasticsearch 简介"></a>Introduction | Apache Elasticsearch 简介</h2><h2 id="Core-Concept-Apache-Elasticsearch-核心概念"><a href="#Core-Concept-Apache-Elasticsearch-核心概念" class="headerlink" title="Core Concept | Apache Elasticsearch 核心概念"></a>Core Concept | Apache Elasticsearch 核心概念</h2><ul>
+<li><a href="#">art</a></li>
+</ul>
+<h4 id="Concept-A"><a href="#Concept-A" class="headerlink" title="Concept A"></a>Concept A</h4><h4 id="Concept-B"><a href="#Concept-B" class="headerlink" title="Concept B"></a>Concept B</h4><h4 id="Concept-C"><a href="#Concept-C" class="headerlink" title="Concept C"></a>Concept C</h4><h2 id="Architecture-Apache-Elasticsearch-架构"><a href="#Architecture-Apache-Elasticsearch-架构" class="headerlink" title="Architecture | Apache Elasticsearch 架构"></a>Architecture | Apache Elasticsearch 架构</h2><h2 id="Best-Practice-Apache-Elasticsearch-最佳实践"><a href="#Best-Practice-Apache-Elasticsearch-最佳实践" class="headerlink" title="Best Practice | Apache Elasticsearch 最佳实践"></a>Best Practice | Apache Elasticsearch 最佳实践</h2><h2 id="Apache-Elasticsearch-ABC"><a href="#Apache-Elasticsearch-ABC" class="headerlink" title="Apache Elasticsearch ABC"></a>Apache Elasticsearch ABC</h2><h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h2&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>开源技术架构漫谈：Redis</title>
+    <link href="http://riboseyim.github.com/2018/08/07/OpenSource-DB-Redis/"/>
+    <id>http://riboseyim.github.com/2018/08/07/OpenSource-DB-Redis/</id>
+    <published>2018-08-07T03:33:11.000Z</published>
+    <updated>2018-08-07T03:35:19.023Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><a id="more"></a>
+<h2 id="Introduction-Redis-简介"><a href="#Introduction-Redis-简介" class="headerlink" title="Introduction | Redis 简介"></a>Introduction | Redis 简介</h2><h2 id="Core-Concept-Redis-核心概念"><a href="#Core-Concept-Redis-核心概念" class="headerlink" title="Core Concept | Redis 核心概念"></a>Core Concept | Redis 核心概念</h2><ul>
+<li><a href="#">art</a></li>
+</ul>
+<h4 id="Concept-A"><a href="#Concept-A" class="headerlink" title="Concept A"></a>Concept A</h4><h4 id="Concept-B"><a href="#Concept-B" class="headerlink" title="Concept B"></a>Concept B</h4><h4 id="Concept-C"><a href="#Concept-C" class="headerlink" title="Concept C"></a>Concept C</h4><h2 id="Architecture-Redis-架构"><a href="#Architecture-Redis-架构" class="headerlink" title="Architecture | Redis 架构"></a>Architecture | Redis 架构</h2><h2 id="Best-Practice-Redis-最佳实践"><a href="#Best-Practice-Redis-最佳实践" class="headerlink" title="Best Practice | Redis 最佳实践"></a>Best Practice | Redis 最佳实践</h2><h2 id="Redis-ABC"><a href="#Redis-ABC" class="headerlink" title="Redis ABC"></a>Redis ABC</h2><h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h2&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Linux-Perf-JVM</title>
+    <link href="http://riboseyim.github.com/2018/08/07/Linux-Perf-JVM/"/>
+    <id>http://riboseyim.github.com/2018/08/07/Linux-Perf-JVM/</id>
+    <published>2018-08-07T01:32:30.000Z</published>
+    <updated>2018-08-07T01:54:59.154Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><a id="more"></a>
+<h2 id="JVM-Profile-From-Uber"><a href="#JVM-Profile-From-Uber" class="headerlink" title="JVM Profile From Uber"></a>JVM Profile From Uber</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">$ mvn package</div><div class="line">[INFO] Scanning <span class="keyword">for</span> projects...</div><div class="line">[INFO]</div><div class="line">[INFO] -----------------------&lt; com.uber:jvm-profiler &gt;------------------------</div><div class="line">[INFO] Building uber-jvm-profiler <span class="number">0.0</span><span class="number">.7</span></div><div class="line">[INFO] --------------------------------[ jar ]---------------------------------</div><div class="line">[INFO] Including org.apache.kafka:kafka-clients:jar:<span class="number">0.11</span><span class="number">.0</span><span class="number">.2</span> in the shaded jar.</div><div class="line">[INFO] Including net.jpountz.lz4:lz4:jar:<span class="number">1.3</span><span class="number">.0</span> in the shaded jar.</div><div class="line">[INFO] Including org.xerial.snappy:snappy-java:jar:<span class="number">1.1</span><span class="number">.2</span><span class="number">.6</span> in the shaded jar.</div><div class="line">[INFO] Including org.slf4j:slf4j-api:jar:<span class="number">1.7</span><span class="number">.25</span> in the shaded jar.</div><div class="line">[INFO] Including org.apache.commons:commons-lang3:jar:<span class="number">3.5</span> in the shaded jar.</div><div class="line">[INFO] Including com.fasterxml.jackson.core:jackson-core:jar:<span class="number">2.8</span><span class="number">.9</span> in the shaded jar.</div><div class="line">[INFO] Including com.fasterxml.jackson.core:jackson-databind:jar:<span class="number">2.8</span><span class="number">.9</span> in the shaded jar.</div><div class="line">[INFO] Including com.fasterxml.jackson.core:jackson-annotations:jar:<span class="number">2.8</span><span class="number">.0</span> in the shaded jar.</div><div class="line">[INFO] Including org.javassist:javassist:jar:<span class="number">3.21</span><span class="number">.0</span>-GA in the shaded jar.</div><div class="line">[INFO] Including org.yaml:snakeyaml:jar:<span class="number">1.18</span> in the shaded jar.</div><div class="line">[INFO] Including org.apache.httpcomponents:httpclient:jar:<span class="number">4.3</span><span class="number">.6</span> in the shaded jar.</div><div class="line">[INFO] Including org.apache.httpcomponents:httpcore:jar:<span class="number">4.3</span><span class="number">.3</span> in the shaded jar.</div><div class="line">[INFO] Including commons-logging:commons-logging:jar:<span class="number">1.1</span><span class="number">.3</span> in the shaded jar.</div><div class="line">[INFO] Including commons-codec:commons-codec:jar:<span class="number">1.6</span> in the shaded jar.</div><div class="line">[INFO] Including redis.clients:jedis:jar:<span class="number">2.9</span><span class="number">.0</span> in the shaded jar.</div><div class="line">[INFO] Including org.apache.commons:commons-pool2:jar:<span class="number">2.4</span><span class="number">.2</span> in the shaded jar.</div><div class="line">[INFO] Replacing original artifact with shaded artifact.</div><div class="line">[INFO] Replacing /Users/yanrui/project-third/jvm-profiler/target/jvm-profiler<span class="number">-0.0</span><span class="number">.7</span>.jar with /Users/yanrui/project-third/jvm-profiler/target/jvm-profiler<span class="number">-0.0</span><span class="number">.7</span>-shaded.jar</div><div class="line">[INFO] Dependency-reduced POM written at: /Users/yanrui/project-third/jvm-profiler/dependency-reduced-pom.xml</div><div class="line">[INFO] ------------------------------------------------------------------------</div><div class="line">[INFO] BUILD SUCCESS</div><div class="line">[INFO] ------------------------------------------------------------------------</div><div class="line">[INFO] Total time: <span class="number">03</span>:<span class="number">38</span> min</div><div class="line">[INFO] Finished at: <span class="number">2018</span><span class="number">-08</span><span class="number">-07</span>T09:<span class="number">50</span>:<span class="number">26</span>+<span class="number">08</span>:<span class="number">00</span></div><div class="line">[INFO] ------------------------------------------------------------------------</div><div class="line">bash<span class="number">-3.2</span>$</div></pre></td></tr></table></figure>
+<h4 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">## MVN</span></div><div class="line">$ wget http://mirrors.hust.edu.cn/apache/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz</div><div class="line">$ tar -xvf apache-maven-3.5.4-bin.tar.gz</div><div class="line">$ <span class="built_in">echo</span> <span class="string">'export M2_HOME="/usr/local/apache-maven-3.5.4" '</span> &gt;&gt;  ~/.bash_profile</div><div class="line">$ <span class="built_in">echo</span> <span class="string">'export PATH=$M2_HOME/bin:$PATH'</span> &gt;&gt; ~/.bash_profile</div><div class="line">$ . ~/.bash_profile</div><div class="line">$ mvn -v</div><div class="line">Apache Maven 3.5.4</div></pre></td></tr></table></figure>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h2&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>OpenSource-Hadoop</title>
+    <link href="http://riboseyim.github.com/2018/08/01/OpenSource-Hadoop/"/>
+    <id>http://riboseyim.github.com/2018/08/01/OpenSource-Hadoop/</id>
+    <published>2018-08-01T11:33:59.000Z</published>
+    <updated>2018-08-07T03:38:04.531Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><a id="more"></a>
+<h2 id="Introduction-Apache-Hadoop-简介"><a href="#Introduction-Apache-Hadoop-简介" class="headerlink" title="Introduction | Apache Hadoop 简介"></a>Introduction | Apache Hadoop 简介</h2><h2 id="Core-Concept-Apache-Hadoop-核心概念"><a href="#Core-Concept-Apache-Hadoop-核心概念" class="headerlink" title="Core Concept | Apache Hadoop 核心概念"></a>Core Concept | Apache Hadoop 核心概念</h2><ul>
+<li><a href="https://static.googleusercontent.com/media/research.google.com/zh-CN//archive/mapreduce-osdi04.pdf" target="_blank" rel="external">MapReduce: Simplified Data Processing on Large Clusters</a></li>
+</ul>
+<h4 id="Concept-A"><a href="#Concept-A" class="headerlink" title="Concept A"></a>Concept A</h4><h4 id="Concept-B"><a href="#Concept-B" class="headerlink" title="Concept B"></a>Concept B</h4><h4 id="Concept-C"><a href="#Concept-C" class="headerlink" title="Concept C"></a>Concept C</h4><h2 id="Architecture-XX架构"><a href="#Architecture-XX架构" class="headerlink" title="Architecture | XX架构"></a>Architecture | XX架构</h2><h2 id="Best-Practice-XX最佳实践"><a href="#Best-Practice-XX最佳实践" class="headerlink" title="Best Practice | XX最佳实践"></a>Best Practice | XX最佳实践</h2><h2 id="Apache-HadoopABC"><a href="#Apache-HadoopABC" class="headerlink" title="Apache HadoopABC"></a>Apache HadoopABC</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$ hadoop version</div><div class="line">Hadoop 3.1.0</div><div class="line">Source code repository https://github.com/apache/hadoop -r 16b70619a24cdcf5d3b0fcf4b58ca77238ccbe6d</div><div class="line">Compiled by centos on 2018-03-30T00:00Z</div><div class="line">Compiled with protoc 2.5.0</div><div class="line">From <span class="built_in">source</span> with checksum 14182d20c972b3e2105580a1ad6990</div><div class="line">This <span class="built_in">command</span> was run using /usr/<span class="built_in">local</span>/Cellar/hadoop/3.1.0/libexec/share/hadoop/common/hadoop-common-3.1.0.jar</div><div class="line"></div><div class="line"><span class="comment"># 常见异常：检查 JDK 版本是否过低</span></div><div class="line">$ hadoop version</div><div class="line">Exception <span class="keyword">in</span> thread <span class="string">"main"</span> java.lang.UnsupportedClassVersionError: org/apache/hadoop/util/VersionInfo : Unsupported major.minor version 52.0</div><div class="line">	at java.lang.ClassLoader.defineClass1(Native Method)</div></pre></td></tr></table></figure>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h2&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Writing-Email</title>
@@ -1404,11 +1492,11 @@
     </summary>
     
     
-      <category term="Manager" scheme="http://riboseyim.github.com/tags/Manager/"/>
-    
       <category term="最佳工程实践" scheme="http://riboseyim.github.com/tags/%E6%9C%80%E4%BD%B3%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/"/>
     
       <category term="DevOps" scheme="http://riboseyim.github.com/tags/DevOps/"/>
+    
+      <category term="Manager" scheme="http://riboseyim.github.com/tags/Manager/"/>
     
   </entry>
   
@@ -1723,390 +1811,6 @@
       <category term="Machine-Learning" scheme="http://riboseyim.github.com/tags/Machine-Learning/"/>
     
       <category term="数学与算法" scheme="http://riboseyim.github.com/tags/%E6%95%B0%E5%AD%A6%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Lincoln-Chicago-Orchestra</title>
-    <link href="http://riboseyim.github.com/2018/03/30/Lincoln-Chicago-Orchestra/"/>
-    <id>http://riboseyim.github.com/2018/03/30/Lincoln-Chicago-Orchestra/</id>
-    <published>2018-03-30T08:17:42.000Z</published>
-    <updated>2018-03-30T08:18:35.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
-<li><a href="https://zh.wikipedia.org/wiki/%E7%AE%A1%E5%BC%A6%E4%B9%90%E5%9B%A2%E5%88%97%E8%A1%A8" target="_blank" rel="external">维基百科：芝加哥交响乐团</a></li>
-<li><a href="https://zh.wikipedia.org/wiki/%E7%AE%A1%E5%BC%A6%E4%B9%90%E5%9B%A2%E5%88%97%E8%A1%A8" target="_blank" rel="external">维基百科：管弦乐团列表</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h2&gt;&lt;h2 id=&quot;参考文献&quot;&gt;&lt;a href=&quot;#参考文献&quot; class=&quot;headerlink&quot; title=&quot;参考文献&quot;&gt;&lt;/a&gt;参考文献&lt;/h
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>DevOps 漫谈:DevOps实践的本质是文化</title>
-    <link href="http://riboseyim.github.com/2018/03/29/DevOps-Culture/"/>
-    <id>http://riboseyim.github.com/2018/03/29/DevOps-Culture/</id>
-    <published>2018-03-29T01:21:17.000Z</published>
-    <updated>2018-04-26T02:11:16.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
-<li>DevOps实践的本质是文化</li>
-</ul>
-<a id="more"></a>
-<h2 id="DevOps实践的本质是文化"><a href="#DevOps实践的本质是文化" class="headerlink" title="DevOps实践的本质是文化"></a>DevOps实践的本质是文化</h2><p>2016-07-24 运维日 广州活动纪要<br>地点：羊城晚报 同创汇</p>
-<h4 id="刘宇"><a href="#刘宇" class="headerlink" title="刘宇"></a>刘宇</h4><p>职业路径：新浪－&gt;Puppet实践－&gt;Puppet系列文集－&gt;InfoQ编辑－&gt;西山居<br>社区：LinuxTone.org、InfoQ</p>
-<ul>
-<li>Automation：工具化</li>
-<li>Lean 精益：</li>
-<li>Measurement：度量一切</li>
-<li><p>Sharing：不管是否成功</p>
-</li>
-<li><p>人物：Patrick Debois：比利时，独立顾问，DevOps领袖（2008年）</p>
-</li>
-</ul>
-<p><strong>推荐书单</strong></p>
-<ul>
-<li><a href="https://riboseyim.github.io/2018/04/10/DevOps-Phoenix/" target="_blank" rel="external">《The Phoenix Project》</a></li>
-<li><p>《The DevOps Cookbook》</p>
-</li>
-<li><p>企业：Facebook</p>
-<blockquote>
-<p>Don’t make me think</p>
-</blockquote>
-</li>
-</ul>
-<p><strong>凡是被很多人不断重复的好习惯，要将其自动化整合到工具</strong></p>
-<ul>
-<li>实践经验<br>1.站立会<br>2.<a href="https://riboseyim.github.io/2017/08/06/TeamWork-Kanban/" target="_blank" rel="external">Kanban|看板</a><br>3.复盘：总结－发现问题－改进<br>4.<a href="https://riboseyim.github.io/2017/06/27/Technology-English/" target="_blank" rel="external">带领团队翻译书籍 （这事听着都打鸡血)</a></li>
-</ul>
-<blockquote>
-<p>学习力－团队生命之根</p>
-</blockquote>
-<h4 id="魅族云"><a href="#魅族云" class="headerlink" title="魅族云"></a>魅族云</h4><p>1.异地多活：专线打通多个IDC机房<br>2.KVM<br>3.网络：OpenStack 实现控制器、GSLB 全局负载均衡，智能路由</p>
-<h4 id="微信：自动压力测试实践"><a href="#微信：自动压力测试实践" class="headerlink" title="微信：自动压力测试实践"></a>微信：自动压力测试实践</h4><p>张兴：8年＋</p>
-<p>1.生产环境运行压力测试<br>2.接入Proxy层，调整请求分配权重<br>3.压测管控</p>
-<p>失败监控（系统、逻辑）<br>耗时监控（SUR client）<br>快速拒绝（如何判断是否可以丢弃？）<br>硬件限制（CPU，内存，网卡）</p>
-<p>数据：<br>15s监控数据入库画图，<br>1min回退配置（1w台服务器），<br>降低放量速率</p>
-<h4 id="YY安全"><a href="#YY安全" class="headerlink" title="YY安全"></a>YY安全</h4><ul>
-<li>案例一：海量小包攻击性防御<br>1.20140828  脉冲DDoS攻击<br>40小时，40人团队，监控不足<br>5秒钟一次，发送小包</li>
-</ul>
-<p>黑产报价：150元可购买 15G流量，700W pps，攻击成本低</p>
-<ul>
-<li>案例二：合作方服务器被入侵概率高（木马）</li>
-</ul>
-<p>ps/netstat污染处理：内核态，查看System.Call  (可以挖掘写一篇)</p>
-<ul>
-<li><p>案例三：主播IP泄漏<br>业务逻辑bug，异常抛出IP</p>
-</li>
-<li><p>案例四<br>确定当前主要矛盾：投诉盗号、盗刷？服务器入侵？DDoS ?<br>利用现有资源（自有编制、第三方合作），最大投入产出比</p>
-</li>
-<li><p>决策变量<br>技术预研、业务规模、发展阶段、主要矛盾（切入点）</p>
-</li>
-</ul>
-<h2 id="扩展阅读：DevOps-漫谈系列"><a href="#扩展阅读：DevOps-漫谈系列" class="headerlink" title="扩展阅读：DevOps 漫谈系列"></a>扩展阅读：<a href="https://riboseyim.github.io/2016/07/28/DevOps/" target="_blank" rel="external">DevOps 漫谈系列</a></h2><ul>
-<li><a href="https://riboseyim.github.io/2018/04/10/DevOps-Phoenix/" target="_blank" rel="external">《凤凰项目》：从作坊到工厂的寓言故事</a></li>
-<li><a href="https://riboseyim.github.io/2017/08/06/TeamWork-Kanban/" target="_blank" rel="external">Kanban 看板管理实践</a></li>
-<li><a href="https://riboseyim.github.io/2018/03/26/DevOps-Deployment/" target="_blank" rel="external">DevOps 漫谈：基础设施部署和配置管理</a></li>
-<li><a href="https://riboseyim.github.io/2017/11/12/DevOps-Container-Security/" target="_blank" rel="external">Linux 容器安全的十重境界</a></li>
-<li><a href="https://riboseyim.github.io/2017/06/27/Technology-English/" target="_blank" rel="external">工程师的自我修养：全英文技术学习实践</a></li>
-</ul>
-<h4 id="DevOps-实践的本质是文化"><a href="#DevOps-实践的本质是文化" class="headerlink" title="DevOps 实践的本质是文化"></a><a href="https://riboseyim.github.io/2018/03/29/DevOps-Culture/" target="_blank" rel="external">DevOps 实践的本质是文化</a></h4><ul>
-<li>学习力－团队生命之根</li>
-<li>带领团队翻译书籍</li>
-<li>Don’t make me think</li>
-<li>凡是被很多人不断重复的好习惯，要将其自动化整合到工具</li>
-</ul>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
-<li><a href="https://mp.weixin.qq.com/s?__biz=MzA4Nzg5Nzc5OA==&amp;mid=400138875&amp;idx=1&amp;sn=01b4ea2978370d215442e4a22d7d2a7f&amp;scene=1&amp;srcid=1028tfQzmCsfXfTybP9dWEAy#rd" target="_blank" rel="external">中小企业监控体系构建实战</a></li>
-<li><a href="https://mp.weixin.qq.com/s?__biz=MzAwMDU1MTE1OQ==&amp;mid=2653548227&amp;idx=1&amp;sn=3deb458aa18fa878dc9eaf89aaa78303&amp;chksm=813a7f5bb64df64d7037213ef34b3ff6c09375593ec82919b214829b825e82565b6058366ef1&amp;mpshare=1&amp;scene=1&amp;srcid=01190z58NNndr7YlKBPp5Jz6#rd" target="_blank" rel="external">LinkedIn:如何利用大数据算法定位网站性能瓶颈(BOSS)</a></li>
-<li><a href="http://jaseywang.me/2017/02/08/%e6%a0%91%e8%8e%93%e6%b4%beraspberrypi%e3%80%81saltstack-%e5%9c%a8%e7%ba%bf%e4%b8%8b%e8%87%aa%e5%8a%a9%e6%9c%ba%e8%bf%90%e7%bb%b4%e4%b8%8a%e7%9a%84%e5%ba%94%e7%94%a8/" target="_blank" rel="external">树莓派(raspberrypi)、saltstack 在线下自助机运维上的应用 | Jasey Wang</a></li>
-<li><a href="http://abruzzi.github.com/2016/05/design-for-failure/" target="_blank" rel="external">邱俊涛：为故障和失败做设计</a></li>
-<li><a href="http://coolshell.cn/articles/17737.html" target="_blank" rel="external">酷壳：AWS 的 S3 故障回顾和思考</a></li>
-<li><a href="http://coolshell.cn/articles/17680.html" target="_blank" rel="external">酷壳：从GITLAB误删除数据库想到的</a></li>
-<li><a href="http://coolshell.cn/articles/17446.html" target="_blank" rel="external">酷壳：这多年来我一直在钻研的技术</a></li>
-<li><a href="http://www.infoq.com/cn/presentations/chatops-at-github" target="_blank" rel="external">GitHub运维机器人</a></li>
-<li><a href="https://mp.weixin.qq.com/s?__biz=MjM5MDE0Mjc4MA==&amp;mid=206585329&amp;idx=1&amp;sn=b3cdb637dfff9b4378ec703c9b27a331&amp;scene=1%23rd" target="_blank" rel="external">运维的本质：可视化 |2015-05-14 王津银 InfoQ</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;DevOps实践的本质是文化&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-    
-      <category term="最佳工程实践" scheme="http://riboseyim.github.com/tags/%E6%9C%80%E4%BD%B3%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/"/>
-    
-      <category term="架构师" scheme="http://riboseyim.github.com/tags/%E6%9E%B6%E6%9E%84%E5%B8%88/"/>
-    
-      <category term="DevOps" scheme="http://riboseyim.github.com/tags/DevOps/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>DevOps 漫谈：基础设施部署和配置管理</title>
-    <link href="http://riboseyim.github.com/2018/03/26/DevOps-Deployment/"/>
-    <id>http://riboseyim.github.com/2018/03/26/DevOps-Deployment/</id>
-    <published>2018-03-26T10:01:39.000Z</published>
-    <updated>2018-05-02T03:14:45.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
-<li>Ansible vs. Chef vs. Fabric vs. Puppet vs. SaltStack</li>
-</ul>
-<a id="more"></a>
-<p><img src="http://og2061b3n.bkt.clouddn.com/Deploying-Management-Tools.png" alt=""></p>
-<p>在生产环境中工作，常常意味着连续部署和遍布全球的基础设施。如果您的基础架构是分散式和基于云的，同时您需要在大量服务器上频繁部署大量类似的服务，如果此时有一种方法可以自动配置和维护以上所有内容将是您的一大福音。</p>
-<p>部署管理工具（Deployment management tools）和配置管理工具(configuration management tools)是为此目的而设计的。它们使您能够使用“食谱”（recipes），“剧本” (playbooks)，模板(templates)或任何术语来简化整个环境中的自动化和编排，以提供标准、一致的部署。</p>
-<p>在选择工具时请记住几点注意事项。首先是了解工具的模型。有些工具采用主控模式（master-client model），它有一个集中控制点（master）与分布式部署的服务器进行通信，其他部分则可以在更本地的层面上运行。另一个考虑因素是你的环境构成。有些工具是采用不同的语言编写的，对于特定的操作系统或设置可能会有所不同。确保您选择的工具与您的环境完美配合，充分利用团队的特定技能可以为您节省很多麻烦。</p>
-<h4 id="1-Ansible"><a href="#1-Ansible" class="headerlink" title="1. Ansible"></a>1. Ansible</h4><p><img src="http://og2061b3n.bkt.clouddn.com/Ansible-Logo.jpg" alt=""><br>￼Ansible是一种开源工具，用于以可重复的方式将应用程序部署到远程节点和配置服务器。它为您提供了基于推送模型（push model ）推送多层应用程序和应用程序组件的通用框架，您也可以根据需要将其设置为 master-client 模式。 Ansible 建立在可用于各种系统上部署应用程序的剧本(playbook)。</p>
-<p><strong>何时使用它</strong> ：对您来说最重要的是快速，轻松地启动和运行，并且您不想在远程节点或受管服务器上安装代理（Agent）。如果您的需求重点更多地放在系统管理员身上，专注于精简和快速，请考虑 Ansible 。</p>
-<p>价格：免费的开源版本，Ansible Tower 的付费套餐每年 5000 美元（最多可容纳100个节点）。</p>
-<p><strong>赞成的理由：</strong></p>
-<ul>
-<li>基于 SSH , 不需要在远程节点安装任何代理</li>
-<li>学习曲线平缓、使用 YAML</li>
-<li>Playbook 结构简单，结构清晰</li>
-<li>具有变量注册功能，可以使前一个任务作为后一个任务的变量</li>
-<li>代码库精简</li>
-</ul>
-<p><strong>反对的理由：</strong></p>
-<ul>
-<li>相较其他编程语言的工具功能有限。</li>
-<li>通过 DSL 实现其逻辑，这意味着需要经常查看文档直到您学会为止</li>
-<li>即使是最基本功能也需要变量注册，这可能使简单任务变得复杂</li>
-<li>内省（Introspection）很差。例如很难在剧本中看到变量的值</li>
-<li>输入，输出和配置文件格式之间缺乏一致性</li>
-<li>性能存在一定瓶颈</li>
-</ul>
-<p><img src="http://og2061b3n.bkt.clouddn.com/Ansible-Tower-Dashboard.png" alt=""></p>
-<h4 id="2-Chef"><a href="#2-Chef" class="headerlink" title="2. Chef"></a>2. Chef</h4><p><img src="http://og2061b3n.bkt.clouddn.com/Chef-Logo.jpg" alt=""><br>￼Chef 是一个配置管理开源工具，用户群专注面向开发者。Chef 作为 master-client  模式运行，需要一个单独的工作站来控制 master 。Chef 基于 Ruby 开发，纯 Ruby 可以支持大多数元素。Chef 的设计是透明的，并遵循给定的指示，这意味着你必须确保你的指示是清楚的。</p>
-<p>何时使用它：在考虑 Chef 之前，需要确保你熟悉 Git ，因为它需要配置 Git ，你必须编写 Ruby 代码。Chef 适合以开发为中心（development-focused ）的团队和环境。对于寻求更成熟异构环境解决方案的企业来说，这是一件好事。</p>
-<p>价格：提供免费的开源版本，标准版和高级版计划以每年节点为单位定价。 Chef Automate 的价格为每个节点 137 美元，或者采用 Hosted Chef 每个节点每年节省72 美元。</p>
-<p><strong>赞成的理由：</strong></p>
-<ul>
-<li>丰富的模块和配置配方(recipes)</li>
-<li>代码驱动的方法为您提供更多的配置控制和灵活性</li>
-<li>以 Git 为中心赋予 Chef 强大的版本控制功能</li>
-<li>‘Knife’工具（使用 SSH 从工作站部署代理）减轻了安装负担</li>
-</ul>
-<p><strong>反对的理由：</strong></p>
-<ul>
-<li>如果您还不熟悉 Ruby 和面向过程编程，学习曲线会非常陡峭</li>
-<li>这不是一个简单的工具，可能需要维护大量的代码库和复杂的环境</li>
-<li>不支持推送功能</li>
-</ul>
-<p><img src="http://og2061b3n.bkt.clouddn.com/Chef-Compliance-Node.png" alt=""></p>
-<h4 id="3-Fabric"><a href="#3-Fabric" class="headerlink" title="3. Fabric"></a>3. Fabric</h4><p><img src="http://og2061b3n.bkt.clouddn.com/Fabric-Logo.jpg" alt=""><br>Fabric 是一个基于 Python 的应用程序部署工具。Fabric 的主要用途是在多个远程系统上运行任务，但它也可以通过插件的方式进行扩展，以提供更高级的功能。 Fabric 将配置您的操作系统，进行操作系统/服务器管理，自动化部署您的应用。<br>￼<br>何时使用它：如果您刚刚开始进入部署自动化领域，Fabric 是一个良好的开端。如果您的环境至少包含一点 Python，它都会有所帮助。</p>
-<p>价格：免费</p>
-<p><strong>赞成的理由：</strong></p>
-<ul>
-<li>擅长部署以任何语言编写的应用程序。它不依赖于系统架构，而是依赖于操作系统和软件包管理器</li>
-<li>相比其他工具更简单，更易于部署</li>
-<li>与 SSH 进行了广泛的整合，以实现基于脚本的流水线</li>
-</ul>
-<p><strong>反对的理由：</strong></p>
-<ul>
-<li>Fabric 是单点设置（通常是运行部署的机器）</li>
-<li>使用 PUSH 模型，因此不如其他工具那样适合流水线部署模型</li>
-<li>虽然它是用于在大多数语言中部署应用程序的绝佳工具，但它确实需要运行Python，所以您的环境中必须至少有一个适用于 Fabric 的 Python 环境</li>
-</ul>
-<p><img src="http://og2061b3n.bkt.clouddn.com/Fabric-Dashboard-1024x823.png" alt=""></p>
-<h4 id="4-Puppet"><a href="#4-Puppet" class="headerlink" title="4. Puppet"></a>4. Puppet</h4><p><img src="http://og2061b3n.bkt.clouddn.com/Puppet-Logo.png" alt=""><br>￼Puppet 长期依赖是全面配置管理领域的标准工具之一。Puppet 是一个开源工具，但是考虑到它已经存在了多长时间，它已经在一些最大和最苛刻的环境中进行了部署和验证。 Puppet 基于 Ruby 开发，但使用更接近 JSON 的领域专用语言（Domain Specific Language，DSL）。Puppet 采用master-client 模式运行，并采用模型驱动(model-driven)的方法。 Puppet 将工作设计为一系列依赖关系列表，根据您的设置，这可以使事情变得更容易或更容易混淆。</p>
-<p><strong>何时使用它：</strong> 如果稳定性和成熟度对您来说是最关键的因素，Puppet 是一个不错的选择。对于具有异构环境的大型企业和涉及多种技能范围的 DevOps 团队而言而言，这是一件好事。</p>
-<p>价格：Puppet 分为免费的开源版本和付费的企业版本，商业版每年每个节点 120 美元（提供批量折扣）。</p>
-<p><strong>赞成的理由：</strong></p>
-<ul>
-<li>通过 Puppet Labs 建立了完善的支持社区</li>
-<li>具有最成熟的接口，几乎可以在所有操作系统上运行</li>
-<li>安装和初始设置简单</li>
-<li>最完整的 Web UI</li>
-<li>强大的报表功能</li>
-</ul>
-<p><strong>反对的理由：</strong></p>
-<ul>
-<li>对于更高级的任务，您需要使用基于 Ruby 的 CLI（这意味着您必须了解Ruby）</li>
-<li>纯 Ruby 版本的支持正在缩减（而不是那些使用 Puppet 定制 DSL 的版本）</li>
-<li>Puppet 代码库可能会变得庞大，新人需要更多的帮助</li>
-<li>与代码驱动方法相比，模型驱动方法意味着用户的控制更少</li>
-</ul>
-<p><img src="http://og2061b3n.bkt.clouddn.com/Puppet-Dashboard.png" alt=""></p>
-<h4 id="5-Saltstack"><a href="#5-Saltstack" class="headerlink" title="5. Saltstack"></a>5. Saltstack</h4><p><img src="http://og2061b3n.bkt.clouddn.com/SaltStack-Logo.jpg" alt=""></p>
-<p>￼SaltStack（或 Salt）是一种基于 CLI 的工具，可以将其设置为 master-client 模型或非集中模型。 Salt 基于Python 开发，提供了 PUSH 和 SSH 两种方法与客户端通讯。 Salt 允许对客户端和配置模板进行分组，以简化对环境的控制。<br><strong>何时使用它：</strong> 如果可扩展性和弹性是一个大问题，则 Salt 是一个不错的选择。对系统管理员来说，Salt 提供的可用性非常重要。</p>
-<p>价格：提供免费的开源版本，以及基于年度/节点订阅的 SaltStack Enterprise 版本。具体的价格没有在他们的网站上列出，据说每个节点每年的起步价为 150 美元。</p>
-<p><strong>赞成的理由：</strong></p>
-<ul>
-<li>一旦你渡过了入门阶段，就可以简单地组织和使用</li>
-<li>DSL 功能丰富，不需要逻辑和状态</li>
-<li>输入，输出和配置非常一致，全部所有 YAML （一个可读性高，用来表达数据序列的格式）</li>
-<li>内省(Introspection)非常好。很容易看到 Salt 内部发生了什么</li>
-<li>强大的社区</li>
-<li>很高的可扩展性和灵活性</li>
-</ul>
-<p><strong>反对的理由：</strong></p>
-<ul>
-<li>对于新用户来说，非常难以配置，学习曲线陡峭</li>
-<li>在入门级别而言，文档很难理解</li>
-<li>Web UI  比同领域的其他工具更新、更轻量</li>
-<li>对非 Linux 操作系统没有很好的支持</li>
-</ul>
-<p><img src="https://docs.saltstack.com/en/getstarted/images/salt-subsystems.png" alt="Salt Subsystems"></p>
-<p><img src="http://og2061b3n.bkt.clouddn.com/SlatStack-Subsystem-Job.png" alt=""></p>
-<h4 id="Ansible-vs-Chef-vs-Fabric-vs-Puppet-vs-SaltStack"><a href="#Ansible-vs-Chef-vs-Fabric-vs-Puppet-vs-SaltStack" class="headerlink" title="Ansible vs. Chef vs. Fabric vs. Puppet vs. SaltStack"></a>Ansible vs. Chef vs. Fabric vs. Puppet vs. SaltStack</h4><p>您使用的配置管理或部署自动化工具取决于您的环境需求和偏好。 Chef 和 Puppet 是一些较老的、更成熟的选项，它们适用于那些重视成熟性和稳定性而非简单性的大型企业和环境。 Ansible 和 SaltStack 是寻求快速和简约解决方案人士的理想选择，同时在不需要支持某些特殊功能或具有大量操作系统的环境中工作。Fabric 对于小型环境和那些正在寻求更低门槛和入门级解决方案的人来说是一个很好的工具。</p>
-<h2 id="SaltStack"><a href="#SaltStack" class="headerlink" title="SaltStack"></a>SaltStack</h2><ul>
-<li>Arch:Client/Server</li>
-<li>develop language: Python</li>
-<li>future: REAL-TIME COMMUNICATION</li>
-</ul>
-<h4 id="SaltStack-ABC"><a href="#SaltStack-ABC" class="headerlink" title="SaltStack ABC"></a>SaltStack ABC</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## Install</span></div><div class="line">$ brew install saltstack</div><div class="line"><span class="comment">## Role:Master</span></div><div class="line">$ service salt-master start</div><div class="line">$ netstat -ant | grep 450 | grep LISTEN</div><div class="line">tcp4       0      0  *.4506                 *.*                    LISTEN     </div><div class="line">tcp4       0      0  *.4505                 *.*                    LISTEN</div><div class="line"><span class="comment">## Role:Master</span></div></pre></td></tr></table></figure>
-<h4 id="SaltStack-Resources"><a href="#SaltStack-Resources" class="headerlink" title="SaltStack Resources"></a>SaltStack Resources</h4><ul>
-<li><a href="https://github.com/saltstack-formulas" target="_blank" rel="external">SaltStack Formulas</a></li>
-</ul>
-<h2 id="Ansible"><a href="#Ansible" class="headerlink" title="Ansible"></a>Ansible</h2><ul>
-<li>Arch: SSH batch tools</li>
-<li>develop language: Python<h4 id="Ansible-ABC"><a href="#Ansible-ABC" class="headerlink" title="Ansible ABC"></a>Ansible ABC</h4></li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Install</span></div><div class="line">$ sudo pip install ansible</div><div class="line"><span class="comment"># 默认路径 /etc/ansible/hosts ,参数 -i 指定 hosts 文件</span></div><div class="line">$ ansible all -m shell <span class="_">-a</span> <span class="string">"hostname"</span> --ask-pass -i /yourdir/ansible_hosts</div><div class="line"><span class="comment"># 或者通过环境变量指定</span></div><div class="line">$ <span class="built_in">export</span> ANSIBLE_HOSTS=~/ansible_hosts</div><div class="line">$ <span class="built_in">echo</span> <span class="string">"127.0.0.1"</span> &gt; ~/ansible_hosts</div></pre></td></tr></table></figure>
-<h2 id="Puppet"><a href="#Puppet" class="headerlink" title="Puppet"></a>Puppet</h2><ul>
-<li>Arch: Agent/Server</li>
-<li>develop language: Ruby</li>
-<li>enterprise &amp; community edition</li>
-</ul>
-<h4 id="Puppet-ABC"><a href="#Puppet-ABC" class="headerlink" title="Puppet ABC"></a>Puppet ABC</h4><h2 id="WordBook"><a href="#WordBook" class="headerlink" title="WordBook"></a>WordBook</h2><h4 id="YAML"><a href="#YAML" class="headerlink" title="YAML"></a><a href="http://yaml.org" target="_blank" rel="external">YAML</a></h4><p>YAML 语言（发音 /ˈjæməl/ ）实质上是一种通用的数据串行化格式。基本语法规则如下:</p>
-<ul>
-<li>大小写敏感</li>
-<li>使用缩进表示层级关系</li>
-<li>缩进时不允许使用Tab键，只允许使用空格。</li>
-<li>缩进的空格数目不重要，只要相同层级的元素左侧对齐即可</li>
-<li># 表示行注释</li>
-</ul>
-<p>YAML 支持的数据结构：</p>
-<ul>
-<li>对象：键值对的集合，又称为映射（mapping）/ 哈希（hashes） / 字典（dictionary）</li>
-<li>数组：一组按次序排列的值，又称为序列（sequence） / 列表（list）</li>
-<li><p>纯量（scalars）：单个的、不可再分的值</p>
-</li>
-<li><p><a href="http://www.ruanyifeng.com/blog/2016/07/yaml.html" target="_blank" rel="external">YAML 语言教程</a></p>
-</li>
-</ul>
-<h4 id="DSL-Domain-Specific-Language-领域专用语言"><a href="#DSL-Domain-Specific-Language-领域专用语言" class="headerlink" title="DSL|Domain Specific Language,领域专用语言"></a><a href="https://en.wikipedia.org/wiki/Domain-specific_language" target="_blank" rel="external">DSL|Domain Specific Language,领域专用语言</a></h4><p>DSL的目标受众是非程序员，业务员或者最终用户。<br>DSL 最大的设计原则就是简单，通过简化语言中的元素，降低使用者的负担；无论是 Regex、SQL 还是 HTML 以及 CSS，其说明文档往往只有几页，非常易于学习和掌握。但是，由此带来的问题就是，DSL 中缺乏抽象的概念，比如：模块化、变量以及方法等。</p>
-<ul>
-<li><a href="http://www.infoq.com/cn/articles/dsl-discussion" target="_blank" rel="external">领域专用语言(DSL)迷思</a></li>
-<li><a href="http://www.infoq.com/cn/articles/dsl-discussion" target="_blank" rel="external">谈谈 DSL 以及 DSL 的应用（以 CocoaPods 为例）</a></li>
-</ul>
-<h2 id="扩展阅读：DevOps-漫谈系列"><a href="#扩展阅读：DevOps-漫谈系列" class="headerlink" title="扩展阅读：DevOps 漫谈系列"></a>扩展阅读：<a href="https://riboseyim.github.io/2016/07/28/DevOps/" target="_blank" rel="external">DevOps 漫谈系列</a></h2><ul>
-<li><a href="https://riboseyim.github.io/2018/04/10/DevOps-Phoenix/" target="_blank" rel="external">《凤凰项目》：从作坊到工厂的寓言故事</a></li>
-<li><a href="https://riboseyim.github.io/2017/08/06/TeamWork-Kanban/" target="_blank" rel="external">Kanban 看板管理实践</a></li>
-<li><a href="https://riboseyim.github.io/2018/03/26/DevOps-Deployment/" target="_blank" rel="external">DevOps 漫谈：基础设施部署和配置管理</a></li>
-<li><a href="https://riboseyim.github.io/2017/11/12/DevOps-Container-Security/" target="_blank" rel="external">Linux 容器安全的十重境界</a></li>
-<li><a href="https://riboseyim.github.io/2017/06/27/Technology-English/" target="_blank" rel="external">工程师的自我修养：全英文技术学习实践</a></li>
-</ul>
-<h4 id="DevOps-实践的本质是文化"><a href="#DevOps-实践的本质是文化" class="headerlink" title="DevOps 实践的本质是文化"></a><a href="https://riboseyim.github.io/2018/03/29/DevOps-Culture/" target="_blank" rel="external">DevOps 实践的本质是文化</a></h4><ul>
-<li>学习力－团队生命之根</li>
-<li>带领团队翻译书籍</li>
-<li>Don’t make me think</li>
-<li>凡是被很多人不断重复的好习惯，要将其自动化整合到工具</li>
-</ul>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
-<li><a href="https://blog.takipi.com/deployment-management-tools-chef-vs-puppet-vs-ansible-vs-saltstack-vs-fabric/" target="_blank" rel="external">Deployment Management Tools: Chef vs. Puppet vs. Ansible vs. SaltStack vs. Fabric</a></li>
-<li><a href="https://www.zhihu.com/question/22707761" target="_blank" rel="external">SaltStack 与 Ansible 选择？| zhihu.com</a></li>
-<li><a href="http://www.saltstack.cn" target="_blank" rel="external">中国SaltStack用户组|China SaltStack User Group</a></li>
-<li><a href="http://www.saltstack.cn/kb/managing-firewall-with-salt/#managing-firewall-with-salt" target="_blank" rel="external">基于Salt管理iptables防火墙规则</a></li>
-<li><a href="https://linux.cn/article-4215-1.html#3_875" target="_blank" rel="external">Ansible ：一个配置管理和IT自动化工具</a></li>
-<li><a href="https://www.ibm.com/developerworks/cn/opensource/os-devops-saltstack-in-cloud/index.html" target="_blank" rel="external">自动化运维工具 SaltStack 在云计算环境中的实践</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;Ansible vs. Chef vs. Fabric vs. Puppet vs. SaltStack&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-    
-      <category term="DevOps" scheme="http://riboseyim.github.com/tags/DevOps/"/>
-    
-      <category term="Linux" scheme="http://riboseyim.github.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数学常识|如何度量复杂性</title>
-    <link href="http://riboseyim.github.com/2018/03/25/Mathmetics-Complexity/"/>
-    <id>http://riboseyim.github.com/2018/03/25/Mathmetics-Complexity/</id>
-    <published>2018-03-25T12:05:04.000Z</published>
-    <updated>2018-03-26T09:17:53.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
-<li>复杂系统、复杂度(Complexity)</li>
-<li>如何度量复杂度：熵、算法信息量、逻辑深度、热力学深度、计算能力、层次性</li>
-</ul>
-<a id="more"></a>
-<h2 id="如何度量复杂度"><a href="#如何度量复杂度" class="headerlink" title="如何度量复杂度"></a>如何度量复杂度</h2><p>2001 年，物理学家劳埃德（Seth Lloyd）发表了一篇文章（《Measures of complexity：A non-exhaustive list.  IEEE Control Systems Magazine, August 2001 》），分别从动力学、热力学、信息论等方面列出了 40 种度量复杂性的方法。提出了度量一个事物或过程的复杂性的三个维度：</p>
-<ul>
-<li>描述它有多困难 ？</li>
-<li>产生它有多困难 ？</li>
-<li>其组织程度如何 ？</li>
-</ul>
-<h4 id="用熵度量复杂性"><a href="#用熵度量复杂性" class="headerlink" title="用熵度量复杂性"></a>用熵度量复杂性</h4><p><strong>香农熵</strong>，相对于信息接收者的平均信息量或“惊奇度”。例如，假设消息由符号 A、C、G 和 T 组成。如果序列高度有序，如“A  A  A  A  A  A …… A ” 则熵为零。完全随机的序列则有最大可能熵。最复杂的对象不是最有序的或最随机的，而是介于两者之间。</p>
-<p>在英语里，信息和情报是同一个词（Information），而我们知道情报的作用就是排除不确定性。</p>
-<blockquote>
-<p>如果没有信息，任何公式或者数字的游戏都无法排除不确定性。这个朴素的结论非常重要，但是在研究工作中经常被一些半瓶子醋的专家忽视，希望做这方面工作的读者谨记。(吴军 |《数学之美》)</p>
-</blockquote>
-<p>用香农熵度量复杂性的问题。首先，所针对的对象或过程需要转换成某种“消息”的形式，这并不总是那么容易做到。另外，随机消息的熵最高，但是那些最复杂的对象都不是完全随机的。例如变形虫的基因长度远远超过其他动植物，具备复杂功能的人类基因也不是随机的，甚至能看到长期历史演化出来的规律。</p>
-<h4 id="用算法信息量度量复杂性"><a href="#用算法信息量度量复杂性" class="headerlink" title="用算法信息量度量复杂性"></a>用算法信息量度量复杂性</h4><p>为了改进熵度量复杂性的方法，1997 年柯尔莫哥洛夫（Andrey Kolmogorov）等人提出了算法信息量的概念。他们将事物的复杂度定义为能够产生对事物完整描述的最短计算机程序的长度。</p>
-<p>为了计算有效复杂性，首先要给出事物规则性的最佳描述；有效复杂性定义为包含在描述中的信息量或规则集合的算法信息量。事物的结构可预测性越大，有效复杂性就越低。</p>
-<p>对于一个事物的各种规则集，如何决定哪个是最好的呢？<strong>奥卡姆剃刀（Occam’s Razor, Ockham’s Razor）</strong>，意思是简约之法则。最好的规则集是能够描述事物的最小规则集，同时还能将事物的随机成分最小化。奥卡姆剃刀在现代医学中的应用最具代表性，医生和医学哲学家提出了 <strong>症状化约原则（diagnostic parsimony）</strong>。即在诊断某个病症时，医生应该尽量寻找会导致所有症状的最简单可能性。“当你听到背后有蹄声时，应该想到马而不是斑马。”  </p>
-<p>虽然症状化约原则常常可能是正确的，然而也有争锋相对的意见：<strong>西卡姆格言（Hickam’s dictum）</strong>，“病人乐意得多少种病就能得多少种病。”  从统计数据看，一个病人的多种症状往往会归于多种常见疾病，而不是仅仅一种。另外，排除统计的因素，有许多病人无法使用单一疾病来解释众多的症状，被证实患有多种疾病。实际上，医生很难根据一个症状来判断是或者不是某个疾病，而是不断地根据病人的生活环境、日常习惯、用药史等等来建立、测试和修改对于症状的假设才是更好的方法。</p>
-<h4 id="用逻辑深度度量复杂性"><a href="#用逻辑深度度量复杂性" class="headerlink" title="用逻辑深度度量复杂性"></a>用逻辑深度度量复杂性</h4><p>为了更加接近我们对复杂性的直觉，数学家班尼特在 20 世纪 80 年代初提出了 <strong>逻辑深度（logical depth）</strong> 的概念。</p>
-<p>用班尼特的话说，“有逻辑深度的事物从根本上必须是长时间计算或漫长动力过程的产物，否则就不可能产生。” 或是像劳埃德说的，“用最合理的方法生成某个事物时需要处理的信息量等同于这个事物的复杂性，这是一个很吸引人的想法。”</p>
-<h4 id="用热力学深度度量复杂性"><a href="#用热力学深度度量复杂性" class="headerlink" title="用热力学深度度量复杂性"></a>用热力学深度度量复杂性</h4><p>20 世纪 80 年代末，劳埃德和裴杰斯（Heinz Pagels）提出了一种复杂性度量方法：热力学深度（thermodynamic depth）。</p>
-<p>与图灵机生成对事物的描述所需的时间步不同，热力学深度首先是确定“产生出这个事物最科学合理的确定事件序列”，然后测量“物理构造过程所需的热力源和信息源的总量”。例如，要确定人类基因组的热力学深度，得从最早出现的第一个生物的基因组开始，列出直到现代人类出现的所有遗传演化事件（随机变异、重组、基因复制等）。</p>
-<p>问题：如何定义系统的状态粒度，在列出事件时，如何确定相关的宏观状态。</p>
-<h4 id="用计算能力度量复杂性"><a href="#用计算能力度量复杂性" class="headerlink" title="用计算能力度量复杂性"></a>用计算能力度量复杂性</h4><p>一种观点认为，系统的计算能力如果等价于通用图灵机的计算能力，就是复杂系统。不过，班尼特等人则认为，具有执行通用计算的能力并不意味着系统本身就是复杂的；应当测量的是<strong>系统处理输入时的行为的复杂性</strong>。</p>
-<h4 id="用层次性度量复杂性"><a href="#用层次性度量复杂性" class="headerlink" title="用层次性度量复杂性"></a>用层次性度量复杂性</h4><p>如何用层次（degree of hierarchy）来刻画一个系统的复杂性：复杂系统由子系统组成，子系统下面又有子系统，不断往下。（《复杂性的结构》：The architecture of complexity. Simon 1962）</p>
-<p>西蒙认为，复杂系统最重要的共性就是 <strong>层次性</strong> 和 <strong>不可分解性</strong>。在层次性复杂系统中，子系统内部的紧密相互作用比子系统之间要多得多。例如，细胞内部的新陈代谢网络就比细胞之间的作用要复杂得多。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>各种度量复杂性的方法都抓住了一些方面，但都存在理论上和实践上的局限性，还远不能有效刻画实际系统的复杂性，度量方法的多样性也表明复杂系统具有许多维度，无法用单一的尺度来刻画。</p>
-<h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><ul>
-<li><a href="https://riboseyim.github.io/2018/02/10/Machine-Learning-Algorithms/" target="_blank" rel="external">Machine Learning:机器学习算法</a></li>
-<li><a href="https://riboseyim.github.io/2018/03/09/Machine-Learning-Economist/" target="_blank" rel="external">Machine Learning:经济学家谈人工智能</a></li>
-<li><a href="https://riboseyim.github.io/2017/09/15/Visualization-Graphviz/" target="_blank" rel="external">数据可视化（三）基于 Graphviz 实现程序化绘图 | 开源中国首页推荐·每日一博</a></li>
-<li>Why draw when you can code?</li>
-<li>Graphviz 简介</li>
-<li>最佳 Graphviz 实践：流程图、数据结构图、网络路径 Trace Route、复杂社会关系链分析、机器学习算法-决策树(Decision Tree)</li>
-</ul>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
-<li>2001 劳埃德（Seth Lloyd）《Measures of complexity：A non-exhaustive list.  IEEE Control Systems Magazine, August 2001 》</li>
-<li>1962 Simon《复杂性的结构》：The architecture of complexity.</li>
-<li><a href="https://www.guokr.com/article/172437/" target="_blank" rel="external">如何测出一句话中的信息量</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;复杂系统、复杂度(Complexity)&lt;/li&gt;
-&lt;li&gt;如何度量复杂度：熵、算法信息量、逻辑深度、热力学深度、计算能力、层次性&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-    
-      <category term="架构师" scheme="http://riboseyim.github.com/tags/%E6%9E%B6%E6%9E%84%E5%B8%88/"/>
-    
-      <category term="数学与算法" scheme="http://riboseyim.github.com/tags/%E6%95%B0%E5%AD%A6%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="科技史" scheme="http://riboseyim.github.com/tags/%E7%A7%91%E6%8A%80%E5%8F%B2/"/>
     
   </entry>
   
