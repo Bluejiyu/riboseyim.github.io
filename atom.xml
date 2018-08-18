@@ -64,21 +64,21 @@
     <link href="http://riboseyim.github.com/2018/08/07/Linux-Perf-JVM/"/>
     <id>http://riboseyim.github.com/2018/08/07/Linux-Perf-JVM/</id>
     <published>2018-08-07T01:32:30.000Z</published>
-    <updated>2018-08-18T14:50:03.749Z</updated>
+    <updated>2018-08-18T14:52:38.500Z</updated>
     
     <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
 <li>Uber 开源 Java 分布式应用追踪工具：JVM Profiler</li>
 </ul>
 <a id="more"></a>
 <h1 id="Uber-开源-Java-分布式应用追踪工具：JVM-Profiler"><a href="#Uber-开源-Java-分布式应用追踪工具：JVM-Profiler" class="headerlink" title="Uber 开源 Java 分布式应用追踪工具：JVM Profiler"></a>Uber 开源 Java 分布式应用追踪工具：JVM Profiler</h1><ul>
-<li>Uber Engineering : 《JVM Profiler: An Open Source Tool for Tracing Distributed JVM Applications at Scale 》[<a href="https://eng.uber.com/jvm-profiler/" target="_blank" rel="external">https://eng.uber.com/jvm-profiler/</a>]</li>
+<li><a href="https://eng.uber.com/jvm-profiler" target="_blank" rel="external">《JVM Profiler: An Open Source Tool for Tracing Distributed JVM Applications at Scale 》</a></li>
 </ul>
 <p>Apache Spark 计算框架已经被广泛用来构建大规模数据应用。对 Uber 而言, 数据是战略决策和产品开发的核心。为了更好地利用这些数据, Uber 需要管理遍布全球的 Spark 实例。 Spark 使得数据技术更易于访问, 如果要做到对 Spark 应用程序的进行合理的资源分配, 优化数据基础架构的操作效率, 就需要对这些系统有更细粒度的洞察力, 即识别其资源使用模式。为了在不改变用户代码的情况下也能达成上述目标, Uber Engineering 团队构建并开源了  JVM Profiler —— 一个分布式探查器，用于收集性能和资源使用率指标为进一步分析提供服务。尽管它是为 Spark 应用而构建的, 但它的通用实现使其适用于任何基于 Java 虚拟机 ( Java virtual machine ，JVM) 的服务或应用程序。</p>
 <h2 id="Profiling-challenges"><a href="#Profiling-challenges" class="headerlink" title="Profiling challenges"></a>Profiling challenges</h2><p>Uber Engineering 每天的常规工作是支持数以万计的应用程序、运行在成千上万的机器上。随着技术栈的增长, 我们很快意识到现有的性能分析和优化方案无法满足需要。特别是:</p>
 <h4 id="目标1：应用级指标监控"><a href="#目标1：应用级指标监控" class="headerlink" title="目标1：应用级指标监控"></a>目标1：应用级指标监控</h4><ul>
 <li>Correlate metrics across a large number of processes at the application level</li>
 </ul>
-<p>分布式环境中存在大量进程需要度量，包括在同一服务器上运行着多个 Spark 应用、多服务器上运行的 Spark 应用有大量的进程 (例如数以千计的执行者 executors ) , 如图1 所示:</p>
+<p>分布式环境中存在大量进程需要度量，包括在同一服务器上运行着多个 Spark 应用、多服务器上运行的 Spark 应用有大量的进程 (例如数以千计的执行者 executors ) , 如 图1 所示:</p>
 <p><img src="http://og2061b3n.bkt.clouddn.com/JVM-Profile-1.png" alt=""></p>
 <p>Uber 现有的工具只能做到服务器级别的度量（server-level metrics）并且不能针对单个应用做到精确测量。我们需要一个解决方案, 可以收集每个过程的度量值, 并将它们与每个应用程序的进程关联起来。此外, 我们不知道这些过程将在何时启动, 以及它们将运行多长时间。为了能够在这种环境中收集度量, 需要在每个进程中自动启动探查器。</p>
 <h4 id="目标2：不侵入用户代码"><a href="#目标2：不侵入用户代码" class="headerlink" title="目标2：不侵入用户代码"></a>目标2：不侵入用户代码</h4><ul>
