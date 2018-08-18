@@ -60,23 +60,123 @@
   </entry>
   
   <entry>
-    <title>Linux-Perf-JVM</title>
+    <title>Linux 性能诊断:JVM</title>
     <link href="http://riboseyim.github.com/2018/08/07/Linux-Perf-JVM/"/>
     <id>http://riboseyim.github.com/2018/08/07/Linux-Perf-JVM/</id>
     <published>2018-08-07T01:32:30.000Z</published>
-    <updated>2018-08-07T01:54:59.154Z</updated>
+    <updated>2018-08-18T14:50:03.749Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><a id="more"></a>
-<h2 id="JVM-Profile-From-Uber"><a href="#JVM-Profile-From-Uber" class="headerlink" title="JVM Profile From Uber"></a>JVM Profile From Uber</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">$ mvn package</div><div class="line">[INFO] Scanning <span class="keyword">for</span> projects...</div><div class="line">[INFO]</div><div class="line">[INFO] -----------------------&lt; com.uber:jvm-profiler &gt;------------------------</div><div class="line">[INFO] Building uber-jvm-profiler <span class="number">0.0</span><span class="number">.7</span></div><div class="line">[INFO] --------------------------------[ jar ]---------------------------------</div><div class="line">[INFO] Including org.apache.kafka:kafka-clients:jar:<span class="number">0.11</span><span class="number">.0</span><span class="number">.2</span> in the shaded jar.</div><div class="line">[INFO] Including net.jpountz.lz4:lz4:jar:<span class="number">1.3</span><span class="number">.0</span> in the shaded jar.</div><div class="line">[INFO] Including org.xerial.snappy:snappy-java:jar:<span class="number">1.1</span><span class="number">.2</span><span class="number">.6</span> in the shaded jar.</div><div class="line">[INFO] Including org.slf4j:slf4j-api:jar:<span class="number">1.7</span><span class="number">.25</span> in the shaded jar.</div><div class="line">[INFO] Including org.apache.commons:commons-lang3:jar:<span class="number">3.5</span> in the shaded jar.</div><div class="line">[INFO] Including com.fasterxml.jackson.core:jackson-core:jar:<span class="number">2.8</span><span class="number">.9</span> in the shaded jar.</div><div class="line">[INFO] Including com.fasterxml.jackson.core:jackson-databind:jar:<span class="number">2.8</span><span class="number">.9</span> in the shaded jar.</div><div class="line">[INFO] Including com.fasterxml.jackson.core:jackson-annotations:jar:<span class="number">2.8</span><span class="number">.0</span> in the shaded jar.</div><div class="line">[INFO] Including org.javassist:javassist:jar:<span class="number">3.21</span><span class="number">.0</span>-GA in the shaded jar.</div><div class="line">[INFO] Including org.yaml:snakeyaml:jar:<span class="number">1.18</span> in the shaded jar.</div><div class="line">[INFO] Including org.apache.httpcomponents:httpclient:jar:<span class="number">4.3</span><span class="number">.6</span> in the shaded jar.</div><div class="line">[INFO] Including org.apache.httpcomponents:httpcore:jar:<span class="number">4.3</span><span class="number">.3</span> in the shaded jar.</div><div class="line">[INFO] Including commons-logging:commons-logging:jar:<span class="number">1.1</span><span class="number">.3</span> in the shaded jar.</div><div class="line">[INFO] Including commons-codec:commons-codec:jar:<span class="number">1.6</span> in the shaded jar.</div><div class="line">[INFO] Including redis.clients:jedis:jar:<span class="number">2.9</span><span class="number">.0</span> in the shaded jar.</div><div class="line">[INFO] Including org.apache.commons:commons-pool2:jar:<span class="number">2.4</span><span class="number">.2</span> in the shaded jar.</div><div class="line">[INFO] Replacing original artifact with shaded artifact.</div><div class="line">[INFO] Replacing /Users/yanrui/project-third/jvm-profiler/target/jvm-profiler<span class="number">-0.0</span><span class="number">.7</span>.jar with /Users/yanrui/project-third/jvm-profiler/target/jvm-profiler<span class="number">-0.0</span><span class="number">.7</span>-shaded.jar</div><div class="line">[INFO] Dependency-reduced POM written at: /Users/yanrui/project-third/jvm-profiler/dependency-reduced-pom.xml</div><div class="line">[INFO] ------------------------------------------------------------------------</div><div class="line">[INFO] BUILD SUCCESS</div><div class="line">[INFO] ------------------------------------------------------------------------</div><div class="line">[INFO] Total time: <span class="number">03</span>:<span class="number">38</span> min</div><div class="line">[INFO] Finished at: <span class="number">2018</span><span class="number">-08</span><span class="number">-07</span>T09:<span class="number">50</span>:<span class="number">26</span>+<span class="number">08</span>:<span class="number">00</span></div><div class="line">[INFO] ------------------------------------------------------------------------</div><div class="line">bash<span class="number">-3.2</span>$</div></pre></td></tr></table></figure>
-<h4 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">## MVN</span></div><div class="line">$ wget http://mirrors.hust.edu.cn/apache/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz</div><div class="line">$ tar -xvf apache-maven-3.5.4-bin.tar.gz</div><div class="line">$ <span class="built_in">echo</span> <span class="string">'export M2_HOME="/usr/local/apache-maven-3.5.4" '</span> &gt;&gt;  ~/.bash_profile</div><div class="line">$ <span class="built_in">echo</span> <span class="string">'export PATH=$M2_HOME/bin:$PATH'</span> &gt;&gt; ~/.bash_profile</div><div class="line">$ . ~/.bash_profile</div><div class="line">$ mvn -v</div><div class="line">Apache Maven 3.5.4</div></pre></td></tr></table></figure>
+    <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
+<li>Uber 开源 Java 分布式应用追踪工具：JVM Profiler</li>
+</ul>
+<a id="more"></a>
+<h1 id="Uber-开源-Java-分布式应用追踪工具：JVM-Profiler"><a href="#Uber-开源-Java-分布式应用追踪工具：JVM-Profiler" class="headerlink" title="Uber 开源 Java 分布式应用追踪工具：JVM Profiler"></a>Uber 开源 Java 分布式应用追踪工具：JVM Profiler</h1><ul>
+<li>Uber Engineering : 《JVM Profiler: An Open Source Tool for Tracing Distributed JVM Applications at Scale 》[<a href="https://eng.uber.com/jvm-profiler/" target="_blank" rel="external">https://eng.uber.com/jvm-profiler/</a>]</li>
+</ul>
+<p>Apache Spark 计算框架已经被广泛用来构建大规模数据应用。对 Uber 而言, 数据是战略决策和产品开发的核心。为了更好地利用这些数据, Uber 需要管理遍布全球的 Spark 实例。 Spark 使得数据技术更易于访问, 如果要做到对 Spark 应用程序的进行合理的资源分配, 优化数据基础架构的操作效率, 就需要对这些系统有更细粒度的洞察力, 即识别其资源使用模式。为了在不改变用户代码的情况下也能达成上述目标, Uber Engineering 团队构建并开源了  JVM Profiler —— 一个分布式探查器，用于收集性能和资源使用率指标为进一步分析提供服务。尽管它是为 Spark 应用而构建的, 但它的通用实现使其适用于任何基于 Java 虚拟机 ( Java virtual machine ，JVM) 的服务或应用程序。</p>
+<h2 id="Profiling-challenges"><a href="#Profiling-challenges" class="headerlink" title="Profiling challenges"></a>Profiling challenges</h2><p>Uber Engineering 每天的常规工作是支持数以万计的应用程序、运行在成千上万的机器上。随着技术栈的增长, 我们很快意识到现有的性能分析和优化方案无法满足需要。特别是:</p>
+<h4 id="目标1：应用级指标监控"><a href="#目标1：应用级指标监控" class="headerlink" title="目标1：应用级指标监控"></a>目标1：应用级指标监控</h4><ul>
+<li>Correlate metrics across a large number of processes at the application level</li>
+</ul>
+<p>分布式环境中存在大量进程需要度量，包括在同一服务器上运行着多个 Spark 应用、多服务器上运行的 Spark 应用有大量的进程 (例如数以千计的执行者 executors ) , 如图1 所示:</p>
+<p><img src="http://og2061b3n.bkt.clouddn.com/JVM-Profile-1.png" alt=""></p>
+<p>Uber 现有的工具只能做到服务器级别的度量（server-level metrics）并且不能针对单个应用做到精确测量。我们需要一个解决方案, 可以收集每个过程的度量值, 并将它们与每个应用程序的进程关联起来。此外, 我们不知道这些过程将在何时启动, 以及它们将运行多长时间。为了能够在这种环境中收集度量, 需要在每个进程中自动启动探查器。</p>
+<h4 id="目标2：不侵入用户代码"><a href="#目标2：不侵入用户代码" class="headerlink" title="目标2：不侵入用户代码"></a>目标2：不侵入用户代码</h4><ul>
+<li>Make metrics metrics collection non-intrusive for arbitrary user code</li>
+</ul>
+<p>目前，Apache Spark 和 Apache Hadoop 库不支持导出性能指标; 但是在通常情况下, 我们需要在不更改用户或框架代码的情况下收集这些指标。例如, 如果在 Hadoop 文件系统 (Hadoop Distributed File System ，HDFS) NameNode 上遇到高时延的情况, 我们希望检查每个 Spark 应用中的延迟情况, 以确保这类问题不再重复出现。由于 NameNode 客户端代码嵌入到了 Spark 库中, 因此修改其源代码以添加特定度量是很麻烦的。为了跟上持续增长数据基础架构, 我们需要能够在任何时候对任何应用程序进行测量, 而不进行代码更改。此外, 实现一个非侵入性的度量值收集过程将使我们能够在加载中动态地向 Java 方法中注入代码。</p>
+<h2 id="JVM-Profiler-简介"><a href="#JVM-Profiler-简介" class="headerlink" title="JVM Profiler 简介"></a>JVM Profiler 简介</h2><p>为了解决上述两个难题, Uber Engineering 团队构建并开源了 JVM Profiler 。现有的同类开源工具, 比如 Etsy 的 <strong>statsd-jvm-profiler</strong> , 可以在单个应用程序级别收集度量, 但是不提供动态代码注入收集度量的能力。在这些工具的启发下, 我们的探查器提供了新功能, 如任意 Java 方法/参数分析。</p>
+<p>JVM Profiler 由三项主要功能组成, 它使收集性能和资源使用率指标变得更容易, 然后可以将这些指标 (如 Apache Kafka) 提供给其他系统进行进一步分析:</p>
+<ul>
+<li>代理功能 ( java agent ) : 支持用户以分布式的方式收集各种指标 (例如如 CPU/内存利用率) ，用于 JVM 进程的堆栈跟踪。</li>
+<li>高级分析功能（Advanced profiling capabilities）: 支持跟踪任意 Java 方法和用户代码中的参数, 而不进行任何实际的代码更改。此功能可用于跟踪 Spark 应用的 HDFS NameNode RPC 调用延迟, 并标识慢速方法调用。它还可以跟踪每个 Spark 应用读取或写入的 HDFS 文件路径, 用以识别热文件后进一步优化。</li>
+<li>数据分析报告( Data analytics reporting ): 使用 JVM Profile 可以将指标数据推送给 Kafka topics 和 Apache Hive tables , 提高数据分析的速度和灵活性。</li>
+</ul>
+<h4 id="JVM-Profiler-典型用例"><a href="#JVM-Profiler-典型用例" class="headerlink" title="JVM Profiler 典型用例"></a>JVM Profiler 典型用例</h4><p>JVM Profiler 支持各种用例, 最典型的是能够检测任意 Java 代码。基于简单的配置, JVM Profiler 就可以附加到 Spark 应用中的每个执行者（executor）收集 Java 方法运行时度量。下面, 我们对其中的一些用例进行了讨论:</p>
+<ul>
+<li>Right-size executor : JVM Profiler 中的内存度量支持跟踪每个执行者的实际内存使用情况。借此 可以在 Spark 应用中 ”executor-memory” 设置最优参数。</li>
+<li>监视 HDFS NameNode RPC 延迟: 例如在 Spark 应用中对类 org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolTranslatorPB 的方法进行了分析并确定 NameNode 调用的延迟。Uber 每天都要监控5万多个 Spark 应用, 其中有数以亿计的这种 RPC 调用。</li>
+<li>监视驱动程序丢弃的事件: 例如监视 org.apache.spark.scheduler.LiveListenerBus.onDropEvent, 跟踪 Spark 驱动程序事件队列太长、队列删除事件。</li>
+<li>跟踪数据沿袭: 例如分析 Java 方法上的文件路径参数 ( org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolTranslatorPB.getBlockLocations , org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolTranslatorPB.addBlock ) ,  可以跟踪哪些文件是由 Spark 应用读取和写入的。</li>
+</ul>
+<h4 id="JVM-Profiler-实现"><a href="#JVM-Profiler-实现" class="headerlink" title="JVM Profiler 实现"></a>JVM Profiler 实现</h4><p>JVM Profiler 具有非常简单且可扩展的设计。可以很容易地添加其他 Profiler 收集更多的指标, 也能部署自定义 reporter 向不同的系统发送数据指标。</p>
+<p><img src="http://og2061b3n.bkt.clouddn.com/JVM-Profile-2.png" alt=""></p>
+<p>一旦启动 JVM Profiler 代码即通过代理参数加载到一个 Java 进程中。它由三个主要部分组成:</p>
+<p><strong>Class File Transformer</strong><br>类文件转换器介由进程内的 Java 方法字节码监视任意用户代码并在内部度量缓冲区中保存度量。</p>
+<p><strong>Metric Profilers</strong></p>
+<ul>
+<li>CPU/Memory Profiler: 通过 JMX 收集 CPU/内存利用率并发送给 reporter</li>
+<li>Method Duration Profiler: 从度量缓冲区读取方法时延 (method duration) 并发送给 reporter</li>
+<li>Method Argument Profiler: 从度量缓冲区读取方法参数值（method argument ）并发送给 reporter</li>
+</ul>
+<p><strong>Reporters</strong></p>
+<ul>
+<li>Console Reporter: 控制台输出</li>
+<li>Kafka Reporter: 发送到 Kafka topics</li>
+</ul>
+<h4 id="JVM-Profiler-扩展"><a href="#JVM-Profiler-扩展" class="headerlink" title="JVM Profiler 扩展"></a>JVM Profiler 扩展</h4><p>通过 <strong>-javaagent</strong> 选项可以构建自己的 reporter , 例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java -javaagent:jvm-profiler-<span class="number">0.0</span>.5.jar=reporter=com.uber.profiling.reporters.CustomReporter</div></pre></td></tr></table></figure>
+<h4 id="数据基础设施整合"><a href="#数据基础设施整合" class="headerlink" title="数据基础设施整合"></a>数据基础设施整合</h4><p><img src="http://og2061b3n.bkt.clouddn.com/JVM-Profile-3.png" alt=""></p>
+<p>Uber 将 JVM Profiler 与自己的数据基础设施进行整合：</p>
+<ul>
+<li><strong>Cluster-wide data analysis</strong>: 集群数据分析中指标数据首先推送到 Kafka 并存储于 HDFS, 用户最终通过 Hive/Presto/Spark 查询。</li>
+<li><strong>Real-time Spark application debugging</strong>:  Uber 使用 Flink 实现单个应用的实时数据聚合并写入到 MySQL 数据库，这样用户就可以通过基于 Web 的接口查询指标。</li>
+</ul>
+<h2 id="JVM-Profiler-应用"><a href="#JVM-Profiler-应用" class="headerlink" title="JVM Profiler 应用"></a>JVM Profiler 应用</h2><p>示例：使用 JVM Profiler 跟踪一个简单的 Java 应用</p>
+<p>首先，git clone 项目代码<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https:<span class="comment">//github.com/uber-common/jvm-profiler.git</span></div></pre></td></tr></table></figure></p>
+<p>然后，mvn package 构建 jvm-profiler jar<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mvn clean package</div></pre></td></tr></table></figure></p>
+<p>最后，调用 JAR 运行 JVM Profiler (e.g.target/jvm-profiler-0.0.5.jar)<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java -javaagent:target/jvm-profiler-<span class="number">0.0</span>.5.jar=reporter=com.uber.profiling.reporters.ConsoleOutputReporter -cp target/jvm-profiler-<span class="number">0.0</span>.5.jar com.uber.profiling.examples.HelloWorldApplication</div></pre></td></tr></table></figure></p>
+<p>上述命令行将运行一个简单的 Java 应用并通过控制台输出性能和资源使用情况。例如：</p>
+<p><strong>Nill</strong></p>
+<p>JVM Profiler 也能通过命令行将指标数据发送到 Kafka topic :</p>
+<p><strong>Nill</strong></p>
+<h4 id="Use-the-profiler-to-profile-the-Spark-application"><a href="#Use-the-profiler-to-profile-the-Spark-application" class="headerlink" title="Use the profiler to profile the Spark application"></a>Use the profiler to profile the Spark application</h4><p>示例：基于 JVM Profiler 跟踪 Spark 应用</p>
+<p>假定我们已经有一个 HDFS 集群，将 JVM Profiler JAR 上传到 HDFS</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hdfs dfs -put target/jvm-profiler-<span class="number">0.0</span>.5.jar hdfs:<span class="comment">//hdfs_url/lib/jvm-profiler-0.0.5.jar</span></div></pre></td></tr></table></figure>
+<p>使用 <strong>spark-submit</strong> 命令行启动 Spark 应用<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">spark-submit --deploy-mode cluster --master yarn --conf spark.jars=hdfs:<span class="comment">//hdfs_url/lib/jvm-profiler-0.0.5.jar --conf spark.driver.extraJavaOptions=-javaagent:jvm-profiler-0.0.5.jar --conf spark.executor.extraJavaOptions=-javaagent:jvm-profiler-0.0.5.jar --class com.company.SparkJob spark_job.jar</span></div></pre></td></tr></table></figure></p>
+<h4 id="指标查询"><a href="#指标查询" class="headerlink" title="指标查询"></a>指标查询</h4><p>Uber 将指标数据发送到 Kafka topic 和后台数据管线并自动存储于 Hive tables 。用户可以设置类似的管线并使用 SQL 查询指标数据。用户也可以编写自己的 reporter , 将指标发送到 SQL 数据库（如 MySQL）。Hive table 查询示例，包含每个进程的内存和 CPU 指标：</p>
+<p><img src="http://og2061b3n.bkt.clouddn.com/JVM-Profile-4.png" alt=""></p>
+<h2 id="Next"><a href="#Next" class="headerlink" title="Next"></a>Next</h2><p>Uber 将 JVM Profiler 应用到自己最大 Spark 应用 (1000 多个 executor ), 在该过程中将每个 executor 分配的内存减少了 2GB （从 7GB 降低到 5GB ）。对于整个 Spark 应用来说合计节省 2TB 内存。</p>
+<p>Uber 还将 JVM Profiler 应用到了所有 Hive on Spark 应用, 并发现了一些提高内存使用效率的机会。下面的图3显示了 Uber 发现的一个结果: 大约70% 的应用程序的实际内存利用率不到已分配内存的 80% 。研究结果表明, 大多数应用程序可以分配较少的内存并将内存利用率提高 20% 。</p>
+<p><img src="http://og2061b3n.bkt.clouddn.com/JVM-Profile-5.png" alt=""></p>
+<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">$ mvn package</div><div class="line">[INFO] Scanning <span class="keyword">for</span> projects...</div><div class="line">[INFO]</div><div class="line">[INFO] -----------------------&lt; com.uber:jvm-profiler &gt;------------------------</div><div class="line">[INFO] Building uber-jvm-profiler <span class="number">0.0</span><span class="number">.7</span></div><div class="line">[INFO] --------------------------------[ jar ]---------------------------------</div><div class="line">[INFO] Including org.apache.kafka:kafka-clients:jar:<span class="number">0.11</span><span class="number">.0</span><span class="number">.2</span> in the shaded jar.</div><div class="line">[INFO] Including net.jpountz.lz4:lz4:jar:<span class="number">1.3</span><span class="number">.0</span> in the shaded jar.</div><div class="line">[INFO] Including org.xerial.snappy:snappy-java:jar:<span class="number">1.1</span><span class="number">.2</span><span class="number">.6</span> in the shaded jar.</div><div class="line">[INFO] Including org.slf4j:slf4j-api:jar:<span class="number">1.7</span><span class="number">.25</span> in the shaded jar.</div><div class="line">[INFO] Including org.apache.commons:commons-lang3:jar:<span class="number">3.5</span> in the shaded jar.</div><div class="line">[INFO] Including com.fasterxml.jackson.core:jackson-core:jar:<span class="number">2.8</span><span class="number">.9</span> in the shaded jar.</div><div class="line">[INFO] Including com.fasterxml.jackson.core:jackson-databind:jar:<span class="number">2.8</span><span class="number">.9</span> in the shaded jar.</div><div class="line">[INFO] Including com.fasterxml.jackson.core:jackson-annotations:jar:<span class="number">2.8</span><span class="number">.0</span> in the shaded jar.</div><div class="line">[INFO] Including org.javassist:javassist:jar:<span class="number">3.21</span><span class="number">.0</span>-GA in the shaded jar.</div><div class="line">[INFO] Including org.yaml:snakeyaml:jar:<span class="number">1.18</span> in the shaded jar.</div><div class="line">[INFO] Including org.apache.httpcomponents:httpclient:jar:<span class="number">4.3</span><span class="number">.6</span> in the shaded jar.</div><div class="line">[INFO] Including org.apache.httpcomponents:httpcore:jar:<span class="number">4.3</span><span class="number">.3</span> in the shaded jar.</div><div class="line">[INFO] Including commons-logging:commons-logging:jar:<span class="number">1.1</span><span class="number">.3</span> in the shaded jar.</div><div class="line">[INFO] Including commons-codec:commons-codec:jar:<span class="number">1.6</span> in the shaded jar.</div><div class="line">[INFO] Including redis.clients:jedis:jar:<span class="number">2.9</span><span class="number">.0</span> in the shaded jar.</div><div class="line">[INFO] Including org.apache.commons:commons-pool2:jar:<span class="number">2.4</span><span class="number">.2</span> in the shaded jar.</div><div class="line">[INFO] Replacing original artifact with shaded artifact.</div><div class="line">[INFO] Replacing /Users/yanrui/project-third/jvm-profiler/target/jvm-profiler<span class="number">-0.0</span><span class="number">.7</span>.jar with /Users/yanrui/project-third/jvm-profiler/target/jvm-profiler<span class="number">-0.0</span><span class="number">.7</span>-shaded.jar</div><div class="line">[INFO] Dependency-reduced POM written at: /Users/yanrui/project-third/jvm-profiler/dependency-reduced-pom.xml</div><div class="line">[INFO] ------------------------------------------------------------------------</div><div class="line">[INFO] BUILD SUCCESS</div><div class="line">[INFO] ------------------------------------------------------------------------</div><div class="line">[INFO] Total time: <span class="number">03</span>:<span class="number">38</span> min</div><div class="line">[INFO] Finished at: <span class="number">2018</span><span class="number">-08</span><span class="number">-07</span>T09:<span class="number">50</span>:<span class="number">26</span>+<span class="number">08</span>:<span class="number">00</span></div><div class="line">[INFO] ------------------------------------------------------------------------</div><div class="line">bash<span class="number">-3.2</span>$</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">## MVN</span></div><div class="line">$ wget http://mirrors.hust.edu.cn/apache/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz</div><div class="line">$ tar -xvf apache-maven-3.5.4-bin.tar.gz</div><div class="line">$ <span class="built_in">echo</span> <span class="string">'export M2_HOME="/usr/local/apache-maven-3.5.4" '</span> &gt;&gt;  ~/.bash_profile</div><div class="line">$ <span class="built_in">echo</span> <span class="string">'export PATH=$M2_HOME/bin:$PATH'</span> &gt;&gt; ~/.bash_profile</div><div class="line">$ . ~/.bash_profile</div><div class="line">$ mvn -v</div><div class="line">Apache Maven 3.5.4</div></pre></td></tr></table></figure>
+<h2 id="扩展阅读：电子书《Linux-Perf-Master》"><a href="#扩展阅读：电子书《Linux-Perf-Master》" class="headerlink" title="扩展阅读：电子书《Linux Perf Master》"></a>扩展阅读：电子书《Linux Perf Master》</h2><ul>
+<li><a href="https://riboseyim.gitbook.io/perf" target="_blank" rel="external">https://riboseyim.gitbook.io/perf</a></li>
+<li><a href="https://www.gitbook.com/book/riboseyim/linux-perf-master/details" target="_blank" rel="external">https://www.gitbook.com/book/riboseyim/linux-perf-master/details</a></li>
+</ul>
+<p><img src="http://p11slcnom.bkt.clouddn.com/banner-LPM-201803.png" alt=""></p>
+<h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><ul>
+<li><a href="https://riboseyim.github.io/2017/12/11/Linux-Perf-Load/" target="_blank" rel="external">Linux 性能诊断:负载评估</a></li>
+<li><a href="https://riboseyim.github.io/2017/12/11/Linux-Perf-Netflix/" target="_blank" rel="external">Linux 性能诊断:快速检查单</a></li>
+<li><a href="https://riboseyim.github.io/2017/05/29/Linux-Works/" target="_blank" rel="external">操作系统原理 | How Linux Works（一）：启动</a></li>
+<li><a href="https://riboseyim.github.io/2017/05/29/Linux-Works/" target="_blank" rel="external">操作系统原理 | How Linux Works（二）：空间管理</a></li>
+<li><a href="https://riboseyim.github.io/2017/12/11/Linux-Works-Memory/" target="_blank" rel="external">操作系统原理 | How Linux Works（三）：内存管理</a></li>
+<li><a href="https://riboseyim.github.io/2018/01/08/Linux-Works-Network/" target="_blank" rel="external">操作系统原理 | How Linux Works（三）：网络管理</a></li>
+</ul>
+<h2 id="扩展阅读：动态追踪技术"><a href="#扩展阅读：动态追踪技术" class="headerlink" title="扩展阅读：动态追踪技术"></a>扩展阅读：动态追踪技术</h2><ul>
+<li><a href="https://riboseyim.github.io/2016/11/26/DTrace/" target="_blank" rel="external">动态追踪技术(一)：DTrace 导论</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MjM5MTY1MjQ3Nw==&amp;mid=2651939588&amp;idx=1&amp;sn=35f71c5f88d1edf23cb2efc812ab8e6c&amp;chksm=bd578c168a20050041c08618281691f0111f61c789097a69095933057618637fc54817815921#rd" target="_blank" rel="external">动态追踪技术(二)：strace+gdb 溯源 Nginx 内存溢出异常 </a></li>
+<li><a href="https://riboseyim.github.io/2017/04/17/DTrace_FTrace/" target="_blank" rel="external">动态追踪技术(三)：Tracing Your Kernel Function!</a></li>
+<li><a href="https://riboseyim.github.io/2017/06/27/DTrace_bcc/" target="_blank" rel="external">动态追踪技术(四)：基于 Linux bcc/BPF 实现 Go 程序动态追踪</a></li>
+<li><a href="https://riboseyim.github.io/2018/02/16/DTrace-Linux/" target="_blank" rel="external">动态追踪技术(五)：Welcome DTrace for Linux</a></li>
+</ul>
 <h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2>]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h2&gt;
+      &lt;h2 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Uber 开源 Java 分布式应用追踪工具：JVM Profiler&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
     
+    
+      <category term="DevOps" scheme="http://riboseyim.github.com/tags/DevOps/"/>
+    
+      <category term="Linux" scheme="http://riboseyim.github.com/tags/Linux/"/>
+    
+      <category term="SRE" scheme="http://riboseyim.github.com/tags/SRE/"/>
     
   </entry>
   
