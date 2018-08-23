@@ -24,7 +24,7 @@
 <meta property="og:image" content="http://omb2onfvy.bkt.clouddn.com/DATA_DOT_PK_Marry.png">
 <meta property="og:image" content="http://omb2onfvy.bkt.clouddn.com/DATA_DOT_PK_Marry_circo.png">
 <meta property="og:image" content="http://ot6idm48o.bkt.clouddn.com/red-family-all-master.png">
-<meta property="og:updated_time" content="2018-08-07T04:07:35.056Z">
+<meta property="og:updated_time" content="2018-08-23T08:29:35.996Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据可视化（三）基于 Graphviz 实现程序化绘图">
 <meta name="twitter:description" content="摘要 OmniGraffle 和 Graphviz Why draw when you can code? Graphviz 简介 最佳 Graphviz 实践(一)：流程图、数据结构图、网络路径 Trace Route 最佳 Graphviz 实践(二)：复杂社会关系链分析（《红楼梦》、《权力的游戏》） 最佳 Graphviz 实践(三)：机器学习算法-决策树(Decision Tree)">
@@ -99,7 +99,7 @@
 						<li>Links</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -122,15 +122,15 @@
 				        
 							<li><a href="/tags/DevOps">DevOps</a></li>
 				        
-							<li><a href="/tags/eBook">电子书</a></li>
+							<li><a href="/tags/数据可视化/">数据可视化</a></li>
 				        
-							<li><a href="/tags/Art">艺术评论</a></li>
+							<li><a href="/tags/eBook">我的电子书</a></li>
+				        
+							<li><a href="/tags/Art">艺术与生活</a></li>
 				        
 							<li><a href="/tags/Commander">讲武堂</a></li>
 				        
 							<li><a href="/tags/Economist">经济学人</a></li>
-				        
-							<li><a href="/tags/数据可视化">可视化</a></li>
 				        
 							<li><a href="/tags/Policy-Law">Policy&amp;Law</a></li>
 				        
@@ -228,15 +228,15 @@
 		        
 					<li><a href="/tags/DevOps">DevOps</a></li>
 		        
-					<li><a href="/tags/eBook">电子书</a></li>
+					<li><a href="/tags/数据可视化/">数据可视化</a></li>
 		        
-					<li><a href="/tags/Art">艺术评论</a></li>
+					<li><a href="/tags/eBook">我的电子书</a></li>
+		        
+					<li><a href="/tags/Art">艺术与生活</a></li>
 		        
 					<li><a href="/tags/Commander">讲武堂</a></li>
 		        
 					<li><a href="/tags/Economist">经济学人</a></li>
-		        
-					<li><a href="/tags/数据可视化">可视化</a></li>
 		        
 					<li><a href="/tags/Policy-Law">Policy&amp;Law</a></li>
 		        
@@ -307,7 +307,7 @@
 <li>最佳 Graphviz 实践(三)：机器学习算法-决策树(Decision Tree)</li>
 </ul>
 <a id="more"></a>
-<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>我之前在几篇文章<a href="https://riboseyim.github.io/2016/04/26/Visualization-Ntopng" target="_blank" rel="external">新一代Ntopng网络流量监控—可视化和架构分析</a>、<br> <a href="https://riboseyim.github.io/2017/09/15/Visualization-OmniGraffle/" target="_blank" rel="external">数据可视化（一）思维利器 OmniGraffle 绘图指南 |201601</a>，都曾提到了力导图，在关于 <a href="https://riboseyim.github.io/2017/09/15/Visualization-OmniGraffle/" target="_blank" rel="external">OmniGraffle</a> 的文章结尾还吐槽了一番自动布局按钮的坑。在本文中我力求将这个坑填上。</p>
+<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>我之前在几篇文章<a href="https://riboseyim.github.io/2016/04/26/Visualization-Ntopng" target="_blank" rel="external">新一代Ntopng网络流量监控—可视化和架构分析</a>、<a href="https://riboseyim.github.io/2017/09/15/Visualization-OmniGraffle/" target="_blank" rel="external">数据可视化（一）思维利器 OmniGraffle 绘图指南 |201601</a>，都曾提到了力导图，在关于 <a href="https://riboseyim.github.io/2017/09/15/Visualization-OmniGraffle/" target="_blank" rel="external">OmniGraffle</a> 的文章结尾还吐槽了一番自动布局按钮的坑。在本文中我力求将这个坑填上。</p>
 <p><a href="https://riboseyim.github.io/2017/09/15/Visualization-OmniGraffle/" target="_blank" rel="external">OmniGraffle</a> 生成自动布局图形的基础是 Graphviz 引擎。Graphviz（Graph Visualization Software）是一个由AT&amp;T实验室启动的开源工具包，能够支持基于 <a href="#">DOT 脚本，文件扩展名通常是 .gv 或 .dot </a>的描述绘制图形。DOT 是一种文本图形描述语言，将生成的图形转换成多种输出格式的命令行工具，其输出格式包括PostScript，PDF，SVG，PNG，含注解的文本等。DOT 本身非常原始，提供了一种非常简单的描述图形的方法，同时意味着可以在命令行终端使用，或者被其它编程语言调用（Graphviz 就可以作为一个库使用）。这一点非常关键，基于 Graphviz 应用开发者不必掌握布局的复杂算法，而是可以把精力放在业务方面，将最后的图对象交给绘图引擎来处理即可。</p>
 <p>有趣的是 Graphviz(Mac 版) 和 OmniGraffle 都曾获得<a href="#">苹果设计奖 Apple Design Awards</a>。</p>
 <p>在深入掌握 Graphviz 及其相关衍生应用之前，我们有必要了解一些基础理论 —— 图论(Graph theory)。</p>

@@ -4,6 +4,29 @@
 
     
   <url>
+    <loc>http://riboseyim.github.com/2017/09/15/Visualization-Graphviz/</loc>
+    <lastmod>2018-08-23T08:29:35.996Z</lastmod>
+    <data>
+        <display>
+        <title>数据可视化（三）基于 Graphviz 实现程序化绘图</title>
+        <pubTime>2017-09-15T08:28:30.000Z</pubTime>
+        
+        <tag>架构师</tag>
+         
+        <tag>数据可视化</tag>
+         
+        <tag>Developer</tag>
+         
+        <tag>数学与算法</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://riboseyim.github.com/2018/01/01/Check2018/</loc>
     <lastmod>2018-08-19T14:11:53.630Z</lastmod>
     <data>
@@ -467,29 +490,6 @@
         <tag>DevOps</tag>
          
         <tag>网络协议</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://riboseyim.github.com/2017/09/15/Visualization-Graphviz/</loc>
-    <lastmod>2018-08-07T04:07:35.056Z</lastmod>
-    <data>
-        <display>
-        <title>数据可视化（三）基于 Graphviz 实现程序化绘图</title>
-        <pubTime>2017-09-15T08:28:30.000Z</pubTime>
-        
-        <tag>架构师</tag>
-         
-        <tag>数据可视化</tag>
-         
-        <tag>Developer</tag>
-         
-        <tag>数学与算法</tag>
          
          
            
