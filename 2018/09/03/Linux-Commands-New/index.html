@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>操作系统原理：Linux Commands Extension | Ribose Yim&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="DevOps 资讯 | 是时候升级你的命令行了 bat &amp;gt; cat prettyping &amp;gt; ping fzf &amp;gt; ctrl+r htop &amp;gt; top diff-so-fancy &amp;gt; diff fd &amp;gt; find ncdu &amp;gt; du tldr &amp;gt; man ack || ag &amp;gt; grep jq &amp;gt; grep et al">
+<meta name="keywords" content="DevOps,Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="操作系统原理：Linux Commands Extension">
+<meta property="og:url" content="http://riboseyim.github.com/2018/09/03/Linux-Commands-New/index.html">
+<meta property="og:site_name" content="Ribose Yim&#39;s Blog">
+<meta property="og:description" content="DevOps 资讯 | 是时候升级你的命令行了 bat &amp;gt; cat prettyping &amp;gt; ping fzf &amp;gt; ctrl+r htop &amp;gt; top diff-so-fancy &amp;gt; diff fd &amp;gt; find ncdu &amp;gt; du tldr &amp;gt; man ack || ag &amp;gt; grep jq &amp;gt; grep et al">
+<meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/CLI-20180902-bat-1.png">
+<meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/CLI-20180902-bat-2.png">
+<meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/CLI-20180902-bat-3.png">
+<meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/CLI-20180903-ping.png">
+<meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/CLI-20180902-fzf.png">
+<meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/CLI-20180902-htop.png">
+<meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/CLI-20180902-diff-so-fancy.jpg">
+<meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/CLI-20180902-git-diff.jpg">
+<meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/CLI-20180902-fd.png">
+<meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/CLI-20180902-nudu.png">
+<meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/CLI-20180902-nudu-nav.png">
+<meta property="og:image" content="http://og2061b3n.bkt.clouddn.com/CLI-20180902-ack.png">
+<meta property="og:image" content="http://p11slcnom.bkt.clouddn.com/banner-LPM-201803.png">
+<meta property="og:updated_time" content="2018-09-03T01:46:59.413Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="操作系统原理：Linux Commands Extension">
+<meta name="twitter:description" content="DevOps 资讯 | 是时候升级你的命令行了 bat &amp;gt; cat prettyping &amp;gt; ping fzf &amp;gt; ctrl+r htop &amp;gt; top diff-so-fancy &amp;gt; diff fd &amp;gt; find ncdu &amp;gt; du tldr &amp;gt; man ack || ag &amp;gt; grep jq &amp;gt; grep et al">
+<meta name="twitter:image" content="http://og2061b3n.bkt.clouddn.com/CLI-20180902-bat-1.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Ribose Yim&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://o8m8ngokc.bkt.clouddn.com/icon_cangshu.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://o8m8ngokc.bkt.clouddn.com/icon_macbook.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">RiboseYim</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">愿交天下士，罄我怀中藏。</p>
+		
+
+		<form id="search-form" class="search">  <!-- 搜索框相关 -->
+    <input type="text" id="st-search-input" name="q" results="0" class="st-default-search-input" maxlength="30" placeholder="Search..." autocomplete="off" autocorrect="off">
+		</form>
+		<div id="local-search-result"></div> <!-- 搜索结果区 -->
+	  <p class='no-result'>No results found </p> 
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/Linux">Linux</a></li>
+				        
+							<li><a href="/tags/Machine-Learning">机器学习</a></li>
+				        
+							<li><a href="/tags/DevOps">DevOps</a></li>
+				        
+							<li><a href="/tags/数据可视化/">数据可视化</a></li>
+				        
+							<li><a href="/tags/eBook">我的电子书</a></li>
+				        
+							<li><a href="/tags/Art">艺术与生活</a></li>
+				        
+							<li><a href="/tags/Commander">讲武堂</a></li>
+				        
+							<li><a href="/tags/Economist">经济学人</a></li>
+				        
+							<li><a href="/tags/Policy-Law">Policy&amp;Law</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="twitter" target="_blank" href="https://twitter.com/RiboseYim" title="twitter">twitter</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/riboseyim" title="zhihu">zhihu</a>
+					        
+								<a class="github" target="_blank" href="https://github.com/riboseyim" title="github">github</a>
+					        
+								<a class="linkedin" target="_blank" href="http://www.linkedin.com/in/%E7%9D%BF-%E4%B8%A5-b39028110" title="linkedin">linkedin</a>
+					        
+						</div>
+					</nav>
+				</section>
+
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Art/" style="font-size: 15.22px;">Art</a> <a href="/tags/Books/" style="font-size: 10px;">Books</a> <a href="/tags/Commander/" style="font-size: 12.61px;">Commander</a> <a href="/tags/Cyber-Security/" style="font-size: 14.78px;">Cyber-Security</a> <a href="/tags/DTrace/" style="font-size: 11.3px;">DTrace</a> <a href="/tags/DevOps/" style="font-size: 20px;">DevOps</a> <a href="/tags/Developer/" style="font-size: 19.13px;">Developer</a> <a href="/tags/Develper/" style="font-size: 10px;">Develper</a> <a href="/tags/Economist/" style="font-size: 17.83px;">Economist</a> <a href="/tags/Education/" style="font-size: 10px;">Education</a> <a href="/tags/Golang/" style="font-size: 13.48px;">Golang</a> <a href="/tags/Health/" style="font-size: 10.87px;">Health</a> <a href="/tags/History/" style="font-size: 17.39px;">History</a> <a href="/tags/Lincoln/" style="font-size: 10.43px;">Lincoln</a> <a href="/tags/Linux/" style="font-size: 18.26px;">Linux</a> <a href="/tags/Mac/" style="font-size: 11.74px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 15.65px;">Machine-Learning</a> <a href="/tags/Manager/" style="font-size: 16.96px;">Manager</a> <a href="/tags/Medical/" style="font-size: 13.48px;">Medical</a> <a href="/tags/Nodejs/" style="font-size: 10.87px;">Nodejs</a> <a href="/tags/OpenSource/" style="font-size: 15.65px;">OpenSource</a> <a href="/tags/PHT/" style="font-size: 10.87px;">PHT</a> <a href="/tags/Policy-Law/" style="font-size: 19.57px;">Policy&Law</a> <a href="/tags/Redology/" style="font-size: 10.87px;">Redology</a> <a href="/tags/SDN/" style="font-size: 13.04px;">SDN</a> <a href="/tags/SRE/" style="font-size: 16.09px;">SRE</a> <a href="/tags/Science/" style="font-size: 14.78px;">Science</a> <a href="/tags/Sport/" style="font-size: 11.3px;">Sport</a> <a href="/tags/eBook/" style="font-size: 13.91px;">eBook</a> <a href="/tags/工具癖/" style="font-size: 12.17px;">工具癖</a> <a href="/tags/我的自传/" style="font-size: 12.17px;">我的自传</a> <a href="/tags/摄影/" style="font-size: 11.3px;">摄影</a> <a href="/tags/数学与算法/" style="font-size: 14.78px;">数学与算法</a> <a href="/tags/数据可视化/" style="font-size: 14.35px;">数据可视化</a> <a href="/tags/数据库/" style="font-size: 10.43px;">数据库</a> <a href="/tags/最佳写作实践/" style="font-size: 12.61px;">最佳写作实践</a> <a href="/tags/最佳工程实践/" style="font-size: 16.52px;">最佳工程实践</a> <a href="/tags/架构师/" style="font-size: 18.7px;">架构师</a> <a href="/tags/科技史/" style="font-size: 10.43px;">科技史</a> <a href="/tags/移动互联网/" style="font-size: 10px;">移动互联网</a> <a href="/tags/网络协议/" style="font-size: 16.96px;">网络协议</a> <a href="/tags/讲武堂/" style="font-size: 10.43px;">讲武堂</a>
+					</div>
+				</section>
+				
+
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/f2ea0605db4b">专题-经济学人翻译社</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.gitbook.com/book/riboseyim/linux-perf-master/details">电子书《Linux Perf Master》</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/9a817d8a67ea">简书专题-系统运维专家</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/0886ffd76168">简书专题-网络与信息安全</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/9ae32222e422">简书专题-操作系统与动态追踪技术</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/c/8d40a3a05825">简书专题-数据可视化</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://riboseyim.github.io/2017/11/16/QuickStart/">快捷目录</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://riboseyim.github.io/2017/05/26/Catalog/">总目录</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">Engineer &amp; Writer</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">RiboseYim</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="http://o8m8ngokc.bkt.clouddn.com/icon_macbook.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">RiboseYim</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">愿交天下士，罄我怀中藏。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/Linux">Linux</a></li>
+		        
+					<li><a href="/tags/Machine-Learning">机器学习</a></li>
+		        
+					<li><a href="/tags/DevOps">DevOps</a></li>
+		        
+					<li><a href="/tags/数据可视化/">数据可视化</a></li>
+		        
+					<li><a href="/tags/eBook">我的电子书</a></li>
+		        
+					<li><a href="/tags/Art">艺术与生活</a></li>
+		        
+					<li><a href="/tags/Commander">讲武堂</a></li>
+		        
+					<li><a href="/tags/Economist">经济学人</a></li>
+		        
+					<li><a href="/tags/Policy-Law">Policy&amp;Law</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="twitter" target="_blank" href="https://twitter.com/RiboseYim" title="twitter">twitter</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/riboseyim" title="zhihu">zhihu</a>
+			        
+						<a class="github" target="_blank" href="https://github.com/riboseyim" title="github">github</a>
+			        
+						<a class="linkedin" target="_blank" href="http://www.linkedin.com/in/%E7%9D%BF-%E4%B8%A5-b39028110" title="linkedin">linkedin</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-Linux-Commands-New" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/09/03/Linux-Commands-New/" class="article-date">
+  	<time datetime="2018-09-02T17:36:40.000Z" itemprop="datePublished">2018-09-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      操作系统原理：Linux Commands Extension
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DevOps/">DevOps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+	</div>
+
+        
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>DevOps 资讯 | 是时候升级你的命令行了</li>
+<li>bat &gt; cat</li>
+<li>prettyping &gt; ping</li>
+<li>fzf &gt; ctrl+r</li>
+<li>htop &gt; top</li>
+<li>diff-so-fancy &gt; diff</li>
+<li>fd &gt; find</li>
+<li>ncdu &gt; du</li>
+<li>tldr &gt; man</li>
+<li>ack || ag &gt; grep</li>
+<li>jq &gt; grep et al</li>
+</ul>
+<a id="more"></a>
+<h1 id="DevOps-资讯-是时候升级你的命令行了"><a href="#DevOps-资讯-是时候升级你的命令行了" class="headerlink" title="DevOps 资讯 | 是时候升级你的命令行了"></a>DevOps 资讯 | 是时候升级你的命令行了</h1><blockquote>
+<p>子贡问为仁。<br>子曰：“工欲善其事，必先利其器。居是邦也，事其大夫之贤者，友其士之仁者。”<br>——《论语·卫灵公》</p>
+</blockquote>
+<h4 id="bat-gt-cat"><a href="#bat-gt-cat" class="headerlink" title="bat &gt; cat"></a>bat &gt; cat</h4><p>cat 被用于打印文件内容。ccat 工具还提供像语法高亮显示这样的功能。在此基础之上，bat 还支持 分页, 行号和 git 集成。同时允许在输出中搜索 (当输出长于屏幕高度时) 。更多信息：<a href="https://github.com/sharkdp/bat" target="_blank" rel="external">https://github.com/sharkdp/bat</a></p>
+<p><img src="http://og2061b3n.bkt.clouddn.com/CLI-20180902-bat-1.png" alt=""></p>
+<p><img src="http://og2061b3n.bkt.clouddn.com/CLI-20180902-bat-2.png" alt=""></p>
+<p><img src="http://og2061b3n.bkt.clouddn.com/CLI-20180902-bat-3.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"># Linux</div><div class="line">wget https://github.com/sharkdp/bat/releases/download/v0.6.1/bat-v0.6.1-x86_64-unknown-linux-gnu.tar.gz</div><div class="line">make install</div><div class="line"></div><div class="line"># Mac</div><div class="line">brew install bat</div><div class="line"></div><div class="line">#</div><div class="line">alias cat=&apos;bat&apos;</div></pre></td></tr></table></figure>
+<h4 id="prettyping-gt-ping"><a href="#prettyping-gt-ping" class="headerlink" title="prettyping &gt; ping"></a>prettyping &gt; ping</h4><p>ping 是一种非常有用的网络工具。原理是向目标主机传出一个ICMP echo@要求数据包，并等待接收 echo 回应数据包。程序会按时间和成功响应的次数估算丢失数据包率（丢包率）和数据包往返时间（网络时延，Round-trip delay time）。不过默认的 ping 命令输出比较乏味。prettyping 则提供了更友好、更美观的输出，包括彩色点图表示网络连通性。prettyping 基于 bash 和 awk 编写能，够兼容大部分操作系统 (例如 Linux, BSD, Mac OS X, …)。更多信息：<a href="http://denilson.sa.nom.br/prettyping/" target="_blank" rel="external">http://denilson.sa.nom.br/prettyping/</a></p>
+<p><img src="http://og2061b3n.bkt.clouddn.com/CLI-20180903-ping.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">curl -O https://raw.githubusercontent.com/denilsonsa/prettyping/master/prettyping</div><div class="line">chmod +x prettyping</div><div class="line">./prettyping baiud.com</div><div class="line"></div><div class="line">alias ping=&apos;prettyping --nolegend&apos;</div></pre></td></tr></table></figure>
+<h4 id="fzf-gt-ctrl-r"><a href="#fzf-gt-ctrl-r" class="headerlink" title="fzf &gt; ctrl+r"></a>fzf &gt; ctrl+r</h4><p>在终端中使用 ctrl + r 组合键可以向后搜索历史操作记录（ 尽管有点繁琐 ）。fzf 工具是对 ctrl + r 的增强。支持对终端操作历史的模糊搜索, 预览可能的匹配结果。除了历史搜索之外, fzf 还可以预览和打开文件。<br>更多信息：<a href="https://github.com/junegunn/fzf" target="_blank" rel="external">https://github.com/junegunn/fzf</a></p>
+<p><img src="http://og2061b3n.bkt.clouddn.com/CLI-20180902-fzf.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"># Linux</div><div class="line">git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf</div><div class="line">~/.fzf/install</div><div class="line"># Mac</div><div class="line">brew install fzf</div><div class="line"></div><div class="line"># alias</div><div class="line">alias preview=&quot;fzf --preview &apos;bat --color \&quot;always\&quot; &#123;&#125;&apos;&quot;</div><div class="line"># add support for ctrl+o to open selected file in VS Code</div><div class="line">export FZF_DEFAULT_OPTS=&quot;--bind=&apos;ctrl-o:execute(code &#123;&#125;)+abor</div></pre></td></tr></table></figure>
+<h4 id="htop-gt-top"><a href="#htop-gt-top" class="headerlink" title="htop &gt; top"></a>htop &gt; top</h4><p>top 是一个快速诊断系统性能的工具。值得一提的是 top for Mac 与 Linux 上的输出不太一样。htop 优化了顶部输出格式，并支持大量的颜色, 键盘快键键和视图, 帮助我们洞察进程行为。更多信息：<a href="http://hisham.hm/htop/" target="_blank" rel="external">http://hisham.hm/htop/</a></p>
+<p><img src="http://og2061b3n.bkt.clouddn.com/CLI-20180902-htop.png" alt="htop"></p>
+<p>htop 提供的键盘快捷键：</p>
+<ul>
+<li>P - 按 CPU 利用率排序</li>
+<li>M - 按内存利用率排序</li>
+<li>F4 - 按字符串过滤进程</li>
+<li>space - 高亮显示某一进程，便于持续跟踪</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">alias top=&quot;sudo htop&quot; # alias top</div></pre></td></tr></table></figure>
+<h4 id="diff-so-fancy-gt-diff"><a href="#diff-so-fancy-gt-diff" class="headerlink" title="diff-so-fancy &gt; diff"></a>diff-so-fancy &gt; diff</h4><p>GIT 版本控制系统中使用 git diff 来显示两个版本之间差别(包括文件、元数据和改动等)。diff-so-fancy 是一个用 node.js 实现的命令行工具，提供更友好的输出样式和定制能力。更多信息：<a href="https://github.com/so-fancy/diff-so-fancy" target="_blank" rel="external">https://github.com/so-fancy/diff-so-fancy</a></p>
+<p><img src="http://og2061b3n.bkt.clouddn.com/CLI-20180902-diff-so-fancy.jpg" alt=""></p>
+<p><img src="http://og2061b3n.bkt.clouddn.com/CLI-20180902-git-diff.jpg" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"># download</div><div class="line">wget https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy</div><div class="line">chmod +x diff-so-fancy</div><div class="line"># npm</div><div class="line">npm install -g diff-so-fancy</div><div class="line"># 直接调用</div><div class="line">git diff --color | diff-so-fancy</div></pre></td></tr></table></figure>
+<p>在 git diff 和 git show 中启用  diff-so-fancy ，需要修改 gitconfig :<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[pager]</div><div class="line">	   diff = diff-so-fancy | less --tabs=1,5 -RFX</div><div class="line">	   show = diff-so-fancy | less --tabs=1,5 -RFX</div></pre></td></tr></table></figure></p>
+<p>除了默认样式优化，diff-so-fancy 还支持颜色和显示项定制，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">git config --global color.ui true</div><div class="line"></div><div class="line">git config --global color.diff-highlight.oldNormal    &quot;red bold&quot;</div><div class="line">git config --global color.diff-highlight.oldHighlight &quot;red bold 52&quot;</div><div class="line">git config --global color.diff-highlight.newNormal    &quot;green bold&quot;</div><div class="line">git config --global color.diff-highlight.newHighlight &quot;green bold 22&quot;</div><div class="line"></div><div class="line">git config --global color.diff.meta       &quot;yellow&quot;</div><div class="line">git config --global color.diff.frag       &quot;magenta bold&quot;</div><div class="line">git config --global color.diff.commit     &quot;yellow bold&quot;</div><div class="line">git config --global color.diff.old        &quot;red bold&quot;</div><div class="line">git config --global color.diff.new        &quot;green bold&quot;</div><div class="line">git config --global color.diff.whitespace &quot;red reverse&quot;</div><div class="line"></div><div class="line">git config --bool --global diff-so-fancy.markEmptyLines false</div></pre></td></tr></table></figure></p>
+<h4 id="fd-gt-find"><a href="#fd-gt-find" class="headerlink" title="fd &gt; find"></a>fd &gt; find</h4><p>fd 非常快。有意思的是 fd 与 bat 的作者是同一个人（David Peter）。更多信息：<a href="https://github.com/sharkdp/fd/" target="_blank" rel="external">https://github.com/sharkdp/fd/</a></p>
+<p><img src="http://og2061b3n.bkt.clouddn.com/CLI-20180902-fd.png" alt=""></p>
+<p>常用的命令行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">## SourceCode</div><div class="line">git clone https://github.com/sharkdp/fd</div><div class="line">cd fd</div><div class="line">cargo build</div><div class="line">cargo test</div><div class="line">cargo install</div><div class="line"></div><div class="line"># Mac</div><div class="line">brew install fd</div><div class="line"></div><div class="line">## Usage</div><div class="line">fd cli # 查找所有包含&quot;cli&quot;的文件名</div><div class="line">fd -e md # 查找所有 .md 文件</div><div class="line">fd cli -x wc -w # 查找 &quot;cli&quot; 并运行 `wc -w`</div></pre></td></tr></table></figure></p>
+<h4 id="ncdu-gt-du"><a href="#ncdu-gt-du" class="headerlink" title="ncdu &gt; du"></a>ncdu &gt; du</h4><p>了解磁盘空间占用情况是一项非常重要的工作。常用的命令是 du -sh  (-sh 表示摘要、便于人工阅读), 但我们经常需要挖掘目录的空间占用。ncdu 是一个替代选择（完全基于 C 语言编写，MIT 许可证）。ncdu 提供了一个交互式界面, 支持快速扫描哪些文件夹或文件占用空间, 并且导航非常方便。更多信息：<a href="https://dev.yorhel.nl/ncdu" target="_blank" rel="external">https://dev.yorhel.nl/ncdu</a></p>
+<p><img src="http://og2061b3n.bkt.clouddn.com/CLI-20180902-nudu.png" alt=""></p>
+<p><img src="http://og2061b3n.bkt.clouddn.com/CLI-20180902-nudu-nav.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">git clone git://g.blicky.net/ncdu.git/</div><div class="line"></div><div class="line"># release</div><div class="line">wget https://dev.yorhel.nl/download/ncdu-1.13.tar.gz</div><div class="line">tar -xvf ncdu-1.13.tar.gz</div><div class="line">./configure</div><div class="line">make</div><div class="line">make install</div><div class="line"></div><div class="line"># Usage</div><div class="line">ncdu path</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">alias du=&quot;ncdu --color dark -rr -x --exclude .git --exclude node_modules&quot;</div><div class="line"></div><div class="line"># 扩展选项</div><div class="line">--color dark - use a colour scheme</div><div class="line">-rr - read-only mode (prevents delete and spawn shell)</div><div class="line">--exclude ignore directories I won&apos;t do anything about</div></pre></td></tr></table></figure>
+<h4 id="tldr-gt-man"><a href="#tldr-gt-man" class="headerlink" title="tldr &gt; man"></a>tldr &gt; man</h4><p>几乎每一个命令行工具都可以通过手工输入 man 命令获得帮助信息。TL;DR 项目(“too long; didn’t read”)是一个由社区驱动的命令行文档系统，以非常简洁的方式提供命令行参数列表、使用说明和示例。更多信息：<a href="https://tldr.sh" target="_blank" rel="external">https://tldr.sh/</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"># Install</div><div class="line">npm install -g tldr</div><div class="line"></div><div class="line">alias help=&apos;tldr&apos;</div><div class="line"></div><div class="line"># Usage</div><div class="line">Options:</div><div class="line"></div><div class="line">  -V, --version            output the version number</div><div class="line">  -l, --list               List all commands for the chosen platform in the cache</div><div class="line">  -a, --list-all           List all commands in the cache</div><div class="line">  -1, --single-column      List single command per line (use with options -l or -a)</div><div class="line">  -r, --random             Show a random command</div><div class="line">  -e, --random-example     Show a random example</div><div class="line">  -f, --render [file]      Render a specific markdown [file]</div><div class="line">  -m, --markdown           Output in markdown format</div><div class="line">  -o, --os [type]          Override the operating system [linux, osx, sunos]</div><div class="line">  --linux                  Override the operating system with Linux</div><div class="line">  --osx                    Override the operating system with OSX</div><div class="line">  --sunos                  Override the operating system with SunOS</div><div class="line">  -t, --theme [theme]      Color theme (simple, base16, ocean)</div><div class="line">  -s, --search [keywords]  Search pages using keywords</div><div class="line">  -u, --update             Update the local cache</div><div class="line">  -c, --clear-cache        Clear the local cache</div><div class="line">  -h, --help               output usage information</div><div class="line"></div><div class="line"># Example</div><div class="line">bash-3.2$ tldr tar</div><div class="line">✔ Page not found. Updating cache</div><div class="line">✔ Creating index</div><div class="line"></div><div class="line">  tar</div><div class="line"></div><div class="line">  Archiving utility.</div><div class="line">  Often combined with a compression method, such as gzip or bzip.</div><div class="line"></div><div class="line">  - Create an archive from files:</div><div class="line">    tar cf target.tar file1 file2 file3</div><div class="line"></div><div class="line">  - Create a gzipped archive:</div><div class="line">    tar czf target.tar.gz file1 file2 file3</div><div class="line"></div><div class="line">  - Extract an archive in a target folder:</div><div class="line">    tar xf source.tar -C folder</div></pre></td></tr></table></figure>
+<h4 id="ack-ag-gt-grep"><a href="#ack-ag-gt-grep" class="headerlink" title="ack || ag &gt; grep"></a>ack || ag &gt; grep</h4><p>grep 无疑是一个强大的命令行工具, 但多年来它已被许多工具所取代，包括 ack 和 ag 。更多信息：[<a href="https://beyondgrep.com/" target="_blank" rel="external">https://beyondgrep.com/</a>]</p>
+<p><img src="http://og2061b3n.bkt.clouddn.com/CLI-20180902-ack.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl https://beyondgrep.com/ack-2.24-single-file &gt; ~/bin/ack &amp;&amp; chmod 0755 ~/bin/ack</div></pre></td></tr></table></figure>
+<p>ack 和 ag 默认情况下使用正则表达式进行搜索,可以指定文件类型 —— 使用像 –js 或 –html 标志搜索。ack 和 ag  工具都支持 grep 选项, 如 -B (表示输出匹配行和其之后(after)的N行)。</p>
+<p>ack 默认没有支持 markdown 格式，可以在 .ackrc 文件定制：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">--type-set=md=.md,.mkd,.markdown</div><div class="line">--pager=less -FRX</div></pre></td></tr></table></figure></p>
+<h4 id="jq-gt-grep-et-al"><a href="#jq-gt-grep-et-al" class="headerlink" title="jq &gt; grep et al"></a>jq &gt; grep et al</h4><blockquote>
+<p>jq is like sed for JSON data</p>
+</blockquote>
+<p>jq 可以作为 JSON 数据转换工具。示例：更新节点依赖项 (分为多行以便于可读性)。<br>更多信息：<a href="https://stedolan.github.io/jq/" target="_blank" rel="external">https://stedolan.github.io/jq/</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">npm i $(echo $(\</div><div class="line">  npm outdated --json | \</div><div class="line">  jq -r &apos;to_entries | .[] | &quot;\(.key)@\(.value.latest)&quot;&apos; \</div><div class="line">))</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;node-jq&quot;: &#123;</div><div class="line">	&quot;current&quot;: &quot;0.7.0&quot;,</div><div class="line">	&quot;wanted&quot;: &quot;0.7.0&quot;,</div><div class="line">	&quot;latest&quot;: &quot;1.2.0&quot;,</div><div class="line">	&quot;location&quot;: &quot;node_modules/node-jq&quot;</div><div class="line">  &#125;,</div><div class="line">  &quot;uuid&quot;: &#123;</div><div class="line">	&quot;current&quot;: &quot;3.1.0&quot;,</div><div class="line">	&quot;wanted&quot;: &quot;3.2.1&quot;,</div><div class="line">	&quot;latest&quot;: &quot;3.2.1&quot;,</div><div class="line">	&quot;location&quot;: &quot;node_modules/uuid&quot;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">node-jq@1.2.0</div><div class="line">uuid@3.2.1</div></pre></td></tr></table></figure>
+<h2 id="扩展阅读：电子书《Linux-Perf-Master》"><a href="#扩展阅读：电子书《Linux-Perf-Master》" class="headerlink" title="扩展阅读：电子书《Linux Perf Master》"></a>扩展阅读：电子书《Linux Perf Master》</h2><ul>
+<li><a href="https://riboseyim.gitbook.io/perf" target="_blank" rel="external">https://riboseyim.gitbook.io/perf</a></li>
+<li><a href="https://www.gitbook.com/book/riboseyim/linux-perf-master/details" target="_blank" rel="external">https://www.gitbook.com/book/riboseyim/linux-perf-master/details</a></li>
+</ul>
+<p><img src="http://p11slcnom.bkt.clouddn.com/banner-LPM-201803.png" alt=""></p>
+<h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><ul>
+<li><a href="https://riboseyim.github.io/2017/12/11/Linux-Perf-Load/" target="_blank" rel="external">Linux 性能诊断:负载评估</a></li>
+<li><a href="https://riboseyim.github.io/2017/12/11/Linux-Perf-Netflix/" target="_blank" rel="external">Linux 性能诊断:快速检查单</a></li>
+<li><a href="https://riboseyim.github.io/2017/05/29/Linux-Works/" target="_blank" rel="external">操作系统原理 | How Linux Works（一）：启动</a></li>
+<li><a href="https://riboseyim.github.io/2017/05/29/Linux-Works/" target="_blank" rel="external">操作系统原理 | How Linux Works（二）：空间管理</a></li>
+<li><a href="https://riboseyim.github.io/2017/12/11/Linux-Works-Memory/" target="_blank" rel="external">操作系统原理 | How Linux Works（三）：内存管理</a></li>
+<li><a href="https://riboseyim.github.io/2018/01/08/Linux-Works-Network/" target="_blank" rel="external">操作系统原理 | How Linux Works（四）：网络管理</a></li>
+</ul>
+<h2 id="扩展阅读：动态追踪技术"><a href="#扩展阅读：动态追踪技术" class="headerlink" title="扩展阅读：动态追踪技术"></a>扩展阅读：动态追踪技术</h2><ul>
+<li><a href="https://riboseyim.github.io/2016/11/26/DTrace/" target="_blank" rel="external">动态追踪技术(一)：DTrace 导论</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MjM5MTY1MjQ3Nw==&amp;mid=2651939588&amp;idx=1&amp;sn=35f71c5f88d1edf23cb2efc812ab8e6c&amp;chksm=bd578c168a20050041c08618281691f0111f61c789097a69095933057618637fc54817815921#rd" target="_blank" rel="external">动态追踪技术(二)：strace+gdb 溯源 Nginx 内存溢出异常 </a></li>
+<li><a href="https://riboseyim.github.io/2017/04/17/DTrace_FTrace/" target="_blank" rel="external">动态追踪技术(三)：Tracing Your Kernel Function!</a></li>
+<li><a href="https://riboseyim.github.io/2017/06/27/DTrace_bcc/" target="_blank" rel="external">动态追踪技术(四)：基于 Linux bcc/BPF 实现 Go 程序动态追踪</a></li>
+<li><a href="https://riboseyim.github.io/2018/02/16/DTrace-Linux/" target="_blank" rel="external">动态追踪技术(五)：Welcome DTrace for Linux</a></li>
+</ul>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
+<li><a href="https://remysharp.com/2018/08/23/cli-improved" target="_blank" rel="external">cli-improved</a></li>
+</ul>
+
+      
+
+    </div>
+    
+  </div>
+  
+    <div class="article-entry" itemprop="articleBody">
+      <p>
+      更多精彩内容请扫码关注公众号，如需咨询服务请付费加入知识星球
+      <br>
+      读者交流 QQ 群：338272982 [并不承诺解答任何问题]
+      <br>
+      互联网古典用户欢迎 RSS RiboseYim's Blog：<a href="https://riboseyim.github.io" target="_blank" rel="external">https://riboseyim.github.io</a>
+      </p>
+      <p>
+        <a href="http://o8m8ngokc.bkt.clouddn.com/ID_RiboseYim_201706.png" title="微信公众号@睿哥杂货铺" rel="fancy-group" class="fancy-ctn fancybox">
+          <img src="http://o8m8ngokc.bkt.clouddn.com/quanzi-rui-small.png" title="睿哥读书会">
+          <img src="http://o8m8ngokc.bkt.clouddn.com/ID_RiboseYim_201706.png" title="微信公众号@睿哥杂货铺">
+        </a>
+      </p>
+    </div>
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/08/23/Language-Lua-lang/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Language-Lua-lang</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		  <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" target="_blank">Copyright 2016-2018 RiboseYim
+      授权：保持署名-非商业性使用-禁止演绎| License BY-NC-ND 4.0 </a>
+    </div>
+      	<div class="footer-right">
+      		<a href="https://riboseyim.github.io/2016/05/31/AboutMe/" target="_blank"> 联系作者 </a>
+      	</div>
+    </div>
+  </div>
+</footer>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1258500076'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1258500076%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: true
+	}
+</script>
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+  </div>
+</body>
+</html>

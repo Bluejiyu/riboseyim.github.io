@@ -4,6 +4,59 @@
 
     
   <url>
+    <loc>http://riboseyim.github.com/2018/09/03/Linux-Commands-New/</loc>
+    <lastmod>2018-09-03T01:46:59.413Z</lastmod>
+    <data>
+        <display>
+        <title>操作系统原理：Linux Commands Extension</title>
+        <pubTime>2018-09-02T17:36:40.000Z</pubTime>
+        
+        <tag>DevOps</tag>
+         
+        <tag>Linux</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2017/04/26/Linux-Commands/</loc>
+    <lastmod>2018-09-02T23:52:19.863Z</lastmod>
+    <data>
+        <display>
+        <title>操作系统原理：Linux Commands</title>
+        <pubTime>2017-04-26T07:33:39.000Z</pubTime>
+        
+        <tag>DevOps</tag>
+         
+        <tag>Linux</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2018/08/23/Language-Lua-lang/</loc>
+    <lastmod>2018-08-23T08:59:03.126Z</lastmod>
+    <data>
+        <display>
+        <title>Language-Lua-lang</title>
+        <pubTime>2018-08-23T08:57:17.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://riboseyim.github.com/2017/09/15/Visualization-Graphviz/</loc>
     <lastmod>2018-08-23T08:29:35.996Z</lastmod>
     <data>
@@ -1048,9 +1101,9 @@
          
         <tag>Golang</tag>
          
-        <tag>Machine-Learning</tag>
-         
         <tag>数学与算法</tag>
+         
+        <tag>Machine-Learning</tag>
          
          
            
@@ -1204,9 +1257,9 @@
         
         <tag>架构师</tag>
          
-        <tag>Machine-Learning</tag>
-         
         <tag>数学与算法</tag>
+         
+        <tag>Machine-Learning</tag>
          
          
            
@@ -1385,9 +1438,9 @@
          
         <tag>Developer</tag>
          
-        <tag>Machine-Learning</tag>
-         
         <tag>数学与算法</tag>
+         
+        <tag>Machine-Learning</tag>
          
          
            
@@ -2307,9 +2360,9 @@
          
         <tag>Developer</tag>
          
-        <tag>Machine-Learning</tag>
-         
         <tag>数学与算法</tag>
+         
+        <tag>Machine-Learning</tag>
          
         <tag>最佳写作实践</tag>
          
@@ -2475,25 +2528,6 @@
 
     
   <url>
-    <loc>http://riboseyim.github.com/2017/04/26/Linux-Commands/</loc>
-    <lastmod>2018-05-18T03:21:20.000Z</lastmod>
-    <data>
-        <display>
-        <title>操作系统原理：Linux Commands</title>
-        <pubTime>2017-04-26T07:33:39.000Z</pubTime>
-        
-        <tag>DevOps</tag>
-         
-        <tag>Linux</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://riboseyim.github.com/2018/04/10/Artistic-Classical/</loc>
     <lastmod>2018-05-15T05:54:49.000Z</lastmod>
     <data>
@@ -2641,6 +2675,8 @@
          
         <tag>Science</tag>
          
+        <tag>数据可视化</tag>
+         
         <tag>History</tag>
          
         <tag>Policy&amp;Law</tag>
@@ -2648,8 +2684,6 @@
         <tag>Economist</tag>
          
         <tag>Manager</tag>
-         
-        <tag>数据可视化</tag>
          
          
            
@@ -2777,9 +2811,9 @@
         
         <tag>架构师</tag>
          
-        <tag>Machine-Learning</tag>
-         
         <tag>数学与算法</tag>
+         
+        <tag>Machine-Learning</tag>
          
          
            
@@ -2815,9 +2849,9 @@
         
         <tag>架构师</tag>
          
-        <tag>Machine-Learning</tag>
-         
         <tag>数学与算法</tag>
+         
+        <tag>Machine-Learning</tag>
          
          
            
@@ -2836,9 +2870,9 @@
         
         <tag>架构师</tag>
          
-        <tag>Machine-Learning</tag>
-         
         <tag>数学与算法</tag>
+         
+        <tag>Machine-Learning</tag>
          
          
            
@@ -2956,9 +2990,9 @@
          
         <tag>Developer</tag>
          
-        <tag>Machine-Learning</tag>
-         
         <tag>数学与算法</tag>
+         
+        <tag>Machine-Learning</tag>
          
          
            
@@ -3207,11 +3241,11 @@
         <title>江南园林艺术鉴赏</title>
         <pubTime>2017-01-30T02:17:14.000Z</pubTime>
         
+        <tag>Art</tag>
+         
         <tag>摄影</tag>
          
         <tag>Sport</tag>
-         
-        <tag>Art</tag>
          
          
            
@@ -3368,11 +3402,11 @@
         
         <tag>Policy&amp;Law</tag>
          
+        <tag>Art</tag>
+         
         <tag>摄影</tag>
          
         <tag>Sport</tag>
-         
-        <tag>Art</tag>
          
         <tag>讲武堂</tag>
          
@@ -3408,9 +3442,9 @@
         <title>Museum：博物馆大全</title>
         <pubTime>2017-05-12T08:09:13.000Z</pubTime>
         
-        <tag>摄影</tag>
-         
         <tag>Art</tag>
+         
+        <tag>摄影</tag>
          
          
            
@@ -3716,11 +3750,11 @@
         <title>数据可视化（十）公共数据源列表</title>
         <pubTime>2018-01-15T07:30:18.000Z</pubTime>
         
+        <tag>数据可视化</tag>
+         
         <tag>Policy&amp;Law</tag>
          
         <tag>Economist</tag>
-         
-        <tag>数据可视化</tag>
          
         <tag>Developer</tag>
          
@@ -4047,23 +4081,6 @@
 
     
   <url>
-    <loc>http://riboseyim.github.com/2017/11/05/Policy-Public-Health/</loc>
-    <lastmod>2018-01-23T02:17:20.000Z</lastmod>
-    <data>
-        <display>
-        <title>政府行为模型及预测：公共医疗</title>
-        <pubTime>2017-11-05T08:00:36.000Z</pubTime>
-        
-        <tag>Policy&amp;Law</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://riboseyim.github.com/2017/03/16/Policy-Publish-Children/</loc>
     <lastmod>2018-01-23T02:17:20.000Z</lastmod>
     <data>
@@ -4074,6 +4091,23 @@
         <tag>Policy&amp;Law</tag>
          
         <tag>Economist</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://riboseyim.github.com/2017/11/05/Policy-Public-Health/</loc>
+    <lastmod>2018-01-23T02:17:20.000Z</lastmod>
+    <data>
+        <display>
+        <title>政府行为模型及预测：公共医疗</title>
+        <pubTime>2017-11-05T08:00:36.000Z</pubTime>
+        
+        <tag>Policy&amp;Law</tag>
          
          
            
@@ -4253,12 +4287,12 @@
 
     
   <url>
-    <loc>http://riboseyim.github.com/2017/04/28/Check2012/</loc>
+    <loc>http://riboseyim.github.com/2017/01/01/Check2016/</loc>
     <lastmod>2017-12-22T05:26:26.000Z</lastmod>
     <data>
         <display>
-        <title>Autobiography:我的2012年度盘点</title>
-        <pubTime>2017-04-27T17:56:14.000Z</pubTime>
+        <title>Autobiography:我的2016年度盘点</title>
+        <pubTime>2017-01-01T01:40:44.000Z</pubTime>
         
         <tag>我的自传</tag>
          
@@ -4289,13 +4323,15 @@
 
     
   <url>
-    <loc>http://riboseyim.github.com/2017/04/20/Artistic-Travel/</loc>
+    <loc>http://riboseyim.github.com/2017/04/28/Check2012/</loc>
     <lastmod>2017-12-22T05:26:26.000Z</lastmod>
     <data>
         <display>
-        <title>Catalog:Travel</title>
-        <pubTime>2017-04-20T07:07:30.000Z</pubTime>
+        <title>Autobiography:我的2012年度盘点</title>
+        <pubTime>2017-04-27T17:56:14.000Z</pubTime>
         
+        <tag>我的自传</tag>
+         
          
            
         </display>
@@ -4304,15 +4340,13 @@
 
     
   <url>
-    <loc>http://riboseyim.github.com/2017/01/01/Check2016/</loc>
+    <loc>http://riboseyim.github.com/2017/04/20/Artistic-Travel/</loc>
     <lastmod>2017-12-22T05:26:26.000Z</lastmod>
     <data>
         <display>
-        <title>Autobiography:我的2016年度盘点</title>
-        <pubTime>2017-01-01T01:40:44.000Z</pubTime>
+        <title>Catalog:Travel</title>
+        <pubTime>2017-04-20T07:07:30.000Z</pubTime>
         
-        <tag>我的自传</tag>
-         
          
            
         </display>

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://riboseyim.github.com/"/>
-  <updated>2018-08-07T03:36:23.255Z</updated>
+  <updated>2018-09-03T01:46:59.413Z</updated>
   <id>http://riboseyim.github.com/</id>
   
   <author>
@@ -14,6 +14,157 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>操作系统原理：Linux Commands Extension</title>
+    <link href="http://riboseyim.github.com/2018/09/03/Linux-Commands-New/"/>
+    <id>http://riboseyim.github.com/2018/09/03/Linux-Commands-New/</id>
+    <published>2018-09-02T17:36:40.000Z</published>
+    <updated>2018-09-03T01:46:59.413Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li>DevOps 资讯 | 是时候升级你的命令行了</li>
+<li>bat &gt; cat</li>
+<li>prettyping &gt; ping</li>
+<li>fzf &gt; ctrl+r</li>
+<li>htop &gt; top</li>
+<li>diff-so-fancy &gt; diff</li>
+<li>fd &gt; find</li>
+<li>ncdu &gt; du</li>
+<li>tldr &gt; man</li>
+<li>ack || ag &gt; grep</li>
+<li>jq &gt; grep et al</li>
+</ul>
+<a id="more"></a>
+<h1 id="DevOps-资讯-是时候升级你的命令行了"><a href="#DevOps-资讯-是时候升级你的命令行了" class="headerlink" title="DevOps 资讯 | 是时候升级你的命令行了"></a>DevOps 资讯 | 是时候升级你的命令行了</h1><blockquote>
+<p>子贡问为仁。<br>子曰：“工欲善其事，必先利其器。居是邦也，事其大夫之贤者，友其士之仁者。”<br>——《论语·卫灵公》</p>
+</blockquote>
+<h4 id="bat-gt-cat"><a href="#bat-gt-cat" class="headerlink" title="bat &gt; cat"></a>bat &gt; cat</h4><p>cat 被用于打印文件内容。ccat 工具还提供像语法高亮显示这样的功能。在此基础之上，bat 还支持 分页, 行号和 git 集成。同时允许在输出中搜索 (当输出长于屏幕高度时) 。更多信息：<a href="https://github.com/sharkdp/bat" target="_blank" rel="external">https://github.com/sharkdp/bat</a></p>
+<p><img src="http://og2061b3n.bkt.clouddn.com/CLI-20180902-bat-1.png" alt=""></p>
+<p><img src="http://og2061b3n.bkt.clouddn.com/CLI-20180902-bat-2.png" alt=""></p>
+<p><img src="http://og2061b3n.bkt.clouddn.com/CLI-20180902-bat-3.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"># Linux</div><div class="line">wget https://github.com/sharkdp/bat/releases/download/v0.6.1/bat-v0.6.1-x86_64-unknown-linux-gnu.tar.gz</div><div class="line">make install</div><div class="line"></div><div class="line"># Mac</div><div class="line">brew install bat</div><div class="line"></div><div class="line">#</div><div class="line">alias cat=&apos;bat&apos;</div></pre></td></tr></table></figure>
+<h4 id="prettyping-gt-ping"><a href="#prettyping-gt-ping" class="headerlink" title="prettyping &gt; ping"></a>prettyping &gt; ping</h4><p>ping 是一种非常有用的网络工具。原理是向目标主机传出一个ICMP echo@要求数据包，并等待接收 echo 回应数据包。程序会按时间和成功响应的次数估算丢失数据包率（丢包率）和数据包往返时间（网络时延，Round-trip delay time）。不过默认的 ping 命令输出比较乏味。prettyping 则提供了更友好、更美观的输出，包括彩色点图表示网络连通性。prettyping 基于 bash 和 awk 编写能，够兼容大部分操作系统 (例如 Linux, BSD, Mac OS X, …)。更多信息：<a href="http://denilson.sa.nom.br/prettyping/" target="_blank" rel="external">http://denilson.sa.nom.br/prettyping/</a></p>
+<p><img src="http://og2061b3n.bkt.clouddn.com/CLI-20180903-ping.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">curl -O https://raw.githubusercontent.com/denilsonsa/prettyping/master/prettyping</div><div class="line">chmod +x prettyping</div><div class="line">./prettyping baiud.com</div><div class="line"></div><div class="line">alias ping=&apos;prettyping --nolegend&apos;</div></pre></td></tr></table></figure>
+<h4 id="fzf-gt-ctrl-r"><a href="#fzf-gt-ctrl-r" class="headerlink" title="fzf &gt; ctrl+r"></a>fzf &gt; ctrl+r</h4><p>在终端中使用 ctrl + r 组合键可以向后搜索历史操作记录（ 尽管有点繁琐 ）。fzf 工具是对 ctrl + r 的增强。支持对终端操作历史的模糊搜索, 预览可能的匹配结果。除了历史搜索之外, fzf 还可以预览和打开文件。<br>更多信息：<a href="https://github.com/junegunn/fzf" target="_blank" rel="external">https://github.com/junegunn/fzf</a></p>
+<p><img src="http://og2061b3n.bkt.clouddn.com/CLI-20180902-fzf.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"># Linux</div><div class="line">git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf</div><div class="line">~/.fzf/install</div><div class="line"># Mac</div><div class="line">brew install fzf</div><div class="line"></div><div class="line"># alias</div><div class="line">alias preview=&quot;fzf --preview &apos;bat --color \&quot;always\&quot; &#123;&#125;&apos;&quot;</div><div class="line"># add support for ctrl+o to open selected file in VS Code</div><div class="line">export FZF_DEFAULT_OPTS=&quot;--bind=&apos;ctrl-o:execute(code &#123;&#125;)+abor</div></pre></td></tr></table></figure>
+<h4 id="htop-gt-top"><a href="#htop-gt-top" class="headerlink" title="htop &gt; top"></a>htop &gt; top</h4><p>top 是一个快速诊断系统性能的工具。值得一提的是 top for Mac 与 Linux 上的输出不太一样。htop 优化了顶部输出格式，并支持大量的颜色, 键盘快键键和视图, 帮助我们洞察进程行为。更多信息：<a href="http://hisham.hm/htop/" target="_blank" rel="external">http://hisham.hm/htop/</a></p>
+<p><img src="http://og2061b3n.bkt.clouddn.com/CLI-20180902-htop.png" alt="htop"></p>
+<p>htop 提供的键盘快捷键：</p>
+<ul>
+<li>P - 按 CPU 利用率排序</li>
+<li>M - 按内存利用率排序</li>
+<li>F4 - 按字符串过滤进程</li>
+<li>space - 高亮显示某一进程，便于持续跟踪</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">alias top=&quot;sudo htop&quot; # alias top</div></pre></td></tr></table></figure>
+<h4 id="diff-so-fancy-gt-diff"><a href="#diff-so-fancy-gt-diff" class="headerlink" title="diff-so-fancy &gt; diff"></a>diff-so-fancy &gt; diff</h4><p>GIT 版本控制系统中使用 git diff 来显示两个版本之间差别(包括文件、元数据和改动等)。diff-so-fancy 是一个用 node.js 实现的命令行工具，提供更友好的输出样式和定制能力。更多信息：<a href="https://github.com/so-fancy/diff-so-fancy" target="_blank" rel="external">https://github.com/so-fancy/diff-so-fancy</a></p>
+<p><img src="http://og2061b3n.bkt.clouddn.com/CLI-20180902-diff-so-fancy.jpg" alt=""></p>
+<p><img src="http://og2061b3n.bkt.clouddn.com/CLI-20180902-git-diff.jpg" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"># download</div><div class="line">wget https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy</div><div class="line">chmod +x diff-so-fancy</div><div class="line"># npm</div><div class="line">npm install -g diff-so-fancy</div><div class="line"># 直接调用</div><div class="line">git diff --color | diff-so-fancy</div></pre></td></tr></table></figure>
+<p>在 git diff 和 git show 中启用  diff-so-fancy ，需要修改 gitconfig :<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[pager]</div><div class="line">	   diff = diff-so-fancy | less --tabs=1,5 -RFX</div><div class="line">	   show = diff-so-fancy | less --tabs=1,5 -RFX</div></pre></td></tr></table></figure></p>
+<p>除了默认样式优化，diff-so-fancy 还支持颜色和显示项定制，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">git config --global color.ui true</div><div class="line"></div><div class="line">git config --global color.diff-highlight.oldNormal    &quot;red bold&quot;</div><div class="line">git config --global color.diff-highlight.oldHighlight &quot;red bold 52&quot;</div><div class="line">git config --global color.diff-highlight.newNormal    &quot;green bold&quot;</div><div class="line">git config --global color.diff-highlight.newHighlight &quot;green bold 22&quot;</div><div class="line"></div><div class="line">git config --global color.diff.meta       &quot;yellow&quot;</div><div class="line">git config --global color.diff.frag       &quot;magenta bold&quot;</div><div class="line">git config --global color.diff.commit     &quot;yellow bold&quot;</div><div class="line">git config --global color.diff.old        &quot;red bold&quot;</div><div class="line">git config --global color.diff.new        &quot;green bold&quot;</div><div class="line">git config --global color.diff.whitespace &quot;red reverse&quot;</div><div class="line"></div><div class="line">git config --bool --global diff-so-fancy.markEmptyLines false</div></pre></td></tr></table></figure></p>
+<h4 id="fd-gt-find"><a href="#fd-gt-find" class="headerlink" title="fd &gt; find"></a>fd &gt; find</h4><p>fd 非常快。有意思的是 fd 与 bat 的作者是同一个人（David Peter）。更多信息：<a href="https://github.com/sharkdp/fd/" target="_blank" rel="external">https://github.com/sharkdp/fd/</a></p>
+<p><img src="http://og2061b3n.bkt.clouddn.com/CLI-20180902-fd.png" alt=""></p>
+<p>常用的命令行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">## SourceCode</div><div class="line">git clone https://github.com/sharkdp/fd</div><div class="line">cd fd</div><div class="line">cargo build</div><div class="line">cargo test</div><div class="line">cargo install</div><div class="line"></div><div class="line"># Mac</div><div class="line">brew install fd</div><div class="line"></div><div class="line">## Usage</div><div class="line">fd cli # 查找所有包含&quot;cli&quot;的文件名</div><div class="line">fd -e md # 查找所有 .md 文件</div><div class="line">fd cli -x wc -w # 查找 &quot;cli&quot; 并运行 `wc -w`</div></pre></td></tr></table></figure></p>
+<h4 id="ncdu-gt-du"><a href="#ncdu-gt-du" class="headerlink" title="ncdu &gt; du"></a>ncdu &gt; du</h4><p>了解磁盘空间占用情况是一项非常重要的工作。常用的命令是 du -sh  (-sh 表示摘要、便于人工阅读), 但我们经常需要挖掘目录的空间占用。ncdu 是一个替代选择（完全基于 C 语言编写，MIT 许可证）。ncdu 提供了一个交互式界面, 支持快速扫描哪些文件夹或文件占用空间, 并且导航非常方便。更多信息：<a href="https://dev.yorhel.nl/ncdu" target="_blank" rel="external">https://dev.yorhel.nl/ncdu</a></p>
+<p><img src="http://og2061b3n.bkt.clouddn.com/CLI-20180902-nudu.png" alt=""></p>
+<p><img src="http://og2061b3n.bkt.clouddn.com/CLI-20180902-nudu-nav.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">git clone git://g.blicky.net/ncdu.git/</div><div class="line"></div><div class="line"># release</div><div class="line">wget https://dev.yorhel.nl/download/ncdu-1.13.tar.gz</div><div class="line">tar -xvf ncdu-1.13.tar.gz</div><div class="line">./configure</div><div class="line">make</div><div class="line">make install</div><div class="line"></div><div class="line"># Usage</div><div class="line">ncdu path</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">alias du=&quot;ncdu --color dark -rr -x --exclude .git --exclude node_modules&quot;</div><div class="line"></div><div class="line"># 扩展选项</div><div class="line">--color dark - use a colour scheme</div><div class="line">-rr - read-only mode (prevents delete and spawn shell)</div><div class="line">--exclude ignore directories I won&apos;t do anything about</div></pre></td></tr></table></figure>
+<h4 id="tldr-gt-man"><a href="#tldr-gt-man" class="headerlink" title="tldr &gt; man"></a>tldr &gt; man</h4><p>几乎每一个命令行工具都可以通过手工输入 man 命令获得帮助信息。TL;DR 项目(“too long; didn’t read”)是一个由社区驱动的命令行文档系统，以非常简洁的方式提供命令行参数列表、使用说明和示例。更多信息：<a href="https://tldr.sh" target="_blank" rel="external">https://tldr.sh/</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"># Install</div><div class="line">npm install -g tldr</div><div class="line"></div><div class="line">alias help=&apos;tldr&apos;</div><div class="line"></div><div class="line"># Usage</div><div class="line">Options:</div><div class="line"></div><div class="line">  -V, --version            output the version number</div><div class="line">  -l, --list               List all commands for the chosen platform in the cache</div><div class="line">  -a, --list-all           List all commands in the cache</div><div class="line">  -1, --single-column      List single command per line (use with options -l or -a)</div><div class="line">  -r, --random             Show a random command</div><div class="line">  -e, --random-example     Show a random example</div><div class="line">  -f, --render [file]      Render a specific markdown [file]</div><div class="line">  -m, --markdown           Output in markdown format</div><div class="line">  -o, --os [type]          Override the operating system [linux, osx, sunos]</div><div class="line">  --linux                  Override the operating system with Linux</div><div class="line">  --osx                    Override the operating system with OSX</div><div class="line">  --sunos                  Override the operating system with SunOS</div><div class="line">  -t, --theme [theme]      Color theme (simple, base16, ocean)</div><div class="line">  -s, --search [keywords]  Search pages using keywords</div><div class="line">  -u, --update             Update the local cache</div><div class="line">  -c, --clear-cache        Clear the local cache</div><div class="line">  -h, --help               output usage information</div><div class="line"></div><div class="line"># Example</div><div class="line">bash-3.2$ tldr tar</div><div class="line">✔ Page not found. Updating cache</div><div class="line">✔ Creating index</div><div class="line"></div><div class="line">  tar</div><div class="line"></div><div class="line">  Archiving utility.</div><div class="line">  Often combined with a compression method, such as gzip or bzip.</div><div class="line"></div><div class="line">  - Create an archive from files:</div><div class="line">    tar cf target.tar file1 file2 file3</div><div class="line"></div><div class="line">  - Create a gzipped archive:</div><div class="line">    tar czf target.tar.gz file1 file2 file3</div><div class="line"></div><div class="line">  - Extract an archive in a target folder:</div><div class="line">    tar xf source.tar -C folder</div></pre></td></tr></table></figure>
+<h4 id="ack-ag-gt-grep"><a href="#ack-ag-gt-grep" class="headerlink" title="ack || ag &gt; grep"></a>ack || ag &gt; grep</h4><p>grep 无疑是一个强大的命令行工具, 但多年来它已被许多工具所取代，包括 ack 和 ag 。更多信息：[<a href="https://beyondgrep.com/" target="_blank" rel="external">https://beyondgrep.com/</a>]</p>
+<p><img src="http://og2061b3n.bkt.clouddn.com/CLI-20180902-ack.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl https://beyondgrep.com/ack-2.24-single-file &gt; ~/bin/ack &amp;&amp; chmod 0755 ~/bin/ack</div></pre></td></tr></table></figure>
+<p>ack 和 ag 默认情况下使用正则表达式进行搜索,可以指定文件类型 —— 使用像 –js 或 –html 标志搜索。ack 和 ag  工具都支持 grep 选项, 如 -B (表示输出匹配行和其之后(after)的N行)。</p>
+<p>ack 默认没有支持 markdown 格式，可以在 .ackrc 文件定制：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">--type-set=md=.md,.mkd,.markdown</div><div class="line">--pager=less -FRX</div></pre></td></tr></table></figure></p>
+<h4 id="jq-gt-grep-et-al"><a href="#jq-gt-grep-et-al" class="headerlink" title="jq &gt; grep et al"></a>jq &gt; grep et al</h4><blockquote>
+<p>jq is like sed for JSON data</p>
+</blockquote>
+<p>jq 可以作为 JSON 数据转换工具。示例：更新节点依赖项 (分为多行以便于可读性)。<br>更多信息：<a href="https://stedolan.github.io/jq/" target="_blank" rel="external">https://stedolan.github.io/jq/</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">npm i $(echo $(\</div><div class="line">  npm outdated --json | \</div><div class="line">  jq -r &apos;to_entries | .[] | &quot;\(.key)@\(.value.latest)&quot;&apos; \</div><div class="line">))</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;node-jq&quot;: &#123;</div><div class="line">	&quot;current&quot;: &quot;0.7.0&quot;,</div><div class="line">	&quot;wanted&quot;: &quot;0.7.0&quot;,</div><div class="line">	&quot;latest&quot;: &quot;1.2.0&quot;,</div><div class="line">	&quot;location&quot;: &quot;node_modules/node-jq&quot;</div><div class="line">  &#125;,</div><div class="line">  &quot;uuid&quot;: &#123;</div><div class="line">	&quot;current&quot;: &quot;3.1.0&quot;,</div><div class="line">	&quot;wanted&quot;: &quot;3.2.1&quot;,</div><div class="line">	&quot;latest&quot;: &quot;3.2.1&quot;,</div><div class="line">	&quot;location&quot;: &quot;node_modules/uuid&quot;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">node-jq@1.2.0</div><div class="line">uuid@3.2.1</div></pre></td></tr></table></figure>
+<h2 id="扩展阅读：电子书《Linux-Perf-Master》"><a href="#扩展阅读：电子书《Linux-Perf-Master》" class="headerlink" title="扩展阅读：电子书《Linux Perf Master》"></a>扩展阅读：电子书《Linux Perf Master》</h2><ul>
+<li><a href="https://riboseyim.gitbook.io/perf" target="_blank" rel="external">https://riboseyim.gitbook.io/perf</a></li>
+<li><a href="https://www.gitbook.com/book/riboseyim/linux-perf-master/details" target="_blank" rel="external">https://www.gitbook.com/book/riboseyim/linux-perf-master/details</a></li>
+</ul>
+<p><img src="http://p11slcnom.bkt.clouddn.com/banner-LPM-201803.png" alt=""></p>
+<h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><ul>
+<li><a href="https://riboseyim.github.io/2017/12/11/Linux-Perf-Load/" target="_blank" rel="external">Linux 性能诊断:负载评估</a></li>
+<li><a href="https://riboseyim.github.io/2017/12/11/Linux-Perf-Netflix/" target="_blank" rel="external">Linux 性能诊断:快速检查单</a></li>
+<li><a href="https://riboseyim.github.io/2017/05/29/Linux-Works/" target="_blank" rel="external">操作系统原理 | How Linux Works（一）：启动</a></li>
+<li><a href="https://riboseyim.github.io/2017/05/29/Linux-Works/" target="_blank" rel="external">操作系统原理 | How Linux Works（二）：空间管理</a></li>
+<li><a href="https://riboseyim.github.io/2017/12/11/Linux-Works-Memory/" target="_blank" rel="external">操作系统原理 | How Linux Works（三）：内存管理</a></li>
+<li><a href="https://riboseyim.github.io/2018/01/08/Linux-Works-Network/" target="_blank" rel="external">操作系统原理 | How Linux Works（四）：网络管理</a></li>
+</ul>
+<h2 id="扩展阅读：动态追踪技术"><a href="#扩展阅读：动态追踪技术" class="headerlink" title="扩展阅读：动态追踪技术"></a>扩展阅读：动态追踪技术</h2><ul>
+<li><a href="https://riboseyim.github.io/2016/11/26/DTrace/" target="_blank" rel="external">动态追踪技术(一)：DTrace 导论</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MjM5MTY1MjQ3Nw==&amp;mid=2651939588&amp;idx=1&amp;sn=35f71c5f88d1edf23cb2efc812ab8e6c&amp;chksm=bd578c168a20050041c08618281691f0111f61c789097a69095933057618637fc54817815921#rd" target="_blank" rel="external">动态追踪技术(二)：strace+gdb 溯源 Nginx 内存溢出异常 </a></li>
+<li><a href="https://riboseyim.github.io/2017/04/17/DTrace_FTrace/" target="_blank" rel="external">动态追踪技术(三)：Tracing Your Kernel Function!</a></li>
+<li><a href="https://riboseyim.github.io/2017/06/27/DTrace_bcc/" target="_blank" rel="external">动态追踪技术(四)：基于 Linux bcc/BPF 实现 Go 程序动态追踪</a></li>
+<li><a href="https://riboseyim.github.io/2018/02/16/DTrace-Linux/" target="_blank" rel="external">动态追踪技术(五)：Welcome DTrace for Linux</a></li>
+</ul>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
+<li><a href="https://remysharp.com/2018/08/23/cli-improved" target="_blank" rel="external">cli-improved</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;DevOps 资讯 | 是时候升级你的命令行了&lt;/li&gt;
+&lt;li&gt;bat &amp;gt; cat&lt;/li&gt;
+&lt;li&gt;prettyping &amp;gt; ping&lt;/li&gt;
+&lt;li&gt;fzf &amp;gt; ctrl+r&lt;/li&gt;
+&lt;li&gt;htop &amp;gt; top&lt;/li&gt;
+&lt;li&gt;diff-so-fancy &amp;gt; diff&lt;/li&gt;
+&lt;li&gt;fd &amp;gt; find&lt;/li&gt;
+&lt;li&gt;ncdu &amp;gt; du&lt;/li&gt;
+&lt;li&gt;tldr &amp;gt; man&lt;/li&gt;
+&lt;li&gt;ack || ag &amp;gt; grep&lt;/li&gt;
+&lt;li&gt;jq &amp;gt; grep et al&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="DevOps" scheme="http://riboseyim.github.com/tags/DevOps/"/>
+    
+      <category term="Linux" scheme="http://riboseyim.github.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Language-Lua-lang</title>
+    <link href="http://riboseyim.github.com/2018/08/23/Language-Lua-lang/"/>
+    <id>http://riboseyim.github.com/2018/08/23/Language-Lua-lang/</id>
+    <published>2018-08-23T08:57:17.000Z</published>
+    <updated>2018-08-23T08:59:03.126Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><a id="more"></a>
+<h2 id="Introduction-Lua-简介"><a href="#Introduction-Lua-简介" class="headerlink" title="Introduction | Lua 简介"></a>Introduction | Lua 简介</h2><h2 id="Core-Concept-核心概念"><a href="#Core-Concept-核心概念" class="headerlink" title="Core Concept | 核心概念"></a>Core Concept | 核心概念</h2><h4 id="Concept-A"><a href="#Concept-A" class="headerlink" title="Concept A"></a>Concept A</h4><h4 id="Concept-B"><a href="#Concept-B" class="headerlink" title="Concept B"></a>Concept B</h4><h4 id="Concept-C"><a href="#Concept-C" class="headerlink" title="Concept C"></a>Concept C</h4><h2 id="Architecture-Lua-架构"><a href="#Architecture-Lua-架构" class="headerlink" title="Architecture | Lua 架构"></a>Architecture | Lua 架构</h2><h2 id="Best-Practice-Lua-最佳实践"><a href="#Best-Practice-Lua-最佳实践" class="headerlink" title="Best Practice | Lua 最佳实践"></a>Best Practice | Lua 最佳实践</h2><ul>
+<li>Redis Monitor with Lua</li>
+</ul>
+<h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><ul>
+<li><a href="https://riboseyim.github.io/2017/05/26/Language/" target="_blank" rel="external">玩转编程语言系列</a></li>
+</ul>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
+<li><a href="https://blog.codingnow.com/2018/08/luavm_bootstrap.html" target="_blank" rel="external">Lua 虚拟机封装</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h2&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>OpenSource-DB-ES</title>
@@ -1128,9 +1279,9 @@
     
       <category term="架构师" scheme="http://riboseyim.github.com/tags/%E6%9E%B6%E6%9E%84%E5%B8%88/"/>
     
-      <category term="Machine-Learning" scheme="http://riboseyim.github.com/tags/Machine-Learning/"/>
-    
       <category term="数学与算法" scheme="http://riboseyim.github.com/tags/%E6%95%B0%E5%AD%A6%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="Machine-Learning" scheme="http://riboseyim.github.com/tags/Machine-Learning/"/>
     
   </entry>
   
@@ -1722,195 +1873,6 @@
     
     
       <category term="Art" scheme="http://riboseyim.github.com/tags/Art/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Commander-Navy-Digital</title>
-    <link href="http://riboseyim.github.com/2018/04/09/Commander-Navy-Digital/"/>
-    <id>http://riboseyim.github.com/2018/04/09/Commander-Navy-Digital/</id>
-    <published>2018-04-09T09:39:06.000Z</published>
-    <updated>2018-04-16T10:05:38.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><a id="more"></a>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
-<li><a href="https://mp.weixin.qq.com/s/3U7QifYIVnUPScBM78RDGQ" target="_blank" rel="external">美军核潜艇部队现状及其发展 | 2018-03-12 知远战略与防务研究所</a></li>
-<li><a href="https://www.pmume.com/hjbk/nnc0w.shtml" target="_blank" rel="external">海军百科|潜艇潜望镜</a></li>
-<li><a href="https://www.pmume.com/hjbk/nnoih.shtml" target="_blank" rel="external">海军百科|攻击潜望镜</a></li>
-<li><a href="http://digi.tech.qq.com/a/20170921/013387.htm" target="_blank" rel="external">美国海军居然用Xbox手柄来控制潜艇潜望镜|腾讯数码2017-09-21</a></li>
-<li><a href="https://www.digitaltrends.com/gaming/xbox-360-controller-us-navy-submarine-periscope/" target="_blank" rel="external">The U.S. Navy is using Xbox 360 controllers to operate submarine periscopes | 9.19.17</a></li>
-<li><a href="https://www.digitaltrends.com/cool-tech/navy-xbox-controllers-attack-submarines/" target="_blank" rel="external">Newest Navy attack sub uses an Xbox controller to operate its periscope | 3.17.18</a></li>
-<li><a href="https://www.digitaltrends.com/health-fitness/navy-bans-e-cigarettes/" target="_blank" rel="external">Dishonorable discharge for e-cigs — U.S. Navy bans the devices aboard vessels|4.16.17</a></li>
-<li><a href="https://www.digitaltrends.com/cool-tech/littoral-combat-ships/" target="_blank" rel="external">Navy uses virtual reality to train crews for deployment on the ships of tomorrow|9.2.17</a></li>
-<li><a href="https://zh.wikipedia.org/wiki/%E5%BC%97%E5%90%89%E5%B0%BC%E4%BA%9A%E7%BA%A7%E6%A0%B8%E6%BD%9C%E8%89%87" target="_blank" rel="external">维基百科：弗吉尼亚级攻击型核潜艇</a></li>
-<li><a href="https://zh.wikipedia.org/wiki/%E7%BE%8E%E5%9C%8B%E6%B5%B7%E8%BB%8D%E6%BD%9B%E8%89%87%E7%B4%9A%E5%88%A5%E5%88%97%E8%A1%A8" target="_blank" rel="external">维基百科：美国海军潜艇级别列表</a></li>
-<li><a href="http://www.hfdsb.gov.cn/News/jsjs/201801/20180124113319_28949.html" target="_blank" rel="external">宁波破获特大卷烟案，案值上亿| 加热不燃烧新型卷烟非法经营案 | 2018-1-24　来源：宁波晚报　作者：张贻富</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h2&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Machine Learning:如何选择机器学习算法？</title>
-    <link href="http://riboseyim.github.com/2018/04/02/Machine-Learning-Algorithms-Sheet/"/>
-    <id>http://riboseyim.github.com/2018/04/02/Machine-Learning-Algorithms-Sheet/</id>
-    <published>2018-04-02T07:28:39.000Z</published>
-    <updated>2018-05-07T12:58:43.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
-<li>识别和应用机器学习算法解决问题</li>
-<li>机器学习算法备忘单</li>
-<li>何时使用特定算法? 线性回归 vs 逻辑回归,Linear SVM vs kernel SVM,Trees</li>
-<li>神经网络和深度学习：k-means/k-modes,GMM,Hierarchical clustering,PCA,SVD,LDA</li>
-</ul>
-<a id="more"></a>
-<h2 id="Machine-Learning-Algorithms-Overview"><a href="#Machine-Learning-Algorithms-Overview" class="headerlink" title="Machine Learning Algorithms Overview"></a>Machine Learning Algorithms Overview</h2><p>关于目前最流行的一些机器学习算法，建议阅读：</p>
-<ul>
-<li><a href="https://riboseyim.github.io/2018/02/10/Machine-Learning-Algorithms/" target="_blank" rel="external">Machine Learning:机器学习算法</a></li>
-<li><a href="https://riboseyim.github.io/2018/01/25/Machine-Learning-Books/" target="_blank" rel="external">Machine Learning:机器学习书单</a></li>
-</ul>
-<p>如果您已经非常熟悉这些算法，可以跳过本节。</p>
-<h2 id="Which-machine-learning-algorithm-should-I-use"><a href="#Which-machine-learning-algorithm-should-I-use" class="headerlink" title="Which machine learning algorithm should I use?"></a>Which machine learning algorithm should I use?</h2><ul>
-<li><a href="https://blogs.sas.com/content/subconsciousmusings/2017/04/12/machine-learning-algorithm-use/?utm_source=twitter&amp;utm_medium=cpc&amp;utm_campaign=analytics-global&amp;utm_content=US_tap" target="_blank" rel="external">Which machine learning algorithm should I use? | Hui Li | Principal Staff Scientist, Data Science</a></li>
-</ul>
-<p>面对各种机器学习算法时，经常遇到的一个典型问题是“我应该使用哪种算法？” 问题的答案取决于许多因素，其中包括：</p>
-<ul>
-<li>数据的大小，质量和性质</li>
-<li>可用的计算时间</li>
-<li>任务的紧迫性</li>
-<li>你想对数据做什么</li>
-</ul>
-<p>即使是一位经验丰富的数据科学家，也无法在尝试不同的算法之前知道哪种算法会表现最好。我们并不主张这是唯一的、完美的方案，而是希望能够根据一些明确的因素提供指导——首先应该尝试哪些算法。</p>
-<h3 id="机器学习算法备忘单"><a href="#机器学习算法备忘单" class="headerlink" title="机器学习算法备忘单"></a>机器学习算法备忘单</h3><p>机器学习算法备忘单（The machine learning algorithm cheat sheet）可以帮助您从各种机器学习算法中进行选择，以找到适合您的特定问题的适当算法。本文将说明使用备忘单的过程。</p>
-<p>由于备忘单是为初学者数据科学家和分析师设计的，因此在讨论算法时会做一些简化假设。这里推荐的算法来自几位数据科学家和机器学习专家和开发人员的反馈和提示。有几个问题我们的看法并不一致，对于这些问题，我们试图强调通用性、尽量调和差异。随着我们的知识库发展，将包含一套更完整的方法，其他算法将在稍后添加。</p>
-<p><img src="http://omb2onfvy.bkt.clouddn.com/machine-learning-cheet-sheet.png" alt="The machine learning algorithm cheat sheet"></p>
-<h4 id="如何使用备忘单"><a href="#如何使用备忘单" class="headerlink" title="如何使用备忘单"></a>如何使用备忘单</h4><p>备忘单使用方法，依次阅读的路径和算法标签，例如：</p>
-<ul>
-<li>如果要执行降维（dimension reduction），则使用主成分分析（principal component analysis）</li>
-<li>如果您需要快速进行数值预测（numeric prediction），请使用决策树（decision tree）或逻辑回归（ logistic regression）</li>
-<li>如果您需要分层结果，则使用分层聚类（hierarchical clustering）</li>
-</ul>
-<p>有些场景可能会适用不止一个分支，也有些场景不能完美匹配上，重要的是要记住，这些路径只是基于经验的方法，因此一些建议并不完全准确。许多数据科学家的关电视，找到最好算法的唯一方法就是尝试所有算法（the only sure way to find the very best algorithm is to try all of them）。</p>
-<h2 id="何时使用特定算法"><a href="#何时使用特定算法" class="headerlink" title="何时使用特定算法?"></a>何时使用特定算法?</h2><h4 id="线性回归-vs-逻辑回归"><a href="#线性回归-vs-逻辑回归" class="headerlink" title="线性回归 vs 逻辑回归"></a>线性回归 vs 逻辑回归</h4><p>线性回归是一种讨论连续因变量之间关系的建模方法。如果因变量不是连续的而是分类的，则可以使用 logit link function 将线性回归转化为逻辑回归。逻辑回归是一种简单，快速而强大的分类算法。这里我们讨论二进制情况下的因变量</p>
-<p>在逻辑回归中，我们使用不同的假设类来尝试预测给定示例属于“1”类的概率与其属于“-1”类的概率。</p>
-<table>
-<thead>
-<tr>
-<th>线性回归</th>
-<th>逻辑回归</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><img src="http://omb2onfvy.bkt.clouddn.com/machine-learning-linear-regression.png" alt="Linear regression"></td>
-<td><img src="http://omb2onfvy.bkt.clouddn.com/machine-learning-logistic-regresion.png" alt="Logistic regression"></td>
-</tr>
-</tbody>
-</table>
-<h4 id="Linear-SVM-vs-kernel-SVM"><a href="#Linear-SVM-vs-kernel-SVM" class="headerlink" title="Linear SVM vs kernel SVM"></a>Linear SVM vs kernel SVM</h4><p>当数据的各种类型不是线性可分的时候，核方法（Kernel method 或 Kernel tricks）可以用来将非线性可分的空间映射到更高维的线性可分的空间。</p>
-<p>支持向量机（SVM）算法相当于通过法线（Normal vector）和超平面偏差（bias  of the hyperplane）获得分类器。这个超平面（边界）尽可能宽地分隔不同的类，该问题可以转化为约束优化问题。</p>
-<p>当大多数因变量是数字时，逻辑回归和 SVM 是首先应该尝试的分类方法。这些模型易于实现，参数易调整，性能也相当不错。非常适合初学者。</p>
-<p><img src="http://omb2onfvy.bkt.clouddn.com/machine-learning-kernal-SVM.png" alt="Kernel tricks are used to map a non-linearly separable functions into a higher dimension linearly separable function."></p>
-<table>
-<thead>
-<tr>
-<th>线性回归</th>
-<th>逻辑回归</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><img src="http://omb2onfvy.bkt.clouddn.com/machine-learning-Group-By-Linear-Regression.jpg" alt="Group By Linear Regression"></td>
-<td><img src="http://omb2onfvy.bkt.clouddn.com/machine-learning-Logistic-Regression-SAS.jpg" alt="machine-learning-Logistic-Regression-SAS"></td>
-</tr>
-</tbody>
-</table>
-<h4 id="树-Tree"><a href="#树-Tree" class="headerlink" title="树 | Tree"></a>树 | Tree</h4><ul>
-<li>预测模型中的决策树</li>
-</ul>
-<p>决策树（Decision Tree），随机森林（Random Forest）和梯度提升（Gradient Boosting ）都是基于决策树的算法。决策树有许多变体，但它们都做同样的事情 - 将特征空间细分成大多数标签相同的区域。决策树很容易理解和实施。但是，当我们耗尽树枝（branch）并且深入时，它们倾向于过度拟合数据。随机森林和梯度提升是两种使用树算法的实现，具有良好的精确度，是克服过拟合问题（over-fitting problem）的流行方法。</p>
-<p><img src="http://omb2onfvy.bkt.clouddn.com/machine-learning-decision-tree.png" alt="A decision tree for prediction model"></p>
-<p>注：在统计学中，过拟合（overfitting，或称过度拟合）现象是指在拟合一个统计模型时，使用过多参数。对比于可获取的数据总量来说，一个荒谬的模型只要足够复杂，是可以完美地适应数据。过拟合一般可以视为违反奥卡姆剃刀原则。当可选择的参数的自由度超过数据所包含信息内容时，这会导致最后（拟合后）模型使用任意的参数，这会减少或破坏模型一般化的能力（目标效果应适用于一般化的情况而非只是训练时所使用的现有数据（根据它的归纳偏向））。另一种常见的现象是使用太少参数，以致于不适应数据，这则称为乏适（underfitting，或称：拟合不足）现象。</p>
-<h3 id="神经网络和深度学习"><a href="#神经网络和深度学习" class="headerlink" title="神经网络和深度学习"></a>神经网络和深度学习</h3><p><img src="http://omb2onfvy.bkt.clouddn.com/machine-learning-cnn-architecture.jpg" alt="A convolution neural network architecture"></p>
-<p>神经网络在 20 世纪 80 年代中期由于其并行和分布式处理能力而兴旺发达。但是在这个领域的研究受反向传播算法无效性的阻碍，它广泛用于优化神经网络参数。支持向量机（SVM）和其他更简单的模型，可以通过求解凸优化问题来轻松训练，逐渐取代机器学习中的神经网络。</p>
-<p>近年来，诸如无监督预训练（ unsupervised pre-training）和分层贪婪训练（layer-wise greedy training）等新的和改进的训练技术促进了神经网络的复兴。日益强大的计算能力，例如图形处理单元（GPU）和大规模并行处理（MPP），也刺激了神经网络的发展，已经发明出具有数千层的神经网络模型。</p>
-<p>注：反向传播（Backpropagation，缩写 BP）是“误差反向传播”的简称，一种与最优化方法（如梯度下降法）结合使用的，用来训练人工神经网络的常见方法。该方法对网络中所有权重计算损失函数的梯度。这个梯度会反馈给最优化方法，用来更新权值以最小化损失函数。</p>
-<h3 id="SAS-Visual-Analytics-中的神经网络"><a href="#SAS-Visual-Analytics-中的神经网络" class="headerlink" title="SAS Visual Analytics 中的神经网络"></a>SAS Visual Analytics 中的神经网络</h3><p>换句话说，浅层神经网络已演变成深度学习神经网络。深度神经网络对于监督学习非常成功。当用于语音和图像识别时，深度学习的表现与人类一样好，甚至更好。应用于无监督学习任务（如特征提取），深度学习还可从原始图像或语音中提取特征，而人工干预则更少。</p>
-<p>神经网络由三部分组成：输入层（input layer），隐藏层（hidden layers）和输出层（output layer）。训练样本定义了输入层和输出层。当输出层是一个分类变量时，神经网络就是解决分类问题的一种方法。当输出层是连续变量时，网络可以用来做回归。当输出层与输入层相同时，网络可用于提取内在特征。隐藏层的数量决定了模型的复杂性和建模容量。</p>
-<p><img src="http://omb2onfvy.bkt.clouddn.com/machine-learning-vdmml_neural.png" alt="A neural network in SAS Visual Analytics"></p>
-<h4 id="k-means-k-modes，GMM（高斯混合模型）聚类"><a href="#k-means-k-modes，GMM（高斯混合模型）聚类" class="headerlink" title="k-means / k-modes，GMM（高斯混合模型）聚类"></a>k-means / k-modes，GMM（高斯混合模型）聚类</h4><p>k-means / k-modes，GMM 聚类旨在将 n 个观测分为 k 个聚类。 简单地说，k-means 的结果是每个数据点被 assign 到其中某一个 cluster 了，即 hard  assignment，而 GMM 则给出这些数据点被 assign 到每个cluster 的概率，又称作 soft assignment 。每个样本都有与每个群集关联的概率。当给定聚类数 k 时，两种算法都足够简单快速地进行聚类。</p>
-<table>
-<thead>
-<tr>
-<th>k-means</th>
-<th>GMM</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><img src="http://omb2onfvy.bkt.clouddn.com/machine-learning-kmeans-clustering-1.png" alt="K Means Clustering"></td>
-<td><img src="http://omb2onfvy.bkt.clouddn.com/machine-learning-gaussianmixturemodel-1.png" alt="Gaussian Mixture Model"></td>
-</tr>
-</tbody>
-</table>
-<h4 id="DBSCAN-基于密度的空间聚类"><a href="#DBSCAN-基于密度的空间聚类" class="headerlink" title="DBSCAN | 基于密度的空间聚类"></a>DBSCAN | 基于密度的空间聚类</h4><p>DBSCAN ，Density-based spatial clustering of applications with noise ，是在 1996 年由 Martin Ester 等提出的聚类分析算法， 这个算法是以密度为本的：给定某空间里的一个点集合，该算法能把附近的点分成一组（有很多相邻点的点），并标记出位于低密度区域的局外点（最接近它的点也十分远），DBSCAN 是一个最常用的聚类分析算法。</p>
-<p><img src="http://omb2onfvy.bkt.clouddn.com/machine-learning-dbscan.jpg" alt="A DBSCAN illustration"></p>
-<h4 id="Hierarchical-clustering-分层聚类"><a href="#Hierarchical-clustering-分层聚类" class="headerlink" title="Hierarchical clustering | 分层聚类"></a>Hierarchical clustering | 分层聚类</h4><p>分层分区可以使用树结构（树状图）可视化。它不需要集群的数量作为输入，并且可以使用不同的 K 来在不同粒度级别处查看分区（即精炼/粗化集群  refine/coarsen clusters）。</p>
-<p><img src="http://omb2onfvy.bkt.clouddn.com/machine-learning-Hierarchical_clustering.png" alt="Hierarchical clustering"></p>
-<h4 id="PCA，SVD和LDA"><a href="#PCA，SVD和LDA" class="headerlink" title="PCA，SVD和LDA"></a>PCA，SVD和LDA</h4><p>我们通常不希望直接将大量特征提供给机器学习算法，因为某些特征可能无关紧要，或者“内在”维度可能小于特征的数量。主成分分析（PCA，Principal components analysis），奇异值分解（SVD，Singular value decomposition）和隐含狄利克雷分布（LDA，latent Dirichlet allocation）均可用于降维。</p>
-<p>PCA 是一种无监督聚类方法，它将原始数据空间映射到较低维空间，同时保留尽可能多的信息。 PCA 基本上找到最能保留数据方差的子空间，子空间由数据协方差矩阵的主要特征向量定义。</p>
-<p>SVD 和 PCA 有一定联系——中心数据矩阵的 SVD（特征 vs. 样本）能提供定义由 PCA 所找到的同样子空间的主左奇异向量（dominant left singular vectors）。然而，SVD 是一种更通用的技术，因为它也可以做 PCA 不能做的事情。例如，用户与电影矩阵的 SVD 能够提取可以在推荐系统中使用的用户资料和电影资料。另外，在自然语言处理（NLP）中，SVD 还被广泛用作主题建模工具，称为潜在语义分析（ latent semantic analysis ）。</p>
-<p>NLP 中的相关技术是隐含狄利克雷分布（ LDA ）。 LDA 是概率性主题模型，它以与高斯混合模型（GMM）相似的方式，即将连续数据按照高斯密度分解——将文档分解为主题。与 GMM 不同的是，LDA 对离散数据（文档中的词）进行建模，并且它约束了主题需是根据狄利克雷分布的先验分布。</p>
-<h2 id="总结：选择算法时的注意事项"><a href="#总结：选择算法时的注意事项" class="headerlink" title="总结：选择算法时的注意事项"></a>总结：选择算法时的注意事项</h2><p>选择算法时请始终考虑以下方面：准确性（accuracy），训练时间（training time）和易用性（ease of use）。许多用户将准确性放在首位，而 <strong>初学者倾向于关注他们最熟悉的算法（Beginners tend to focus on algorithms they know best）</strong>。</p>
-<p>首先要考虑的是如何获得结果，无论结果如何。<strong>初学者倾向于选择易于实现并能够快速获得结果的算法（Beginners tend to choose algorithms that are easy to implement and can obtain results quickly）</strong>。这个工作无可厚非，只需确保它只是整个过程的第一步。一旦您获得了一些结果并熟悉数据，您可能需要花更多时间、使用更复杂的算法来加强对数据的理解，从而进一步改进结果。</p>
-<p>最好的算法也许不是那些已经获得最高准确率的方法，因为算法通常需要仔细调整、广泛训练才可以实现可用性方面的最佳性能。</p>
-<h2 id="扩展阅读-《The-Machine-Learning-Master》"><a href="#扩展阅读-《The-Machine-Learning-Master》" class="headerlink" title="扩展阅读:《The Machine Learning Master》"></a>扩展阅读:<a href="https://www.gitbook.com/book/riboseyim/machine-learning" target="_blank" rel="external">《The Machine Learning Master》</a></h2><p><img src="http://p11slcnom.bkt.clouddn.com/banner-MLM-201803.png" alt=""></p>
-<ul>
-<li><a href="https://riboseyim.github.io/2018/01/17/Machine-Learning-TensorFlow/" target="_blank" rel="external">Machine Learning(一):基于 TensorFlow 实现宠物血统智能识别</a></li>
-<li><a href="https://riboseyim.github.io/2018/01/15/Machine-Learning-OpenCV/" target="_blank" rel="external">Machine Learning(二):宠物智能识别之 Using OpenCV with Node.js</a></li>
-<li><a href="https://riboseyim.github.io/2018/02/09/Machine-Learning-Projects/" target="_blank" rel="external">Machine Learning:机器学习项目</a></li>
-<li><a href="https://riboseyim.github.io/2018/02/10/Machine-Learning-Algorithms/" target="_blank" rel="external">Machine Learning:机器学习算法</a></li>
-<li><a href="https://riboseyim.github.io/2018/04/02/Machine-Learning-Algorithms-Sheet/" target="_blank" rel="external">Machine Learning:如何选择机器学习算法</a></li>
-<li><a href="https://riboseyim.github.io/2018/05/07/Machine-Learning-Neural-Network" target="_blank" rel="external">Machine Learning:神经网络基础</a></li>
-<li><a href="https://riboseyim.github.io/2018/01/25/Machine-Learning-Books/" target="_blank" rel="external">Machine Learning:机器学习书单</a></li>
-<li><a href="https://riboseyim.github.io/2017/08/29/Machine-Learning-News" target="_blank" rel="external">Machine Learning:人工智能媒体报道集</a></li>
-<li><a href="https://riboseyim.github.io/2018/02/16/Machine-Learning-Law/" target="_blank" rel="external">Machine Learning:机器学习技术与知识产权法</a></li>
-<li><a href="https://riboseyim.github.io/2018/03/09/Machine-Learning-Economist/" target="_blank" rel="external">Machine Learning:经济学家谈人工智能</a></li>
-<li><a href="https://riboseyim.github.io/2017/09/15/Visualization-Graphviz/" target="_blank" rel="external">数据可视化（三）基于 Graphviz 实现程序化绘图</a></li>
-</ul>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
-<li><a href="https://blogs.sas.com/content/subconsciousmusings/2017/04/12/machine-learning-algorithm-use/?utm_source=twitter&amp;utm_medium=cpc&amp;utm_campaign=analytics-global&amp;utm_content=US_tap" target="_blank" rel="external">Which machine learning algorithm should I use? | Hui Li | Principal Staff Scientist, Data Science</a></li>
-<li><a href="https://arxiv.org/pdf/1302.1552.pdf" target="_blank" rel="external">An Information-Theoretic Analysis of Hard and Soft Assignment Methods for Clustering </a></li>
-<li><a href="http://www.iro.umontreal.ca/~lisa/pointeurs/BengioNips2006All.pdf" target="_blank" rel="external">Greedy Layer-Wise Training of Deep Networks</a></li>
-<li><a href="https://blogs.sas.com/content/subconsciousmusings/2018/03/09/understanding-interpreting-data-set/" target="_blank" rel="external">Understanding and interpreting your data set  1</a></li>
-<li><a href="http://www.kernel-machines.org/publications/pdfs/0701907.pdf" target="_blank" rel="external">KERNEL METHODS IN MACHINE LEARNING1 |By Thomas Hofmann, Bernhard Scholkopf and Alexander J. Smola</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;识别和应用机器学习算法解决问题&lt;/li&gt;
-&lt;li&gt;机器学习算法备忘单&lt;/li&gt;
-&lt;li&gt;何时使用特定算法? 线性回归 vs 逻辑回归,Linear SVM vs kernel SVM,Trees&lt;/li&gt;
-&lt;li&gt;神经网络和深度学习：k-means/k-modes,GMM,Hierarchical clustering,PCA,SVD,LDA&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-    
-      <category term="架构师" scheme="http://riboseyim.github.com/tags/%E6%9E%B6%E6%9E%84%E5%B8%88/"/>
-    
-      <category term="Machine-Learning" scheme="http://riboseyim.github.com/tags/Machine-Learning/"/>
-    
-      <category term="数学与算法" scheme="http://riboseyim.github.com/tags/%E6%95%B0%E5%AD%A6%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
