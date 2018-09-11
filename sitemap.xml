@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://riboseyim.github.com/2018/09/11/Engineering-Index/</loc>
+    
+    <lastmod>2018-09-11T03:26:21.921Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2017/06/27/Technology-English/</loc>
+    
+    <lastmod>2018-09-11T03:20:16.239Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2017/08/06/TeamWork-Kanban/</loc>
+    
+    <lastmod>2018-09-11T03:18:11.580Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2018/06/12/DevOps-Container-Usage/</loc>
+    
+    <lastmod>2018-09-11T03:05:13.938Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://riboseyim.github.com/2018/09/03/Linux-Commands-New/</loc>
     
     <lastmod>2018-09-03T01:46:59.413Z</lastmod>
@@ -583,13 +611,6 @@
   </url>
   
   <url>
-    <loc>http://riboseyim.github.com/2018/06/12/DevOps-Container-Usage/</loc>
-    
-    <lastmod>2018-06-13T06:57:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://riboseyim.github.com/2016/07/28/DevOps/</loc>
     
     <lastmod>2018-06-12T10:11:51.000Z</lastmod>
@@ -754,13 +775,6 @@
     <loc>http://riboseyim.github.com/2016/06/15/TeamWork/</loc>
     
     <lastmod>2018-05-31T17:20:00.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2017/06/27/Technology-English/</loc>
-    
-    <lastmod>2018-05-31T17:19:47.000Z</lastmod>
     
   </url>
   
@@ -1034,13 +1048,6 @@
     <loc>http://riboseyim.github.com/2018/04/10/DevOps-Phoenix/</loc>
     
     <lastmod>2018-04-28T09:52:04.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2017/08/06/TeamWork-Kanban/</loc>
-    
-    <lastmod>2018-04-27T16:44:38.000Z</lastmod>
     
   </url>
   
@@ -1479,13 +1486,6 @@
   </url>
   
   <url>
-    <loc>http://riboseyim.github.com/2016/05/05/OpenSource-Coder/</loc>
-    
-    <lastmod>2017-12-22T05:26:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://riboseyim.github.com/2017/04/21/Technology-Thinking/</loc>
     
     <lastmod>2017-12-22T05:26:27.000Z</lastmod>
@@ -1493,7 +1493,14 @@
   </url>
   
   <url>
-    <loc>http://riboseyim.github.com/2017/01/01/Check2016/</loc>
+    <loc>http://riboseyim.github.com/2016/05/05/OpenSource-Coder/</loc>
+    
+    <lastmod>2017-12-22T05:26:27.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2017/04/20/Artistic-Travel/</loc>
     
     <lastmod>2017-12-22T05:26:26.000Z</lastmod>
     
@@ -1507,21 +1514,21 @@
   </url>
   
   <url>
-    <loc>http://riboseyim.github.com/2017/04/28/Check2012/</loc>
-    
-    <lastmod>2017-12-22T05:26:26.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://riboseyim.github.com/2017/04/20/Artistic-Travel/</loc>
-    
-    <lastmod>2017-12-22T05:26:26.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://riboseyim.github.com/2016/04/24/LinusTorvalds/</loc>
+    
+    <lastmod>2017-12-22T05:26:26.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2017/01/01/Check2016/</loc>
+    
+    <lastmod>2017-12-22T05:26:26.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://riboseyim.github.com/2017/04/28/Check2012/</loc>
     
     <lastmod>2017-12-22T05:26:26.000Z</lastmod>
     
